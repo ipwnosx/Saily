@@ -13,5 +13,6 @@ target 'Saily Package Manager' do
     pod 'Alamofire', '~> 5.0.0-beta.5'
     pod 'SwiftyJSON'
     pod 'SnapKit'
+    pod 'Reveal-SDK', :configurations => ['Debug']
 
 end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1jl-e6-JuJ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="featuredViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="featuredViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                 <rect key="frame" x="30" y="426.5" width="354.5" height="43"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by featuredViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by featuredViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
                                 <rect key="frame" x="97" y="477.5" width="220.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -41,31 +41,29 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Featured" image="first" id="acW-dT-cKf">
-                        <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Featured" image="discover.png" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="729" y="0.0"/>
         </scene>
-        <!--Second-->
+        <!--Sources-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController storyboardIdentifier="installedViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="installedViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sourcesViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="sourcesViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="installedViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="30" y="426.5" width="354.5" height="43"/>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="sourcesViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                <rect key="frame" x="34.5" y="426.5" width="345.5" height="43"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by installedViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="97" y="477.5" width="220.5" height="17"/>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by sourcesViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
+                                <rect key="frame" x="99" y="477.5" width="216.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -80,16 +78,92 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Sources" image="source.png" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="1464" y="0.0"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Packages-->
+        <scene sceneID="CsP-Fd-ecq">
+            <objects>
+                <viewController storyboardIdentifier="installedViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rer-V2-NAk" customClass="installedViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kPK-g5-ih3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="installedViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QRl-24-9Ax">
+                                <rect key="frame" x="30" y="426.5" width="354.5" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by installedViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pao-n0-5Pt">
+                                <rect key="frame" x="97" y="477.5" width="220.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pao-n0-5Pt" firstAttribute="top" secondItem="QRl-24-9Ax" secondAttribute="bottom" constant="8" symbolic="YES" id="QBe-Ws-lRq"/>
+                            <constraint firstItem="QRl-24-9Ax" firstAttribute="centerX" secondItem="kPK-g5-ih3" secondAttribute="centerX" id="Txn-Ak-n66"/>
+                            <constraint firstItem="Pao-n0-5Pt" firstAttribute="centerX" secondItem="kPK-g5-ih3" secondAttribute="centerX" id="as6-xP-vjm"/>
+                            <constraint firstItem="Pao-n0-5Pt" firstAttribute="centerX" secondItem="QRl-24-9Ax" secondAttribute="centerX" id="nh5-5P-on6"/>
+                            <constraint firstItem="QRl-24-9Ax" firstAttribute="centerY" secondItem="kPK-g5-ih3" secondAttribute="centerY" id="qKR-qf-ma5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8hd-pG-qou"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Packages" image="installed.png" id="oYV-T5-leu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ww9-vV-MdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2168" y="0.0"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="JQ2-mM-mRe">
+            <objects>
+                <viewController storyboardIdentifier="searchViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKc-tZ-u9G" customClass="searchViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3nO-ym-ZBe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="searchViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XYZ-nK-M0u">
+                                <rect key="frame" x="43.5" y="426.5" width="327.5" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by searchViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l5-zY-1fF">
+                                <rect key="frame" x="102.5" y="477.5" width="209" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XYZ-nK-M0u" firstAttribute="centerY" secondItem="3nO-ym-ZBe" secondAttribute="centerY" id="3Lf-2m-1W5"/>
+                            <constraint firstItem="6l5-zY-1fF" firstAttribute="centerX" secondItem="XYZ-nK-M0u" secondAttribute="centerX" id="aON-oX-7yh"/>
+                            <constraint firstItem="6l5-zY-1fF" firstAttribute="centerX" secondItem="3nO-ym-ZBe" secondAttribute="centerX" id="mXb-9s-dn0"/>
+                            <constraint firstItem="XYZ-nK-M0u" firstAttribute="centerX" secondItem="3nO-ym-ZBe" secondAttribute="centerX" id="vuo-zD-mGy"/>
+                            <constraint firstItem="6l5-zY-1fF" firstAttribute="top" secondItem="XYZ-nK-M0u" secondAttribute="bottom" constant="8" symbolic="YES" id="wlP-wc-Tfa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nxf-FO-HZ4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="rWS-k1-Gug"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLP-01-mjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2916" y="0.0"/>
+        </scene>
+        <!--TabbarVC Entry-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarVCEntry" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="tabbarVCEntry" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -98,6 +172,8 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="rer-V2-NAk" kind="relationship" relationship="viewControllers" id="uIk-sF-9KJ"/>
+                        <segue destination="FKc-tZ-u9G" kind="relationship" relationship="viewControllers" id="lRX-mC-Ww8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -107,21 +183,89 @@
         <!--Init View Controller-->
         <scene sceneID="BJo-zb-ZUh">
             <objects>
-                <viewController id="1jl-e6-JuJ" customClass="initViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="initViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1jl-e6-JuJ" customClass="initViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gne-Kq-qcc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KoI-ft-z5Q">
+                                <rect key="frame" x="90.5" y="495" width="233" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="233" id="TIe-L3-D5O"/>
+                                </constraints>
+                            </progressView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConRound.png" translatesAutoresizingMaskIntoConstraints="NO" id="3IQ-8Y-jSg">
+                                <rect key="frame" x="157" y="338" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="CWS-Ik-EfS"/>
+                                    <constraint firstAttribute="height" constant="100" id="ovt-T9-Ddl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Saily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odw-Pi-eeN">
+                                <rect key="frame" x="141.5" y="452.5" width="131.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-Pe-by3">
+                                <rect key="frame" x="197" y="739.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="there is any thing wrong that we might to deal later." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTG-sh-lYm" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="61.5" y="797" width="291" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="morphingDuration">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking your system if" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-lm-hcD" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="139" y="774.5" width="136" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="morphingDuration">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SMG-lm-hcD" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="0C4-BJ-OvE"/>
+                            <constraint firstItem="3IQ-8Y-jSg" firstAttribute="centerY" secondItem="Gne-Kq-qcc" secondAttribute="centerY" constant="-60" id="8qv-Qh-76W"/>
+                            <constraint firstItem="eTG-sh-lYm" firstAttribute="top" secondItem="SMG-lm-hcD" secondAttribute="bottom" constant="8" id="IFi-fc-Wyk"/>
+                            <constraint firstItem="SGh-Pe-by3" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="IXV-JK-YRo"/>
+                            <constraint firstItem="fmn-nZ-612" firstAttribute="bottom" secondItem="eTG-sh-lYm" secondAttribute="bottom" constant="50" id="Nce-84-k0Z"/>
+                            <constraint firstItem="odw-Pi-eeN" firstAttribute="centerY" secondItem="Gne-Kq-qcc" secondAttribute="centerY" constant="15" id="Pdo-pw-2Gv"/>
+                            <constraint firstItem="SMG-lm-hcD" firstAttribute="top" secondItem="SGh-Pe-by3" secondAttribute="bottom" constant="15" id="RgZ-NN-UYb"/>
+                            <constraint firstItem="KoI-ft-z5Q" firstAttribute="centerY" secondItem="Gne-Kq-qcc" secondAttribute="centerY" constant="48" id="UoL-GA-GBb"/>
+                            <constraint firstItem="KoI-ft-z5Q" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="bIY-vm-Uzy"/>
+                            <constraint firstItem="3IQ-8Y-jSg" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="dFw-6b-xBz"/>
+                            <constraint firstItem="odw-Pi-eeN" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="nmo-3u-G3R"/>
+                            <constraint firstItem="eTG-sh-lYm" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="sI9-Vk-kat"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fmn-nZ-612"/>
                     </view>
+                    <connections>
+                        <outlet property="mainProgressBar" destination="KoI-ft-z5Q" id="F8P-Uh-ABG"/>
+                        <outlet property="tipLabel" destination="SMG-lm-hcD" id="HZH-n5-qBW"/>
+                        <outlet property="tipSubLabel" destination="eTG-sh-lYm" id="yNs-Hv-k4T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcE-Ee-agH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="0.0"/>
+            <point key="canvasLocation" x="-878" y="0.0"/>
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="discover.png" width="20" height="20"/>
+        <image name="iConRound.png" width="1024" height="1024"/>
+        <image name="installed.png" width="20" height="20"/>
+        <image name="search.png" width="20" height="20"/>
+        <image name="source.png" width="20" height="20"/>
     </resources>
 </document>
