@@ -25,6 +25,8 @@
 		ABB724B722624AB4006D1416 /* BridgerC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ABB724B522624AB4006D1416 /* BridgerC.cpp */; };
 		ABB724BA22624E0B006D1416 /* iCon.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB724B922624E0B006D1416 /* iCon.png */; };
 		ABB724BC22624EAF006D1416 /* iConRound.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB724BB22624EAF006D1416 /* iConRound.png */; };
+		ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB724BF22626FBA006D1416 /* Comfortaa[wght].ttf */; };
+		ABB724C322627621006D1416 /* UDIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB724C222627621006D1416 /* UDIDViewController.swift */; };
 		B62EDB931A4AFF87C3F8FDF5 /* Pods_Saily_Package_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		ABB724B822624B40006D1416 /* BridgerObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgerObjC.h; sourceTree = "<group>"; };
 		ABB724B922624E0B006D1416 /* iCon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iCon.png; path = ../../../Artwork/iCon.png; sourceTree = "<group>"; };
 		ABB724BB22624EAF006D1416 /* iConRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iConRound.png; path = ../../../Artwork/iConRound.png; sourceTree = "<group>"; };
+		ABB724BF22626FBA006D1416 /* Comfortaa[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa[wght].ttf"; sourceTree = "<group>"; };
+		ABB724C222627621006D1416 /* UDIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDIDViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		AB7ED0572261EADF00C43D64 /* Saily Package Manager */ = {
 			isa = PBXGroup;
 			children = (
+				ABB724BD22626FBA006D1416 /* Comfortaa */,
 				ABB724972262366B006D1416 /* Images */,
 				ABB7249622623665006D1416 /* Codes */,
 				AB7ED05E2261EAE000C43D64 /* Main.storyboard */,
@@ -128,6 +133,7 @@
 				AB7ED05C2261EAE000C43D64 /* sourcesViewController.swift */,
 				ABB724AF22624A28006D1416 /* searchViewController.swift */,
 				ABB724A222623AC7006D1416 /* installedViewController.swift */,
+				ABB724C222627621006D1416 /* UDIDViewController.swift */,
 			);
 			path = Codes;
 			sourceTree = "<group>";
@@ -155,6 +161,14 @@
 				ABB724B622624AB4006D1416 /* BridgerC.hpp */,
 			);
 			name = Bridger;
+			sourceTree = "<group>";
+		};
+		ABB724BD22626FBA006D1416 /* Comfortaa */ = {
+			isa = PBXGroup;
+			children = (
+				ABB724BF22626FBA006D1416 /* Comfortaa[wght].ttf */,
+			);
+			path = Comfortaa;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +242,7 @@
 				ABB724A122623A6D006D1416 /* installed@3x.png in Resources */,
 				AB7ED0602261EAE000C43D64 /* Main.storyboard in Resources */,
 				ABB724BC22624EAF006D1416 /* iConRound.png in Resources */,
+				ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */,
 				ABB7249F2262380D006D1416 /* source@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +353,7 @@
 				ABB724AC22623DDE006D1416 /* commonExtensions.swift in Sources */,
 				AB7ED05B2261EAE000C43D64 /* featuredViewController.swift in Sources */,
 				ABB724B422624AA3006D1416 /* BridgerObjC.m in Sources */,
+				ABB724C322627621006D1416 /* UDIDViewController.swift in Sources */,
 				ABB724B722624AB4006D1416 /* BridgerC.cpp in Sources */,
 				ABB724AA22623D8F006D1416 /* initViewController.swift in Sources */,
 				ABB724A322623AC7006D1416 /* installedViewController.swift in Sources */,

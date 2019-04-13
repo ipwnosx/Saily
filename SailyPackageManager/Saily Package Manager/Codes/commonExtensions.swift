@@ -48,10 +48,12 @@ let returnStatusECONFILCT_FILE      = -4            // the app's document direct
 let returnStatusECONFILCT_TASK      = -5            // when apt or dpkg or may be cydia, is running, so block it for safety reason.
 
 // This session, handling the repo operations.
-let repoRefreshQuene = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.repo.operation.refresh",
+let repoRefreshQuene                = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.repo.operation.refresh",
                                      qos: .utility, attributes: .concurrent)
-var repoWithBasRefresh              = [String?]()
-var repoIsInRefresh                 = [String?]()
+
+// This session, contains device info, which is mostly privately. Take good care of this.
+var deviceInfo_UDID = ""
+var deviceVersion   = ""
 
 // This session, is for bridge call to Obj-C and future call to c.
 let SailyBridgerOBJC = SailyCommonObject()
@@ -189,33 +191,44 @@ func refreshRepos() -> Int {
         return returnStatusEPERMIT
     }
     for item in (repoList ?? "").split(separator: "\n") {
-        if (refreshRepoWith(link: item.description) == returnStatusEREFRESH) {
-            let name = item.description.split(separator: "/")[1]
-            repoWithBasRefresh.append(name.description)
-        }
+        _ = refreshRepoWith(link: item.description)
     }
     return returnStatusSuccess
 }
 
 func refreshRepoWith(link: String) -> Int {
     // repo is in quene, no need to add again.
-    let repoCacheRootFilePath = appRootFileSystem + "/repos"
-    for item in repoIsInRefresh {
-        if (link.split(separator: "/")[1] == item ?? "******"
-            || FileManager.default.fileExists(atPath: repoCacheRootFilePath + "/" + link.split(separator: "/")[1] + ".tmp")) {
-            return returnStatusSuccess
-        }
+    let filePath = appRootFileSystem + "/repos/" + link.split(separator: "/")[1]
+    let fileLOCKPath = filePath + ".lck"
+    if (FileManager.default.fileExists(atPath: fileLOCKPath)) {
+        return returnStatusSuccess
     }
+    FileManager.default.createFile(atPath: fileLOCKPath, contents: nil, attributes: nil)
     // sending to back ground quene
     repoRefreshQuene.async {
         _ = refreshCore(link: link)
+        _ = removeRepoLock(link: link)
     }
     // always send returnStatusSuccess back because we want to handl error refresh later.
     return returnStatusSuccess
 }
 
+func removeRepoLock(link: String) -> Int {
+    let filePath = appRootFileSystem + "/repos/" + link.split(separator: "/")[1]
+    let fileLOCKPath = filePath + ".lck"
+    let fileTMPPath = filePath + ".tmp"
+    try? FileManager.default.removeItem(atPath: fileLOCKPath)
+    try? FileManager.default.removeItem(atPath: fileTMPPath)
+    return returnStatusSuccess
+}
+
 func refreshCore(link: String) -> Int {
+    let filePath = appRootFileSystem + "/repos/" + link.split(separator: "/")[1]
+    let fileTMPPath = filePath + ".tmp"
+    try? FileManager.default.createDirectory(atPath: fileTMPPath, withIntermediateDirectories: true, attributes: nil)
     print("[*] Refreshing repo with link: " + link)
+    
+    
     
     return returnStatusSuccess
 }

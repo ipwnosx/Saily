@@ -41,6 +41,23 @@ class initViewController: UIViewController, LTMorphingLabelDelegate {
             })
             ret = initCheck()
             
+            if (!FileManager.default.fileExists(atPath: appRootFileSystem + "/ud.id")) {
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    for item in self.view.subviews {
+                        item.alpha = 0
+                    }
+                })
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+                    let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "UDIDViewController_StoryBoard_REG_ID")
+                    appDelegate.window?.rootViewController = initialViewController
+                    appDelegate.window?.makeKeyAndVisible()
+                    return
+                })
+                return
+            }
+            
             DispatchQueue.main.async
             {
                 UIView.animate(withDuration: 0.1, animations: {
@@ -74,7 +91,7 @@ class initViewController: UIViewController, LTMorphingLabelDelegate {
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                             let appDelegate = UIApplication.shared.delegate! as! AppDelegate
-                            let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabbarVCEntry")
+                            let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabbarVCEntry_StoryBoard_REG_ID")
                             appDelegate.window?.rootViewController = initialViewController
                             appDelegate.window?.makeKeyAndVisible()
                         })
