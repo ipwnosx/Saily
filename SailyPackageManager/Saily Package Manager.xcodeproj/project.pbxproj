@@ -178,7 +178,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf ~/Documents/GitHub/SailyPackageManager/*\ncp -rf $SRCROOT/../* ~/Documents/GitHub/SailyPackageManager/\ncp -rf $SRCROOT/../.* ~/Documents/GitHub/SailyPackageManager/\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf ~/Documents/GitHub/SailyPackageManager/*\ncp -rf $SRCROOT/../* ~/Documents/GitHub/SailyPackageManager/\ncp -rf $SRCROOT/../.git ~/Documents/GitHub/SailyPackageManager/\ncp -rf $SRCROOT/../.gitignore ~/Documents/GitHub/SailyPackageManager/\n";
 		};
 		AB7ED0DC22622C1900C43D64 /* Add build version */ = {
 			isa = PBXShellScriptBuildPhase;
