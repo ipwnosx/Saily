@@ -103,7 +103,7 @@
 				AB7ED0522261EADF00C43D64 /* Frameworks */,
 				AB7ED0532261EADF00C43D64 /* Resources */,
 				E19BC6CC5F05A7B02D122701 /* [CP] Embed Pods Frameworks */,
-				AB7ED0DB22622A7E00C43D64 /* Push to pre-git folder */,
+				AB7ED0DB22622A7E00C43D64 /* Push to backup folder */,
 				AB7ED0DC22622C1900C43D64 /* Add build version */,
 			);
 			buildRules = (
@@ -162,7 +162,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AB7ED0DB22622A7E00C43D64 /* Push to pre-git folder */ = {
+		AB7ED0DB22622A7E00C43D64 /* Push to backup folder */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -171,14 +171,14 @@
 			);
 			inputPaths = (
 			);
-			name = "Push to pre-git folder";
+			name = "Push to backup folder";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf ~/Documents/GitHub/SailyPackageManager/*\ncp -rf $SRCROOT/../* ~/Documents/GitHub/SailyPackageManager/\ncp -rf $SRCROOT/../.git ~/Documents/GitHub/SailyPackageManager/\ncp -rf $SRCROOT/../.gitignore ~/Documents/GitHub/SailyPackageManager/\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf /Volumes/FSRoot/Document/Programming/JailbreakWork/SailyPackageManager/*\ncp -rf $SRCROOT/../* /Volumes/FSRoot/Document/Programming/JailbreakWork/SailyPackageManager/\n";
 		};
 		AB7ED0DC22622C1900C43D64 /* Add build version */ = {
 			isa = PBXShellScriptBuildPhase;
