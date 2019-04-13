@@ -65,9 +65,20 @@ class initViewController: UIViewController, LTMorphingLabelDelegate {
                         })
                         self.tipSubLabel.text = ""
                         self.tipLabel.text = "Done!"
-                        usleep(50000)
-                        let vc = tabbarVCEntry()
-                        self.present(vc, animated: true, completion: nil)
+                        
+                        UIView.animate(withDuration: 0.5, animations: {
+                            for item in self.view.subviews {
+                                item.alpha = 0
+                            }
+                        })
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+                            let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabbarVCEntry")
+                            appDelegate.window?.rootViewController = initialViewController
+                            appDelegate.window?.makeKeyAndVisible()
+                        })
+                        
                     }
                     
                 } // initCheck_dpkg()
