@@ -5,6 +5,12 @@
       location = "group:Saily Package Manager.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Podfile">
+   </FileRef>
+   <FileRef
+      location = "group:../README.md">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
