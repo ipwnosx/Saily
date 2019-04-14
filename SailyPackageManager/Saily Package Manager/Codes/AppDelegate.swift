@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FLEX
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        SailyBridgerOBJCObjectInitED.redirectConsoleLogToDocumentFolder()
+        
+        let homeDir = NSHomeDirectory()
+        if (homeDir.contains("/Applications")) {
+            SailyBridgerOBJCObjectInitED.setMyUID0()
+        }
+        
+        if (isInDebugSession) {
+            FLEXManager.shared().showExplorer()
+        }
+        
         return true
     }
 

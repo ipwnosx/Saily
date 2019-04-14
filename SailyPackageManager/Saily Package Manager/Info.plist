@@ -20,8 +20,19 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.1</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.lakr233.jw.Saily-Package-Manager.url</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.lakr233.jw.Saily-Package-Manager.urlS</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>112</string>
+	<string>164</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

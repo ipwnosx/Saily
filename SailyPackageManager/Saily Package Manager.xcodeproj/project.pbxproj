@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */; };
 		AB4BBB732262D2C300C4DC16 /* libMobileGestaltExtensions.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */; };
+		AB4BBB812263094300C4DC16 /* udid.mobileconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB4BBB802263094300C4DC16 /* udid.mobileconfig */; };
+		AB4BBB8B226309C100C4DC16 /* SFWebServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB84226309C100C4DC16 /* SFWebServerRequest.m */; };
+		AB4BBB8C226309C100C4DC16 /* SFWebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB85226309C100C4DC16 /* SFWebServer.m */; };
+		AB4BBB8D226309C100C4DC16 /* SFWebServerRespone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB86226309C100C4DC16 /* SFWebServerRespone.m */; };
+		AB4BBB8E226309C100C4DC16 /* SFWebServerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB87226309C100C4DC16 /* SFWebServerRouter.m */; };
+		AB4BBB95226309E900C4DC16 /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = AB4BBB90226309E900C4DC16 /* Documentation.html */; };
+		AB4BBB96226309E900C4DC16 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB91226309E900C4DC16 /* GCDAsyncUdpSocket.m */; };
+		AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB92226309E900C4DC16 /* GCDAsyncSocket.m */; };
 		AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED0582261EADF00C43D64 /* AppDelegate.swift */; };
 		AB7ED05B2261EAE000C43D64 /* featuredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */; };
 		AB7ED05D2261EAE000C43D64 /* sourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05C2261EAE000C43D64 /* sourcesViewController.swift */; };
@@ -39,6 +47,20 @@
 		AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestaltExtensions.tbd; path = usr/lib/libMobileGestaltExtensions.tbd; sourceTree = SDKROOT; };
 		AB4BBB742262D35200C4DC16 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
 		AB4BBB772262DAEC00C4DC16 /* Saily Package Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Saily Package Manager.entitlements"; sourceTree = "<group>"; };
+		AB4BBB802263094300C4DC16 /* udid.mobileconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = udid.mobileconfig; sourceTree = "<group>"; };
+		AB4BBB83226309C100C4DC16 /* SFWebServerRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWebServerRouter.h; sourceTree = "<group>"; };
+		AB4BBB84226309C100C4DC16 /* SFWebServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWebServerRequest.m; sourceTree = "<group>"; };
+		AB4BBB85226309C100C4DC16 /* SFWebServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWebServer.m; sourceTree = "<group>"; };
+		AB4BBB86226309C100C4DC16 /* SFWebServerRespone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWebServerRespone.m; sourceTree = "<group>"; };
+		AB4BBB87226309C100C4DC16 /* SFWebServerRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWebServerRouter.m; sourceTree = "<group>"; };
+		AB4BBB88226309C100C4DC16 /* SFWebServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWebServerRequest.h; sourceTree = "<group>"; };
+		AB4BBB89226309C100C4DC16 /* SFWebServerRespone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWebServerRespone.h; sourceTree = "<group>"; };
+		AB4BBB8A226309C100C4DC16 /* SFWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWebServer.h; sourceTree = "<group>"; };
+		AB4BBB90226309E900C4DC16 /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
+		AB4BBB91226309E900C4DC16 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		AB4BBB92226309E900C4DC16 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		AB4BBB93226309E900C4DC16 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		AB4BBB94226309E900C4DC16 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		AB7ED0552261EADF00C43D64 /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7ED0582261EADF00C43D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = featuredViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +119,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AB4BBB82226309C100C4DC16 /* SFWebServer */ = {
+			isa = PBXGroup;
+			children = (
+				AB4BBB85226309C100C4DC16 /* SFWebServer.m */,
+				AB4BBB8A226309C100C4DC16 /* SFWebServer.h */,
+				AB4BBB83226309C100C4DC16 /* SFWebServerRouter.h */,
+				AB4BBB87226309C100C4DC16 /* SFWebServerRouter.m */,
+				AB4BBB88226309C100C4DC16 /* SFWebServerRequest.h */,
+				AB4BBB84226309C100C4DC16 /* SFWebServerRequest.m */,
+				AB4BBB89226309C100C4DC16 /* SFWebServerRespone.h */,
+				AB4BBB86226309C100C4DC16 /* SFWebServerRespone.m */,
+			);
+			path = SFWebServer;
+			sourceTree = "<group>";
+		};
+		AB4BBB8F226309E900C4DC16 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				AB4BBB90226309E900C4DC16 /* Documentation.html */,
+				AB4BBB91226309E900C4DC16 /* GCDAsyncUdpSocket.m */,
+				AB4BBB92226309E900C4DC16 /* GCDAsyncSocket.m */,
+				AB4BBB93226309E900C4DC16 /* GCDAsyncUdpSocket.h */,
+				AB4BBB94226309E900C4DC16 /* GCDAsyncSocket.h */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
 		AB7ED04C2261EADF00C43D64 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +167,7 @@
 		AB7ED0572261EADF00C43D64 /* Saily Package Manager */ = {
 			isa = PBXGroup;
 			children = (
+				AB4BBB802263094300C4DC16 /* udid.mobileconfig */,
 				AB4BBB772262DAEC00C4DC16 /* Saily Package Manager.entitlements */,
 				ABB724BD22626FBA006D1416 /* Comfortaa */,
 				ABB724972262366B006D1416 /* Images */,
@@ -133,6 +183,8 @@
 		ABB7249622623665006D1416 /* Codes */ = {
 			isa = PBXGroup;
 			children = (
+				AB4BBB8F226309E900C4DC16 /* CocoaAsyncSocket */,
+				AB4BBB82226309C100C4DC16 /* SFWebServer */,
 				ABB724B122624A51006D1416 /* Bridger */,
 				AB7ED0582261EADF00C43D64 /* AppDelegate.swift */,
 				ABB724A922623D8F006D1416 /* initViewController.swift */,
@@ -254,7 +306,9 @@
 				AB7ED0622261EAE100C43D64 /* Assets.xcassets in Resources */,
 				ABB7249D22623772006D1416 /* discover@3x.png in Resources */,
 				ABB724BA22624E0B006D1416 /* iCon.png in Resources */,
+				AB4BBB812263094300C4DC16 /* udid.mobileconfig in Resources */,
 				ABB724A122623A6D006D1416 /* installed@3x.png in Resources */,
+				AB4BBB95226309E900C4DC16 /* Documentation.html in Resources */,
 				AB7ED0602261EAE000C43D64 /* Main.storyboard in Resources */,
 				ABB724BC22624EAF006D1416 /* iConRound.png in Resources */,
 				ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */,
@@ -333,9 +387,11 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-21/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -344,9 +400,11 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -363,13 +421,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB724B022624A28006D1416 /* searchViewController.swift in Sources */,
+				AB4BBB8D226309C100C4DC16 /* SFWebServerRespone.m in Sources */,
 				AB7ED05D2261EAE000C43D64 /* sourcesViewController.swift in Sources */,
+				AB4BBB8B226309C100C4DC16 /* SFWebServerRequest.m in Sources */,
+				AB4BBB96226309E900C4DC16 /* GCDAsyncUdpSocket.m in Sources */,
 				AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */,
+				AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */,
 				ABB724AC22623DDE006D1416 /* commonExtensions.swift in Sources */,
 				AB7ED05B2261EAE000C43D64 /* featuredViewController.swift in Sources */,
 				ABB724B422624AA3006D1416 /* BridgerObjC.m in Sources */,
 				ABB724C322627621006D1416 /* UDIDViewController.swift in Sources */,
 				ABB724AA22623D8F006D1416 /* initViewController.swift in Sources */,
+				AB4BBB8C226309C100C4DC16 /* SFWebServer.m in Sources */,
+				AB4BBB8E226309C100C4DC16 /* SFWebServerRouter.m in Sources */,
 				ABB724A322623AC7006D1416 /* installedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

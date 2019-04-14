@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Swifter
 
 class UDIDViewController: UIViewController {
     
     @IBOutlet weak var leftC: NSLayoutConstraint!
+    @IBOutlet weak var contentOfInfo: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,7 @@ class UDIDViewController: UIViewController {
         for item in self.view.subviews {
             item.alpha = 0
         }
+        self.contentOfInfo.isDirectionalLockEnabled = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             if (UIScreen.main.bounds.width > 350) {
                 self.leftC.constant = 25
@@ -29,9 +32,8 @@ class UDIDViewController: UIViewController {
                     }
                 })
             }
+            self.contentOfInfo.contentOffset.x = 0 // <--- Why it doesn't work?
         }
-        
-        
     }
     
     @IBAction func skipUDID(_ sender: Any) {
@@ -61,7 +63,8 @@ class UDIDViewController: UIViewController {
     }
     
     @IBAction func readUDID(_ sender: Any) {
-        print(SailyBridgerOBJCObjectInitED.readUDID())
+        SailyBridgerOBJCObjectInitED.doUDID()
+        UIApplication.shared.open(URL.init(string: "http://127.0.0.1:6699/udid.do")!, options: .init(), completionHandler: nil)
     }
     
 

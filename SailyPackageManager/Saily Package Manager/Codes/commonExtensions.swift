@@ -16,6 +16,7 @@ import SwifterSwift
 var canTheAppHaveTFP0               = false
 var canTheAppHaveSandboxEscape      = false
 var canTheAppHaveRoot               = false
+var canTheAppAccessNetWork          = false
 var shouldAppDisableEffect          = false
 let isInDebugSession                = false
 
@@ -51,6 +52,10 @@ let returnStatusECONFILCT_TASK      = -5            // when apt or dpkg or may b
 // This session, handling the repo operations.
 let repoRefreshQuene                = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.repo.operation.refresh",
                                      qos: .utility, attributes: .concurrent)
+let NetworkCommonQuene              = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.network.operations",
+                                                    qos: .utility, attributes: .concurrent)
+let WatchDog                        = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.watchDogs",
+                                                    qos: .utility, attributes: .concurrent)
 
 // This session, contains device info, which is mostly privately. Take good care of this.
 var deviceInfo_UDID = ""
@@ -323,4 +328,22 @@ func canOpenURLString(str: String) -> Bool {
         }
     }
     return false
+}
+
+func checkNetwork() -> Void {
+    let semaphore = DispatchSemaphore(value: 0)
+    NetworkCommonQuene.async {
+        let string = try? String.init(contentsOf: URL.init(string: "https://bing.com")!)
+        if (string != nil && string != "" ) {
+            canTheAppAccessNetWork = true
+        }else{
+            canTheAppAccessNetWork = false
+        }
+        semaphore.signal()
+    }
+    WatchDog.async {
+        sleep(3)
+        semaphore.signal()
+    }
+    semaphore.wait()
 }

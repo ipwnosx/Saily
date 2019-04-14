@@ -190,33 +190,33 @@
             <objects>
                 <viewController storyboardIdentifier="initViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1jl-e6-JuJ" customClass="initViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gne-Kq-qcc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KoI-ft-z5Q">
-                                <rect key="frame" x="90.5" y="495" width="233" height="2"/>
+                                <rect key="frame" x="71" y="453" width="233" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="233" id="TIe-L3-D5O"/>
                                 </constraints>
                             </progressView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConRound.png" translatesAutoresizingMaskIntoConstraints="NO" id="3IQ-8Y-jSg">
-                                <rect key="frame" x="157" y="338" width="100" height="100"/>
+                                <rect key="frame" x="137.66666666666666" y="296" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="CWS-Ik-EfS"/>
                                     <constraint firstAttribute="height" constant="100" id="ovt-T9-Ddl"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Saily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odw-Pi-eeN">
-                                <rect key="frame" x="141.5" y="452.5" width="131.5" height="21"/>
+                                <rect key="frame" x="121.66666666666667" y="410.66666666666669" width="131.66666666666663" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-Pe-by3">
-                                <rect key="frame" x="197" y="739.5" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="670.66666666666663" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="there is any thing wrong that we might to deal later." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTG-sh-lYm" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="61.5" y="797" width="291" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTG-sh-lYm" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="187.66666666666666" y="728" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -226,8 +226,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking your system if" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-lm-hcD" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
-                                <rect key="frame" x="139" y="774.5" width="136" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking Network Connections" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-lm-hcD" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="98.333333333333329" y="705.66666666666663" width="178.33333333333337" height="14.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -310,7 +310,7 @@
                                     <action selector="skipUDID:" destination="hts-4v-Idv" eventType="touchUpInside" id="eUQ-dz-8Kc"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="our-Nh-Pdt">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="our-Nh-Pdt">
                                 <rect key="frame" x="0.0" y="198" width="375" height="487"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We do care about your privacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSh-Ue-B83">
@@ -351,7 +351,6 @@ It will look something like this: 2b6f0cc904d137be2e1730235f5664094b831186</stri
                                         <rect key="frame" x="27" y="42.666666666666657" width="121" height="21.333333333333329"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21.5" id="R3r-VM-Inl"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.329999999999998" id="jYj-PW-anS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -431,6 +430,7 @@ It will look something like this: 2b6f0cc904d137be2e1730235f5664094b831186</stri
                         <viewLayoutGuide key="safeArea" id="rup-UA-Oq8"/>
                     </view>
                     <connections>
+                        <outlet property="contentOfInfo" destination="our-Nh-Pdt" id="chv-Rv-FMu"/>
                         <outlet property="leftC" destination="6wZ-5g-BpZ" id="exQ-kb-24s"/>
                     </connections>
                 </viewController>

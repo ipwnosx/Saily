@@ -14,5 +14,7 @@ target 'Saily Package Manager' do
     pod 'SwiftyJSON'
     pod 'SnapKit'
     pod 'Reveal-SDK', :configurations => ['Debug']
+    pod 'Swifter'
+    pod 'FLEX', '~> 2.0', :configurations => ['Debug']
 
 end
