@@ -9,10 +9,16 @@
 import UIKit
 import Swifter
 
+var UDIDProfileIsQuerying = false
+
 class UDIDViewController: UIViewController {
     
     @IBOutlet weak var leftC: NSLayoutConstraint!
     @IBOutlet weak var contentOfInfo: UIScrollView!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +69,15 @@ class UDIDViewController: UIViewController {
     }
     
     @IBAction func readUDID(_ sender: Any) {
-        try? FileManager.default.removeItem(atPath: appRootFileSystem + "/ud.id")
-        SailyBridgerOBJCObjectInitED.doUDID(appRootFileSystem + "/ud.id")
-        UIApplication.shared.open(URL.init(string: "http://127.0.0.1:6699/udid.do")!, options: .init(), completionHandler: nil)
+        let alert = UIAlertController.init(title: "Notice:", message: "You may need to switch back to this application manually.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (_) in
+            // I really don't know why it randomly call back to app, randomly fails. But this methos is working.
+            try? FileManager.default.removeItem(atPath: appRootFileSystem + "/ud.id")
+            SailyBridgerOBJCObjectInitED.doUDID(appRootFileSystem + "/ud.id")
+            UDIDProfileIsQuerying = true
+            UIApplication.shared.open(URL.init(string: "http://127.0.0.1:6699/udid.do")!, options: .init(), completionHandler: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 

@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Featured-->
+        <!--⁠ 🌸  Featured.-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="featuredViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="featuredViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,13 +46,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Featured" image="discover.png" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" title="⁠ 🌸  Featured." id="Nuq-X1-p4F"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="0.0"/>
+            <point key="canvasLocation" x="1615" y="-781"/>
         </scene>
-        <!--Sources-->
+        <!--⁠ 🌍  Sources-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController storyboardIdentifier="sourcesViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="sourcesViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,13 +83,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sources" image="source.png" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" title="⁠ 🌍  Sources" id="9Uw-ON-i2f"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1464" y="0.0"/>
+            <point key="canvasLocation" x="1614" y="-89"/>
         </scene>
-        <!--Packages-->
+        <!--⁠ 📦   Installed.-->
         <scene sceneID="CsP-Fd-ecq">
             <objects>
                 <viewController storyboardIdentifier="installedViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rer-V2-NAk" customClass="installedViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,13 +121,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8hd-pG-qou"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Packages" image="installed.png" id="oYV-T5-leu"/>
+                    <navigationItem key="navigationItem" title="⁠ 📦   Installed." id="Z1j-ak-wIC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ww9-vV-MdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2168" y="0.0"/>
+            <point key="canvasLocation" x="1614" y="626"/>
         </scene>
-        <!--Search-->
+        <!--⁠ 🔍   Search-->
         <scene sceneID="JQ2-mM-mRe">
             <objects>
                 <viewController storyboardIdentifier="searchViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKc-tZ-u9G" customClass="searchViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -159,11 +159,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nxf-FO-HZ4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="rWS-k1-Gug"/>
+                    <navigationItem key="navigationItem" title="⁠ 🔍   Search" id="gtq-DU-Ph6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLP-01-mjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2916" y="0.0"/>
+            <point key="canvasLocation" x="1614" y="1338"/>
         </scene>
         <!--TabbarVC Entry-->
         <scene sceneID="yl2-sM-qoP">
@@ -175,15 +175,15 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="rer-V2-NAk" kind="relationship" relationship="viewControllers" id="uIk-sF-9KJ"/>
-                        <segue destination="FKc-tZ-u9G" kind="relationship" relationship="viewControllers" id="lRX-mC-Ww8"/>
+                        <segue destination="3fY-a7-LBw" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="T5a-2X-fhC" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="2kn-YT-80k" kind="relationship" relationship="viewControllers" id="uIk-sF-9KJ"/>
+                        <segue destination="6XY-yo-lp7" kind="relationship" relationship="viewControllers" id="lRX-mC-Ww8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-130" y="10"/>
         </scene>
         <!--Init View Controller-->
         <scene sceneID="BJo-zb-ZUh">
@@ -263,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcE-Ee-agH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1514" y="0.0"/>
+            <point key="canvasLocation" x="-2223" y="0.0"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RjA-pF-lt8">
@@ -436,7 +436,115 @@ It will look something like this: 2b6f0cc904d137be2e1730235f5664094b831186</stri
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WeZ-ZV-IQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-705" y="0.0"/>
+            <point key="canvasLocation" x="-1415" y="0.0"/>
+        </scene>
+        <!--Featured-->
+        <scene sceneID="61E-VO-btV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3fY-a7-LBw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Featured" image="discover.png" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="GeO-5r-WTC">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="38"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="7BS-tE-zFJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9F-oe-6n1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="-781"/>
+        </scene>
+        <!--Sources-->
+        <scene sceneID="SrV-sS-2ox">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T5a-2X-fhC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sources" image="source.png" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Yq2-9A-XT9">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="38"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="9Mc-Zl-0E9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bLm-xt-ANO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="-89"/>
+        </scene>
+        <!--Packages-->
+        <scene sceneID="2cS-hK-hJR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2kn-YT-80k" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Packages" image="installed.png" id="oYV-T5-leu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="pkw-E0-Z5F">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="38"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rer-V2-NAk" kind="relationship" relationship="rootViewController" id="OrI-AY-ljF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODU-ea-cik" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="626"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="fA3-Uw-xzq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6XY-yo-lp7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="rWS-k1-Gug"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="O3n-Fb-vBY">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="38"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FKc-tZ-u9G" kind="relationship" relationship="rootViewController" id="0no-O2-Ugu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIA-rc-irD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="1339"/>
         </scene>
     </scenes>
     <resources>

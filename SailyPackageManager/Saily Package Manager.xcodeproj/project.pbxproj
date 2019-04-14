@@ -167,15 +167,15 @@
 		AB7ED0572261EADF00C43D64 /* Saily Package Manager */ = {
 			isa = PBXGroup;
 			children = (
+				AB7ED0662261EAE100C43D64 /* Info.plist */,
 				AB4BBB802263094300C4DC16 /* udid.mobileconfig */,
+				ABB724BF22626FBA006D1416 /* Comfortaa[wght].ttf */,
 				AB4BBB772262DAEC00C4DC16 /* Saily Package Manager.entitlements */,
-				ABB724BD22626FBA006D1416 /* Comfortaa */,
 				ABB724972262366B006D1416 /* Images */,
 				ABB7249622623665006D1416 /* Codes */,
 				AB7ED05E2261EAE000C43D64 /* Main.storyboard */,
 				AB7ED0612261EAE100C43D64 /* Assets.xcassets */,
 				AB7ED0632261EAE100C43D64 /* LaunchScreen.storyboard */,
-				AB7ED0662261EAE100C43D64 /* Info.plist */,
 			);
 			path = "Saily Package Manager";
 			sourceTree = "<group>";
@@ -220,14 +220,6 @@
 				ABB724B222624AA3006D1416 /* Saily Package Manager-Bridging-Header.h */,
 			);
 			name = Bridger;
-			sourceTree = "<group>";
-		};
-		ABB724BD22626FBA006D1416 /* Comfortaa */ = {
-			isa = PBXGroup;
-			children = (
-				ABB724BF22626FBA006D1416 /* Comfortaa[wght].ttf */,
-			);
-			path = Comfortaa;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -91,6 +91,8 @@ class initViewController: UIViewController, LTMorphingLabelDelegate {
                         return
                     })
                     return
+                }else{
+                    deviceInfo_UDID = try! String.init(contentsOfFile: appRootFileSystem + "/ud.id")
                 }
                 
                 DispatchQueue.main.async
