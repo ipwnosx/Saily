@@ -138,6 +138,7 @@ func initCheck() -> Int {
     canTheAppHaveTFP0 = SailyBridgerOBJCObjectInitED.has_tfp0_over_HSP4()
     
     // now let's get in root/
+    canTheAppHaveRoot = SailyBridgerOBJCObjectInitED.isInRoot()
     
     return returnStatusSuccess
 }

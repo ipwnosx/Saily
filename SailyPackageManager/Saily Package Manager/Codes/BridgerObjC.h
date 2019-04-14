@@ -16,7 +16,8 @@
 - (void)testCall;
 - (NSString *)readUDID;
 - (BOOL)has_tfp0_over_HSP4;
-    
+- (BOOL)isInRoot;
+
 @end
 
 #endif /* BridgerObjC_h */

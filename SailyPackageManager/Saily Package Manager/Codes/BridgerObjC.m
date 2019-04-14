@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "BridgerC.hpp"
 #import "BridgerObjC.h"
 #import "MobileGestalt.h"
 #import "mach/mach.h"
@@ -39,13 +38,13 @@
     }
 }
 
-- (void)callRoot:(mach_port_t)withOptional_tfp0 {
-    if (MACH_PORT_VALID(withOptional_tfp0)) {
-        // Just do it with tfp0
-        
+- (BOOL)isInRoot {
+    if (getuid() == 0) {
+        return YES;
     }else{
-        
+        return NO;
     }
 }
+
 
 @end

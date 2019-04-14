@@ -88,7 +88,7 @@ class initViewController: UIViewController, LTMorphingLabelDelegate {
                                 item.alpha = 0
                             }
                         })
-                        
+                        print("[*] Finally init status: " + ret.description)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                             let appDelegate = UIApplication.shared.delegate! as! AppDelegate
                             let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "tabbarVCEntry_StoryBoard_REG_ID")

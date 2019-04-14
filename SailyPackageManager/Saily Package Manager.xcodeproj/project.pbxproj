@@ -24,7 +24,6 @@
 		ABB724AC22623DDE006D1416 /* commonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB724AB22623DDE006D1416 /* commonExtensions.swift */; };
 		ABB724B022624A28006D1416 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB724AF22624A28006D1416 /* searchViewController.swift */; };
 		ABB724B422624AA3006D1416 /* BridgerObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB724B322624AA3006D1416 /* BridgerObjC.m */; };
-		ABB724B722624AB4006D1416 /* BridgerC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ABB724B522624AB4006D1416 /* BridgerC.cpp */; };
 		ABB724BA22624E0B006D1416 /* iCon.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB724B922624E0B006D1416 /* iCon.png */; };
 		ABB724BC22624EAF006D1416 /* iConRound.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB724BB22624EAF006D1416 /* iConRound.png */; };
 		ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB724BF22626FBA006D1416 /* Comfortaa[wght].ttf */; };
@@ -58,8 +57,6 @@
 		ABB724AF22624A28006D1416 /* searchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		ABB724B222624AA3006D1416 /* Saily Package Manager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Saily Package Manager-Bridging-Header.h"; sourceTree = "<group>"; };
 		ABB724B322624AA3006D1416 /* BridgerObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgerObjC.m; sourceTree = "<group>"; };
-		ABB724B522624AB4006D1416 /* BridgerC.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BridgerC.cpp; sourceTree = "<group>"; };
-		ABB724B622624AB4006D1416 /* BridgerC.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BridgerC.hpp; sourceTree = "<group>"; };
 		ABB724B822624B40006D1416 /* BridgerObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgerObjC.h; sourceTree = "<group>"; };
 		ABB724B922624E0B006D1416 /* iCon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iCon.png; path = ../../../Artwork/iCon.png; sourceTree = "<group>"; };
 		ABB724BB22624EAF006D1416 /* iConRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iConRound.png; path = ../../../Artwork/iConRound.png; sourceTree = "<group>"; };
@@ -169,8 +166,6 @@
 				ABB724B322624AA3006D1416 /* BridgerObjC.m */,
 				ABB724B822624B40006D1416 /* BridgerObjC.h */,
 				ABB724B222624AA3006D1416 /* Saily Package Manager-Bridging-Header.h */,
-				ABB724B522624AB4006D1416 /* BridgerC.cpp */,
-				ABB724B622624AB4006D1416 /* BridgerC.hpp */,
 			);
 			name = Bridger;
 			sourceTree = "<group>";
@@ -374,7 +369,6 @@
 				AB7ED05B2261EAE000C43D64 /* featuredViewController.swift in Sources */,
 				ABB724B422624AA3006D1416 /* BridgerObjC.m in Sources */,
 				ABB724C322627621006D1416 /* UDIDViewController.swift in Sources */,
-				ABB724B722624AB4006D1416 /* BridgerC.cpp in Sources */,
 				ABB724AA22623D8F006D1416 /* initViewController.swift in Sources */,
 				ABB724A322623AC7006D1416 /* installedViewController.swift in Sources */,
 			);
@@ -532,6 +526,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Saily\\ Package\\ Manager/Codes",
+					"$(PROJECT_DIR)/Saily\\ Package\\ Manager/Codes",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lakr233.jw.Saily-Package-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Saily Package Manager/Codes/Saily Package Manager-Bridging-Header.h";
@@ -554,6 +553,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Saily\\ Package\\ Manager/Codes",
+					"$(PROJECT_DIR)/Saily\\ Package\\ Manager/Codes",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lakr233.jw.Saily-Package-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
