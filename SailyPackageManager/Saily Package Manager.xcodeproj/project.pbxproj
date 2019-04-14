@@ -17,7 +17,8 @@
 		AB4BBB95226309E900C4DC16 /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = AB4BBB90226309E900C4DC16 /* Documentation.html */; };
 		AB4BBB96226309E900C4DC16 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB91226309E900C4DC16 /* GCDAsyncUdpSocket.m */; };
 		AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB92226309E900C4DC16 /* GCDAsyncSocket.m */; };
-		AB4BBBA822632B1300C4DC16 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBBA722632B1300C4DC16 /* main.cpp */; };
+		AB4BBBA822632B1300C4DC16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBBA722632B1300C4DC16 /* main.swift */; };
+		AB64E8DD2263A96000119FCA /* Library in Resources */ = {isa = PBXBuildFile; fileRef = AB64E8DC2263A96000119FCA /* Library */; };
 		AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED0582261EADF00C43D64 /* AppDelegate.swift */; };
 		AB7ED05B2261EAE000C43D64 /* featuredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */; };
 		AB7ED05D2261EAE000C43D64 /* sourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05C2261EAE000C43D64 /* sourcesViewController.swift */; };
@@ -65,8 +66,13 @@
 		AB4BBB9E22632B1300C4DC16 /* SailyStartupDaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SailyStartupDaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4BBBA222632B1300C4DC16 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		AB4BBBA322632B1300C4DC16 /* monkeydev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = monkeydev.entitlements; sourceTree = "<group>"; };
-		AB4BBBA622632B1300C4DC16 /* 0xdeadfa11 */ = {isa = PBXFileReference; lastKnownFileType = text; name = 0xdeadfa11; path = Package/usr/bin/0xdeadfa11; sourceTree = "<group>"; };
-		AB4BBBA722632B1300C4DC16 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AB4BBBA722632B1300C4DC16 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AB64E8DC2263A96000119FCA /* Library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Library; path = Package/Library; sourceTree = "<group>"; };
+		AB64E8DE2263AB0700119FCA /* Packages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Packages; sourceTree = SOURCE_ROOT; };
+		AB64E8DF2263AC6300119FCA /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
+		AB64E8E12263AFF500119FCA /* postrm */ = {isa = PBXFileReference; lastKnownFileType = text; name = postrm; path = Package/DEBIAN/postrm; sourceTree = "<group>"; };
+		AB64E8E22263B01000119FCA /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
+		AB64E8E32263B02100119FCA /* preinst */ = {isa = PBXFileReference; lastKnownFileType = text; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
 		AB7ED0552261EADF00C43D64 /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7ED0582261EADF00C43D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = featuredViewController.swift; sourceTree = "<group>"; };
@@ -162,8 +168,9 @@
 		AB4BBB9F22632B1300C4DC16 /* SailyStartupDaemon */ = {
 			isa = PBXGroup;
 			children = (
+				AB64E8DE2263AB0700119FCA /* Packages */,
 				AB4BBBA322632B1300C4DC16 /* monkeydev.entitlements */,
-				AB4BBBA722632B1300C4DC16 /* main.cpp */,
+				AB4BBBA722632B1300C4DC16 /* main.swift */,
 				AB4BBBA022632B1300C4DC16 /* Package */,
 			);
 			path = SailyStartupDaemon;
@@ -172,6 +179,7 @@
 		AB4BBBA022632B1300C4DC16 /* Package */ = {
 			isa = PBXGroup;
 			children = (
+				AB64E8DC2263A96000119FCA /* Library */,
 				AB4BBBA122632B1300C4DC16 /* DEBIAN */,
 				AB4BBBA422632B1300C4DC16 /* usr */,
 			);
@@ -182,6 +190,10 @@
 			isa = PBXGroup;
 			children = (
 				AB4BBBA222632B1300C4DC16 /* control */,
+				AB64E8E32263B02100119FCA /* preinst */,
+				AB64E8DF2263AC6300119FCA /* postinst */,
+				AB64E8E22263B01000119FCA /* prerm */,
+				AB64E8E12263AFF500119FCA /* postrm */,
 			);
 			name = DEBIAN;
 			sourceTree = "<group>";
@@ -197,7 +209,6 @@
 		AB4BBBA522632B1300C4DC16 /* bin */ = {
 			isa = PBXGroup;
 			children = (
-				AB4BBBA622632B1300C4DC16 /* 0xdeadfa11 */,
 			);
 			name = bin;
 			sourceTree = "<group>";
@@ -333,6 +344,7 @@
 				TargetAttributes = {
 					AB4BBB9D22632B1300C4DC16 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					AB7ED0542261EADF00C43D64 = {
 						CreatedOnToolsVersion = 10.2;
@@ -383,6 +395,7 @@
 				AB4BBB812263094300C4DC16 /* udid.mobileconfig in Resources */,
 				ABB724A122623A6D006D1416 /* installed@3x.png in Resources */,
 				AB4BBB95226309E900C4DC16 /* Documentation.html in Resources */,
+				AB64E8DD2263A96000119FCA /* Library in Resources */,
 				AB7ED0602261EAE000C43D64 /* Main.storyboard in Resources */,
 				ABB724BC22624EAF006D1416 /* iConRound.png in Resources */,
 				ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */,
@@ -408,7 +421,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/MonkeyDev/bin/md --xcbp";
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp\nexit 0\n\n";
 		};
 		AB7ED0DB22622A7E00C43D64 /* Push to backup folder */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -511,7 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB4BBBA822632B1300C4DC16 /* main.cpp in Sources */,
+				AB4BBBA822632B1300C4DC16 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +592,7 @@
 				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
 				INSTALL_PATH = /usr/bin;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = /usr/lib/libswift/stable/;
 				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
 				MonkeyDevBuildPackageOnAnyBuild = NO;
 				MonkeyDevClearUiCacheOnInstall = NO;
@@ -593,6 +607,7 @@
 				MonkeyDevkillProcessOnInstall = "";
 				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"SailyStartupDaemon\\\"\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
 			};
@@ -618,6 +633,7 @@
 				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
 				INSTALL_PATH = /usr/bin;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = /usr/lib/libswift/stable/;
 				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
 				MonkeyDevBuildPackageOnAnyBuild = NO;
 				MonkeyDevClearUiCacheOnInstall = NO;
@@ -632,6 +648,7 @@
 				MonkeyDevkillProcessOnInstall = "";
 				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"SailyStartupDaemon\\\"\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
