@@ -13,7 +13,9 @@
 
 @interface SailyCommonObject : NSObject
 
-    - (void)testCall;
+- (void)testCall;
+- (NSString *)readUDID;
+- (BOOL)has_tfp0_over_HSP4;
     
 @end
 

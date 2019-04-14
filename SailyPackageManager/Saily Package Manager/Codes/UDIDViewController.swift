@@ -61,7 +61,7 @@ class UDIDViewController: UIViewController {
     }
     
     @IBAction func readUDID(_ sender: Any) {
-        
+        print(SailyBridgerOBJCObjectInitED.readUDID())
     }
     
 

@@ -17,6 +17,7 @@ var canTheAppHaveTFP0               = false
 var canTheAppHaveSandboxEscape      = false
 var canTheAppHaveRoot               = false
 var shouldAppDisableEffect          = false
+let isInDebugSession                = false
 
 // This session, contains basic file struct used in Saily Package Manager.
 // ----> appRootFileSystem -->> "/var/root/Saily"
@@ -56,7 +57,7 @@ var deviceInfo_UDID = ""
 var deviceVersion   = ""
 
 // This session, is for bridge call to Obj-C and future call to c.
-let SailyBridgerOBJC = SailyCommonObject()
+let SailyBridgerOBJCObjectInitED = SailyCommonObject()
 
 // In this session, jailbroken detect.
 let jailbrokenSignalFiles = ["/private/var/stash",
@@ -86,7 +87,7 @@ let jailbrokenSignalFiles = ["/private/var/stash",
 func initCheck() -> Int {
     
     // test call chain to Obj-C
-    SailyBridgerOBJC.testCall()
+    SailyBridgerOBJCObjectInitED.testCall()
     
     // reduce effects when using......
     let thisDeviceIs = UIDevice.modelName
@@ -111,8 +112,6 @@ func initCheck() -> Int {
         print("[*] Setting appRootFileSystem to sandboxed env at:" + appRootFileSystem)
     }
     
-    // check if is in root.
-    
     // check if is jailbroken and more.
     for item in jailbrokenSignalFiles {
         if (FileManager.default.fileExists(atPath: item)) {
@@ -136,7 +135,9 @@ func initCheck() -> Int {
     }
     
     // check if tfp0 export is enabled.
+    canTheAppHaveTFP0 = SailyBridgerOBJCObjectInitED.has_tfp0_over_HSP4()
     
+    // now let's get in root/
     
     return returnStatusSuccess
 }

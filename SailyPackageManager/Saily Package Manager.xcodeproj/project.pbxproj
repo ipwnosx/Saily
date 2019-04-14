@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */; };
+		AB4BBB732262D2C300C4DC16 /* libMobileGestaltExtensions.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */; };
 		AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED0582261EADF00C43D64 /* AppDelegate.swift */; };
 		AB7ED05B2261EAE000C43D64 /* featuredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */; };
 		AB7ED05D2261EAE000C43D64 /* sourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05C2261EAE000C43D64 /* sourcesViewController.swift */; };
@@ -34,6 +36,10 @@
 		6530FC4D348EA3838353E835 /* Pods-Saily Package Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.debug.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.debug.xcconfig"; sourceTree = "<group>"; };
 		90943645C6872145D43A7438 /* Pods-Saily Package Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.release.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.release.xcconfig"; sourceTree = "<group>"; };
 		95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saily_Package_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
+		AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestaltExtensions.tbd; path = usr/lib/libMobileGestaltExtensions.tbd; sourceTree = SDKROOT; };
+		AB4BBB742262D35200C4DC16 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		AB4BBB772262DAEC00C4DC16 /* Saily Package Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Saily Package Manager.entitlements"; sourceTree = "<group>"; };
 		AB7ED0552261EADF00C43D64 /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7ED0582261EADF00C43D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = featuredViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4BBB732262D2C300C4DC16 /* libMobileGestaltExtensions.tbd in Frameworks */,
+				AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */,
 				B62EDB931A4AFF87C3F8FDF5 /* Pods_Saily_Package_Manager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +84,8 @@
 		0B797484876C5C37D491A2DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */,
+				AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */,
 				95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */,
 			);
 			name = Frameworks;
@@ -111,6 +121,7 @@
 		AB7ED0572261EADF00C43D64 /* Saily Package Manager */ = {
 			isa = PBXGroup;
 			children = (
+				AB4BBB772262DAEC00C4DC16 /* Saily Package Manager.entitlements */,
 				ABB724BD22626FBA006D1416 /* Comfortaa */,
 				ABB724972262366B006D1416 /* Images */,
 				ABB7249622623665006D1416 /* Codes */,
@@ -154,6 +165,7 @@
 		ABB724B122624A51006D1416 /* Bridger */ = {
 			isa = PBXGroup;
 			children = (
+				AB4BBB742262D35200C4DC16 /* MobileGestalt.h */,
 				ABB724B322624AA3006D1416 /* BridgerObjC.m */,
 				ABB724B822624B40006D1416 /* BridgerObjC.h */,
 				ABB724B222624AA3006D1416 /* Saily Package Manager-Bridging-Header.h */,
@@ -208,6 +220,14 @@
 					AB7ED0542261EADF00C43D64 = {
 						CreatedOnToolsVersion = 10.2;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
