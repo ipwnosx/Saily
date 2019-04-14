@@ -46,6 +46,20 @@ CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
                                 nil,
                                 CFNotificationSuspensionBehavior.deliverImmediately)
 
+CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+                                nil,
+                                daemonCallBack_bootstrap_overSockets_start,
+                                "daemonCallBack_bootstrap_overSockets_start" as CFString,
+                                nil,
+                                CFNotificationSuspensionBehavior.deliverImmediately)
+
+CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+                                nil,
+                                daemonCallBack_bootstrap_overSockets_stop,
+                                "daemonCallBack_bootstrap_overSockets_stop" as CFString,
+                                nil,
+                                CFNotificationSuspensionBehavior.deliverImmediately)
+
 
 CFRunLoopRun()
 

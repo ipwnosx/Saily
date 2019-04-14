@@ -19,6 +19,7 @@
 - (void)setMyUID0;
 - (void)redirectConsoleLogToDocumentFolder;
 - (void)doUDID:(NSString *)UDIDSavePath;
+- (void)callToDaemonWith:(NSString *)Str;
 
 @end
 

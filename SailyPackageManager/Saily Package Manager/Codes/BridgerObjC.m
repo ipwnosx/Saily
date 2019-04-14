@@ -22,6 +22,10 @@
     NSLog(@"Saily Obj-C bridged successfully.");
 }
 
+- (void)callToDaemonWith:(NSString *)Str {
+    notify_post([Str UTF8String]);
+}
+
 - (BOOL)has_tfp0_over_HSP4 {
     kern_return_t kErr;
     mach_port_t tfp0;
