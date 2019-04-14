@@ -1,6 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 
 platform :ios, '11.0'
+project './Saily Package Manager.xcodeproj'
 
 target 'Saily Package Manager' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -10,7 +11,7 @@ target 'Saily Package Manager' do
 
     pod 'SwifterSwift'
     pod 'LTMorphingLabel'
-    pod 'Alamofire', '~> 5.0.0-beta.5'
+    pod 'Alamofire', '~> 4.8.0'
     pod 'SwiftyJSON'
     pod 'SnapKit'
     pod 'Reveal-SDK', :configurations => ['Debug']

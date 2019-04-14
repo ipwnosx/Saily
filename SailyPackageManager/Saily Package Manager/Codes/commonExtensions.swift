@@ -28,7 +28,7 @@ func initCheck() -> Int {
     }
     
     //Clean locks.
-    clearAnyLockAndTmp()
+    _ = clearAnyLockAndTmp()
     
     // check if we have escaped sandbox
     try? FileManager.default.createDirectory(atPath: appRootFileSystem, withIntermediateDirectories: false, attributes: nil)
@@ -62,7 +62,7 @@ func initCheck() -> Int {
     
     if (didInstalledSailyToRoot == true) {                                                                                           // check if installed to root, but don't gain root.
         if (!canTheAppHaveRoot || !canTheAppHaveSandboxEscape) {
-            return returnStatusEPERMIT
+            return returnStatusSuccess
         }
     }
     
@@ -178,14 +178,16 @@ func refreshCore(link: String) -> Int {
     if (deviceInfo_UDID == "") {
         return returnStatusEPERMIT
     }
-    // Headers Example
-    var headersDic = [String : String]()
-    headersDic["X-Machine"]         = deviceIdentifier      //    X-Machine: iPhone6,1
-    headersDic["X-Unique-ID"]       = deviceInfo_UDID       //    X-Unique-ID: 8843d7f92416211de9ebb963ff4ce28125932878
-    headersDic["X-Firmware"]        = deviceVersion         //    X-Firmware: 10.1.1
-    headersDic["User-Agent"]        = "Telesphoreo APT-HTTP/1.0.592"
-    let headers = HTTPHeaders.init(headersDic)
+
+    let headers = ["X-Machine" : deviceIdentifier,
+                   "X-Unique-ID" : deviceInfo_UDID,
+                   "X-Firmware" : deviceVersion,
+                   "User-Agent" : "Telesphoreo APT-HTTP/1.0.592"]
     
+    Alamofire.request(url_addr, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseString { (str) in
+        print(str)
+    }
+
     return returnStatusSuccess
 }
 
