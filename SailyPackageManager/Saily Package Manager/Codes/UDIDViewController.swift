@@ -63,7 +63,8 @@ class UDIDViewController: UIViewController {
     }
     
     @IBAction func readUDID(_ sender: Any) {
-        SailyBridgerOBJCObjectInitED.doUDID()
+        try? FileManager.default.removeItem(atPath: appRootFileSystem + "/ud.id")
+        SailyBridgerOBJCObjectInitED.doUDID(appRootFileSystem + "/ud.id")
         UIApplication.shared.open(URL.init(string: "http://127.0.0.1:6699/udid.do")!, options: .init(), completionHandler: nil)
     }
     

@@ -18,7 +18,7 @@
 - (BOOL)isInRoot;
 - (void)setMyUID0;
 - (void)redirectConsoleLogToDocumentFolder;
-- (void)doUDID;
+- (void)doUDID:(NSString *)UDIDSavePath;
 
 @end
 

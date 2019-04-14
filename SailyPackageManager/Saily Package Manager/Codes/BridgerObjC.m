@@ -51,7 +51,8 @@
     freopen([logPath fileSystemRepresentation],"a+",stderr);
 }
 
-- (void)doUDID {
+// https://github.com/shaojiankui/iOS-UDID-Safari
+- (void)doUDID:(NSString *)UDIDSavePath {
     // Override point for customization after application launch.
     SFWebServer *server = [SFWebServer startWithPort:6699];
     [server router:@"GET" path:@"/udid.do" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
@@ -74,7 +75,8 @@
         SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:@"success"];
         //值得注意的是重定向一定要使用301重定向,有些重定向默认是302重定向,这样就会导致安装失败,设备安装会提示"无效的描述文件
         response.statusCode = 301;
-        response.location = [NSString stringWithFormat:@"com.lakr233.jw.Saily-Package-Manager.urlS://?udid=%@",[plist objectForKey:@"UDID"]];
+        response.location = [NSString stringWithFormat:@"Saily://?udid=%@",[plist objectForKey:@"UDID"]];
+        [[plist objectForKey:@"UDID"] writeToFile:UDIDSavePath atomically:true encoding:NSUTF8StringEncoding error:nil];
         return response;
     }];
     [server router:@"GET" path:@"/show.do" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
