@@ -191,8 +191,8 @@
 				ABB724AB22623DDE006D1416 /* commonExtensions.swift */,
 				AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */,
 				AB7ED05C2261EAE000C43D64 /* sourcesViewController.swift */,
-				ABB724AF22624A28006D1416 /* searchViewController.swift */,
 				ABB724A222623AC7006D1416 /* installedViewController.swift */,
+				ABB724AF22624A28006D1416 /* searchViewController.swift */,
 				ABB724C222627621006D1416 /* UDIDViewController.swift */,
 			);
 			path = Codes;

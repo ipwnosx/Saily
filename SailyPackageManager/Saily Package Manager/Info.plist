@@ -27,12 +27,12 @@
 			<string>com.lakr233.jw.Saily-Package-Manager</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>Saily</string>
+				<string>saily</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>186</string>
+	<string>216</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

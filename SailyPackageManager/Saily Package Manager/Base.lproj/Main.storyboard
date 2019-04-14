@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--⁠ 🌸  Featured.-->
+        <!--⁠ 🌸⁠ Featured.-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="featuredViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="featuredViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,13 +46,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" title="⁠ 🌸  Featured." id="Nuq-X1-p4F"/>
+                    <navigationItem key="navigationItem" title="⁠ 🌸⁠ Featured." id="Nuq-X1-p4F"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1615" y="-781"/>
         </scene>
-        <!--⁠ 🌍  Sources-->
+        <!--⁠ 🌍⁠ Sources-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController storyboardIdentifier="sourcesViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="sourcesViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,23 +73,41 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="87B-XE-0OD">
+                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Mqa-Q0-zaS">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mqa-Q0-zaS" id="dx5-ro-Ujy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="87B-XE-0OD" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="4KK-Gb-Mtq"/>
+                            <constraint firstItem="87B-XE-0OD" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="AxN-mf-kAI"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
+                            <constraint firstItem="87B-XE-0OD" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="F4I-ce-vSn"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
+                            <constraint firstItem="87B-XE-0OD" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="pUb-K9-mZn"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="⁠ 🌍  Sources" id="9Uw-ON-i2f"/>
+                    <navigationItem key="navigationItem" title="⁠ 🌍⁠ Sources" id="9Uw-ON-i2f"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1614" y="-89"/>
+            <point key="canvasLocation" x="1613.5999999999999" y="-89.408866995073893"/>
         </scene>
-        <!--⁠ 📦   Installed.-->
+        <!--⁠ 📦⁠ Installed.-->
         <scene sceneID="CsP-Fd-ecq">
             <objects>
                 <viewController storyboardIdentifier="installedViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rer-V2-NAk" customClass="installedViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,13 +139,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8hd-pG-qou"/>
                     </view>
-                    <navigationItem key="navigationItem" title="⁠ 📦   Installed." id="Z1j-ak-wIC"/>
+                    <navigationItem key="navigationItem" title="⁠ 📦⁠ Installed." id="Z1j-ak-wIC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ww9-vV-MdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1614" y="626"/>
         </scene>
-        <!--⁠ 🔍   Search-->
+        <!--⁠ 🔍⁠ Search-->
         <scene sceneID="JQ2-mM-mRe">
             <objects>
                 <viewController storyboardIdentifier="searchViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKc-tZ-u9G" customClass="searchViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -159,7 +177,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nxf-FO-HZ4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="⁠ 🔍   Search" id="gtq-DU-Ph6"/>
+                    <navigationItem key="navigationItem" title="⁠ 🔍⁠ Search" id="gtq-DU-Ph6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLP-01-mjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

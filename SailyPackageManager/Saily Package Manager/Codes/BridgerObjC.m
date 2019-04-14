@@ -73,7 +73,7 @@
         
         NSLog(@"device info%@",plist);
         SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:@"success"];
-        //值得注意的是重定向一定要使用301重定向,有些重定向默认是302重定向,这样就会导致安装失败,设备安装会提示"无效的描述文件
+      //值得注意的是重定向一定要使用301重定向,有些重定向默认是302重定向,这样就会导致安装失败,设备安装会提示"无效的描述文件
         response.statusCode = 301;
         response.location = [NSString stringWithFormat:@"Saily://?udid=%@",[plist objectForKey:@"UDID"]];
         [[plist objectForKey:@"UDID"] writeToFile:UDIDSavePath atomically:true encoding:NSUTF8StringEncoding error:nil];

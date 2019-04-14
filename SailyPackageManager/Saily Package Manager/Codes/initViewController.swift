@@ -18,16 +18,16 @@ class initViewController: UIViewController, LTMorphingLabelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            self.tipLabel.delegate = self
-            if (shouldAppDisableEffect) {
-                self.tipLabel.morphingEnabled = false
-                self.tipSubLabel.morphingEnabled = false
-            }else{
-                self.tipLabel.morphingEnabled = true
-                self.tipSubLabel.morphingEnabled = true
-            }
-            self.tipLabel.morphingEffect = .evaporate
-            self.tipSubLabel.morphingEffect = .evaporate
+        self.tipLabel.delegate = self
+        self.tipLabel.morphingEffect = .evaporate
+        self.tipSubLabel.morphingEffect = .evaporate
+        if (shouldAppDisableEffect) {
+            self.tipLabel.morphingEnabled = false
+            self.tipSubLabel.morphingEnabled = false
+        }else{
+            self.tipLabel.morphingEnabled = true
+            self.tipSubLabel.morphingEnabled = true
+        }
         DispatchQueue.main.async {
             checkNetwork()
             if (!canTheAppAccessNetWork) {
