@@ -43,12 +43,18 @@ class UDIDViewController: UIViewController {
     }
     
     @IBAction func skipUDID(_ sender: Any) {
-        var UDID = ""
         let alert = UIAlertController.init(title: "Are you sure?", message: "You would not be able to buy any tweak or download any tweak you have brought.", preferredStyle: .alert)
         alert.addAction(UIAlertAction.init(title: "Okay", style: .cancel, handler: { (_) in
-            for _ in 1...40 {
+            var UDID = ""
+            for _ in 1...6 {
                 UDID += Int.random(in: 0...9).description
             }
+            let UDIDBase = "d7f92416211de9ebb963ff4ce28125" + UDID
+            UDID = ""
+            for _ in 1...4 {
+                UDID += Int.random(in: 0...9).description
+            }
+            UDID = UDID + UDIDBase
             print("[*] new rnd-UDID is: " + UDID)
             try? UDID.write(toFile: appRootFileSystem + "/ud.id", atomically: true, encoding: .utf8)
             if (!FileManager.default.fileExists(atPath: appRootFileSystem + "/ud.id")) {

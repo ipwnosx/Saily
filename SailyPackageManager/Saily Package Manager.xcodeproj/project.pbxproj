@@ -19,6 +19,8 @@
 		AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB92226309E900C4DC16 /* GCDAsyncSocket.m */; };
 		AB4BBBA822632B1300C4DC16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBBA722632B1300C4DC16 /* main.swift */; };
 		AB64E8DD2263A96000119FCA /* Library in Resources */ = {isa = PBXBuildFile; fileRef = AB64E8DC2263A96000119FCA /* Library */; };
+		AB64E9072263C50100119FCA /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64E9062263C50100119FCA /* UIDeviceExtension.swift */; };
+		AB64E9092263C53900119FCA /* GobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64E9082263C53900119FCA /* GobalVars.swift */; };
 		AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED0582261EADF00C43D64 /* AppDelegate.swift */; };
 		AB7ED05B2261EAE000C43D64 /* featuredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */; };
 		AB7ED05D2261EAE000C43D64 /* sourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05C2261EAE000C43D64 /* sourcesViewController.swift */; };
@@ -73,6 +75,8 @@
 		AB64E8E12263AFF500119FCA /* postrm */ = {isa = PBXFileReference; lastKnownFileType = text; name = postrm; path = Package/DEBIAN/postrm; sourceTree = "<group>"; };
 		AB64E8E22263B01000119FCA /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
 		AB64E8E32263B02100119FCA /* preinst */ = {isa = PBXFileReference; lastKnownFileType = text; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
+		AB64E9062263C50100119FCA /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		AB64E9082263C53900119FCA /* GobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobalVars.swift; sourceTree = "<group>"; };
 		AB7ED0552261EADF00C43D64 /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7ED0582261EADF00C43D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB7ED05A2261EAE000C43D64 /* featuredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = featuredViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				AB4BBB8F226309E900C4DC16 /* CocoaAsyncSocket */,
 				AB4BBB82226309C100C4DC16 /* SFWebServer */,
 				ABB724B122624A51006D1416 /* Bridger */,
+				AB64E9082263C53900119FCA /* GobalVars.swift */,
 				AB7ED0582261EADF00C43D64 /* AppDelegate.swift */,
 				ABB724A922623D8F006D1416 /* initViewController.swift */,
 				ABB724AB22623DDE006D1416 /* commonExtensions.swift */,
@@ -263,6 +268,7 @@
 				ABB724A222623AC7006D1416 /* installedViewController.swift */,
 				ABB724AF22624A28006D1416 /* searchViewController.swift */,
 				ABB724C222627621006D1416 /* UDIDViewController.swift */,
+				AB64E9062263C50100119FCA /* UIDeviceExtension.swift */,
 			);
 			path = Codes;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				AB7ED05D2261EAE000C43D64 /* sourcesViewController.swift in Sources */,
 				AB4BBB8B226309C100C4DC16 /* SFWebServerRequest.m in Sources */,
 				AB4BBB96226309E900C4DC16 /* GCDAsyncUdpSocket.m in Sources */,
+				AB64E9092263C53900119FCA /* GobalVars.swift in Sources */,
 				AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */,
 				AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */,
 				ABB724AC22623DDE006D1416 /* commonExtensions.swift in Sources */,
@@ -545,6 +552,7 @@
 				ABB724C322627621006D1416 /* UDIDViewController.swift in Sources */,
 				ABB724AA22623D8F006D1416 /* initViewController.swift in Sources */,
 				AB4BBB8C226309C100C4DC16 /* SFWebServer.m in Sources */,
+				AB64E9072263C50100119FCA /* UIDeviceExtension.swift in Sources */,
 				AB4BBB8E226309C100C4DC16 /* SFWebServerRouter.m in Sources */,
 				ABB724A322623AC7006D1416 /* installedViewController.swift in Sources */,
 			);

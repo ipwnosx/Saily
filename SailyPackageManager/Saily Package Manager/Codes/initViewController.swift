@@ -102,6 +102,7 @@ class initViewController: UIViewController, LTMorphingLabelDelegate {
                         })
                         self.tipLabel.text = "Refreshing repos..."
                         self.tipSubLabel.text = "This might take a while affected by your network."
+                        
                         ret = refreshRepos()
                         
                         DispatchQueue.main.async
