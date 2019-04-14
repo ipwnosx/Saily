@@ -788,7 +788,7 @@
 					"$(PROJECT_DIR)/Saily\\ Package\\ Manager/Codes",
 					"$(PROJECT_DIR)/Saily\\ Package\\ Manager/Codes",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "--Load-Daemon-launchctl-load--Library-LaunchDaemons-com.lakr233.jw.SailyStartupDaemon.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lakr233.jw.Saily-Package-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Saily Package Manager/Codes/Saily Package Manager-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -816,7 +816,7 @@
 					"$(PROJECT_DIR)/Saily\\ Package\\ Manager/Codes",
 					"$(PROJECT_DIR)/Saily\\ Package\\ Manager/Codes",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "--Load-Daemon-launchctl-load--Library-LaunchDaemons-com.lakr233.jw.SailyStartupDaemon.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lakr233.jw.Saily-Package-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Saily Package Manager/Codes/Saily Package Manager-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

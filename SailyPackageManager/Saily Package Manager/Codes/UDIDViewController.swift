@@ -69,7 +69,7 @@ class UDIDViewController: UIViewController {
     }
     
     @IBAction func readUDID(_ sender: Any) {
-        let alert = UIAlertController.init(title: "Notice:", message: "You may need to switch back to application manually when install begin before it is timeout.", preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "Notice:", message: "You may need to switch back to application manually when install begin before it is timeout.\nThis is because we don't upload your id to servers, and iOS doesn't allow us to stay in background but Setting.app can.", preferredStyle: .alert)
         alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (_) in
             // I really don't know why it randomly call back to app, randomly fails. But this methos is working.
             try? FileManager.default.removeItem(atPath: appRootFileSystem + "/ud.id")
