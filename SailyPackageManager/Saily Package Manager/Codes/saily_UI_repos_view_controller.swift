@@ -22,15 +22,36 @@ class saily_UI_repos_view_controller: UITableViewController {
         return GVAR_behave_repo_list_instance.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        // return cell
+        let idCell = "Cell";
+        let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
+        // return name
+        var name = GVAR_behave_repo_list_instance[indexPath.row].split(separator: "/")[1].split(separator: ".")[1].description
+        name = name.first!.description.uppercased() + name.dropFirst().description
+        if (name == "Thebigboss") {
+            name = "The Big Boss"
+        }
+        // return image
+        let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
+        cellImg.download(from: URL.init(string: GVAR_behave_repo_list_instance[indexPath.row] + "/CydiaIcon.png")!, contentMode: .scaleAspectFit, placeholder: nil) { (image) in
+            DispatchQueue.main.async {
+                cellImg.image = image
+            }
+        }
+        cellImg.contentMode = .scaleAspectFit
+        cell.addSubview(cellImg)
+        // add label
+        cell.textLabel?.text = "        " + name
+        cell.detailTextLabel?.text = "           " + GVAR_behave_repo_list_instance[indexPath.row]
+        cellImg.snp.makeConstraints { (make) in
+            make.top.equalTo(cell.contentView).offset(12)
+            make.right.equalTo(cell.textLabel!.snp_left).offset(30)
+            make.height.equalTo(38)
+            make.width.equalTo(38)
+        }
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

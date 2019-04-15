@@ -116,7 +116,7 @@
             </objects>
             <point key="canvasLocation" x="3025" y="-89"/>
         </scene>
-        <!--Installed-->
+        <!--Installed.-->
         <scene sceneID="CsP-Fd-ecq">
             <objects>
                 <viewController storyboardIdentifier="saily_UI_installed_view_controller_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rer-V2-NAk" customClass="saily_UI_installed_view_controller" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -126,7 +126,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8hd-pG-qou"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Installed" id="Z1j-ak-wIC"/>
+                    <navigationItem key="navigationItem" title="Installed." id="Z1j-ak-wIC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ww9-vV-MdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -48,6 +48,12 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
         // add label
         cell.textLabel?.text = "        " + name
         cell.detailTextLabel?.text = "           " + default_repos[indexPath.row]
+        cellImg.snp.makeConstraints { (make) in
+            make.top.equalTo(cell.contentView).offset(12)
+            make.right.equalTo(cell.textLabel!.snp_left).offset(30)
+            make.height.equalTo(38)
+            make.width.equalTo(38)
+        }
         return cell
     }
     
