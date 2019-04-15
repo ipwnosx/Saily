@@ -74,6 +74,10 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
         let screenX = UIScreen.main.bounds.width
         let screenY = UIScreen.main.bounds.height
         
+        if (GVAR_device_info_UDID != "") {
+            udid_text_field.text = GVAR_device_info_UDID
+        }
+        
         table_view.delegate = self
         table_view.dataSource = self
         
@@ -178,16 +182,15 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
     }
     
     @IBAction func readUDID(_ sender: Any) {
-        
+        const_objc_bridge_object.doUDID(GVAR_behave_udid_path)
+        UIApplication.shared.open(URL.init(string: "http://127.0.0.1:6699/udid.do")!, options: .init(), completionHandler: nil)
     }
     
     @IBAction func processToSaily(_ sender: Any) {
         // check if okay
-        guard let udid_tmp = udid_text_field.text else { return }
-        if (udid_tmp == "") {
-            return
-        }
-        if (default_repos.count == 0) { return }
+        guard let udid_tmp = udid_text_field.text else { notFitAlert(t: self); return }
+        if (udid_tmp == "") { notFitAlert(t: self); return }
+        if (default_repos.count == 0) { notFitAlert(t: self); return }
         // write to file
         try? udid_tmp.write(toFile: GVAR_behave_udid_path, atomically: true, encoding: .utf8)
         var repo_list_tmp = ""
@@ -195,13 +198,22 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
             repo_list_tmp = repo_list_tmp + item + "\n"
         }
         try? repo_list_tmp.write(toFile: GVAR_behave_repo_list_file_path, atomically: true, encoding: .utf8)
-        GVAR_device_info_UDID = udid_tmp
-        GVAR_behave_repo_list_instance = default_repos
         
+        let repo_raw_read = (try? String.init(contentsOfFile: GVAR_behave_repo_list_file_path)) ?? ""
+        for item in repo_raw_read.split(separator: "\n") {
+            GVAR_behave_repo_list_instance.append(item.description)
+        }
+        GVAR_device_info_UDID = (try? String.init(contentsOfFile: GVAR_behave_udid_path))!
+        GVAR_behave_should_run_setup = false
         let appDelegate = UIApplication.shared.delegate! as! AppDelegate
         let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "saily_UI_init_view_controller_ID")
         appDelegate.window?.rootViewController = initialViewController
         appDelegate.window?.makeKeyAndVisible()
+    }
+    
+    func notFitAlert(t: UIViewController) -> Void {
+        let alert = UIAlertController.init(title: "There is an error.", message: "Please give us udid and make sure there is at least one repo exists.", defaultActionButtonTitle: "Got it.", tintColor: .blue)
+        t.present(alert, animated: true, completion: nil)
     }
     
 }

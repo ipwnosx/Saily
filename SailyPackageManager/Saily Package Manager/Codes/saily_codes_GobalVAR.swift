@@ -49,7 +49,7 @@ let GCD_watch_dogs_control_quene                             = DispatchQueue(lab
                                                                         qos: .utility, attributes: .concurrent)
 
 // This session, is for bridge call to Obj-C and future call to c.
-let const_objc_bridge_object_                           = SailyCommonObject()
+let const_objc_bridge_object                            = SailyCommonObject()
 
 // In this session, jailbroken detect.
 let const_has_jailbroken_signal                         = ["/private/var/stash",

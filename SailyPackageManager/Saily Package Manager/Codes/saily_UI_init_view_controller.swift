@@ -45,6 +45,11 @@ class saily_UI_init_view_controller: UIViewController, LTMorphingLabelDelegate {
         // 质询Daemon检查Cydia或Sileo是否在线，可能退出
         // 准备Daemon检查dpkg是否存在错误
         
+        
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "saily_UI_tabbar_init_er_ID")
+        appDelegate.window?.rootViewController = initialViewController
+        appDelegate.window?.makeKeyAndVisible()
     }
     
 }
