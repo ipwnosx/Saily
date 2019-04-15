@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class theCell: UITableViewCell {
     
@@ -36,18 +37,12 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
             name = "The Big Boss"
         }
         // return image
-        var image = UIImage()
-        switch name {
-        case "The Big Boss":
-            image = #imageLiteral(resourceName: "repo_bigboss.jpg")
-        case "Bingner":
-            image = #imageLiteral(resourceName: "repo_bingner.png")
-        default:
-            break
+        let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
+        cellImg.download(from: URL.init(string: default_repos[indexPath.row] + "/CydiaIcon.png")!, contentMode: .scaleAspectFit, placeholder: nil) { (image) in
+            DispatchQueue.main.async {
+                cellImg.image = image
+            }
         }
-        // add image view
-        let cellImg : UIImageView = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
-        cellImg.image = image
         cellImg.contentMode = .scaleAspectFit
         cell.addSubview(cellImg)
         // add label
@@ -71,6 +66,7 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var repo_title: UILabel!
     @IBOutlet weak var repo_sub_title: UILabel!
     @IBOutlet weak var table_view: UITableView!
+    @IBOutlet weak var next_button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,15 +150,58 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
                 make.right.equalTo(this_view).offset(-28)
                 make.bottom.equalTo(this_view).offset(-66)
             }
+            next_button.snp.makeConstraints { (make) in
+                make.centerX.equalTo(this_view)
+                make.bottom.equalTo(this_view).offset(-25)
+                make.width.equalTo(50)
+                make.height.equalTo(25)
+            }
         }else{
             // iPad layout
             
         }
-        
 
     }
     
     
-
+    @IBAction func skipUDID(_ sender: Any) {
+        let str = UUID().uuidString
+        var out = ""
+        for item in str {
+            if (item != "-") {
+                out += item.description
+            }
+        }
+        out += UUID().uuidString.dropLast(28)
+        out = out.lowercased()
+        udid_text_field.text = out
+    }
+    
+    @IBAction func readUDID(_ sender: Any) {
+        
+    }
+    
+    @IBAction func processToSaily(_ sender: Any) {
+        // check if okay
+        guard let udid_tmp = udid_text_field.text else { return }
+        if (udid_tmp == "") {
+            return
+        }
+        if (default_repos.count == 0) { return }
+        // write to file
+        try? udid_tmp.write(toFile: GVAR_behave_udid_path, atomically: true, encoding: .utf8)
+        var repo_list_tmp = ""
+        for item in default_repos {
+            repo_list_tmp = repo_list_tmp + item + "\n"
+        }
+        try? repo_list_tmp.write(toFile: GVAR_behave_repo_list_file_path, atomically: true, encoding: .utf8)
+        GVAR_device_info_UDID = udid_tmp
+        GVAR_behave_repo_list_instance = default_repos
+        
+        let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+        let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "saily_UI_init_view_controller_ID")
+        appDelegate.window?.rootViewController = initialViewController
+        appDelegate.window?.makeKeyAndVisible()
+    }
     
 }

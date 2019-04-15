@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB372F362264B0590023EC31 /* repo_bigboss.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB372F342264B0580023EC31 /* repo_bigboss.jpg */; };
-		AB372F372264B0590023EC31 /* repo_bingner.png in Resources */ = {isa = PBXBuildFile; fileRef = AB372F352264B0590023EC31 /* repo_bingner.png */; };
+		AB372F3B2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB372F3A2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift */; };
 		AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */; };
 		AB4BBB732262D2C300C4DC16 /* libMobileGestaltExtensions.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */; };
 		AB4BBB812263094300C4DC16 /* udid.mobileconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB4BBB802263094300C4DC16 /* udid.mobileconfig */; };
@@ -45,12 +44,21 @@
 		B62EDB931A4AFF87C3F8FDF5 /* Pods_Saily_Package_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AB372F382264BC090023EC31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB7ED04D2261EADF00C43D64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB4BBB9D22632B1300C4DC16;
+			remoteInfo = SailyStartupDaemon;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6530FC4D348EA3838353E835 /* Pods-Saily Package Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.debug.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.debug.xcconfig"; sourceTree = "<group>"; };
 		90943645C6872145D43A7438 /* Pods-Saily Package Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.release.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.release.xcconfig"; sourceTree = "<group>"; };
 		95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saily_Package_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB372F342264B0580023EC31 /* repo_bigboss.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = repo_bigboss.jpg; sourceTree = "<group>"; };
-		AB372F352264B0590023EC31 /* repo_bingner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repo_bingner.png; sourceTree = "<group>"; };
+		AB372F3A2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_extensions_UIImageView.swift; sourceTree = "<group>"; };
 		AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
 		AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestaltExtensions.tbd; path = usr/lib/libMobileGestaltExtensions.tbd; sourceTree = SDKROOT; };
 		AB4BBB742262D35200C4DC16 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
@@ -144,15 +152,6 @@
 				90943645C6872145D43A7438 /* Pods-Saily Package Manager.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		AB372F332264B0030023EC31 /* defaultRepoImage */ = {
-			isa = PBXGroup;
-			children = (
-				AB372F342264B0580023EC31 /* repo_bigboss.jpg */,
-				AB372F352264B0590023EC31 /* repo_bingner.png */,
-			);
-			path = defaultRepoImage;
 			sourceTree = "<group>";
 		};
 		AB4BBB82226309C100C4DC16 /* SFWebServer */ = {
@@ -284,6 +283,7 @@
 				AB64E9082263C53900119FCA /* saily_codes_GobalVAR.swift */,
 				ABB724AB22623DDE006D1416 /* saily_codes_operations_File.swift */,
 				AB64E9062263C50100119FCA /* saily_codes_extensions_UIDevice.swift */,
+				AB372F3A2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift */,
 				ABB724A922623D8F006D1416 /* saily_UI_init_view_controller.swift */,
 				AB7ED05A2261EAE000C43D64 /* saily_UI_featured_view_controller.swift */,
 				AB64E90B2264936900119FCA /* saily_UI_repos_view_controller.swift */,
@@ -297,7 +297,6 @@
 		ABB724972262366B006D1416 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AB372F332264B0030023EC31 /* defaultRepoImage */,
 				ABB724B922624E0B006D1416 /* iCon.png */,
 				ABB724BB22624EAF006D1416 /* iConRound.png */,
 				ABB7249C22623772006D1416 /* discover@3x.png */,
@@ -354,6 +353,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AB372F392264BC090023EC31 /* PBXTargetDependency */,
 			);
 			name = "Saily Package Manager";
 			productName = "Saily Package Manager";
@@ -416,7 +416,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB7ED0652261EAE100C43D64 /* LaunchScreen.storyboard in Resources */,
-				AB372F372264B0590023EC31 /* repo_bingner.png in Resources */,
 				ABB724A522623BD9006D1416 /* search@3x.png in Resources */,
 				AB7ED0622261EAE100C43D64 /* Assets.xcassets in Resources */,
 				ABB7249D22623772006D1416 /* discover@3x.png in Resources */,
@@ -425,7 +424,6 @@
 				ABB724A122623A6D006D1416 /* installed@3x.png in Resources */,
 				AB4BBB95226309E900C4DC16 /* Documentation.html in Resources */,
 				AB64E8DD2263A96000119FCA /* Library in Resources */,
-				AB372F362264B0590023EC31 /* repo_bigboss.jpg in Resources */,
 				AB7ED0602261EAE000C43D64 /* Main.storyboard in Resources */,
 				ABB724BC22624EAF006D1416 /* iConRound.png in Resources */,
 				ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */,
@@ -571,6 +569,7 @@
 				AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */,
 				AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */,
 				ABB724AC22623DDE006D1416 /* saily_codes_operations_File.swift in Sources */,
+				AB372F3B2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift in Sources */,
 				AB7ED05B2261EAE000C43D64 /* saily_UI_featured_view_controller.swift in Sources */,
 				ABB724B422624AA3006D1416 /* BridgerObjC.m in Sources */,
 				ABB724C322627621006D1416 /* saily_UI_welcome_view_controller.swift in Sources */,
@@ -583,6 +582,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB372F392264BC090023EC31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB4BBB9D22632B1300C4DC16 /* SailyStartupDaemon */;
+			targetProxy = AB372F382264BC090023EC31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AB7ED05E2261EAE000C43D64 /* Main.storyboard */ = {
@@ -736,7 +743,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -791,7 +798,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

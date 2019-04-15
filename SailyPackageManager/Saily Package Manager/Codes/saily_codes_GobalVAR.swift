@@ -27,6 +27,7 @@ var GVAR_behave_app_setting                                  = [String : String]
 
 // This session, contains basic file struct used in Saily Package Manager.
 var GVAR_behave_app_root_file_path                           = ""
+var GVAR_behave_udid_path                                    = ""
 var GVAR_behave_repo_list_file_path                          = ""
 var GVAR_behave_job_quene_submit_path                        = ""
 

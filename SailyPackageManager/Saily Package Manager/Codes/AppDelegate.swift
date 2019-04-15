@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GVAR_behave_app_root_file_path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         GVAR_behave_repo_list_file_path = GVAR_behave_app_root_file_path + "/repo.list"
         GVAR_behave_job_quene_submit_path = GVAR_behave_app_root_file_path + "/quene.submit"
+        GVAR_behave_udid_path = GVAR_behave_app_root_file_path + "/ud.id"
         
         sco_File_make_sure_file_at(path: GVAR_behave_repo_list_file_path, isDirect: false)
         sco_File_make_sure_file_at(path: GVAR_behave_job_quene_submit_path, isDirect: true)
@@ -35,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Init device info
         GVAR_device_info_identifier_human_readable = UIDevice.init_identifier_and_return_human_readable_string
         GVAR_device_info_current_version = UIDevice.current.systemVersion
-        GVAR_device_info_UDID = (try? String.init(contentsOfFile: GVAR_behave_app_root_file_path + "/ud.id")) ?? "?"
+        GVAR_device_info_UDID = (try? String.init(contentsOfFile: GVAR_behave_udid_path)) ?? "?"
         if (GVAR_device_info_UDID == "?" || GVAR_behave_repo_list_instance.count == 0) {
             GVAR_device_info_UDID = ""
             GVAR_behave_should_run_setup = true
