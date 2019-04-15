@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB372F362264B0590023EC31 /* repo_bigboss.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB372F342264B0580023EC31 /* repo_bigboss.jpg */; };
+		AB372F372264B0590023EC31 /* repo_bingner.png in Resources */ = {isa = PBXBuildFile; fileRef = AB372F352264B0590023EC31 /* repo_bingner.png */; };
 		AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */; };
 		AB4BBB732262D2C300C4DC16 /* libMobileGestaltExtensions.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */; };
 		AB4BBB812263094300C4DC16 /* udid.mobileconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB4BBB802263094300C4DC16 /* udid.mobileconfig */; };
@@ -47,6 +49,8 @@
 		6530FC4D348EA3838353E835 /* Pods-Saily Package Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.debug.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.debug.xcconfig"; sourceTree = "<group>"; };
 		90943645C6872145D43A7438 /* Pods-Saily Package Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.release.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.release.xcconfig"; sourceTree = "<group>"; };
 		95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saily_Package_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB372F342264B0580023EC31 /* repo_bigboss.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = repo_bigboss.jpg; sourceTree = "<group>"; };
+		AB372F352264B0590023EC31 /* repo_bingner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repo_bingner.png; sourceTree = "<group>"; };
 		AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
 		AB4BBB702262D0B500C4DC16 /* libMobileGestaltExtensions.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestaltExtensions.tbd; path = usr/lib/libMobileGestaltExtensions.tbd; sourceTree = SDKROOT; };
 		AB4BBB742262D35200C4DC16 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		AB372F332264B0030023EC31 /* defaultRepoImage */ = {
 			isa = PBXGroup;
 			children = (
+				AB372F342264B0580023EC31 /* repo_bigboss.jpg */,
+				AB372F352264B0590023EC31 /* repo_bingner.png */,
 			);
 			path = defaultRepoImage;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB7ED0652261EAE100C43D64 /* LaunchScreen.storyboard in Resources */,
+				AB372F372264B0590023EC31 /* repo_bingner.png in Resources */,
 				ABB724A522623BD9006D1416 /* search@3x.png in Resources */,
 				AB7ED0622261EAE100C43D64 /* Assets.xcassets in Resources */,
 				ABB7249D22623772006D1416 /* discover@3x.png in Resources */,
@@ -418,6 +425,7 @@
 				ABB724A122623A6D006D1416 /* installed@3x.png in Resources */,
 				AB4BBB95226309E900C4DC16 /* Documentation.html in Resources */,
 				AB64E8DD2263A96000119FCA /* Library in Resources */,
+				AB372F362264B0590023EC31 /* repo_bigboss.jpg in Resources */,
 				AB7ED0602261EAE000C43D64 /* Main.storyboard in Resources */,
 				ABB724BC22624EAF006D1416 /* iConRound.png in Resources */,
 				ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */,

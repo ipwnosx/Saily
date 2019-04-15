@@ -26,13 +26,38 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // return cell
         let idCell = "Cell";
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
+        // return name
         var name = default_repos[indexPath.row].split(separator: "/")[1].split(separator: ".")[1].description
         name = name.first!.description.uppercased() + name.dropFirst().description
-        cell.textLabel?.text = name
-        cell.detailTextLabel?.text = default_repos[indexPath.row]
+        if (name == "Thebigboss") {
+            name = "The Big Boss"
+        }
+        // return image
+        var image = UIImage()
+        switch name {
+        case "The Big Boss":
+            image = #imageLiteral(resourceName: "repo_bigboss.jpg")
+        case "Bingner":
+            image = #imageLiteral(resourceName: "repo_bingner.png")
+        default:
+            break
+        }
+        // add image view
+        let cellImg : UIImageView = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
+        cellImg.image = image
+        cellImg.contentMode = .scaleAspectFit
+        cell.addSubview(cellImg)
+        // add label
+        cell.textLabel?.text = "        " + name
+        cell.detailTextLabel?.text = "           " + default_repos[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     @IBOutlet weak var icon: UIImageView!
