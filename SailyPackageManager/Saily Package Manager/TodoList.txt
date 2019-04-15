@@ -1,5 +1,6 @@
 应用启动Delegate:
     1.清除可能致命的.lck和.tmp
+    2.检查更新（Optional）
 
 initVC出现，执行检查:
     1.设置应用沙箱路径                          0.1
