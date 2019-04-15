@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Saily Package Manager/TodoList.txt">
+   </FileRef>
+   <FileRef
       location = "group:Saily Package Manager.xcodeproj">
    </FileRef>
    <FileRef

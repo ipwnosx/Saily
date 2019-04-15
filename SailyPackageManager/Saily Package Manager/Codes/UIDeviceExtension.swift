@@ -13,7 +13,8 @@ public extension UIDevice {
 
     // Detect iOS devices
     // https://stackoverflow.com/questions/26028918/how-to-determine-the-current-iphone-device-model
-    static let modelName: String = {
+    
+    static let init_identifier_and_return_human_readable_string: String = {
         var systemInfo = utsname()
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
@@ -21,10 +22,10 @@ public extension UIDevice {
             guard let value = element.value as? Int8, value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
-        
+        device_info_identifier_human_readable = UIDevice.init_identifier_and_return_human_readable_string
         func mapToDevice(identifier: String) -> String { // swiftlint:disable:this cyclomatic_complexity
+            device_info_identifier = identifier
             #if os(iOS)
-            deviceIdentifier = identifier
             switch identifier {
             case "iPod5,1":                                 return "iPod Touch 5"
             case "iPod7,1":                                 return "iPod Touch 6"
