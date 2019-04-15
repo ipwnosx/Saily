@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+import FLEX
 import SnapKit
 import Alamofire
 
@@ -31,11 +33,7 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
         let idCell = "Cell";
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
         // return name
-        var name = default_repos[indexPath.row].split(separator: "/")[1].split(separator: ".")[1].description
-        name = name.first!.description.uppercased() + name.dropFirst().description
-        if (name == "Thebigboss") {
-            name = "The Big Boss"
-        }
+        let name = sco_repos_link_to_name(link: default_repos[indexPath.row]) 
         // return image
         let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
         cellImg.download(from: URL.init(string: default_repos[indexPath.row] + "/CydiaIcon.png")!, contentMode: .scaleAspectFit, placeholder: nil) { (image) in
@@ -168,7 +166,7 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
             }
         }else{
             // iPad layout
-            
+            FLEXManager.shared()?.showExplorer()
         }
 
     }
