@@ -27,9 +27,6 @@ func initCheck() -> Int {
         }
     }
     
-    //Clean locks.
-    _ = clearAnyLockAndTmp()
-    
     // check if we have escaped sandbox
     try? FileManager.default.createDirectory(atPath: appRootFileSystem, withIntermediateDirectories: false, attributes: nil)
     try? FileManager.default.createDirectory(atPath: appRootFileSystem + "/.bootstrap_test", withIntermediateDirectories: false, attributes: nil)
