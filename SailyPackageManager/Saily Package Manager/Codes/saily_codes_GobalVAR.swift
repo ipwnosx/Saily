@@ -1,5 +1,4 @@
 //
-//  GobalVars.swift
 //  Saily Package Manager
 //
 //  Created by Lakr Aream on 2019/4/15.
@@ -13,38 +12,39 @@ import Alamofire
 import SwiftyJSON
 import SwifterSwift
 
-// This session, variable decide app performance and behave.
-let behave_debug_session_enabled                        = false
-var behave_daemon_loaded                                = false
-var behave_network_available                            = false
-
-// This session, contains basic file struct used in Saily Package Manager.
-var behave_app_root_file_path                           = ""
-var behave_repo_list_file_path                          = ""
-
-// This session, contain file struct.
-var saily_repo_list_instance                            = [String]()
-
-// This session, contains device info for repo request.
-var device_info_UDID                                    = String()
-var device_info_identifier                              = String()
-var device_info_identifier_human_readable               = String()
-var device_info_current_version                         = String()
 
 // This session, #define return status.
 let rts_SUCCESS                                         =  0            // common return value.
 let rts_EPERMIT                                         = -1            // app is not in root with setuid(0) and sandbox escape.
-let rts_EREFRESH                                        = -2            // app is not in root with setuid(0) and sandbox escape.
-let rts_ECONFILCT                                       = -3            // if we don't need to know more, use this one to block operation instead.
-let rts_ECONFILCT_FILE                                  = -4            // the app's document direction contains something wrong... for future use.
-let rts_ECONFILCT_TASK                                  = -5            // when apt or dpkg or may be cydia, is running, so block it for safety reason.
+let rts_EPERM_FILE_LOCK                                 = -2            // the app's document direction contains something wrong... for future use.
+
+// This session, variable decide app performance and behave.
+let GVAR_behave_debug_session_enabled                        = false
+var GVAR_behave_daemon_loaded                                = false
+var GVAR_behave_network_available                            = false
+var GVAR_behave_should_run_setup                             = false
+var GVAR_behave_app_setting                                  = [String : String]()
+
+// This session, contains basic file struct used in Saily Package Manager.
+var GVAR_behave_app_root_file_path                           = ""
+var GVAR_behave_repo_list_file_path                          = ""
+var GVAR_behave_job_quene_submit_path                        = ""
+
+// This session, contain file struct.
+var GVAR_behave_repo_list_instance                           = [String]()
+
+// This session, contains device info for repo request.
+var GVAR_device_info_UDID                                    = String()
+var GVAR_device_info_identifier                              = String()
+var GVAR_device_info_identifier_human_readable               = String()
+var GVAR_device_info_current_version                         = String()
 
 // This session, handling the repo operations.
-let repo_operations_quene                               = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.repo.operation.refresh",
+let GCD_repo_operations_quene                                = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.repo.operation.refresh",
                                                                         qos: .utility, attributes: .concurrent)
-let network_operations_quene                            = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.network.operations",
+let GCD_network_operations_quene                             = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.network.operations",
                                                                         qos: .utility, attributes: .concurrent)
-let watch_dogs_control_quene                            = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.watchDogs",
+let GCD_watch_dogs_control_quene                             = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.watchDogs",
                                                                         qos: .utility, attributes: .concurrent)
 
 // This session, is for bridge call to Obj-C and future call to c.

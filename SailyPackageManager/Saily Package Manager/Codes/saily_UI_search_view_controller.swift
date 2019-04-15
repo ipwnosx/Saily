@@ -1,5 +1,4 @@
 //
-//  searchViewController.swift
 //  
 //
 //  Created by Lakr Aream on 2019/4/13.
@@ -7,7 +6,7 @@
 
 import UIKit
 
-class searchViewController: UIViewController, UISearchResultsUpdating {
+class saily_UI_search_view_controller: UIViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
     }

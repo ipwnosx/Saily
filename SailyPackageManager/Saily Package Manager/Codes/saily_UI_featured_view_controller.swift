@@ -1,5 +1,4 @@
 //
-//  FirstViewController.swift
 //  Saily Package Manager
 //
 //  Created by Lakr Aream on 2019/4/13.
@@ -8,7 +7,7 @@
 
 import UIKit
 
-class featuredViewController: UIViewController {
+class saily_UI_featured_view_controller: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

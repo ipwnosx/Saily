@@ -26,29 +26,6 @@
     notify_post([Str UTF8String]);
 }
 
-- (BOOL)has_tfp0_over_HSP4 {
-    kern_return_t kErr;
-    mach_port_t tfp0;
-    kErr = host_get_special_port(mach_host_self(), 0, 4, &tfp0);
-    if (kErr == KERN_SUCCESS && MACH_PORT_VALID(tfp0)) {
-        return true;
-    }else{
-        return false;
-    }
-}
-
-- (void)setMyUID0 {
-    setuid(0);
-}
-
-- (BOOL)isInRoot {
-    if (getuid() == 0) {
-        return YES;
-    }else{
-        return NO;
-    }
-}
-
 // https://stackoverflow.com/questions/3184235/how-to-redirect-the-nslog-output-to-file-instead-of-console
 - (void) redirectConsoleLogToDocumentFolder {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,

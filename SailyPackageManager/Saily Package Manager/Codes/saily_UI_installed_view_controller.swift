@@ -1,5 +1,4 @@
 //
-//  installedViewController.swift
 //  Saily Package Manager
 //
 //  Created by Lakr Aream on 2019/4/13.
@@ -8,7 +7,7 @@
 
 import UIKit
 
-class installedViewController: UIViewController, UISearchResultsUpdating {
+class saily_UI_installed_view_controller: UIViewController, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         

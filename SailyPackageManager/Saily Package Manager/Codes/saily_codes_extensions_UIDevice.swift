@@ -1,5 +1,4 @@
 //
-//  UIDeviceExtension.swift
 //  Saily Package Manager
 //
 //  Created by Lakr Aream on 2019/4/15.
@@ -22,9 +21,8 @@ public extension UIDevice {
             guard let value = element.value as? Int8, value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
-        device_info_identifier_human_readable = UIDevice.init_identifier_and_return_human_readable_string
         func mapToDevice(identifier: String) -> String { // swiftlint:disable:this cyclomatic_complexity
-            device_info_identifier = identifier
+            GVAR_device_info_identifier = identifier
             #if os(iOS)
             switch identifier {
             case "iPod5,1":                                 return "iPod Touch 5"

@@ -21,9 +21,9 @@
 		AB64E8DD2263A96000119FCA /* Library in Resources */ = {isa = PBXBuildFile; fileRef = AB64E8DC2263A96000119FCA /* Library */; };
 		AB64E9072263C50100119FCA /* saily_codes_extensions_UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64E9062263C50100119FCA /* saily_codes_extensions_UIDevice.swift */; };
 		AB64E9092263C53900119FCA /* saily_codes_GobalVAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64E9082263C53900119FCA /* saily_codes_GobalVAR.swift */; };
+		AB64E90C2264936900119FCA /* saily_UI_repos_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64E90B2264936900119FCA /* saily_UI_repos_view_controller.swift */; };
 		AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED0582261EADF00C43D64 /* AppDelegate.swift */; };
 		AB7ED05B2261EAE000C43D64 /* saily_UI_featured_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05A2261EAE000C43D64 /* saily_UI_featured_view_controller.swift */; };
-		AB7ED05D2261EAE000C43D64 /* saily_UI_repos_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7ED05C2261EAE000C43D64 /* saily_UI_repos_view_controller.swift */; };
 		AB7ED0602261EAE000C43D64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7ED05E2261EAE000C43D64 /* Main.storyboard */; };
 		AB7ED0622261EAE100C43D64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB7ED0612261EAE100C43D64 /* Assets.xcassets */; };
 		AB7ED0652261EAE100C43D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7ED0632261EAE100C43D64 /* LaunchScreen.storyboard */; };
@@ -39,7 +39,7 @@
 		ABB724BA22624E0B006D1416 /* iCon.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB724B922624E0B006D1416 /* iCon.png */; };
 		ABB724BC22624EAF006D1416 /* iConRound.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB724BB22624EAF006D1416 /* iConRound.png */; };
 		ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB724BF22626FBA006D1416 /* Comfortaa[wght].ttf */; };
-		ABB724C322627621006D1416 /* saily_UI_udid_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB724C222627621006D1416 /* saily_UI_udid_view_controller.swift */; };
+		ABB724C322627621006D1416 /* saily_UI_welcome_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB724C222627621006D1416 /* saily_UI_welcome_view_controller.swift */; };
 		B62EDB931A4AFF87C3F8FDF5 /* Pods_Saily_Package_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,10 +77,10 @@
 		AB64E8E32263B02100119FCA /* preinst */ = {isa = PBXFileReference; lastKnownFileType = text; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
 		AB64E9062263C50100119FCA /* saily_codes_extensions_UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_extensions_UIDevice.swift; sourceTree = "<group>"; };
 		AB64E9082263C53900119FCA /* saily_codes_GobalVAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_GobalVAR.swift; sourceTree = "<group>"; };
+		AB64E90B2264936900119FCA /* saily_UI_repos_view_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_repos_view_controller.swift; sourceTree = "<group>"; };
 		AB7ED0552261EADF00C43D64 /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7ED0582261EADF00C43D64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB7ED05A2261EAE000C43D64 /* saily_UI_featured_view_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_featured_view_controller.swift; sourceTree = "<group>"; };
-		AB7ED05C2261EAE000C43D64 /* saily_UI_repos_view_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_repos_view_controller.swift; sourceTree = "<group>"; };
 		AB7ED05F2261EAE000C43D64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB7ED0612261EAE100C43D64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB7ED0642261EAE100C43D64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		ABB724B922624E0B006D1416 /* iCon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iCon.png; path = ../../../Artwork/iCon.png; sourceTree = "<group>"; };
 		ABB724BB22624EAF006D1416 /* iConRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iConRound.png; path = ../../../Artwork/iConRound.png; sourceTree = "<group>"; };
 		ABB724BF22626FBA006D1416 /* Comfortaa[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa[wght].ttf"; sourceTree = "<group>"; };
-		ABB724C222627621006D1416 /* saily_UI_udid_view_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_udid_view_controller.swift; sourceTree = "<group>"; };
+		ABB724C222627621006D1416 /* saily_UI_welcome_view_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_welcome_view_controller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +140,13 @@
 				90943645C6872145D43A7438 /* Pods-Saily Package Manager.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AB372F332264B0030023EC31 /* defaultRepoImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = defaultRepoImage;
 			sourceTree = "<group>";
 		};
 		AB4BBB82226309C100C4DC16 /* SFWebServer */ = {
@@ -217,6 +224,16 @@
 			name = bin;
 			sourceTree = "<group>";
 		};
+		AB64E90A226490AF00119FCA /* SupportingFile */ = {
+			isa = PBXGroup;
+			children = (
+				AB4BBB8F226309E900C4DC16 /* CocoaAsyncSocket */,
+				AB4BBB82226309C100C4DC16 /* SFWebServer */,
+				AB4BBB742262D35200C4DC16 /* MobileGestalt.h */,
+			);
+			path = SupportingFile;
+			sourceTree = "<group>";
+		};
 		AB7ED04C2261EADF00C43D64 = {
 			isa = PBXGroup;
 			children = (
@@ -256,19 +273,17 @@
 		ABB7249622623665006D1416 /* Codes */ = {
 			isa = PBXGroup;
 			children = (
-				AB4BBB8F226309E900C4DC16 /* CocoaAsyncSocket */,
-				AB4BBB82226309C100C4DC16 /* SFWebServer */,
-				ABB724B122624A51006D1416 /* Bridger */,
+				ABB724B122624A51006D1416 /* Objective-C */,
 				AB7ED0582261EADF00C43D64 /* AppDelegate.swift */,
 				AB64E9082263C53900119FCA /* saily_codes_GobalVAR.swift */,
 				ABB724AB22623DDE006D1416 /* saily_codes_operations_File.swift */,
 				AB64E9062263C50100119FCA /* saily_codes_extensions_UIDevice.swift */,
 				ABB724A922623D8F006D1416 /* saily_UI_init_view_controller.swift */,
 				AB7ED05A2261EAE000C43D64 /* saily_UI_featured_view_controller.swift */,
-				AB7ED05C2261EAE000C43D64 /* saily_UI_repos_view_controller.swift */,
+				AB64E90B2264936900119FCA /* saily_UI_repos_view_controller.swift */,
 				ABB724A222623AC7006D1416 /* saily_UI_installed_view_controller.swift */,
 				ABB724AF22624A28006D1416 /* saily_UI_search_view_controller.swift */,
-				ABB724C222627621006D1416 /* saily_UI_udid_view_controller.swift */,
+				ABB724C222627621006D1416 /* saily_UI_welcome_view_controller.swift */,
 			);
 			path = Codes;
 			sourceTree = "<group>";
@@ -276,6 +291,7 @@
 		ABB724972262366B006D1416 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB372F332264B0030023EC31 /* defaultRepoImage */,
 				ABB724B922624E0B006D1416 /* iCon.png */,
 				ABB724BB22624EAF006D1416 /* iConRound.png */,
 				ABB7249C22623772006D1416 /* discover@3x.png */,
@@ -286,15 +302,15 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		ABB724B122624A51006D1416 /* Bridger */ = {
+		ABB724B122624A51006D1416 /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				AB4BBB742262D35200C4DC16 /* MobileGestalt.h */,
+				AB64E90A226490AF00119FCA /* SupportingFile */,
 				ABB724B322624AA3006D1416 /* BridgerObjC.m */,
 				ABB724B822624B40006D1416 /* BridgerObjC.h */,
 				ABB724B222624AA3006D1416 /* Saily Package Manager-Bridging-Header.h */,
 			);
-			name = Bridger;
+			name = "Objective-C";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,7 +556,7 @@
 			files = (
 				ABB724B022624A28006D1416 /* saily_UI_search_view_controller.swift in Sources */,
 				AB4BBB8D226309C100C4DC16 /* SFWebServerRespone.m in Sources */,
-				AB7ED05D2261EAE000C43D64 /* saily_UI_repos_view_controller.swift in Sources */,
+				AB64E90C2264936900119FCA /* saily_UI_repos_view_controller.swift in Sources */,
 				AB4BBB8B226309C100C4DC16 /* SFWebServerRequest.m in Sources */,
 				AB4BBB96226309E900C4DC16 /* GCDAsyncUdpSocket.m in Sources */,
 				AB64E9092263C53900119FCA /* saily_codes_GobalVAR.swift in Sources */,
@@ -549,7 +565,7 @@
 				ABB724AC22623DDE006D1416 /* saily_codes_operations_File.swift in Sources */,
 				AB7ED05B2261EAE000C43D64 /* saily_UI_featured_view_controller.swift in Sources */,
 				ABB724B422624AA3006D1416 /* BridgerObjC.m in Sources */,
-				ABB724C322627621006D1416 /* saily_UI_udid_view_controller.swift in Sources */,
+				ABB724C322627621006D1416 /* saily_UI_welcome_view_controller.swift in Sources */,
 				ABB724AA22623D8F006D1416 /* saily_UI_init_view_controller.swift in Sources */,
 				AB4BBB8C226309C100C4DC16 /* SFWebServer.m in Sources */,
 				AB64E9072263C50100119FCA /* saily_codes_extensions_UIDevice.swift in Sources */,

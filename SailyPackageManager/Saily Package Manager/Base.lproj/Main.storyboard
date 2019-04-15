@@ -15,131 +15,62 @@
         </array>
     </customFonts>
     <scenes>
-        <!--⁠ 🌸⁠ Featured.-->
+        <!--Discover-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="featuredViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="featuredViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="saily_UI_featured_view_controller_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="saily_UI_featured_view_controller" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="featuredViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="10" y="384.66666666666669" width="355" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by featuredViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="77" y="435.66666666666669" width="221" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" title="⁠ 🌸⁠ Featured." id="Nuq-X1-p4F"/>
+                    <navigationItem key="navigationItem" title="Discover" id="Nuq-X1-p4F"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1615" y="-781"/>
         </scene>
-        <!--⁠ 🌍⁠ Sources-->
-        <scene sceneID="wg7-f3-ORb">
+        <!--Repos-->
+        <scene sceneID="0uB-Mg-AEe">
             <objects>
-                <viewController storyboardIdentifier="sourcesViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="sourcesViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                <tableViewController storyboardIdentifier="saily_UI_repos_view_controller_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RZC-lM-7Va" customClass="saily_UI_repos_view_controller" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gpt-Uj-uJC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="sourcesViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="14.666666666666657" y="384.66666666666669" width="346" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by sourcesViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="79" y="435.66666666666669" width="217" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="87B-XE-0OD">
-                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Mqa-Q0-zaS">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mqa-Q0-zaS" id="dx5-ro-Ujy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="87B-XE-0OD" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="4KK-Gb-Mtq"/>
-                            <constraint firstItem="87B-XE-0OD" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="AxN-mf-kAI"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="87B-XE-0OD" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="F4I-ce-vSn"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstItem="87B-XE-0OD" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="pUb-K9-mZn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="⁠ 🌍⁠ Sources" id="9Uw-ON-i2f"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7hl-6K-Rgc">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7hl-6K-Rgc" id="zRT-92-SWN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RZC-lM-7Va" id="9iq-gP-AGJ"/>
+                            <outlet property="delegate" destination="RZC-lM-7Va" id="iOn-74-ZcY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Repos" id="0p4-Wt-igC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mea-qz-gjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613.5999999999999" y="-89.408866995073893"/>
+            <point key="canvasLocation" x="1614" y="-89"/>
         </scene>
-        <!--⁠ 📦⁠ Installed.-->
+        <!--Installed-->
         <scene sceneID="CsP-Fd-ecq">
             <objects>
-                <viewController storyboardIdentifier="installedViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rer-V2-NAk" customClass="installedViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="saily_UI_installed_view_controller_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rer-V2-NAk" customClass="saily_UI_installed_view_controller" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kPK-g5-ih3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="installedViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QRl-24-9Ax">
-                                <rect key="frame" x="10" y="384.66666666666669" width="355" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by installedViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pao-n0-5Pt">
-                                <rect key="frame" x="77" y="435.66666666666669" width="221" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Pao-n0-5Pt" firstAttribute="top" secondItem="QRl-24-9Ax" secondAttribute="bottom" constant="8" symbolic="YES" id="QBe-Ws-lRq"/>
-                            <constraint firstItem="QRl-24-9Ax" firstAttribute="centerX" secondItem="kPK-g5-ih3" secondAttribute="centerX" id="Txn-Ak-n66"/>
-                            <constraint firstItem="Pao-n0-5Pt" firstAttribute="centerX" secondItem="kPK-g5-ih3" secondAttribute="centerX" id="as6-xP-vjm"/>
-                            <constraint firstItem="Pao-n0-5Pt" firstAttribute="centerX" secondItem="QRl-24-9Ax" secondAttribute="centerX" id="nh5-5P-on6"/>
-                            <constraint firstItem="QRl-24-9Ax" firstAttribute="centerY" secondItem="kPK-g5-ih3" secondAttribute="centerY" id="qKR-qf-ma5"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8hd-pG-qou"/>
                     </view>
-                    <navigationItem key="navigationItem" title="⁠ 📦⁠ Installed." id="Z1j-ak-wIC"/>
+                    <navigationItem key="navigationItem" title="Installed" id="Z1j-ak-wIC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ww9-vV-MdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,33 +79,11 @@
         <!--⁠ 🔍⁠ Search-->
         <scene sceneID="JQ2-mM-mRe">
             <objects>
-                <viewController storyboardIdentifier="searchViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKc-tZ-u9G" customClass="searchViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="saily_UI_search_view_controller_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FKc-tZ-u9G" customClass="saily_UI_search_view_controller" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3nO-ym-ZBe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="searchViewController" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XYZ-nK-M0u">
-                                <rect key="frame" x="23.666666666666657" y="384.66666666666669" width="328" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by searchViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l5-zY-1fF">
-                                <rect key="frame" x="83" y="435.66666666666669" width="209" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="XYZ-nK-M0u" firstAttribute="centerY" secondItem="3nO-ym-ZBe" secondAttribute="centerY" id="3Lf-2m-1W5"/>
-                            <constraint firstItem="6l5-zY-1fF" firstAttribute="centerX" secondItem="XYZ-nK-M0u" secondAttribute="centerX" id="aON-oX-7yh"/>
-                            <constraint firstItem="6l5-zY-1fF" firstAttribute="centerX" secondItem="3nO-ym-ZBe" secondAttribute="centerX" id="mXb-9s-dn0"/>
-                            <constraint firstItem="XYZ-nK-M0u" firstAttribute="centerX" secondItem="3nO-ym-ZBe" secondAttribute="centerX" id="vuo-zD-mGy"/>
-                            <constraint firstItem="6l5-zY-1fF" firstAttribute="top" secondItem="XYZ-nK-M0u" secondAttribute="bottom" constant="8" symbolic="YES" id="wlP-wc-Tfa"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Nxf-FO-HZ4"/>
                     </view>
                     <navigationItem key="navigationItem" title="⁠ 🔍⁠ Search" id="gtq-DU-Ph6"/>
@@ -183,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="1614" y="1338"/>
         </scene>
-        <!--TabbarVC Entry-->
+        <!--SailyUI tabbar init er-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="tabbarVCEntry_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="tabbarVCEntry" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="saily_UI_tabbar_init_er_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="saily_UI_tabbar_init_er" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -203,20 +112,14 @@
             </objects>
             <point key="canvasLocation" x="-130" y="10"/>
         </scene>
-        <!--Init View Controller-->
+        <!--SailyUI init view controller-->
         <scene sceneID="BJo-zb-ZUh">
             <objects>
-                <viewController storyboardIdentifier="initViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1jl-e6-JuJ" customClass="initViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="saily_UI_init_view_controller_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1jl-e6-JuJ" customClass="saily_UI_init_view_controller" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gne-Kq-qcc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KoI-ft-z5Q">
-                                <rect key="frame" x="71" y="453" width="233" height="2"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="233" id="TIe-L3-D5O"/>
-                                </constraints>
-                            </progressView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConRound.png" translatesAutoresizingMaskIntoConstraints="NO" id="3IQ-8Y-jSg">
                                 <rect key="frame" x="137.66666666666666" y="296" width="100" height="100"/>
                                 <constraints>
@@ -265,8 +168,6 @@
                             <constraint firstItem="fmn-nZ-612" firstAttribute="bottom" secondItem="eTG-sh-lYm" secondAttribute="bottom" constant="50" id="Nce-84-k0Z"/>
                             <constraint firstItem="odw-Pi-eeN" firstAttribute="centerY" secondItem="Gne-Kq-qcc" secondAttribute="centerY" constant="15" id="Pdo-pw-2Gv"/>
                             <constraint firstItem="SMG-lm-hcD" firstAttribute="top" secondItem="SGh-Pe-by3" secondAttribute="bottom" constant="15" id="RgZ-NN-UYb"/>
-                            <constraint firstItem="KoI-ft-z5Q" firstAttribute="centerY" secondItem="Gne-Kq-qcc" secondAttribute="centerY" constant="48" id="UoL-GA-GBb"/>
-                            <constraint firstItem="KoI-ft-z5Q" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="bIY-vm-Uzy"/>
                             <constraint firstItem="3IQ-8Y-jSg" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="dFw-6b-xBz"/>
                             <constraint firstItem="odw-Pi-eeN" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="nmo-3u-G3R"/>
                             <constraint firstItem="eTG-sh-lYm" firstAttribute="centerX" secondItem="Gne-Kq-qcc" secondAttribute="centerX" id="sI9-Vk-kat"/>
@@ -274,187 +175,131 @@
                         <viewLayoutGuide key="safeArea" id="fmn-nZ-612"/>
                     </view>
                     <connections>
-                        <outlet property="mainProgressBar" destination="KoI-ft-z5Q" id="F8P-Uh-ABG"/>
                         <outlet property="tipLabel" destination="SMG-lm-hcD" id="HZH-n5-qBW"/>
                         <outlet property="tipSubLabel" destination="eTG-sh-lYm" id="yNs-Hv-k4T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcE-Ee-agH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2223" y="0.0"/>
+            <point key="canvasLocation" x="-1727" y="10"/>
         </scene>
-        <!--View Controller-->
+        <!--SailyUI welcome view controller-->
         <scene sceneID="RjA-pF-lt8">
             <objects>
-                <viewController storyboardIdentifier="UDIDViewController_StoryBoard_REG_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hts-4v-Idv" customClass="UDIDViewController" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="saily_UI_welcome_view_controller_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hts-4v-Idv" customClass="saily_UI_welcome_view_controller" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xhR-kr-1z6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iConRound.png" translatesAutoresizingMaskIntoConstraints="NO" id="AK6-J2-Orl">
-                                <rect key="frame" x="8" y="92" width="88" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="0Ru-Vv-N6f"/>
-                                    <constraint firstAttribute="width" constant="88" id="o1s-97-M7U"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iConRound.png" translatesAutoresizingMaskIntoConstraints="NO" id="AK6-J2-Orl">
+                                <rect key="frame" x="8" y="110" width="88" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-uU-5aD">
-                                <rect key="frame" x="104" y="110" width="172" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-uU-5aD">
+                                <rect key="frame" x="104" y="130" width="172" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="29"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saily Package Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-FU-zv5">
-                                <rect key="frame" x="105" y="149" width="207" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saily Package Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-FU-zv5">
+                                <rect key="frame" x="105" y="169" width="207" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sr-Kv-8ut">
-                                <rect key="frame" x="106" y="719" width="163" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Continue With UDID"/>
-                                <connections>
-                                    <action selector="readUDID:" destination="hts-4v-Idv" eventType="touchUpInside" id="Eq4-8E-Nqj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38x-Je-SGB">
-                                <rect key="frame" x="113.66666666666669" y="693" width="148" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="Continue Without Real UDID">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipUDID:" destination="hts-4v-Idv" eventType="touchUpInside" id="eUQ-dz-8Kc"/>
-                                </connections>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="our-Nh-Pdt">
-                                <rect key="frame" x="0.0" y="198" width="375" height="487"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We do care about your privacy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSh-Ue-B83">
-                                        <rect key="frame" x="27" y="8.0000000000000018" width="287" height="26.666666666666671"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="26.5" id="5u2-5x-hZf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Blq-5r-uQM">
-                                        <rect key="frame" x="27" y="72" width="321" height="180"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="180" id="1H8-5h-rT2"/>
-                                        </constraints>
-                                        <string key="text">Each iPhone or iPod Touch has a Unique Device Identifier (UDID), which is a sequence of 40 letters and numbers that is specific to your device. It's like a serial number but much harder to guess. 
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xo4-dA-lYo">
+                                <rect key="frame" x="27" y="236" width="269" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">The following info is required when setup.
 
-It will look something like this: 2b6f0cc904d137be2e1730235f5664094b831186</string>
-                                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U1t-fY-Dpb">
-                                        <rect key="frame" x="27" y="289.66666666666669" width="321" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="iGS-db-n3Q"/>
-                                        </constraints>
-                                        <string key="text">We will save it in a text file in our app's document folder. Don't worry, non-jailbroken app won't be able to access it. Then, you can enjoy your purchases
- like you did in Cydia.</string>
-                                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- What is UDID ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AX9-fO-r3d">
-                                        <rect key="frame" x="27" y="42.666666666666657" width="121" height="21.333333333333329"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21.5" id="R3r-VM-Inl"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- What would happen if I do ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGv-nB-0fJ">
-                                        <rect key="frame" x="27" y="260" width="213" height="21.666666666666686"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21.5" id="IlJ-53-IIP"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- What would happen if I don't do ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-Ot-edP">
-                                        <rect key="frame" x="27" y="397.66666666666663" width="254" height="21.333333333333314"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21.5" id="9L5-wn-EcN"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21.329999999999998" id="g6p-es-hbD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dYi-hB-xGd">
-                                        <rect key="frame" x="27" y="427" width="321" height="120"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="w4Q-51-rRO"/>
-                                        </constraints>
-                                        <string key="text">We will generate a random one as it is required by some of the repo's servers. You can not buy any tweaks or enjoy the tweak you have brought. But it's fine cause Saily Package Manager doesn't require them.</string>
-                                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="fGv-nB-0fJ" firstAttribute="top" secondItem="Blq-5r-uQM" secondAttribute="bottom" constant="8" id="48a-Mm-qb6"/>
-                                    <constraint firstItem="AX9-fO-r3d" firstAttribute="leading" secondItem="our-Nh-Pdt" secondAttribute="leading" constant="27" id="5BP-py-MRt"/>
-                                    <constraint firstAttribute="bottom" secondItem="dYi-hB-xGd" secondAttribute="bottom" constant="-12" id="98e-kG-KJq"/>
-                                    <constraint firstItem="U1t-fY-Dpb" firstAttribute="top" secondItem="fGv-nB-0fJ" secondAttribute="bottom" constant="8" id="9tg-zt-exv"/>
-                                    <constraint firstAttribute="trailing" secondItem="U1t-fY-Dpb" secondAttribute="trailing" constant="36" id="BSy-9X-LiM"/>
-                                    <constraint firstItem="zDY-Ot-edP" firstAttribute="leading" secondItem="our-Nh-Pdt" secondAttribute="leading" constant="27" id="Exz-cf-FWk"/>
-                                    <constraint firstItem="fGv-nB-0fJ" firstAttribute="leading" secondItem="our-Nh-Pdt" secondAttribute="leading" constant="27" id="IcG-9x-YDS"/>
-                                    <constraint firstItem="Blq-5r-uQM" firstAttribute="leading" secondItem="our-Nh-Pdt" secondAttribute="leading" constant="27" id="Jjt-b5-bVQ"/>
-                                    <constraint firstItem="OSh-Ue-B83" firstAttribute="leading" secondItem="our-Nh-Pdt" secondAttribute="leading" constant="27" id="MJ1-E3-F07"/>
-                                    <constraint firstItem="zDY-Ot-edP" firstAttribute="top" secondItem="U1t-fY-Dpb" secondAttribute="bottom" constant="8" id="exF-fZ-q1j"/>
-                                    <constraint firstItem="dYi-hB-xGd" firstAttribute="top" secondItem="zDY-Ot-edP" secondAttribute="bottom" constant="8" id="iGP-3p-5Rg"/>
-                                    <constraint firstItem="AX9-fO-r3d" firstAttribute="top" secondItem="OSh-Ue-B83" secondAttribute="bottom" constant="8" id="kmR-6H-cnS"/>
-                                    <constraint firstAttribute="trailing" secondItem="Blq-5r-uQM" secondAttribute="trailing" constant="36" id="mIQ-py-0sI"/>
-                                    <constraint firstItem="OSh-Ue-B83" firstAttribute="top" secondItem="our-Nh-Pdt" secondAttribute="top" constant="8" id="pr0-zk-Klz"/>
-                                    <constraint firstItem="dYi-hB-xGd" firstAttribute="leading" secondItem="our-Nh-Pdt" secondAttribute="leading" constant="27" id="q7K-Dm-kVe"/>
-                                    <constraint firstItem="U1t-fY-Dpb" firstAttribute="leading" secondItem="our-Nh-Pdt" secondAttribute="leading" constant="27" id="tfN-KP-OHm"/>
-                                    <constraint firstItem="Blq-5r-uQM" firstAttribute="top" secondItem="AX9-fO-r3d" secondAttribute="bottom" constant="8" id="uOP-IE-agA"/>
-                                    <constraint firstItem="Blq-5r-uQM" firstAttribute="centerX" secondItem="our-Nh-Pdt" secondAttribute="centerX" id="ucw-LO-o4k"/>
-                                    <constraint firstAttribute="trailing" secondItem="dYi-hB-xGd" secondAttribute="trailing" constant="36" id="yLr-8l-57Z"/>
-                                </constraints>
-                            </scrollView>
+Once the info is filled completely, 
+We will continue the process to Saily.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UDID is required by repo servers." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htm-9M-1md">
+                                <rect key="frame" x="28" y="329" width="252.66666666666663" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="40 numerics or letters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIo-68-D6w">
+                                <rect key="frame" x="27" y="358" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsF-Gl-AXd">
+                                <rect key="frame" x="28" y="396" width="73" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Generate One">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJT-cQ-aAe">
+                                <rect key="frame" x="109" y="396" width="203" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="[Recommend] Get UDID From Device">
+                                    <color key="titleColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X3X-GM-y8y">
+                                <rect key="frame" x="28" y="509" width="287" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gNP-OX-Dyb" customClass="theCell" customModule="Saily_Package_Manager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="287" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gNP-OX-Dyb" id="ZT3-KX-24J">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add following repoos to Saily." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCd-EA-iHn">
+                                <rect key="frame" x="28" y="445" width="225" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You must have one repo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnF-9G-eeA">
+                                <rect key="frame" x="27" y="471" width="239" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="zcN-uU-5aD" firstAttribute="leading" secondItem="AK6-J2-Orl" secondAttribute="trailing" constant="8" id="0AS-hc-KbL"/>
-                            <constraint firstItem="nnA-FU-zv5" firstAttribute="top" secondItem="zcN-uU-5aD" secondAttribute="bottom" constant="6" id="3C9-gG-dyn"/>
-                            <constraint firstItem="7sr-Kv-8ut" firstAttribute="centerX" secondItem="xhR-kr-1z6" secondAttribute="centerX" id="6Mn-qL-eob"/>
-                            <constraint firstItem="AK6-J2-Orl" firstAttribute="leading" secondItem="rup-UA-Oq8" secondAttribute="leading" constant="8" identifier="leftC" id="6wZ-5g-BpZ"/>
-                            <constraint firstItem="zcN-uU-5aD" firstAttribute="top" secondItem="rup-UA-Oq8" secondAttribute="top" constant="66" id="8Pp-uT-bRd"/>
-                            <constraint firstItem="AK6-J2-Orl" firstAttribute="top" secondItem="rup-UA-Oq8" secondAttribute="top" constant="48" id="DbT-XW-H57"/>
-                            <constraint firstItem="nnA-FU-zv5" firstAttribute="leading" secondItem="AK6-J2-Orl" secondAttribute="trailing" constant="9" id="Dge-pD-fke"/>
-                            <constraint firstItem="7sr-Kv-8ut" firstAttribute="top" secondItem="38x-Je-SGB" secondAttribute="bottom" id="Mos-4I-YDo"/>
-                            <constraint firstItem="rup-UA-Oq8" firstAttribute="bottom" secondItem="7sr-Kv-8ut" secondAttribute="bottom" constant="25" id="MsX-eP-jqh"/>
-                            <constraint firstItem="our-Nh-Pdt" firstAttribute="leading" secondItem="xhR-kr-1z6" secondAttribute="leading" id="SIM-kB-syw"/>
-                            <constraint firstItem="38x-Je-SGB" firstAttribute="top" secondItem="our-Nh-Pdt" secondAttribute="bottom" constant="8" id="Tis-ex-KrJ"/>
-                            <constraint firstItem="our-Nh-Pdt" firstAttribute="top" secondItem="AK6-J2-Orl" secondAttribute="bottom" constant="18" id="ZLX-u7-Gc4"/>
-                            <constraint firstItem="our-Nh-Pdt" firstAttribute="centerX" secondItem="38x-Je-SGB" secondAttribute="centerX" id="dp6-y8-1h9"/>
-                            <constraint firstItem="38x-Je-SGB" firstAttribute="centerX" secondItem="xhR-kr-1z6" secondAttribute="centerX" id="hpz-jr-JLD"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rup-UA-Oq8"/>
                     </view>
                     <connections>
-                        <outlet property="contentOfInfo" destination="our-Nh-Pdt" id="chv-Rv-FMu"/>
-                        <outlet property="leftC" destination="6wZ-5g-BpZ" id="exQ-kb-24s"/>
+                        <outlet property="big_title" destination="zcN-uU-5aD" id="VFo-QR-VXm"/>
+                        <outlet property="generate_button" destination="jsF-Gl-AXd" id="Bee-HU-l3O"/>
+                        <outlet property="get_button" destination="SJT-cQ-aAe" id="O2Q-tU-8KX"/>
+                        <outlet property="icon" destination="AK6-J2-Orl" id="SiC-Rf-IS6"/>
+                        <outlet property="query_text" destination="xo4-dA-lYo" id="XaC-Z2-vc5"/>
+                        <outlet property="repo_sub_title" destination="cnF-9G-eeA" id="LeD-zi-fQm"/>
+                        <outlet property="repo_title" destination="NCd-EA-iHn" id="x6K-BK-TIW"/>
+                        <outlet property="small_title" destination="nnA-FU-zv5" id="sdi-iZ-600"/>
+                        <outlet property="table_view" destination="X3X-GM-y8y" id="DzJ-9w-VzM"/>
+                        <outlet property="udid_text_field" destination="fIo-68-D6w" id="Fy2-WR-50z"/>
+                        <outlet property="udid_tip_title" destination="Htm-9M-1md" id="8sP-Zg-xVU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WeZ-ZV-IQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1415" y="0.0"/>
+            <point key="canvasLocation" x="-919.20000000000005" y="9.6059113300492616"/>
         </scene>
         <!--Featured-->
         <scene sceneID="61E-VO-btV">
@@ -503,7 +348,7 @@ It will look something like this: 2b6f0cc904d137be2e1730235f5664094b831186</stri
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="9Mc-Zl-0E9"/>
+                        <segue destination="RZC-lM-7Va" kind="relationship" relationship="rootViewController" id="0wY-8u-9F4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLm-xt-ANO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -516,8 +361,8 @@ It will look something like this: 2b6f0cc904d137be2e1730235f5664094b831186</stri
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2kn-YT-80k" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Packages" image="installed.png" id="oYV-T5-leu"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="pkw-E0-Z5F">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pkw-E0-Z5F">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="17"/>

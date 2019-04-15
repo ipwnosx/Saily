@@ -14,12 +14,9 @@
 @interface SailyCommonObject : NSObject
 
 - (void)testCall;
-- (BOOL)has_tfp0_over_HSP4;
-- (BOOL)isInRoot;
-- (void)setMyUID0;
+- (void)callToDaemonWith:(NSString *)Str;
 - (void)redirectConsoleLogToDocumentFolder;
 - (void)doUDID:(NSString *)UDIDSavePath;
-- (void)callToDaemonWith:(NSString *)Str;
 
 @end
 
