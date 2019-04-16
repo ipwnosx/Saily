@@ -14,8 +14,23 @@ class saily_UI_repos_view_controller: UITableViewController {
 
         self.clearsSelectionOnViewWillAppear = true
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+        refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshControl?.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl?.attributedTitle = NSAttributedString(string: "Reload data?", attributes: nil)
 
+    }
+    
+    @objc private func refreshData(_ sender: Any) {
+        // Fetch Weather Data
+        self.tableView.reloadData {
+            DispatchQueue.main.async {
+                self.tableView.refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,6 +112,30 @@ class saily_UI_repos_view_controller: UITableViewController {
         return true
     }
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        if (indexPath.row == 0) {
+            self.tableView.endEditing(true)
+            let alert = UIAlertController(title: "Add Repo", message: "Leave it blank also means to cancel.", preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.text = "https://"
+                textField.placeholder = "Here -> repo's address."
+            }
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                let textField = alert?.textFields![0]
+                guard var text = textField?.text else {
+                    return
+                }
+                if (!text.hasSuffix("/")) {
+                    text += "/"
+                }
+                GVAR_behave_repo_list_instance.append(text)
+                sco_repos_resave_repo_list()
+                self.tableView.reloadData()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 
 }

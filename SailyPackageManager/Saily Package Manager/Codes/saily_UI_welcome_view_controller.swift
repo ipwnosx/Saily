@@ -273,7 +273,6 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
             repo_sub_title.snp.makeConstraints { (make) in
                 make.top.equalTo(repo_title).offset(repo_title.height + 8)
                 make.left.equalTo(query_text).offset(0)
-                make.width.equalTo(250)
                 make.height.equalTo(25)
             }
             table_view.snp.makeConstraints { (make) in

@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Crash Dang! 嗯哼~ Check file ~~~/GitHub/SailyPackageManager/SailyPackageManager/AUTH_ENCODE_NONE.swift
+        // The heart of saily is a launch daemon, and the authorization wich is highly protected by close the source.
+        // Yes, I know, you can do a RE to decrypt it, but, if you just want to build and run or have your own code, do it yourself.
+        _ = AUTH_Encode(readin: " ")
+        
         GVAR_behave_app_root_file_path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         GVAR_behave_repo_list_file_path = GVAR_behave_app_root_file_path + "/repo.list"
         GVAR_behave_repo_icon_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.icon.cache"
