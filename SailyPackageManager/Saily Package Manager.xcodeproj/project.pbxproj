@@ -15,6 +15,13 @@
 		AB3BA9A62265F28D000C231B /* AUTH_ENCODE_NONE.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A52265F28D000C231B /* AUTH_ENCODE_NONE.swift */; };
 		AB3BA9A72265F28D000C231B /* AUTH_ENCODE_NONE.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A52265F28D000C231B /* AUTH_ENCODE_NONE.swift */; };
 		AB3BA9A92265F765000C231B /* saily_UI_return_tableviewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A82265F765000C231B /* saily_UI_return_tableviewcell.swift */; };
+		AB3BA9AC22662292000C231B /* upshade.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9AA22662291000C231B /* upshade.png */; };
+		AB3BA9AD22662292000C231B /* downshade.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9AB22662292000C231B /* downshade.png */; };
+		AB3BA9B722662564000C231B /* BGBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9B222662564000C231B /* BGBlue.png */; };
+		AB3BA9B92266267B000C231B /* iConWhiteTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9B82266267B000C231B /* iConWhiteTransparent.png */; };
+		AB3BA9BD226629D2000C231B /* PlaceholderInT.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9BA226629D2000C231B /* PlaceholderInT.png */; };
+		AB3BA9BE226629D2000C231B /* PlaceholderDownT.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9BB226629D2000C231B /* PlaceholderDownT.png */; };
+		AB3BA9BF226629D2000C231B /* PlaceholderUPT.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9BC226629D2000C231B /* PlaceholderUPT.png */; };
 		AB49F7E02264CF960043F4FD /* saily_codes_operations_network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */; };
 		AB49F7E2226542880043F4FD /* saily_codes_operations_repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */; };
 		AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */; };
@@ -73,6 +80,13 @@
 		AB3BA9A22265F078000C231B /* AUTH_ENCODE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUTH_ENCODE.swift; sourceTree = "<group>"; };
 		AB3BA9A52265F28D000C231B /* AUTH_ENCODE_NONE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUTH_ENCODE_NONE.swift; sourceTree = "<group>"; };
 		AB3BA9A82265F765000C231B /* saily_UI_return_tableviewcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_return_tableviewcell.swift; sourceTree = "<group>"; };
+		AB3BA9AA22662291000C231B /* upshade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upshade.png; sourceTree = "<group>"; };
+		AB3BA9AB22662292000C231B /* downshade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downshade.png; sourceTree = "<group>"; };
+		AB3BA9B222662564000C231B /* BGBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BGBlue.png; path = ../../../Artwork/BGBlue.png; sourceTree = "<group>"; };
+		AB3BA9B82266267B000C231B /* iConWhiteTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iConWhiteTransparent.png; path = ../../../Artwork/iConWhiteTransparent.png; sourceTree = "<group>"; };
+		AB3BA9BA226629D2000C231B /* PlaceholderInT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlaceholderInT.png; path = ../../../Artwork/PlaceholderInT.png; sourceTree = "<group>"; };
+		AB3BA9BB226629D2000C231B /* PlaceholderDownT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlaceholderDownT.png; path = ../../../Artwork/PlaceholderDownT.png; sourceTree = "<group>"; };
+		AB3BA9BC226629D2000C231B /* PlaceholderUPT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlaceholderUPT.png; path = ../../../Artwork/PlaceholderUPT.png; sourceTree = "<group>"; };
 		AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_network.swift; sourceTree = "<group>"; };
 		AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_repos.swift; sourceTree = "<group>"; };
 		AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
@@ -320,12 +334,19 @@
 		ABB724972262366B006D1416 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB3BA9B222662564000C231B /* BGBlue.png */,
+				AB3BA9B82266267B000C231B /* iConWhiteTransparent.png */,
+				AB3BA9BB226629D2000C231B /* PlaceholderDownT.png */,
+				AB3BA9BA226629D2000C231B /* PlaceholderInT.png */,
+				AB3BA9BC226629D2000C231B /* PlaceholderUPT.png */,
 				ABB724B922624E0B006D1416 /* iCon.png */,
 				ABB724BB22624EAF006D1416 /* iConRound.png */,
 				ABB7249C22623772006D1416 /* discover@3x.png */,
 				ABB7249E2262380D006D1416 /* source@3x.png */,
 				ABB724A022623A6D006D1416 /* installed@3x.png */,
 				ABB724A422623BD9006D1416 /* search@3x.png */,
+				AB3BA9AB22662292000C231B /* downshade.png */,
+				AB3BA9AA22662291000C231B /* upshade.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -441,16 +462,23 @@
 				AB7ED0652261EAE100C43D64 /* LaunchScreen.storyboard in Resources */,
 				ABB724A522623BD9006D1416 /* search@3x.png in Resources */,
 				AB7ED0622261EAE100C43D64 /* Assets.xcassets in Resources */,
+				AB3BA9BE226629D2000C231B /* PlaceholderDownT.png in Resources */,
 				ABB7249D22623772006D1416 /* discover@3x.png in Resources */,
+				AB3BA9AC22662292000C231B /* upshade.png in Resources */,
 				ABB724BA22624E0B006D1416 /* iCon.png in Resources */,
+				AB3BA9BF226629D2000C231B /* PlaceholderUPT.png in Resources */,
 				AB4BBB812263094300C4DC16 /* udid.mobileconfig in Resources */,
+				AB3BA9B722662564000C231B /* BGBlue.png in Resources */,
 				ABB724A122623A6D006D1416 /* installed@3x.png in Resources */,
 				AB4BBB95226309E900C4DC16 /* Documentation.html in Resources */,
+				AB3BA9BD226629D2000C231B /* PlaceholderInT.png in Resources */,
 				AB64E8DD2263A96000119FCA /* Library in Resources */,
 				AB7ED0602261EAE000C43D64 /* Main.storyboard in Resources */,
+				AB3BA9B92266267B000C231B /* iConWhiteTransparent.png in Resources */,
 				ABB724BC22624EAF006D1416 /* iConRound.png in Resources */,
 				ABB724C122626FBA006D1416 /* Comfortaa[wght].ttf in Resources */,
 				ABB7249F2262380D006D1416 /* source@3x.png in Resources */,
+				AB3BA9AD22662292000C231B /* downshade.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
