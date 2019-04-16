@@ -70,3 +70,4 @@ fastlane/test_output
 SailyPackageManager/Pods/
 SailyPackageManager/AUTH_ENCODE.swift
 *.psd
+Artwork/Design.psd
