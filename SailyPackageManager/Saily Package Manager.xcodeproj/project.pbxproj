@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AB372F3B2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB372F3A2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift */; };
-		AB3BA99E2265ED2F000C231B /* saily_codes_operations_XPC_AUTH.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA99D2265ED2F000C231B /* saily_codes_operations_XPC_AUTH.swift */; };
-		AB3BA99F2265ED2F000C231B /* saily_codes_operations_XPC_AUTH.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA99D2265ED2F000C231B /* saily_codes_operations_XPC_AUTH.swift */; };
+		AB3BA99E2265ED2F000C231B /* saily_codes_operations_daemon_connect_session.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA99D2265ED2F000C231B /* saily_codes_operations_daemon_connect_session.swift */; };
+		AB3BA9A12265F03B000C231B /* saily_codes_operations_daemon_connect_session.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A02265F03B000C231B /* saily_codes_operations_daemon_connect_session.swift */; };
+		AB3BA9A32265F078000C231B /* AUTH_ENCODE.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A22265F078000C231B /* AUTH_ENCODE.swift */; };
+		AB3BA9A42265F078000C231B /* AUTH_ENCODE.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A22265F078000C231B /* AUTH_ENCODE.swift */; };
 		AB49F7E02264CF960043F4FD /* saily_codes_operations_network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */; };
 		AB49F7E2226542880043F4FD /* saily_codes_operations_repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */; };
 		AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */; };
@@ -63,7 +65,9 @@
 		90943645C6872145D43A7438 /* Pods-Saily Package Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.release.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.release.xcconfig"; sourceTree = "<group>"; };
 		95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saily_Package_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB372F3A2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_extensions_UIImageView.swift; sourceTree = "<group>"; };
-		AB3BA99D2265ED2F000C231B /* saily_codes_operations_XPC_AUTH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_XPC_AUTH.swift; sourceTree = "<group>"; };
+		AB3BA99D2265ED2F000C231B /* saily_codes_operations_daemon_connect_session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_daemon_connect_session.swift; sourceTree = "<group>"; };
+		AB3BA9A02265F03B000C231B /* saily_codes_operations_daemon_connect_session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_daemon_connect_session.swift; sourceTree = "<group>"; };
+		AB3BA9A22265F078000C231B /* AUTH_ENCODE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUTH_ENCODE.swift; sourceTree = "<group>"; };
 		AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_network.swift; sourceTree = "<group>"; };
 		AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_repos.swift; sourceTree = "<group>"; };
 		AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
@@ -193,6 +197,7 @@
 			children = (
 				AB64E8DE2263AB0700119FCA /* Packages */,
 				AB4BBBA322632B1300C4DC16 /* monkeydev.entitlements */,
+				AB3BA9A02265F03B000C231B /* saily_codes_operations_daemon_connect_session.swift */,
 				AB4BBBA722632B1300C4DC16 /* main.swift */,
 				AB4BBBA022632B1300C4DC16 /* Package */,
 			);
@@ -249,7 +254,7 @@
 		AB7ED04C2261EADF00C43D64 = {
 			isa = PBXGroup;
 			children = (
-				AB3BA99D2265ED2F000C231B /* saily_codes_operations_XPC_AUTH.swift */,
+				AB3BA9A22265F078000C231B /* AUTH_ENCODE.swift */,
 				AB7ED0572261EADF00C43D64 /* Saily Package Manager */,
 				AB4BBB9F22632B1300C4DC16 /* SailyStartupDaemon */,
 				AB7ED0562261EADF00C43D64 /* Products */,
@@ -289,6 +294,7 @@
 				ABB724B122624A51006D1416 /* Objective-C */,
 				AB7ED0582261EADF00C43D64 /* AppDelegate.swift */,
 				AB64E9082263C53900119FCA /* saily_codes_GobalVAR.swift */,
+				AB3BA99D2265ED2F000C231B /* saily_codes_operations_daemon_connect_session.swift */,
 				ABB724AB22623DDE006D1416 /* saily_codes_operations_File.swift */,
 				AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */,
 				AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */,
@@ -562,8 +568,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3BA9A42265F078000C231B /* AUTH_ENCODE.swift in Sources */,
 				AB4BBBA822632B1300C4DC16 /* main.swift in Sources */,
-				AB3BA99F2265ED2F000C231B /* saily_codes_operations_XPC_AUTH.swift in Sources */,
+				AB3BA9A12265F03B000C231B /* saily_codes_operations_daemon_connect_session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,13 +581,14 @@
 				ABB724B022624A28006D1416 /* saily_UI_search_view_controller.swift in Sources */,
 				AB4BBB8D226309C100C4DC16 /* SFWebServerRespone.m in Sources */,
 				AB64E90C2264936900119FCA /* saily_UI_repos_view_controller.swift in Sources */,
+				AB3BA9A32265F078000C231B /* AUTH_ENCODE.swift in Sources */,
 				AB4BBB8B226309C100C4DC16 /* SFWebServerRequest.m in Sources */,
 				AB4BBB96226309E900C4DC16 /* GCDAsyncUdpSocket.m in Sources */,
 				AB64E9092263C53900119FCA /* saily_codes_GobalVAR.swift in Sources */,
 				AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */,
 				AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */,
 				ABB724AC22623DDE006D1416 /* saily_codes_operations_File.swift in Sources */,
-				AB3BA99E2265ED2F000C231B /* saily_codes_operations_XPC_AUTH.swift in Sources */,
+				AB3BA99E2265ED2F000C231B /* saily_codes_operations_daemon_connect_session.swift in Sources */,
 				AB372F3B2264BF630023EC31 /* saily_codes_extensions_UIImageView.swift in Sources */,
 				AB7ED05B2261EAE000C43D64 /* saily_UI_featured_view_controller.swift in Sources */,
 				ABB724B422624AA3006D1416 /* BridgerObjC.m in Sources */,

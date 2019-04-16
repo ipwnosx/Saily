@@ -68,4 +68,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 .DS_Store
 SailyPackageManager/Pods/
-SailyPackageManager/saily_codes_operations_XPC_AUTH.swift
+SailyPackageManager/AUTH_ENCODE.swift
