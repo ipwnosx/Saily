@@ -46,6 +46,7 @@ class saily_UI_repos_view_controller: UITableViewController {
             cell.detailTextLabel?.text = "          Saily supports many kinds of repos by tapping here and add them."
             let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
             cellImg.contentMode = .scaleAspectFit
+            cellImg.image = #imageLiteral(resourceName: "iConRound.png")
             cell.addSubview(cellImg)
             cellImg.snp.makeConstraints { (make) in
                 make.top.equalTo(cell.contentView).offset(12)
@@ -59,7 +60,7 @@ class saily_UI_repos_view_controller: UITableViewController {
         let name = sco_repos_link_to_name(link: GVAR_behave_repo_list_instance[indexPath.row - 1])
         // return image
         let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
-        // make it smooth
+        cellImg.image = #imageLiteral(resourceName: "iConRound.png")
         sco_Network_return_CydiaIcon(link: GVAR_behave_repo_list_instance[indexPath.row - 1] + "CydiaIcon.png", force_refetch: false) { (image) in
             cellImg.image = image
         }
