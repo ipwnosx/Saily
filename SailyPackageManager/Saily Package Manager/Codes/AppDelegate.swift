@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
         GVAR_behave_app_root_file_path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         GVAR_behave_repo_list_file_path = GVAR_behave_app_root_file_path + "/repo.list"
         GVAR_behave_job_quene_submit_path = GVAR_behave_app_root_file_path + "/quene.submit"
@@ -48,6 +47,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Clean lock file
         sco_File_remove_any_lck_file_at_main_and_repo()
         
+        // Configurations of url session.
+                            // Example:
+                            //        GET /igg/./CydiaIcon.png HTTP/1.1
+                            //        Host: aquawu.github.io
+                            //        If-None-Match: "5c7bd7d7-aaaaa"
+                            //        Accept: */*
+                            //        If-Modified-Since: Sun, 03 Mar 2019 13:34:15 GMT
+                            //        User-Agent: Cydia/0.9 CFNetwork/974.2.1 Darwin/18.0.0
+                            //        Accept-Language: zh-cn
+                            //        Accept-Encoding: gzip, deflate
+                            //        Connection: keep-alive
+                            // If-Modified-Since, Always require new data.
         
         return true
     }

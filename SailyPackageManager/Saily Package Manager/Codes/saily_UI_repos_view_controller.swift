@@ -30,10 +30,8 @@ class saily_UI_repos_view_controller: UITableViewController {
         let name = sco_repos_link_to_name(link: GVAR_behave_repo_list_instance[indexPath.row])
         // return image
         let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
-        cellImg.download(from: URL.init(string: GVAR_behave_repo_list_instance[indexPath.row] + "/CydiaIcon.png")!, contentMode: .scaleAspectFit, placeholder: nil) { (image) in
-            DispatchQueue.main.async {
-                cellImg.image = image
-            }
+        sco_Network_return_CydiaIcon(link: GVAR_behave_repo_list_instance[indexPath.row] + "CydiaIcon.png") { (image) in
+            cellImg.image = image
         }
         cellImg.contentMode = .scaleAspectFit
         cell.addSubview(cellImg)

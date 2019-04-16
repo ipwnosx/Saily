@@ -14,6 +14,7 @@
 		AB3BA9A42265F078000C231B /* AUTH_ENCODE.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A22265F078000C231B /* AUTH_ENCODE.swift */; };
 		AB3BA9A62265F28D000C231B /* AUTH_ENCODE_NONE.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A52265F28D000C231B /* AUTH_ENCODE_NONE.swift */; };
 		AB3BA9A72265F28D000C231B /* AUTH_ENCODE_NONE.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A52265F28D000C231B /* AUTH_ENCODE_NONE.swift */; };
+		AB3BA9A92265F765000C231B /* saily_UI_return_tableviewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3BA9A82265F765000C231B /* saily_UI_return_tableviewcell.swift */; };
 		AB49F7E02264CF960043F4FD /* saily_codes_operations_network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */; };
 		AB49F7E2226542880043F4FD /* saily_codes_operations_repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */; };
 		AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */; };
@@ -71,6 +72,7 @@
 		AB3BA9A02265F03B000C231B /* saily_codes_operations_daemon_connect_session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_daemon_connect_session.swift; sourceTree = "<group>"; };
 		AB3BA9A22265F078000C231B /* AUTH_ENCODE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUTH_ENCODE.swift; sourceTree = "<group>"; };
 		AB3BA9A52265F28D000C231B /* AUTH_ENCODE_NONE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUTH_ENCODE_NONE.swift; sourceTree = "<group>"; };
+		AB3BA9A82265F765000C231B /* saily_UI_return_tableviewcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_return_tableviewcell.swift; sourceTree = "<group>"; };
 		AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_network.swift; sourceTree = "<group>"; };
 		AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_repos.swift; sourceTree = "<group>"; };
 		AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
@@ -310,6 +312,7 @@
 				ABB724A222623AC7006D1416 /* saily_UI_installed_view_controller.swift */,
 				ABB724AF22624A28006D1416 /* saily_UI_search_view_controller.swift */,
 				ABB724C222627621006D1416 /* saily_UI_welcome_view_controller.swift */,
+				AB3BA9A82265F765000C231B /* saily_UI_return_tableviewcell.swift */,
 			);
 			path = Codes;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				AB64E9072263C50100119FCA /* saily_codes_extensions_UIDevice.swift in Sources */,
 				AB4BBB8E226309C100C4DC16 /* SFWebServerRouter.m in Sources */,
 				ABB724A322623AC7006D1416 /* saily_UI_installed_view_controller.swift in Sources */,
+				AB3BA9A92265F765000C231B /* saily_UI_return_tableviewcell.swift in Sources */,
 				AB49F7E2226542880043F4FD /* saily_codes_operations_repos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

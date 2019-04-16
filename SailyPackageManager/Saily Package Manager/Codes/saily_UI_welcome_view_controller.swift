@@ -32,6 +32,7 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
         // return cell
         let idCell = "Cell";
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
+        
         // return name
         let name = sco_repos_link_to_name(link: default_repos[indexPath.row]) 
         // return image
