@@ -52,6 +52,10 @@ func sco_Network_return_CydiaIcon(link: String, force_refetch: Bool, completionH
             return
         }
     }
+    if (sco_repos_link_to_name(link: link) == "The Big Boss") {
+        completionHandler(#imageLiteral(resourceName: "repo_bigboss.png"))
+        return
+    }
     guard let url = URL.init(string: link) else { return }
     let headers: HTTPHeaders  = ["User-Agent" : GVAR_Network_UserAgent_Web_Request_iOS_12,
                                  "If-None-Match" : "\"12345678-abcde\"",

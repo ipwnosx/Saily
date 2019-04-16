@@ -22,6 +22,7 @@
 		AB3BA9BD226629D2000C231B /* PlaceholderInT.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9BA226629D2000C231B /* PlaceholderInT.png */; };
 		AB3BA9BE226629D2000C231B /* PlaceholderDownT.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9BB226629D2000C231B /* PlaceholderDownT.png */; };
 		AB3BA9BF226629D2000C231B /* PlaceholderUPT.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9BC226629D2000C231B /* PlaceholderUPT.png */; };
+		AB3BA9C32266321F000C231B /* repo_bigboss.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3BA9C22266321F000C231B /* repo_bigboss.png */; };
 		AB49F7E02264CF960043F4FD /* saily_codes_operations_network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */; };
 		AB49F7E2226542880043F4FD /* saily_codes_operations_repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */; };
 		AB4BBB722262D2BD00C4DC16 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */; };
@@ -87,6 +88,7 @@
 		AB3BA9BA226629D2000C231B /* PlaceholderInT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlaceholderInT.png; path = ../../../Artwork/PlaceholderInT.png; sourceTree = "<group>"; };
 		AB3BA9BB226629D2000C231B /* PlaceholderDownT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlaceholderDownT.png; path = ../../../Artwork/PlaceholderDownT.png; sourceTree = "<group>"; };
 		AB3BA9BC226629D2000C231B /* PlaceholderUPT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlaceholderUPT.png; path = ../../../Artwork/PlaceholderUPT.png; sourceTree = "<group>"; };
+		AB3BA9C22266321F000C231B /* repo_bigboss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repo_bigboss.png; sourceTree = "<group>"; };
 		AB49F7DF2264CF960043F4FD /* saily_codes_operations_network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_network.swift; sourceTree = "<group>"; };
 		AB49F7E1226542880043F4FD /* saily_codes_operations_repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_codes_operations_repos.swift; sourceTree = "<group>"; };
 		AB4BBB6E2262D0B100C4DC16 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
@@ -334,6 +336,7 @@
 		ABB724972262366B006D1416 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB3BA9C22266321F000C231B /* repo_bigboss.png */,
 				AB3BA9B222662564000C231B /* BGBlue.png */,
 				AB3BA9B82266267B000C231B /* iConWhiteTransparent.png */,
 				AB3BA9BB226629D2000C231B /* PlaceholderDownT.png */,
@@ -473,6 +476,7 @@
 				AB4BBB95226309E900C4DC16 /* Documentation.html in Resources */,
 				AB3BA9BD226629D2000C231B /* PlaceholderInT.png in Resources */,
 				AB64E8DD2263A96000119FCA /* Library in Resources */,
+				AB3BA9C32266321F000C231B /* repo_bigboss.png in Resources */,
 				AB7ED0602261EAE000C43D64 /* Main.storyboard in Resources */,
 				AB3BA9B92266267B000C231B /* iConWhiteTransparent.png in Resources */,
 				ABB724BC22624EAF006D1416 /* iConRound.png in Resources */,

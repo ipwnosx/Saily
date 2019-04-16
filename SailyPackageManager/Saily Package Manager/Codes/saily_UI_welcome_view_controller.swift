@@ -96,6 +96,9 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
         if (GVAR_device_info_identifier_human_readable.contains("iPhone")) {
             // iPhone layout
             colorizedBG.isHidden = true
+            place_holder_up.isHidden = true
+            place_holder_in.isHidden = true
+            place_holder_down.isHidden = true
             icon.snp.makeConstraints { (make) in
                 make.top.equalTo(this_view).offset(66)
                 if (screenX > 320) {
@@ -169,7 +172,6 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
             next_button.snp.makeConstraints { (make) in
                 make.centerX.equalTo(this_view)
                 make.bottom.equalTo(this_view).offset(-25)
-                make.width.equalTo(50)
                 make.height.equalTo(25)
             }
             upshades.snp.makeConstraints { (make) in

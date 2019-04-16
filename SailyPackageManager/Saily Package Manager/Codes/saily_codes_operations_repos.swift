@@ -25,3 +25,12 @@ func sco_repos_link_to_name(link: String) -> String {
     
     return name
 }
+
+func sco_repos_resave_repo_list() -> Void {
+    var out = ""
+    for item in GVAR_behave_repo_list_instance {
+        out = out + item + "\n"
+    }
+    try? FileManager.default.removeItem(atPath: GVAR_behave_repo_list_file_path)
+    try? out.write(toFile: GVAR_behave_repo_list_file_path, atomically: true, encoding: .utf8)
+}
