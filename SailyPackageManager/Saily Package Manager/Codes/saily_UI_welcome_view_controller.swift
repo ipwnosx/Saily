@@ -21,7 +21,7 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
     var default_repos = ["http://apt.thebigboss.org/repofiles/cydia/",
                          "https://apt.bingner.com/",
                          "http://build.frida.re/",
-                         "https://repo.chariz.com/",
+                         "https://repo.chariz.io/",
                          "https://repo.dynastic.co/"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

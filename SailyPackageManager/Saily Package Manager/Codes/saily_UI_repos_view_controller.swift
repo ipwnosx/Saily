@@ -30,7 +30,8 @@ class saily_UI_repos_view_controller: UITableViewController {
         let name = sco_repos_link_to_name(link: GVAR_behave_repo_list_instance[indexPath.row])
         // return image
         let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
-        sco_Network_return_CydiaIcon(link: GVAR_behave_repo_list_instance[indexPath.row] + "CydiaIcon.png") { (image) in
+        // make it smooth
+        sco_Network_return_CydiaIcon(link: GVAR_behave_repo_list_instance[indexPath.row] + "CydiaIcon.png", force_refetch: false) { (image) in
             cellImg.image = image
         }
         cellImg.contentMode = .scaleAspectFit

@@ -40,7 +40,18 @@ let GVAR_Network_REPO_Packages_Search_Path          = ["Packages.bz2",
                                                        "dists/unstable/main/binary-iphoneos-arm/Packages",
                                                        "dists/hnd/main/binary-iphoneos-arm/Packages.bz2"]
 
-func sco_Network_return_CydiaIcon(link: String, completionHandler: @escaping (_ image: UIImage) -> Void) -> Void {
+
+
+
+func sco_Network_return_CydiaIcon(link: String, force_refetch: Bool, completionHandler: @escaping (_ image: UIImage) -> Void) -> Void {
+    let save_path = GVAR_behave_repo_icon_cache_folder_path + "/" + sco_repos_link_to_name(link: link) + ".png"
+    if (FileManager.default.fileExists(atPath: save_path)) {
+        print("[*] return cached image at: " + save_path)
+        if let image = UIImage.init(contentsOfFile: save_path) {
+            completionHandler(image)
+            return
+        }
+    }
     guard let url = URL.init(string: link) else { return }
     let headers: HTTPHeaders  = ["User-Agent" : GVAR_Network_UserAgent_Web_Request_iOS_12,
                                  "If-None-Match" : "\"12345678-abcde\"",
@@ -56,8 +67,9 @@ func sco_Network_return_CydiaIcon(link: String, completionHandler: @escaping (_ 
         guard let image = UIImage.init(data: data) else {
             return
         }
-        DispatchQueue.main.async {
-            completionHandler(image)
+        if let pngFile = image.pngData() {
+            FileManager.default.createFile(atPath: save_path, contents: pngFile, attributes: nil)
         }
+            completionHandler(image)
     }
 }

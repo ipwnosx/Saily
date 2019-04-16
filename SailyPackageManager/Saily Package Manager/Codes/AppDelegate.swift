@@ -21,11 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GVAR_behave_app_root_file_path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         GVAR_behave_repo_list_file_path = GVAR_behave_app_root_file_path + "/repo.list"
+        GVAR_behave_repo_icon_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.icon.cache"
         GVAR_behave_job_quene_submit_path = GVAR_behave_app_root_file_path + "/quene.submit"
         GVAR_behave_udid_path = GVAR_behave_app_root_file_path + "/ud.id"
         
         sco_File_make_sure_file_at(path: GVAR_behave_repo_list_file_path, isDirect: false)
         sco_File_make_sure_file_at(path: GVAR_behave_job_quene_submit_path, isDirect: true)
+        sco_File_make_sure_file_at(path: GVAR_behave_repo_icon_cache_folder_path, isDirect: true)
         
         let repo_raw_read = (try? String.init(contentsOfFile: GVAR_behave_repo_list_file_path)) ?? ""
         for item in repo_raw_read.split(separator: "\n") {
