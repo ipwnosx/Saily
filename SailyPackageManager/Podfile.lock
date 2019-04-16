@@ -1,9 +1,48 @@
 PODS:
   - Alamofire (5.0.0-beta.5)
+  - BitByteData (1.4.0)
   - FLEX (2.4.0)
   - LTMorphingLabel (0.7.0)
   - Reveal-SDK (21)
   - SnapKit (4.2.0)
+  - SWCompression (4.5.1):
+    - BitByteData (~> 1.4.0)
+    - SWCompression/BZip2 (= 4.5.1)
+    - SWCompression/Deflate (= 4.5.1)
+    - SWCompression/GZip (= 4.5.1)
+    - SWCompression/LZMA (= 4.5.1)
+    - SWCompression/LZMA2 (= 4.5.1)
+    - SWCompression/SevenZip (= 4.5.1)
+    - SWCompression/TAR (= 4.5.1)
+    - SWCompression/XZ (= 4.5.1)
+    - SWCompression/ZIP (= 4.5.1)
+    - SWCompression/Zlib (= 4.5.1)
+  - SWCompression/BZip2 (4.5.1):
+    - BitByteData (~> 1.4.0)
+  - SWCompression/Deflate (4.5.1):
+    - BitByteData (~> 1.4.0)
+  - SWCompression/GZip (4.5.1):
+    - BitByteData (~> 1.4.0)
+    - SWCompression/Deflate
+  - SWCompression/LZMA (4.5.1):
+    - BitByteData (~> 1.4.0)
+  - SWCompression/LZMA2 (4.5.1):
+    - BitByteData (~> 1.4.0)
+    - SWCompression/LZMA
+  - SWCompression/SevenZip (4.5.1):
+    - BitByteData (~> 1.4.0)
+    - SWCompression/LZMA2
+  - SWCompression/TAR (4.5.1):
+    - BitByteData (~> 1.4.0)
+  - SWCompression/XZ (4.5.1):
+    - BitByteData (~> 1.4.0)
+    - SWCompression/LZMA2
+  - SWCompression/ZIP (4.5.1):
+    - BitByteData (~> 1.4.0)
+    - SWCompression/Deflate
+  - SWCompression/Zlib (4.5.1):
+    - BitByteData (~> 1.4.0)
+    - SWCompression/Deflate
   - Swifter (1.4.6)
   - SwifterSwift (5.0.0):
     - SwifterSwift/AppKit (= 5.0.0)
@@ -32,6 +71,7 @@ DEPENDENCIES:
   - LTMorphingLabel
   - Reveal-SDK
   - SnapKit
+  - SWCompression
   - Swifter
   - SwifterSwift
   - SwiftyJSON
@@ -39,24 +79,28 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - BitByteData
     - FLEX
     - LTMorphingLabel
     - Reveal-SDK
     - SnapKit
+    - SWCompression
     - Swifter
     - SwifterSwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 9afb08f7f43efcc71c072374e720fcf67521317d
+  BitByteData: 157a77c133673e289eebf71a9d192c53d1e07ad3
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
   Reveal-SDK: 3523e0eb7c562811c51bb71da6e523a6373702c8
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SWCompression: 02a231af1b1df08be91802df4986d328f2a7c906
   Swifter: 2ed278fbf7b16cbe97269eb56d8e8749b1ec4042
   SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 3088b226567f78788df26d3787846a73c559d473
+PODFILE CHECKSUM: 40b7afa83215135829be8dad922ada59a92e514a
 
 COCOAPODS: 1.6.1

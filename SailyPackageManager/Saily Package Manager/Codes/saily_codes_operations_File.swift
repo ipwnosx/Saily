@@ -5,6 +5,8 @@
 //  Copyright © 2019 Lakr Aream. All rights reserved.
 //
 
+import SWCompression
+
 func sco_File_remove_any_lck_file_at_main_and_repo() -> Void {
     let rootFiles = try? FileManager.default.contentsOfDirectory(atPath: GVAR_behave_app_root_file_path)
     let repoFiles = try? FileManager.default.contentsOfDirectory(atPath: GVAR_behave_app_root_file_path + "/repos")

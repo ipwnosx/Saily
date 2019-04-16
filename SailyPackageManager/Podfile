@@ -17,5 +17,6 @@ target 'Saily Package Manager' do
     pod 'Reveal-SDK', :configurations => ['Debug']
     pod 'Swifter'
     pod 'FLEX', '~> 2.0', :configurations => ['Debug']
+    pod 'SWCompression'
 
 end
