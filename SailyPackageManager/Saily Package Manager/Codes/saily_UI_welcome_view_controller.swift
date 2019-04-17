@@ -336,7 +336,7 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
         
         let repo_raw_read = (try? String.init(contentsOfFile: GVAR_behave_repo_list_file_path)) ?? ""
         for item in repo_raw_read.split(separator: "\n") {
-            GVAR_behave_repo_list_instance.append(item.description)
+            GVAR_behave_repo_instance.append(repo(major_link: item.description))
         }
         GVAR_device_info_UDID = (try? String.init(contentsOfFile: GVAR_behave_udid_path))!
         GVAR_behave_should_run_setup = false

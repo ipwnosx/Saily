@@ -33,7 +33,7 @@ var GVAR_behave_repo_icon_cache_folder_path                  = ""
 var GVAR_behave_job_quene_submit_path                        = ""
 
 // This session, contain file struct.
-var GVAR_behave_repo_list_instance                           = [String]()
+var GVAR_behave_repo_instance                                = [repo]()
 
 // This session, contains device info for repo request.
 var GVAR_device_info_UDID                                    = String()
@@ -42,6 +42,8 @@ var GVAR_device_info_identifier_human_readable               = String()
 var GVAR_device_info_current_version                         = String()
 
 // This session, handling the repo operations.
+let GCD_repo_operations_init_quene                           = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.repo.operation.init",
+                                                                             qos: .utility, attributes: .concurrent)
 let GCD_repo_operations_quene                                = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.repo.operation.refresh",
                                                                         qos: .utility, attributes: .concurrent)
 let GCD_network_operations_quene                             = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.network.operations",

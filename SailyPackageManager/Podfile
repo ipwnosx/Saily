@@ -18,5 +18,8 @@ target 'Saily Package Manager' do
     pod 'Swifter'
     pod 'FLEX', '~> 2.0', :configurations => ['Debug']
     pod 'SWCompression'
+    pod 'JGProgressHUD'
+    pod 'MKRingProgressView'
+
 
 end

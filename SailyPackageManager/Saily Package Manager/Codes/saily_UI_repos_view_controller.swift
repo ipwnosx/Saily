@@ -9,6 +9,8 @@ import UIKit
 
 class saily_UI_repos_view_controller: UITableViewController {
 
+    var force_refetch = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,8 +25,9 @@ class saily_UI_repos_view_controller: UITableViewController {
     }
     
     @objc private func refreshData(_ sender: Any) {
-        // Fetch Weather Data
+        force_refetch = true
         self.tableView.reloadData {
+            self.force_refetch = false
             DispatchQueue.main.async {
                 self.tableView.refreshControl?.endRefreshing()
             }
@@ -34,7 +37,7 @@ class saily_UI_repos_view_controller: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GVAR_behave_repo_list_instance.count + 1
+        return GVAR_behave_repo_instance.count + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,19 +59,14 @@ class saily_UI_repos_view_controller: UITableViewController {
             }
             return cell
         }
-        // return name
-        let name = sco_repos_link_to_name(link: GVAR_behave_repo_list_instance[indexPath.row - 1])
-        // return image
+        // set image
         let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
-        cellImg.image = #imageLiteral(resourceName: "iConRound.png")
-        sco_Network_return_CydiaIcon(link: GVAR_behave_repo_list_instance[indexPath.row - 1] + "CydiaIcon.png", force_refetch: false) { (image) in
-            cellImg.image = image
-        }
+        cellImg.image = GVAR_behave_repo_instance[indexPath.row - 1].icon_img
         cellImg.contentMode = .scaleAspectFit
         cell.addSubview(cellImg)
         // add label
-        cell.textLabel?.text = "        " + name
-        cell.detailTextLabel?.text = "           " + GVAR_behave_repo_list_instance[indexPath.row - 1]
+        cell.textLabel?.text = "        " + GVAR_behave_repo_instance[indexPath.row - 1].name
+        cell.detailTextLabel?.text = "           " + GVAR_behave_repo_instance[indexPath.row - 1].links.main
         cellImg.snp.makeConstraints { (make) in
             make.top.equalTo(cell.contentView).offset(12)
             make.right.equalTo(cell.textLabel!.snp_left).offset(30)
@@ -89,7 +87,7 @@ class saily_UI_repos_view_controller: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            GVAR_behave_repo_list_instance.remove(at: indexPath.row - 1)
+            GVAR_behave_repo_instance.remove(at: indexPath.row - 1)
             sco_repos_resave_repo_list()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -99,7 +97,7 @@ class saily_UI_repos_view_controller: UITableViewController {
         if (to.row == 0) {
             self.tableView.reloadData()
         }else{
-            GVAR_behave_repo_list_instance.swapAt(fromIndexPath.row - 1, to.row - 1)
+            GVAR_behave_repo_instance.swapAt(fromIndexPath.row - 1, to.row - 1)
             sco_repos_resave_repo_list()
         }
     }
@@ -130,7 +128,7 @@ class saily_UI_repos_view_controller: UITableViewController {
                 if (!text.hasSuffix("/")) {
                     text += "/"
                 }
-                GVAR_behave_repo_list_instance.append(text)
+                GVAR_behave_repo_instance.append(repo(major_link: text))
                 sco_repos_resave_repo_list()
                 self.tableView.reloadData()
             }))

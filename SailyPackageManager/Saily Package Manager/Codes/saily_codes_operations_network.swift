@@ -13,7 +13,7 @@ import Alamofire
 
 // Headers from cydia:
 
-let GVAR_Network_UserAgent_Default                  = "Telesphoreo APT-HTTP/1.0.534"
+let GVAR_Network_UserAgent_Default                  = "Telesphoreo APT-HTTP/1.0.592"
 let GVAR_Network_UserAgent_Web_Request_iOS_old      = "Cydia/0.9 CFNetwork/342.1 Darwin/9.4.1"
 let GVAR_Network_UserAgent_Web_Request_iOS_12       = "Cydia/0.9 CFNetwork/974.2.1 Darwin/18.0.0"
 
@@ -41,6 +41,52 @@ let GVAR_Network_REPO_Packages_Search_Path          = ["Packages.bz2",
                                                        "dists/hnd/main/binary-iphoneos-arm/Packages.bz2"]
 
 
+func sco_Network_search_for_packages_and_return_release_link(major_link: String, completionHandler: @escaping (_ link: String) -> () ) -> () {
+    let headers: HTTPHeaders  = ["User-Agent" : GVAR_Network_UserAgent_Default,
+                                 "X-Firmware" : GVAR_device_info_current_version,
+                                 "X-Unique-ID" : GVAR_device_info_UDID,
+                                 "X-Machine" : GVAR_device_info_identifier,
+                                 "If-None-Match" : "\"12345678-abcde\"",
+                                 "If-Modified-Since" : "Fri, 12 May 2006 18:53:33 GMT",
+                                 "Accept" : "*/*",
+                                 "Accept-Language" : "zh-CN,en,*",
+                                 "Accept-Encoding" : "gzip, deflate"]
+    for item in GVAR_Network_REPO_Packages_Search_Path {
+        // Sample ht tp://apt.thebigboss.org/repofiles/cydia/ <--Major Link | Search Path--> dists/stable/main/binary-iphoneos-arm/Packages.bz2
+        if let url = URL.init(string: major_link + item) {
+            let s = DispatchSemaphore.init(value: 0)
+            var b = false
+            var re_map_to : String? = nil
+            AF.request(url, method: .head, headers: headers).response { (res) in
+                if (res.response?.statusCode ?? 0 >= 200 && res.response?.statusCode ?? 0 <= 300) {
+                    b = true
+                }
+                if (res.response?.statusCode == 302) {
+                    // REMAP TO PACKAGE
+//                    HTTP/1.1 302 Found
+//                    Cache-Control: no-cache
+//                    Content-length: 0
+//                    Location: https://apt.bingner.com/Packages.bz2
+                    re_map_to = res.response?.allHeaderFields["Location"] as? String
+                    if (re_map_to != nil) {
+                        b = true
+                    }
+                }
+                s.signal()
+            }
+            s.wait()
+            if (b) {
+                if (re_map_to != nil) {
+                    completionHandler(re_map_to!)
+                    return
+                }
+                completionHandler(major_link + item)
+                return
+            }
+        }
+    }
+    return //"ERROR_SEARCHING_RELEASE_PACKAGES"
+}
 
 
 func sco_Network_return_CydiaIcon(link: String, force_refetch: Bool, completionHandler: @escaping (_ image: UIImage) -> Void) -> Void {
@@ -59,12 +105,19 @@ func sco_Network_return_CydiaIcon(link: String, force_refetch: Bool, completionH
     print("[*] Attempt to connect :" + link)
     guard let url = URL.init(string: link) else { return }
     let headers: HTTPHeaders  = ["User-Agent" : GVAR_Network_UserAgent_Web_Request_iOS_12,
+                                 "X-Firmware" : GVAR_device_info_current_version,
+                                 "X-Unique-ID" : GVAR_device_info_UDID,
+                                 "X-Machine" : GVAR_device_info_identifier,
                                  "If-None-Match" : "\"12345678-abcde\"",
                                  "If-Modified-Since" : "Fri, 12 May 2006 18:53:33 GMT",
                                  "Accept" : "*/*",
-                                 "Accept-Language" : "zh-cn",
+                                 "Accept-Language" : "zh-CN,en,*",
                                  "Accept-Encoding" : "gzip, deflate"]
-    // Alamofire.request(endPoint , method: .post, parameters: parameter ,encoding: JSONEncoding.default , headers: header).validate(statusCode: 200..<300).responseObject { (response: DataResponse<SomeModel>) in
+    // The Big Boss's icon looks ugly.
+//    if (sco_repos_link_to_name(link: link) == "The Big Boss") {
+//        url = URL.init(string: "http://apt.thebigboss.org/repofiles/cydia/dists/stable/CydiaIcon.png")!
+//        return
+//    }
     AF.request(url, headers: headers).response { (data_s) in
         guard let data = data_s.data else {
             return
@@ -78,3 +131,4 @@ func sco_Network_return_CydiaIcon(link: String, force_refetch: Bool, completionH
             completionHandler(image)
     }
 }
+

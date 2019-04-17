@@ -2,7 +2,9 @@ PODS:
   - Alamofire (5.0.0-beta.5)
   - BitByteData (1.4.0)
   - FLEX (2.4.0)
+  - JGProgressHUD (2.0.3)
   - LTMorphingLabel (0.7.0)
+  - MKRingProgressView (2.2.2)
   - Reveal-SDK (21)
   - SnapKit (4.2.0)
   - SWCompression (4.5.1):
@@ -68,7 +70,9 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.5)
   - FLEX (~> 2.0)
+  - JGProgressHUD
   - LTMorphingLabel
+  - MKRingProgressView
   - Reveal-SDK
   - SnapKit
   - SWCompression
@@ -81,7 +85,9 @@ SPEC REPOS:
     - Alamofire
     - BitByteData
     - FLEX
+    - JGProgressHUD
     - LTMorphingLabel
+    - MKRingProgressView
     - Reveal-SDK
     - SnapKit
     - SWCompression
@@ -93,7 +99,9 @@ SPEC CHECKSUMS:
   Alamofire: 9afb08f7f43efcc71c072374e720fcf67521317d
   BitByteData: 157a77c133673e289eebf71a9d192c53d1e07ad3
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
+  MKRingProgressView: b558eff66a648bd77b11f61cfc5603ae96008077
   Reveal-SDK: 3523e0eb7c562811c51bb71da6e523a6373702c8
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SWCompression: 02a231af1b1df08be91802df4986d328f2a7c906
@@ -101,6 +109,6 @@ SPEC CHECKSUMS:
   SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 40b7afa83215135829be8dad922ada59a92e514a
+PODFILE CHECKSUM: 1303cbac532e09e81febd1b54a8bcd8350fc9734
 
 COCOAPODS: 1.6.1

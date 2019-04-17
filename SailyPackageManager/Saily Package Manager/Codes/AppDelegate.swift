@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let repo_raw_read = (try? String.init(contentsOfFile: GVAR_behave_repo_list_file_path)) ?? ""
         for item in repo_raw_read.split(separator: "\n") {
-            GVAR_behave_repo_list_instance.append(item.description)
+            GVAR_behave_repo_instance.append(repo(major_link: item.description))
         }
         
         // Init device info
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GVAR_device_info_UDID = ""
             GVAR_behave_should_run_setup = true
         } // do these two if separately
-        if (GVAR_behave_repo_list_instance.count == 0) {
+        if (GVAR_behave_repo_instance.count == 0) {
             GVAR_behave_should_run_setup = true
         }
         
@@ -87,10 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             is_launch_time = false
             return
         }
-        if (GVAR_behave_repo_list_instance.count == 0 || GVAR_device_info_UDID == "") {
+        if (GVAR_behave_repo_instance.count == 0 || GVAR_device_info_UDID == "") {
             let repo_raw_read = (try? String.init(contentsOfFile: GVAR_behave_repo_list_file_path)) ?? ""
             for item in repo_raw_read.split(separator: "\n") {
-                GVAR_behave_repo_list_instance.append(item.description)
+                GVAR_behave_repo_instance.append(repo(major_link: item.description))
             }
             GVAR_device_info_UDID = (try? String.init(contentsOfFile: GVAR_behave_udid_path)) ?? "?"
             if (GVAR_device_info_UDID == "?") {
