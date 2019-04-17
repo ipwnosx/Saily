@@ -73,7 +73,7 @@ class repo {
         self.links.main = major_link
         self.links.icon = major_link + "CydiaIcon.png"
         GCD_repo_operations_init_quene.async {
-            sco_Network_return_CydiaIcon(link: major_link, force_refetch: false, completionHandler: { (img) in
+            sco_Network_return_CydiaIcon(link: self.links.icon, force_refetch: false, completionHandler: { (img) in
                 self.icon_img = img
             })
         }
