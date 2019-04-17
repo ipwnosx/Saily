@@ -62,6 +62,8 @@ class repo {
     public var links            = repo_link()           // major link must end with "/"
     public var icon_img         = #imageLiteral(resourceName: "iConRound.png")
     public var sections         = [repo_sections]()
+    public var in_refresh       = false
+    public var operation_status = rts_repo_refresh_code_READY
     
     init() {
         print("[*] ERROR INIT REPO")
@@ -90,15 +92,47 @@ class repo {
             sco_Network_search_for_packages_and_return_release_link(major_link: major_link, cache_file: release_cache_file_path, completionHandler: { (str) in
                 self.links.release = str
                 try? str.write(toFile: release_cache_file_path, atomically: true, encoding: .utf8)
+                // sections
+                GCD_repo_operations_quene.async {
+                    self.refresh()
+                }
             })
         }
-        // sections
-        
     }
     
-    func refresh(completionHandler: @escaping () -> ()) -> Void {
-        
+    func refresh() -> Void {
+        if (self.in_refresh) {
+            return
+        }
+        self.operation_status = rts_repo_refresh_code_START_DOWNLOAD
+        sco_Network_download_release_from_link(releaselink: self.links.release, repo_name: self.name) { (file_path) in
+            if (file_path == "ERROR DOWNLOAD") {
+                self.operation_status = rts_repo_refresh_code_READY
+                print("[E] dailed to download at :" + self.links.release)
+                return
+            }
+            self.operation_status = rts_repo_refresh_code_FINISH_DOWNLOAD
+            print("[*] download of release successfully at: " + file_path)
+            self.init_repo_section(release_file_path: file_path, completionHandler: {
+                self.operation_status = rts_repo_refresh_code_FINISH_DATABASE
+                
+                return
+            })
+        }
     }
+    
+    private func init_repo_section(release_file_path: String, completionHandler: @escaping () -> ()) -> Void {
+        self.operation_status = rts_repo_refresh_code_START_DATABASE
+        
+        completionHandler()
+    }
+    
+    func call_to_update_UI(completionHandler: @escaping () -> ()) {
+        self.operation_status = rts_repo_refresh_code_REQUEST_UI_UPDATE
+        
+        completionHandler()
+    }
+    
 }
 
 func sco_repos_read_repos_from_file_at_delegate() -> () {

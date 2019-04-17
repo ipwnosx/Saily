@@ -18,6 +18,18 @@ let rts_SUCCESS                                         =  0            // commo
 let rts_EPERMIT                                         = -1            // app is not in root with setuid(0) and sandbox escape.
 let rts_EPERM_FILE_LOCK                                 = -2            // the app's document direction contains something wrong... for future use.
 
+// This session, #define the repo status, begin with range 200...300 for normal and >400 for error
+let rts_repo_refresh_code_READY                         = 200
+let rts_repo_refresh_code_START_DOWNLOAD                = 201
+let rts_repo_refresh_code_FINISH_DOWNLOAD               = 202
+let rts_repo_refresh_code_START_DECODE                  = 203
+let rts_repo_refresh_code_FINISH_DECODE                 = 204
+let rts_repo_refresh_code_START_DATABASE                = 205
+let rts_repo_refresh_code_FINISH_DATABASE               = 206
+let rts_repo_refresh_code_REQUEST_UI_UPDATE             = 207
+
+
+
 // This session, variable decide app performance and behave.
 let GVAR_behave_debug_session_enabled                        = false
 var GVAR_behave_daemon_loaded                                = false

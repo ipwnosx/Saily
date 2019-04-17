@@ -38,6 +38,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sco_File_make_sure_file_at(path: GVAR_behave_repo_icon_cache_folder_path, isDirect: true)
         sco_File_make_sure_file_at(path: GVAR_behave_repo_info_cache_folder_path, isDirect: true)
         
+        if let cache_files = try? FileManager.default.contentsOfDirectory(atPath: GVAR_behave_repo_info_cache_folder_path) {
+            for item in cache_files {
+                if (item.hasSuffix(".link") || item.hasSuffix(".info")) {
+                    let read = try? String.init(contentsOfFile: item)
+                    if (read == nil || read == "") {
+                        try? FileManager.default.removeItem(atPath: item)
+                    }
+                }
+            }
+        }
+        
         sco_repos_read_repos_from_file_at_delegate()
         
         // Init device info
