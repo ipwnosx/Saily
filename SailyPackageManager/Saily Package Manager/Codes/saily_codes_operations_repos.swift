@@ -63,6 +63,7 @@ class repo {
     public var icon_img                             = #imageLiteral(resourceName: "iConRound.png")
     public var sections                             = [repo_sections]()
     public var sections_data_source_path            = String()
+    public var progress                             = Double.init(exactly: 0.0)!
     public var operation_status = rts_repo_refresh_code_READY
     
     init() {
@@ -71,6 +72,8 @@ class repo {
     }
     
     init(major_link: String) {
+        
+        self.progress = 0.1
         
         if (major_link == "com.Saily.testInit" || major_link == "") {
             return
@@ -90,6 +93,11 @@ class repo {
         }
         GCD_repo_operations_init_quene.async {
             sco_Network_search_for_packages_and_return_release_link(repo: self, completionHandler: { (str) in
+                if (str == "ERROR_SEARCHING_RELEASE_PACKAGES") {
+                    self.progress = 0
+                    self.operation_status = rts_repo_refresh_code_READY
+                    return
+                }
                 self.links.release = str
                 try? str.write(toFile: release_cache_file_path, atomically: true, encoding: .utf8)
                 // sections
@@ -104,27 +112,36 @@ class repo {
         if (self.operation_status != rts_repo_refresh_code_READY) {
             return
         }
+        self.progress = 0.2
         self.operation_status = rts_repo_refresh_code_START_DOWNLOAD
         sco_Network_download_release_from_link(repo: self) { (file_path) in
+            self.progress = 0.3
             if (file_path == "ERROR DOWNLOAD") {
                 self.operation_status = rts_repo_refresh_code_READY
                 print("[E] Failed to download at :" + self.links.release)
+                self.progress = 0.0
                 return
             }
             self.operation_status = rts_repo_refresh_code_FINISH_DOWNLOAD
             print("[*] download of release successfully at: " + file_path)
             sco_File_decompress(file_path: file_path, completionHandler: { (ret) in
+                self.progress = 0.4
                 let read_deced = (try? String.init(contentsOfFile: file_path + ".out")) ?? ""
                 if (ret == rts_EPERMIT && read_deced == "") {
                     print("[E] Failed to decompress file at: " + file_path)
+                    self.progress = 0.0
                     return
                 }else{
                     print("[*] Using file to init sections at: " + file_path + ".out")
                 }
                 self.sections_data_source_path = file_path + ".out"
                 self.init_repo_section(release_file_path: self.sections_data_source_path, completionHandler: {
+                    self.progress = 0.888
                     self.operation_status = rts_repo_refresh_code_FINISH_DATABASE
                     
+                    
+                    self.progress = 1
+                    self.operation_status = rts_repo_refresh_code_READY
                     return
                 })
             })
@@ -132,10 +149,10 @@ class repo {
     }
     
     private func init_repo_section(release_file_path: String, completionHandler: @escaping () -> ()) -> Void {
+        self.progress = 0.666
         self.operation_status = rts_repo_refresh_code_START_DATABASE
         
         completionHandler()
-        self.operation_status = rts_repo_refresh_code_READY
     }
     
 

@@ -6,13 +6,57 @@
 //
 
 import UIKit
+import MKRingProgressView
 
 class saily_UI_repos_view_controller: UITableViewController {
 
     var force_refetch = false
+    var timer = Timer()
+    
+    // Heartbeat to init progress view.
+    func firstTimer() -> Void {
+        timer = Timer.init(timeInterval: 1, repeats:true) { (kTimer) in
+            self.progress_update()
+        }
+        RunLoop.current.add(timer, forMode: .default)
+        timer.fire()
+    }
+    
+    func progress_update() -> Void {
+        var index = 0
+        for cell in self.tableView.visibleCells.dropFirst() {
+            for v in cell.subviews {
+                if (v.tag == 666) {
+                    let b = v as! RingProgressView
+                    let value = GVAR_behave_repo_instance[index].progress
+                    DispatchQueue.main.async {
+                        UIView.animate(withDuration: 0.38, animations: {
+                            b.progress = value
+                        })
+                    }
+                    if (b.progress == 0 || b.progress == 1.0) {
+                        DispatchQueue.main.async {
+                            UIView.animate(withDuration: 0.2, animations: {
+                                b.alpha = 0
+                            })
+                        }
+                    }else{
+                        DispatchQueue.main.async {
+                            UIView.animate(withDuration: 0.2, animations: {
+                                b.alpha = 1
+                            })
+                        }
+                    }
+                }
+            }
+            index += 1
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstTimer()
         
         self.clearsSelectionOnViewWillAppear = true
         self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -72,6 +116,23 @@ class saily_UI_repos_view_controller: UITableViewController {
             make.right.equalTo(cell.textLabel!.snp_left).offset(30)
             make.height.equalTo(38)
             make.width.equalTo(38)
+        }
+        let progressInd = RingProgressView.init()
+        progressInd.startColor = UIColor.init(hex: 0x619AC3)!
+        progressInd.endColor = UIColor.init(hex: 0x619AC3)!
+        progressInd.ringWidth = 2
+        progressInd.progress = GVAR_behave_repo_instance[indexPath.row - 1].progress
+        progressInd.tag = 666
+        if (progressInd.progress == 0.0 || progressInd.progress == 1.0) {
+            progressInd.alpha = 0
+            progressInd.progress = 0
+        }
+        cell.addSubview(progressInd)
+        progressInd.snp.makeConstraints { (make) in
+            make.height.equalTo(23)
+            make.width.equalTo(23)
+            make.right.equalTo(cell.snp_right).offset(0 - progressInd.width - 18)
+            make.centerY.equalTo(cell.snp_centerY).offset(0)
         }
         return cell
     }

@@ -95,7 +95,8 @@ func sco_Network_search_for_packages_and_return_release_link(repo: repo, complet
         }
     }
     print("[E] Error query for repo release link at: " + repo.links.major)
-    return //"ERROR_SEARCHING_RELEASE_PACKAGES"
+    completionHandler("ERROR_SEARCHING_RELEASE_PACKAGES")
+    return
 }
 
 func sco_Network_download_release_from_link(repo: repo, completionHandler: @escaping (_ file_name: String) -> ()) -> Void {
