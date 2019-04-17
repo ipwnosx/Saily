@@ -43,6 +43,7 @@ var GVAR_behave_udid_path                                    = ""
 var GVAR_behave_repo_list_file_path                          = ""
 var GVAR_behave_repo_icon_cache_folder_path                  = ""
 var GVAR_behave_repo_info_cache_folder_path                  = ""
+var GVAR_behave_repo_release_cache_folder_path                  = ""
 var GVAR_behave_job_quene_submit_path                        = ""
 
 // This session, contain file struct.
@@ -62,7 +63,9 @@ let GCD_repo_operations_quene                                = DispatchQueue(lab
 let GCD_network_operations_quene                             = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.network.operations",
                                                                         qos: .utility, attributes: .concurrent)
 let GCD_watch_dogs_control_quene                             = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.watchDogs",
-                                                                        qos: .utility, attributes: .concurrent)
+                                                                             qos: .utility, attributes: .concurrent)
+let GCD_heart_beat_control_quene                             = DispatchQueue(label: "com.lakr233.jw.Saily-Package-Manager.heartBeats",
+                                                                             qos: .utility, attributes: .concurrent)
 
 // This session, is for bridge call to Obj-C and future call to c.
 let const_objc_bridge_object                            = SailyCommonObject()

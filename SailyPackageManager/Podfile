@@ -17,7 +17,8 @@ target 'Saily Package Manager' do
     pod 'Reveal-SDK', :configurations => ['Debug']
     pod 'Swifter'
     pod 'FLEX', '~> 2.0', :configurations => ['Debug']
-    pod 'SWCompression'
+    pod 'BZipCompression', '~> 1.0.0'
+    pod 'GZIP', '~> 1.2'
     pod 'JGProgressHUD'
     pod 'MKRingProgressView'
 

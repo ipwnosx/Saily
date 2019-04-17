@@ -14,6 +14,8 @@
 #import "MobileGestalt.h"
 #import "mach/mach.h"
 #import "SFWebServer.h"
+#import "../../Pods/GZIP/GZIP/GZIP.h"
+#import "../../Pods/BZipCompression/Code/BZipCompression.h"
 
 
 @implementation SailyCommonObject
@@ -70,4 +72,14 @@
     }];
 }
 
+    
+- (NSData *)unGzip:(NSData *)data {
+    return [data gunzippedData];
+}
+    
+- (NSData *)unBzip:(NSData *)data{
+    NSError *error = nil;
+    return [BZipCompression decompressedDataWithData:data error:&error];
+}
+    
 @end

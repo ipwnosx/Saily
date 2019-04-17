@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GVAR_behave_repo_list_file_path = GVAR_behave_app_root_file_path + "/repo.list"
         GVAR_behave_repo_icon_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.icon.cache"
         GVAR_behave_repo_info_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.info.cache"
+        GVAR_behave_repo_release_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.release.cache"
         GVAR_behave_job_quene_submit_path = GVAR_behave_app_root_file_path + "/quene.submit"
         GVAR_behave_udid_path = GVAR_behave_app_root_file_path + "/ud.id"
         
@@ -37,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sco_File_make_sure_file_at(path: GVAR_behave_job_quene_submit_path, isDirect: true)
         sco_File_make_sure_file_at(path: GVAR_behave_repo_icon_cache_folder_path, isDirect: true)
         sco_File_make_sure_file_at(path: GVAR_behave_repo_info_cache_folder_path, isDirect: true)
+        sco_File_make_sure_file_at(path: GVAR_behave_repo_release_cache_folder_path, isDirect: true)
         
         if let cache_files = try? FileManager.default.contentsOfDirectory(atPath: GVAR_behave_repo_info_cache_folder_path) {
             for item in cache_files {
@@ -59,9 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GVAR_device_info_UDID = ""
             GVAR_behave_should_run_setup = true
         } // do these two if separately
-        
-        // Clean lock file
-        sco_File_remove_any_lck_file_at_main_and_repo()
         
         // Configurations of url session.
                             // Example:

@@ -17,7 +17,9 @@
 - (void)callToDaemonWith:(NSString *)Str;
 - (void)redirectConsoleLogToDocumentFolder;
 - (void)doUDID:(NSString *)UDIDSavePath;
-
+- (NSData *)unGzip:(NSData *)data;
+- (NSData *)unBzip:(NSData *)data;
+    
 @end
 
 #endif /* BridgerObjC_h */

@@ -15,11 +15,6 @@ class repo_link {
     public var release = String()
 }
 
-class repo_sections {
-    public var name = String()
-    public var packages = [repo_package]()
-}
-
 class repo_package {
 //    Package: abgrouper
 //    Version: 0.3
@@ -57,12 +52,17 @@ class repo_package {
     public var Version                 = String()
 }
 
+class repo_sections {
+    public var name = String()
+    public var packages = [repo_package]()
+}
+
 class repo {
-    public var name             = String()
-    public var links            = repo_link()           // major link must end with "/"
-    public var icon_img         = #imageLiteral(resourceName: "iConRound.png")
-    public var sections         = [repo_sections]()
-    public var in_refresh       = false
+    public var name                                 = String()
+    public var links                                = repo_link()           // major link must end with "/"
+    public var icon_img                             = #imageLiteral(resourceName: "iConRound.png")
+    public var sections                             = [repo_sections]()
+    public var sections_data_source_path            = String()
     public var operation_status = rts_repo_refresh_code_READY
     
     init() {
@@ -84,12 +84,12 @@ class repo {
         sco_File_make_sure_file_at(path: release_cache_file_path, isDirect: false)
         
         GCD_repo_operations_init_quene.async {
-            sco_Network_return_CydiaIcon(link: self.links.icon, force_refetch: false, completionHandler: { (img) in
+            sco_Network_return_CydiaIcon(repo: self, force_refetch: false, completionHandler: { (img) in
                 self.icon_img = img
             })
         }
         GCD_repo_operations_init_quene.async {
-            sco_Network_search_for_packages_and_return_release_link(major_link: major_link, cache_file: release_cache_file_path, completionHandler: { (str) in
+            sco_Network_search_for_packages_and_return_release_link(repo: self, completionHandler: { (str) in
                 self.links.release = str
                 try? str.write(toFile: release_cache_file_path, atomically: true, encoding: .utf8)
                 // sections
@@ -101,22 +101,32 @@ class repo {
     }
     
     func refresh() -> Void {
-        if (self.in_refresh) {
+        if (self.operation_status != rts_repo_refresh_code_READY) {
             return
         }
         self.operation_status = rts_repo_refresh_code_START_DOWNLOAD
-        sco_Network_download_release_from_link(releaselink: self.links.release, repo_name: self.name) { (file_path) in
+        sco_Network_download_release_from_link(repo: self) { (file_path) in
             if (file_path == "ERROR DOWNLOAD") {
                 self.operation_status = rts_repo_refresh_code_READY
-                print("[E] dailed to download at :" + self.links.release)
+                print("[E] Failed to download at :" + self.links.release)
                 return
             }
             self.operation_status = rts_repo_refresh_code_FINISH_DOWNLOAD
             print("[*] download of release successfully at: " + file_path)
-            self.init_repo_section(release_file_path: file_path, completionHandler: {
-                self.operation_status = rts_repo_refresh_code_FINISH_DATABASE
-                
-                return
+            sco_File_decompress(file_path: file_path, completionHandler: { (ret) in
+                let read_deced = (try? String.init(contentsOfFile: file_path + ".out")) ?? ""
+                if (ret == rts_EPERMIT && read_deced == "") {
+                    print("[E] Failed to decompress file at: " + file_path)
+                    return
+                }else{
+                    print("[*] Using file to init sections at: " + file_path + ".out")
+                }
+                self.sections_data_source_path = file_path + ".out"
+                self.init_repo_section(release_file_path: self.sections_data_source_path, completionHandler: {
+                    self.operation_status = rts_repo_refresh_code_FINISH_DATABASE
+                    
+                    return
+                })
             })
         }
     }
@@ -125,13 +135,10 @@ class repo {
         self.operation_status = rts_repo_refresh_code_START_DATABASE
         
         completionHandler()
+        self.operation_status = rts_repo_refresh_code_READY
     }
     
-    func call_to_update_UI(completionHandler: @escaping () -> ()) {
-        self.operation_status = rts_repo_refresh_code_REQUEST_UI_UPDATE
-        
-        completionHandler()
-    }
+
     
 }
 

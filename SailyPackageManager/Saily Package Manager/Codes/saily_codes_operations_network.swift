@@ -41,9 +41,9 @@ let GVAR_Network_REPO_Packages_Search_Path          = ["Packages.bz2",
                                                        "dists/hnd/main/binary-iphoneos-arm/Packages.bz2"]
 
 
-func sco_Network_search_for_packages_and_return_release_link(major_link: String, cache_file: String, completionHandler: @escaping (_ link: String) -> () ) -> () {
-    print("[*] Query for release link with major_link at:" + major_link)
-    let read_cache = try? String.init(contentsOfFile: cache_file)
+func sco_Network_search_for_packages_and_return_release_link(repo: repo, completionHandler: @escaping (_ link: String) -> () ) -> () {
+    print("[*] query for release link with major_link at:" + repo.links.major)
+    let read_cache = try? String.init(contentsOfFile: repo.name + ".info.release.link")
     if (read_cache != nil && read_cache != "") {
         print("[*] return cached release link at: " + read_cache!)
         completionHandler(read_cache!)
@@ -60,7 +60,7 @@ func sco_Network_search_for_packages_and_return_release_link(major_link: String,
                                  "Accept-Encoding" : "gzip, deflate"]
     for item in GVAR_Network_REPO_Packages_Search_Path {
         // Sample ht tp://apt.thebigboss.org/repofiles/cydia/ <--Major Link | Search Path--> dists/stable/main/binary-iphoneos-arm/Packages.bz2
-        if let url = URL.init(string: major_link + item) {
+        if let url = URL.init(string: repo.links.major + item) {
             let s = DispatchSemaphore.init(value: 0)
             var b = false
             var re_map_to : String? = nil
@@ -85,17 +85,20 @@ func sco_Network_search_for_packages_and_return_release_link(major_link: String,
             if (b) {
                 if (re_map_to != nil) {
                     completionHandler(re_map_to!)
+                    print("[*] return release link at:" + re_map_to!)
                     return
                 }
-                completionHandler(major_link + item)
+                completionHandler(repo.links.major + item)
+                print("[*] return release link at:" + repo.links.major + item)
                 return
             }
         }
     }
+    print("[E] Error query for repo release link at: " + repo.links.major)
     return //"ERROR_SEARCHING_RELEASE_PACKAGES"
 }
 
-func sco_Network_download_release_from_link(releaselink: String, repo_name: String, completionHandler: @escaping (_ file_name: String) -> ()) -> Void {
+func sco_Network_download_release_from_link(repo: repo, completionHandler: @escaping (_ file_name: String) -> ()) -> Void {
     let headers: HTTPHeaders  = ["User-Agent" : GVAR_Network_UserAgent_Default,
                                  "X-Firmware" : GVAR_device_info_current_version,
                                  "X-Unique-ID" : GVAR_device_info_UDID,
@@ -105,16 +108,16 @@ func sco_Network_download_release_from_link(releaselink: String, repo_name: Stri
                                  "Accept" : "*/*",
                                  "Accept-Language" : "zh-CN,en,*",
                                  "Accept-Encoding" : "gzip, deflate"]
-    guard let url = URL.init(string: releaselink) else { return }
+    guard let url = URL.init(string: repo.links.release) else { return }
     let s = DispatchSemaphore.init(value: 0)
-    var back_end = releaselink.split(separator: ".").last?.description
+    var back_end = repo.links.release.split(separator: ".").last?.description
     if (back_end?.count ?? "nonononon".count >= 5) {
         back_end = "none"
     }
-    let file_path = GVAR_behave_repo_info_cache_folder_path + "/" + repo_name + ".release." + back_end!
+    let file_path = GVAR_behave_repo_info_cache_folder_path + "/" + repo.name + ".release." + back_end!
     try? FileManager.default.removeItem(atPath: file_path + ".tmp")
     var failed = false
-    print("[*] starting download repo release at :" + repo_name)
+    print("[*] starting download repo release at: " + repo.name)
     AF.request(url, headers: headers).response { (datas) in
         guard let data = datas.data else { failed = true; s.signal(); return }
         FileManager.default.createFile(atPath: file_path + ".tmp", contents: data, attributes: nil)
@@ -130,8 +133,8 @@ func sco_Network_download_release_from_link(releaselink: String, repo_name: Stri
     completionHandler(file_path)
 }
 
-func sco_Network_return_CydiaIcon(link: String, force_refetch: Bool, completionHandler: @escaping (_ image: UIImage) -> Void) -> Void {
-    let save_path = GVAR_behave_repo_icon_cache_folder_path + "/" + sco_repos_link_to_name(link: link) + ".png"
+func sco_Network_return_CydiaIcon(repo: repo, force_refetch: Bool, completionHandler: @escaping (_ image: UIImage) -> Void) -> Void {
+    let save_path = GVAR_behave_repo_icon_cache_folder_path + "/" + repo.name + ".png"
     if (FileManager.default.fileExists(atPath: save_path)) {
         print("[*] return cached image at: " + save_path)
         if let image = UIImage.init(contentsOfFile: save_path) {
@@ -139,12 +142,12 @@ func sco_Network_return_CydiaIcon(link: String, force_refetch: Bool, completionH
             return
         }
     }
-    if (sco_repos_link_to_name(link: link) == "The Big Boss") {
+    if (repo.name == "The Big Boss") {
         completionHandler(#imageLiteral(resourceName: "repo_bigboss.png"))
         return
     }
-    print("[*] Attempt to connect: " + link)
-    guard let url = URL.init(string: link) else { return }
+    print("[*] Attempt to connect: " + repo.links.icon)
+    guard let url = URL.init(string: repo.links.icon) else { return }
     let headers: HTTPHeaders  = ["User-Agent" : GVAR_Network_UserAgent_Web_Request_iOS_12,
                                  "X-Firmware" : GVAR_device_info_current_version,
                                  "X-Unique-ID" : GVAR_device_info_UDID,
