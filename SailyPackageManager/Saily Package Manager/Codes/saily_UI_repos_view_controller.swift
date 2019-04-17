@@ -13,7 +13,7 @@ class saily_UI_repos_view_controller: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.clearsSelectionOnViewWillAppear = true
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         refreshControl = UIRefreshControl()
@@ -66,7 +66,7 @@ class saily_UI_repos_view_controller: UITableViewController {
         cell.addSubview(cellImg)
         // add label
         cell.textLabel?.text = "        " + GVAR_behave_repo_instance[indexPath.row - 1].name
-        cell.detailTextLabel?.text = "           " + GVAR_behave_repo_instance[indexPath.row - 1].links.main
+        cell.detailTextLabel?.text = "           " + GVAR_behave_repo_instance[indexPath.row - 1].links.major
         cellImg.snp.makeConstraints { (make) in
             make.top.equalTo(cell.contentView).offset(12)
             make.right.equalTo(cell.textLabel!.snp_left).offset(30)
@@ -88,7 +88,7 @@ class saily_UI_repos_view_controller: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             GVAR_behave_repo_instance.remove(at: indexPath.row - 1)
-            sco_repos_resave_repo_list()
+            sco_repos_resave_repos_list()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -97,8 +97,12 @@ class saily_UI_repos_view_controller: UITableViewController {
         if (to.row == 0) {
             self.tableView.reloadData()
         }else{
-            GVAR_behave_repo_instance.swapAt(fromIndexPath.row - 1, to.row - 1)
-            sco_repos_resave_repo_list()
+            print("[*] Remapping table view at index: " + (fromIndexPath.row - 1).description + ", " + (to.row - 1).description)
+            GVAR_behave_repo_instance.removeAll()
+            for cell in self.tableView.visibleCells.dropFirst() {
+                GVAR_behave_repo_instance.append(repo(major_link: cell.detailTextLabel?.text?.dropFirst("            ".count).description ?? ""))
+            }
+            sco_repos_resave_repos_list()
         }
     }
 
@@ -129,8 +133,10 @@ class saily_UI_repos_view_controller: UITableViewController {
                     text += "/"
                 }
                 GVAR_behave_repo_instance.append(repo(major_link: text))
-                sco_repos_resave_repo_list()
-                self.tableView.reloadData()
+                sco_repos_resave_repos_list()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                    self.tableView.reloadData()
+                }
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)

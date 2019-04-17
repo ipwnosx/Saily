@@ -12,6 +12,7 @@
 
 #if TARGET_OS_IPHONE
 #import <CFNetwork/CFNetwork.h>
+#import <PushKit/PushKit.h>
 #endif
 
 #import <TargetConditionals.h>
@@ -1625,6 +1626,7 @@ enum GCDAsyncSocketConfig
 				{
 					LogVerbose(@"close(socket4FD)");
                     close(self->socket4FD);
+                    self->socket4FD = SOCKET_NULL;
 				}
 				
 				return_from_block;
@@ -1918,15 +1920,15 @@ enum GCDAsyncSocketConfig
         dispatch_source_set_cancel_handler(self->acceptUNSource, ^{
 			
 #if NEEDS_DISPATCH_RETAIN_RELEASE
-			LogVerbose(@"dispatch_release(accept4Source)");
+			LogVerbose(@"dispatch_release(acceptUNSource)");
 			dispatch_release(acceptSource);
 #endif
 			
-			LogVerbose(@"close(socket4FD)");
+			LogVerbose(@"close(socketUN)");
 			close(socketFD);
 		});
 		
-		LogVerbose(@"dispatch_resume(accept4Source)");
+		LogVerbose(@"dispatch_resume(acceptUNSource)");
         dispatch_resume(self->acceptUNSource);
 		
         self->flags |= kSocketStarted;
@@ -8110,9 +8112,9 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 	BOOL r1, r2;
 	
 	LogVerbose(@"Enabling backgrouding on socket");
-	
-	r1 = CFReadStreamSetProperty(readStream, kCFStreamNetworkServiceType, kCFStreamNetworkServiceTypeVoIP);
-	r2 = CFWriteStreamSetProperty(writeStream, kCFStreamNetworkServiceType, kCFStreamNetworkServiceTypeVoIP);
+    
+    r1 = CFReadStreamSetProperty(readStream, kCFStreamNetworkServiceType, PKPushTypeVoIP);
+    r2 = CFWriteStreamSetProperty(writeStream, kCFStreamNetworkServiceType, PKPushTypeVoIP);
 	
 	if (!r1 || !r2)
 	{

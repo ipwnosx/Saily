@@ -24,20 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Yes, I know, you can do a RE to decrypt it, but, if you just want to build and run or have your own code, do it yourself.
         _ = AUTH_Encode(readin: " ")
         
+        const_objc_bridge_object.redirectConsoleLogToDocumentFolder()
+        
         GVAR_behave_app_root_file_path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         GVAR_behave_repo_list_file_path = GVAR_behave_app_root_file_path + "/repo.list"
         GVAR_behave_repo_icon_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.icon.cache"
+        GVAR_behave_repo_info_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.info.cache"
         GVAR_behave_job_quene_submit_path = GVAR_behave_app_root_file_path + "/quene.submit"
         GVAR_behave_udid_path = GVAR_behave_app_root_file_path + "/ud.id"
         
         sco_File_make_sure_file_at(path: GVAR_behave_repo_list_file_path, isDirect: false)
         sco_File_make_sure_file_at(path: GVAR_behave_job_quene_submit_path, isDirect: true)
         sco_File_make_sure_file_at(path: GVAR_behave_repo_icon_cache_folder_path, isDirect: true)
+        sco_File_make_sure_file_at(path: GVAR_behave_repo_info_cache_folder_path, isDirect: true)
         
-        let repo_raw_read = (try? String.init(contentsOfFile: GVAR_behave_repo_list_file_path)) ?? ""
-        for item in repo_raw_read.split(separator: "\n") {
-            GVAR_behave_repo_instance.append(repo(major_link: item.description))
-        }
+        sco_repos_read_repos_from_file_at_delegate()
         
         // Init device info
         GVAR_device_info_identifier_human_readable = UIDevice.init_identifier_and_return_human_readable_string
@@ -47,9 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GVAR_device_info_UDID = ""
             GVAR_behave_should_run_setup = true
         } // do these two if separately
-        if (GVAR_behave_repo_instance.count == 0) {
-            GVAR_behave_should_run_setup = true
-        }
         
         // Clean lock file
         sco_File_remove_any_lck_file_at_main_and_repo()
@@ -66,6 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             //        Accept-Encoding: gzip, deflate
                             //        Connection: keep-alive
                             // If-Modified-Since, Always require new data.
+//
+//        UIApplication.shared.setMinimumBackgroundFetchInterval(
+//            UIApplication.backgroundFetchIntervalMinimum)
+        
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+
         
         return true
     }
@@ -75,7 +79,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
+        sco_repos_resave_repos_list()
+        if (GVAR_device_info_UDID == "") {
+
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

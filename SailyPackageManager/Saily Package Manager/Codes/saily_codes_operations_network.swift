@@ -41,7 +41,13 @@ let GVAR_Network_REPO_Packages_Search_Path          = ["Packages.bz2",
                                                        "dists/hnd/main/binary-iphoneos-arm/Packages.bz2"]
 
 
-func sco_Network_search_for_packages_and_return_release_link(major_link: String, completionHandler: @escaping (_ link: String) -> () ) -> () {
+func sco_Network_search_for_packages_and_return_release_link(major_link: String, cache_file: String, completionHandler: @escaping (_ link: String) -> () ) -> () {
+    let read_cache = try? String.init(contentsOfFile: cache_file)
+    if (read_cache != nil && read_cache != "") {
+        print("[*] return cached release link at: " + read_cache!)
+        completionHandler(read_cache!)
+        return
+    }
     let headers: HTTPHeaders  = ["User-Agent" : GVAR_Network_UserAgent_Default,
                                  "X-Firmware" : GVAR_device_info_current_version,
                                  "X-Unique-ID" : GVAR_device_info_UDID,
@@ -102,7 +108,7 @@ func sco_Network_return_CydiaIcon(link: String, force_refetch: Bool, completionH
         completionHandler(#imageLiteral(resourceName: "repo_bigboss.png"))
         return
     }
-    print("[*] Attempt to connect :" + link)
+    print("[*] Attempt to connect: " + link)
     guard let url = URL.init(string: link) else { return }
     let headers: HTTPHeaders  = ["User-Agent" : GVAR_Network_UserAgent_Web_Request_iOS_12,
                                  "X-Firmware" : GVAR_device_info_current_version,

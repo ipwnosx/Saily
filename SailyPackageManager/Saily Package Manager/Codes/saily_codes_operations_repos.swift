@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 class repo_link {
-    public var main    = String()
+    public var major   = String()
     public var icon    = String()
     public var release = String()
 }
@@ -69,17 +69,27 @@ class repo {
     }
     
     init(major_link: String) {
+        
+        if (major_link == "com.Saily.testInit" || major_link == "") {
+            return
+        }
+        
         self.name = sco_repos_link_to_name(link: major_link)
-        self.links.main = major_link
+        self.links.major = major_link
         self.links.icon = major_link + "CydiaIcon.png"
+        
+        let release_cache_file_path = GVAR_behave_repo_info_cache_folder_path + "/" + self.name + ".info.release.link"
+        sco_File_make_sure_file_at(path: release_cache_file_path, isDirect: false)
+        
         GCD_repo_operations_init_quene.async {
             sco_Network_return_CydiaIcon(link: self.links.icon, force_refetch: false, completionHandler: { (img) in
                 self.icon_img = img
             })
         }
         GCD_repo_operations_init_quene.async {
-            sco_Network_search_for_packages_and_return_release_link(major_link: major_link, completionHandler: { (str) in
+            sco_Network_search_for_packages_and_return_release_link(major_link: major_link, cache_file: release_cache_file_path, completionHandler: { (str) in
                 self.links.release = str
+                try? str.write(toFile: release_cache_file_path, atomically: true, encoding: .utf8)
             })
         }
         // sections
@@ -88,6 +98,25 @@ class repo {
     
     func refresh(completionHandler: @escaping () -> ()) -> Void {
         
+    }
+}
+
+func sco_repos_read_repos_from_file_at_delegate() -> () {
+    let repo_raw_read = (try? String.init(contentsOfFile: GVAR_behave_repo_list_file_path)) ?? ""
+    for item in repo_raw_read.split(separator: "\n") {
+        GVAR_behave_repo_instance.append(repo(major_link: item.description))
+    }
+    if (GVAR_behave_repo_instance.count == 0) {
+        let default_repos = ["http://apt.thebigboss.org/repofiles/cydia/",
+                             "http://build.frida.re/",
+                             "https://apt.bingner.com/",
+                             "https://repo.chariz.io/",
+                             "https://repo.dynastic.co/",
+                             "https://sparkdev.me/",
+                             "https://repo.nepeta.me/"]
+        for item in default_repos {
+            GVAR_behave_repo_instance.append(repo(major_link: item.description))
+        }
     }
 }
 
@@ -109,10 +138,11 @@ func sco_repos_link_to_name(link: String) -> String {
     return name
 }
 
-func sco_repos_resave_repo_list() -> Void {
+func sco_repos_resave_repos_list() -> Void {
     var out = ""
     for repo in GVAR_behave_repo_instance {
-        out = out + repo.links.main + "\n"
+        print("[*] Saving repo: " + repo.links.major)
+        out = out + repo.links.major + "\n"
     }
     try? FileManager.default.removeItem(atPath: GVAR_behave_repo_list_file_path)
     try? out.write(toFile: GVAR_behave_repo_list_file_path, atomically: true, encoding: .utf8)

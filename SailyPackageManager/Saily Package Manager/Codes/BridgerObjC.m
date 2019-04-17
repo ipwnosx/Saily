@@ -31,7 +31,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *logPath = [documentsDirectory stringByAppendingPathComponent:@"console.txt"];
+    NSString *logPath = [documentsDirectory stringByAppendingPathComponent:@"/console.txt"];
     freopen([logPath fileSystemRepresentation],"a+",stderr);
 }
 

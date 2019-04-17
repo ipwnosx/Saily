@@ -18,35 +18,40 @@ class theCell: UITableViewCell {
 
 class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var default_repos = ["http://apt.thebigboss.org/repofiles/cydia/",
-                         "http://build.frida.re/",
-                         "https://apt.bingner.com/",
-                         "https://repo.chariz.io/",
-                         "https://repo.dynastic.co/",
-                         "https://sparkdev.me/",
-                         "https://repo.nepeta.me/"]
+    var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    @objc func registerBackgroundTask() {
+        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            self?.endBackgroundTask()
+        }
+        assert(backgroundTask != .invalid)
+    }
+    
+    func endBackgroundTask() {
+        print("Background task ended.")
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = .invalid
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return default_repos.count
+        return GVAR_behave_repo_instance.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // return cell
         let idCell = "Cell";
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
-        
-        // return name
-        let name = sco_repos_link_to_name(link: default_repos[indexPath.row]) 
         // return image
         let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
-        sco_Network_return_CydiaIcon(link: default_repos[indexPath.row] + "CydiaIcon.png", force_refetch: false) { (image) in
-            cellImg.image = image
-        }
+        cellImg.image = GVAR_behave_repo_instance[indexPath.row].icon_img
         cellImg.contentMode = .scaleAspectFit
         cell.addSubview(cellImg)
         // add label
-        cell.textLabel?.text = "        " + name
-        cell.detailTextLabel?.text = "           " + default_repos[indexPath.row]
+        cell.textLabel?.text = "        " + GVAR_behave_repo_instance[indexPath.row].name
+        cell.detailTextLabel?.text = "           " + GVAR_behave_repo_instance[indexPath.row].links.major
         cellImg.snp.makeConstraints { (make) in
             make.top.equalTo(cell.contentView).offset(12)
             make.right.equalTo(cell.textLabel!.snp_left).offset(30)
@@ -81,6 +86,10 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default
+            .addObserver(self, selector: #selector(registerBackgroundTask),
+                         name: UIApplication.didBecomeActiveNotification, object: nil)
         
         let screenX = UIScreen.main.bounds.width
 //        let screenY = UIScreen.main.bounds.height
@@ -325,19 +334,8 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
         // check if okay
         guard let udid_tmp = udid_text_field.text else { notFitAlert(t: self); return }
         if (udid_tmp == "") { notFitAlert(t: self); return }
-        if (default_repos.count == 0) { notFitAlert(t: self); return }
         // write to file
         try? udid_tmp.write(toFile: GVAR_behave_udid_path, atomically: true, encoding: .utf8)
-        var repo_list_tmp = ""
-        for item in default_repos {
-            repo_list_tmp = repo_list_tmp + item + "\n"
-        }
-        try? repo_list_tmp.write(toFile: GVAR_behave_repo_list_file_path, atomically: true, encoding: .utf8)
-        
-        let repo_raw_read = (try? String.init(contentsOfFile: GVAR_behave_repo_list_file_path)) ?? ""
-        for item in repo_raw_read.split(separator: "\n") {
-            GVAR_behave_repo_instance.append(repo(major_link: item.description))
-        }
         GVAR_device_info_UDID = (try? String.init(contentsOfFile: GVAR_behave_udid_path))!
         GVAR_behave_should_run_setup = false
         let appDelegate = UIApplication.shared.delegate! as! AppDelegate

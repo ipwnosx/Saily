@@ -37,7 +37,7 @@
     _server =  [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     NSError *error = nil;
     if ([_server acceptOnPort:self.port error:&error]) {
-        NSLog(@"server start on %@:%zd",_server.localHost,_server.localPort);
+        NSLog(@"server start on %@:%hu",_server.localHost,_server.localPort);
         _host = _server.localHost;
         return YES;
     }else{
@@ -86,7 +86,7 @@
 
 -(void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket{
     NSLog(@"didAcceptNewSocket");
-    NSLog(@"newSocket %@ %@ %zd",newSocket.userData,newSocket.localHost,newSocket.localPort);
+    NSLog(@"newSocket %@ %@ %hu",newSocket.userData,newSocket.localHost,newSocket.localPort);
     
     
     //    NSMutableString *serverStr = [NSMutableString string];
@@ -96,7 +96,7 @@
 }
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
     NSLog(@"didReadData");
-    NSLog(@"sock %@ %@ %zd",sock.userData,sock.localHost,sock.localPort);
+    NSLog(@"sock %@ %@ %hu",sock.userData,sock.localHost,sock.localPort);
     
     SFWebServerRequest *request = [[SFWebServerRequest alloc]initWithData:data];
     
