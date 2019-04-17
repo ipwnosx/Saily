@@ -127,10 +127,13 @@ class repo {
             sco_File_decompress(file_path: file_path, completionHandler: { (ret) in
                 self.progress = 0.4
                 let read_deced = (try? String.init(contentsOfFile: file_path + ".out")) ?? ""
-                if (ret == rts_EPERMIT && read_deced == "") {
+                if (ret == rts_EPERMIT) {
                     print("[E] Failed to decompress file at: " + file_path)
+                    self.operation_status = rts_repo_refresh_code_READY
                     self.progress = 0.0
-                    return
+                    if (read_deced == "") {
+                        return
+                    }
                 }else{
                     print("[*] Using file to init sections at: " + file_path + ".out")
                 }
