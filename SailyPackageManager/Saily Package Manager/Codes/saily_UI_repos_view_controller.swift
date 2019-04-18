@@ -13,52 +13,6 @@ class saily_UI_repos_view_controller: UITableViewController {
     var force_refetch = false
     var timer = Timer()
     
-    // Heartbeat to init progress view.
-    func firstTimer() -> Void {
-        timer = Timer.init(timeInterval: 0.2, repeats:false) { (kTimer) in
-            self.progress_update()
-        }
-        RunLoop.current.add(timer, forMode: .default)
-        timer.fire()
-    }
-    
-    func progress_update() -> Void {
-        var index = 0
-        var all_done = true
-        for cell in self.tableView.visibleCells.dropFirst() {
-            for v in cell.subviews {
-                if (v.tag == 666) {
-                    let b = v as! RingProgressView
-                    let value = GVAR_behave_repo_instance[index].progress
-                    DispatchQueue.main.async {
-                        UIView.animate(withDuration: 0.38, animations: {
-                            b.progress = value
-                        })
-                    }
-                    if (b.progress == 0 || b.progress == 1.0) {
-                        DispatchQueue.main.async {
-                            UIView.animate(withDuration: 0.2, animations: {
-                                b.alpha = 0
-                            })
-                        }
-                    }else{
-                        all_done = false
-                        DispatchQueue.main.async {
-                            UIView.animate(withDuration: 0.2, animations: {
-                                b.alpha = 1
-                            })
-                        }
-                    }
-                }
-            }
-            index += 1
-        }
-        if (!all_done) {
-            usleep(500000)
-            timer.fire()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

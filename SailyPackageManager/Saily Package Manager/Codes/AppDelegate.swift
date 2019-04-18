@@ -60,23 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (GVAR_device_info_UDID == "?") {
             GVAR_device_info_UDID = ""
             GVAR_behave_should_run_setup = true
-        } // do these two if separately
-        
-        // Configurations of url session.
-                            // Example:
-                            //        GET /igg/./CydiaIcon.png HTTP/1.1
-                            //        Host: aquawu.github.io
-                            //        If-None-Match: "5c7bd7d7-aaaaa"
-                            //        Accept: */*
-                            //        If-Modified-Since: Sun, 03 Mar 2019 13:34:15 GMT
-                            //        User-Agent: Cydia/0.9 CFNetwork/974.2.1 Darwin/18.0.0
-                            //        Accept-Language: zh-cn
-                            //        Accept-Encoding: gzip, deflate
-                            //        Connection: keep-alive
-                            // If-Modified-Since, Always require new data.
-//
-//        UIApplication.shared.setMinimumBackgroundFetchInterval(
-//            UIApplication.backgroundFetchIntervalMinimum)
+        }
         
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 
@@ -90,9 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         sco_repos_resave_repos_list()
-        if (GVAR_device_info_UDID == "") {
-
-        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -133,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        
+        sco_repos_resave_repos_list()
     }
 
 }
