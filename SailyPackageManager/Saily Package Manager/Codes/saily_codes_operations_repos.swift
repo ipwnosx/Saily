@@ -62,6 +62,7 @@ class repo {
     public var links                                = repo_link()           // major link must end with "/"
     public var icon_img                             = #imageLiteral(resourceName: "iConRound.png")
     public var sections                             = [repo_sections]()
+    public var section_data_raw_string              = String()
     public var sections_data_source_path            = String()
     public var progress_view                        = RingProgressView()
     public var operation_status = rts_repo_refresh_code_READY
