@@ -36,6 +36,8 @@
 		AB4BBB96226309E900C4DC16 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB91226309E900C4DC16 /* GCDAsyncUdpSocket.m */; };
 		AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBB92226309E900C4DC16 /* GCDAsyncSocket.m */; };
 		AB4BBBA822632B1300C4DC16 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BBBA722632B1300C4DC16 /* main.swift */; };
+		AB5D6E272268B7F20050E7E4 /* saily_UI_repos_sections_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5D6E262268B7F20050E7E4 /* saily_UI_repos_sections_view_controller.swift */; };
+		AB5D6E292268B8060050E7E4 /* saily_UI_repos_packages_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5D6E282268B8060050E7E4 /* saily_UI_repos_packages_view_controller.swift */; };
 		AB64E8DD2263A96000119FCA /* Library in Resources */ = {isa = PBXBuildFile; fileRef = AB64E8DC2263A96000119FCA /* Library */; };
 		AB64E9072263C50100119FCA /* saily_codes_extensions_UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64E9062263C50100119FCA /* saily_codes_extensions_UIDevice.swift */; };
 		AB64E9092263C53900119FCA /* saily_codes_GobalVAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB64E9082263C53900119FCA /* saily_codes_GobalVAR.swift */; };
@@ -60,16 +62,6 @@
 		ABB724C322627621006D1416 /* saily_UI_welcome_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB724C222627621006D1416 /* saily_UI_welcome_view_controller.swift */; };
 		B62EDB931A4AFF87C3F8FDF5 /* Pods_Saily_Package_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95674A4A3835F374A7580D55 /* Pods_Saily_Package_Manager.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AB372F382264BC090023EC31 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB7ED04D2261EADF00C43D64 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AB4BBB9D22632B1300C4DC16;
-			remoteInfo = SailyStartupDaemon;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6530FC4D348EA3838353E835 /* Pods-Saily Package Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.debug.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +105,8 @@
 		AB4BBBA222632B1300C4DC16 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		AB4BBBA322632B1300C4DC16 /* monkeydev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = monkeydev.entitlements; sourceTree = "<group>"; };
 		AB4BBBA722632B1300C4DC16 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AB5D6E262268B7F20050E7E4 /* saily_UI_repos_sections_view_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_repos_sections_view_controller.swift; sourceTree = "<group>"; };
+		AB5D6E282268B8060050E7E4 /* saily_UI_repos_packages_view_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saily_UI_repos_packages_view_controller.swift; sourceTree = "<group>"; };
 		AB64E8DC2263A96000119FCA /* Library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Library; path = Package/Library; sourceTree = "<group>"; };
 		AB64E8DE2263AB0700119FCA /* Packages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Packages; sourceTree = SOURCE_ROOT; };
 		AB64E8DF2263AC6300119FCA /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
@@ -325,6 +319,8 @@
 				ABB724A922623D8F006D1416 /* saily_UI_init_view_controller.swift */,
 				AB7ED05A2261EAE000C43D64 /* saily_UI_featured_view_controller.swift */,
 				AB64E90B2264936900119FCA /* saily_UI_repos_view_controller.swift */,
+				AB5D6E262268B7F20050E7E4 /* saily_UI_repos_sections_view_controller.swift */,
+				AB5D6E282268B8060050E7E4 /* saily_UI_repos_packages_view_controller.swift */,
 				ABB724A222623AC7006D1416 /* saily_UI_installed_view_controller.swift */,
 				ABB724AF22624A28006D1416 /* saily_UI_search_view_controller.swift */,
 				ABB724C222627621006D1416 /* saily_UI_welcome_view_controller.swift */,
@@ -400,7 +396,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AB372F392264BC090023EC31 /* PBXTargetDependency */,
 			);
 			name = "Saily Package Manager";
 			productName = "Saily Package Manager";
@@ -632,6 +627,7 @@
 				AB3BA9A32265F078000C231B /* AUTH_ENCODE.swift in Sources */,
 				AB4BBB8B226309C100C4DC16 /* SFWebServerRequest.m in Sources */,
 				AB4BBB96226309E900C4DC16 /* GCDAsyncUdpSocket.m in Sources */,
+				AB5D6E292268B8060050E7E4 /* saily_UI_repos_packages_view_controller.swift in Sources */,
 				AB64E9092263C53900119FCA /* saily_codes_GobalVAR.swift in Sources */,
 				AB7ED0592261EADF00C43D64 /* AppDelegate.swift in Sources */,
 				AB4BBB97226309E900C4DC16 /* GCDAsyncSocket.m in Sources */,
@@ -649,19 +645,12 @@
 				AB4BBB8E226309C100C4DC16 /* SFWebServerRouter.m in Sources */,
 				ABB724A322623AC7006D1416 /* saily_UI_installed_view_controller.swift in Sources */,
 				AB3BA9A92265F765000C231B /* saily_UI_return_tableviewcell.swift in Sources */,
+				AB5D6E272268B7F20050E7E4 /* saily_UI_repos_sections_view_controller.swift in Sources */,
 				AB49F7E2226542880043F4FD /* saily_codes_operations_repos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AB372F392264BC090023EC31 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AB4BBB9D22632B1300C4DC16 /* SailyStartupDaemon */;
-			targetProxy = AB372F382264BC090023EC31 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AB7ED05E2261EAE000C43D64 /* Main.storyboard */ = {

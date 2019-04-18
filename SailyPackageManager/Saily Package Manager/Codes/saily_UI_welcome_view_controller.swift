@@ -18,31 +18,13 @@ class theCell: UITableViewCell {
 
 class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var backgroundTask: UIBackgroundTaskIdentifier = .invalid
-    @objc func registerBackgroundTask() {
-        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
-            self?.endBackgroundTask()
-        }
-        assert(backgroundTask != .invalid)
-    }
-    
-    func endBackgroundTask() {
-        print("Background task ended.")
-        UIApplication.shared.endBackgroundTask(backgroundTask)
-        backgroundTask = .invalid
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return GVAR_behave_repo_instance.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // return cell
-        let idCell = "Cell";
+        let idCell = "theCell";
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
         // return image
         let cellImg = UIImageView(frame: CGRect.init(x: 6, y: 12, width: 38, height: 38))
@@ -84,12 +66,18 @@ class saily_UI_welcome_view_controller: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var place_holder_in: UIImageView!
     @IBOutlet weak var place_holder_down: UIImageView!
     
+    func firstTimer() -> Void {
+        let timer = Timer.init(timeInterval: 1, repeats:true) { (kTimer) in
+            self.table_view.reloadData()
+        }
+        RunLoop.current.add(timer, forMode: .default)
+        timer.fire()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default
-            .addObserver(self, selector: #selector(registerBackgroundTask),
-                         name: UIApplication.didBecomeActiveNotification, object: nil)
+        firstTimer()
         
         let screenX = UIScreen.main.bounds.width
 //        let screenY = UIScreen.main.bounds.height

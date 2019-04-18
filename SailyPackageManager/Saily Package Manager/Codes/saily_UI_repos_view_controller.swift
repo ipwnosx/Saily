@@ -16,8 +16,6 @@ class saily_UI_repos_view_controller: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstTimer()
-        
         self.clearsSelectionOnViewWillAppear = true
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         refreshControl = UIRefreshControl()
@@ -49,8 +47,7 @@ class saily_UI_repos_view_controller: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // return cell
-        let idCell = "Cell";
-        let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
+        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: UUID().uuidString)
         if (indexPath.row == 0) {
             cell.textLabel?.text = "        Add New Repo"
             cell.detailTextLabel?.text = "          Saily supports many kinds of repos by tapping here and add them."
@@ -84,7 +81,6 @@ class saily_UI_repos_view_controller: UITableViewController {
         progressInd.startColor = UIColor.init(hex: 0x619AC3)!
         progressInd.endColor = UIColor.init(hex: 0x619AC3)!
         progressInd.ringWidth = 2
-        progressInd.progress = GVAR_behave_repo_instance[indexPath.row - 1].progress
         progressInd.tag = 666
         if (progressInd.progress == 0.0 || progressInd.progress == 1.0) {
             progressInd.alpha = 0
@@ -162,6 +158,10 @@ class saily_UI_repos_view_controller: UITableViewController {
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        }else{
+            let repo_sections_vc = saily_UI_repos_sections_view_controller()
+            repo_sections_vc.put_data(d: GVAR_behave_repo_instance[indexPath.row - 1].sections)
+            self.navigationController?.pushViewController(repo_sections_vc)
         }
     }
 

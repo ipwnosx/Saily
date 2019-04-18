@@ -118,6 +118,14 @@ func sco_Network_download_release_from_link(repo: repo, completionHandler: @esca
     let file_path = GVAR_behave_repo_info_cache_folder_path + "/" + repo.name + ".release." + back_end!
     try? FileManager.default.removeItem(atPath: file_path + ".tmp")
     var failed = false
+    
+    // DEBUG SESSION
+    if (FileManager.default.fileExists(atPath: GVAR_behave_repo_info_cache_folder_path + "/" + repo.name + ".release." + back_end!)) {
+        completionHandler(file_path)
+        return
+    }
+    
+    
     print("[*] starting download repo release at: " + repo.name)
     AF.request(url, headers: headers).response { (datas) in
         guard let data = datas.data else { failed = true; s.signal(); return }
