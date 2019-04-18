@@ -50,11 +50,20 @@ class repo_package {
     public var SHA1                    = String()
     public var Size                    = String()
     public var Version                 = String()
+
+    func load_section() {
+
+    }
+
 }
 
 class repo_sections {
     public var name = String()
     public var packages = [repo_package]()
+
+    init(name: String) {
+        
+    }
 }
 
 class repo {
@@ -65,6 +74,7 @@ class repo {
     public var section_data_raw_string              = String()
     public var sections_data_source_path            = String()
     public var progress_view                        = RingProgressView()
+    public var progress_view_should_show            = false
     public var operation_status = rts_repo_refresh_code_READY
     
     init() {
@@ -113,6 +123,11 @@ class repo {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.38, animations: {
                 self.progress_view.progress = progress
+                if (self.progress_view_should_show == true) {
+                    self.progress_view.alpha = 1
+                }else{
+                    self.progress_view.alpha = 0
+                }
             })
         }
     }
@@ -121,6 +136,7 @@ class repo {
         if (self.operation_status != rts_repo_refresh_code_READY) {
             return
         }
+        self.progress_view_should_show = true
         self.async_update_progress(0.2)
         self.operation_status = rts_repo_refresh_code_START_DOWNLOAD
         sco_Network_download_release_from_link(repo: self) { (file_path) in
@@ -129,6 +145,7 @@ class repo {
                 self.operation_status = rts_repo_refresh_code_READY
                 print("[E] Failed to download at :" + self.links.release)
                 self.async_update_progress(0.0)
+                self.progress_view_should_show = false
                 return
             }
             self.operation_status = rts_repo_refresh_code_FINISH_DOWNLOAD
@@ -140,8 +157,13 @@ class repo {
                     print("[E] Failed to decompress file at: " + file_path)
                     self.operation_status = rts_repo_refresh_code_READY
                     self.async_update_progress(0.0)
+                    self.progress_view_should_show = false
                     if (read_deced == "") {
                         return
+                    }else{
+                        print("[*] Using file to init sections even there is an error at: " + file_path + ".out")
+                        self.progress_view_should_show = true
+                        self.async_update_progress(0.45)
                     }
                 }else{
                     print("[*] Using file to init sections at: " + file_path + ".out")
@@ -151,9 +173,16 @@ class repo {
                     self.async_update_progress(0.888)
                     self.operation_status = rts_repo_refresh_code_FINISH_DATABASE
                     
-                    
+                    // Finish init sections.
                     self.async_update_progress(1.0)
                     self.operation_status = rts_repo_refresh_code_READY
+                    self.progress_view_should_show = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.async_update_progress(1.0)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.async_update_progress(0.0)
+                        }
+                    }
                     return
                 })
             })
@@ -164,6 +193,26 @@ class repo {
         self.async_update_progress(0.666)
         self.operation_status = rts_repo_refresh_code_START_DATABASE
         
+        guard self.section_data_raw_string = String.init(contentsOfFile: self.sections_data_source_path) else {
+            self.async_update_progress(0)
+            self.operation_status = rts_repo_refresh_code_READY
+            print("[*] Error reading data base at :" + release_file_path)
+            return
+        }
+
+        var tmp_package = repo_package()
+        var tmp_package_str = String()
+        for item in self.section_data_raw_string.split(separator: "\n") {
+            if (item == "") {
+                tmp_package.load_section()
+                self.packages.append(tmp_package)
+                tmp_package = repo_package()
+                tmp_package.depiction_raw = ""
+            }else{
+                tmp_package.depiction_raw = tmp_package.depiction_raw + item + "\n"
+            }
+        }
+
         completionHandler()
     }
     
