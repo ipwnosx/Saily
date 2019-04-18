@@ -15,7 +15,7 @@ class saily_UI_repos_view_controller: UITableViewController {
     
     // Heartbeat to init progress view.
     func firstTimer() -> Void {
-        timer = Timer.init(timeInterval: 0.4, repeats:true) { (kTimer) in
+        timer = Timer.init(timeInterval: 0.2, repeats:false) { (kTimer) in
             self.progress_update()
         }
         RunLoop.current.add(timer, forMode: .default)
@@ -24,6 +24,7 @@ class saily_UI_repos_view_controller: UITableViewController {
     
     func progress_update() -> Void {
         var index = 0
+        var all_done = true
         for cell in self.tableView.visibleCells.dropFirst() {
             for v in cell.subviews {
                 if (v.tag == 666) {
@@ -41,6 +42,7 @@ class saily_UI_repos_view_controller: UITableViewController {
                             })
                         }
                     }else{
+                        all_done = false
                         DispatchQueue.main.async {
                             UIView.animate(withDuration: 0.2, animations: {
                                 b.alpha = 1
@@ -50,6 +52,10 @@ class saily_UI_repos_view_controller: UITableViewController {
                 }
             }
             index += 1
+        }
+        if (!all_done) {
+            usleep(500000)
+            timer.fire()
         }
     }
     
@@ -69,26 +75,12 @@ class saily_UI_repos_view_controller: UITableViewController {
     }
     
     @objc private func refreshData(_ sender: Any) {
-        force_refetch = true
-        var all_ready = true
-        for cell in self.tableView.visibleCells.dropFirst() {
-            for v in cell.subviews {
-                if (v.tag == 666) {
-                    if ((v as! RingProgressView).alpha != 0) {
-                        all_ready = false
-                    }
-                }
-            }
-        }
-        if (all_ready) {
-            for item in GVAR_behave_repo_instance {
-                GCD_repo_operations_quene.async {
-                    item.refresh()
-                }
+        for item in GVAR_behave_repo_instance {
+            GCD_repo_operations_quene.async {
+                item.refresh()
             }
         }
         self.tableView.reloadData {
-            self.force_refetch = false
             DispatchQueue.main.async {
                 self.tableView.refreshControl?.endRefreshing()
             }
@@ -134,7 +126,7 @@ class saily_UI_repos_view_controller: UITableViewController {
             make.height.equalTo(38)
             make.width.equalTo(38)
         }
-        let progressInd = RingProgressView.init()
+        let progressInd = RingProgressView()
         progressInd.startColor = UIColor.init(hex: 0x619AC3)!
         progressInd.endColor = UIColor.init(hex: 0x619AC3)!
         progressInd.ringWidth = 2
@@ -144,6 +136,7 @@ class saily_UI_repos_view_controller: UITableViewController {
             progressInd.alpha = 0
             progressInd.progress = 0
         }
+        GVAR_behave_repo_instance[indexPath.row - 1].progress_view = progressInd
         cell.addSubview(progressInd)
         progressInd.snp.makeConstraints { (make) in
             make.height.equalTo(23)
@@ -176,10 +169,7 @@ class saily_UI_repos_view_controller: UITableViewController {
             self.tableView.reloadData()
         }else{
             print("[*] Remapping table view at index: " + (fromIndexPath.row - 1).description + ", " + (to.row - 1).description)
-            GVAR_behave_repo_instance.removeAll()
-            for cell in self.tableView.visibleCells.dropFirst() {
-                GVAR_behave_repo_instance.append(repo(major_link: cell.detailTextLabel?.text?.dropFirst("            ".count).description ?? ""))
-            }
+            GVAR_behave_repo_instance.swapAt(fromIndexPath.row - 1, to.row - 1)
             sco_repos_resave_repos_list()
         }
     }
