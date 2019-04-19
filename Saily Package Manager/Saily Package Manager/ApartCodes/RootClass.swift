@@ -26,7 +26,7 @@ let Saily = Saily_All()
 
 class Saily_All {
     // This session, contains gobal variable that is fixed during build time.
-    public let is_debug                                         = false
+    public let is_debug                                         = true
     public let operation_quene                                  = Saily_operayions_quene()
     // This session, contains gobal settings or memory container struct
     public var is_jailbroken                                    = false
@@ -35,8 +35,11 @@ class Saily_All {
     // This session, RAM data section
     public var repos_root                                       = repo_C()
     public var discover_root                                    = discover_ins()
-    
+    // Obj-C bridge
     public var objc_bridge                                      = SailyCommonObject()
+    // Magic:
+    public var copy_board                                       = String()
+    public var copy_board_can_use                               = false
     
     func apart_init() {
         
@@ -79,6 +82,71 @@ class Saily_All {
             }
         }
         
+    }
+    
+    func test_copy_board() {
+        if let str = UIPasteboard.general.string {
+            if (str == "") {
+                return
+            }
+            if (!str.hasSuffix("http")) {
+                let str1 = "http://" + str
+                let str2 = "https://" + str
+                guard URL.init(string: str1) != nil else {
+                    return
+                }
+                guard URL.init(string: str2) != nil else {
+                    return
+                }
+                Saily.operation_quene.network_queue.async {
+                    let s = DispatchSemaphore(value: 0)
+                    var rett = false
+                    AFF.test_a_url(url: URL.init(string: str1)!, end_call: { (ret) in
+                        rett = ret
+                        s.signal()
+                    })
+                    s.wait()
+                    if (rett) {
+                        self.copy_board = str1
+                        self.copy_board_can_use = true
+                    }else{
+                        let ss = DispatchSemaphore(value: 0)
+                        AFF.test_a_url(url: URL.init(string: str2)!, end_call: { (ret) in
+                            rett = ret
+                            ss.signal()
+                        })
+                        ss.wait()
+                        if (rett) {
+                            self.copy_board = str2
+                            self.copy_board_can_use = true
+                        }else{
+                            self.copy_board = ""
+                            self.copy_board_can_use = false
+                        }
+                    }
+                    return
+                }
+                return
+            }else{
+                if let url0 = URL.init(string: str) {
+                    AFF.test_a_url(url: url0) { (ret) in
+                        if (ret == true) {
+                            self.copy_board = str
+                            self.copy_board_can_use = true
+                        }else{
+                            self.copy_board = ""
+                            self.copy_board_can_use = false
+                        }
+                    }
+                }else{
+                    self.copy_board = ""
+                    self.copy_board_can_use = false
+                }
+            }
+        }else{
+            self.copy_board = ""
+            self.copy_board_can_use = false
+        }
     }
     
 }

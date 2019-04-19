@@ -24,26 +24,61 @@ class Saily_UI_Repos: UITableViewController {
         
         navigationItem.rightBarButtonItems = [add_button]
         self.tableView.separatorColor = .clear
+        
+        refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshControl?.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl?.attributedTitle = NSAttributedString(string: "Reloading data(s)...", attributes: nil)
     }
 
-    @objc func didTapAddButton() {
-        let pb = UIPasteboard()
-        if var str = pb.string {
-            if (URL.init(string: str) != nil) {
-                let alert = UIAlertController.init(title: "Copy Board contains URL", message: "Do you want to add this url as a repo?\n\n" + str)
-                alert.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (_) in
-                    if (!str.hasSuffix("/")) {
-                        str += "/"
+    @objc func refreshData(_ sender: Any) {
+        for item in Saily.repos_root.repos {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.2, animations: {
+                    item.exposed_progress_view.progressTintColor = .blue
+                })
+            }
+            item.async_set_progress(0.1)
+            Saily.operation_quene.network_queue.async {
+                item.download_section { (ret) in
+                    if (ret == status_ins.ret_success) {
+                        
+                    }else{
+                        
                     }
-                    Saily.repos_root.repos.append(a_repo(ilink: str))
-                    Saily.repos_root.resave()
-                    self.tableView.reloadData()
-                    return
-                }))
-                alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: { (_) in
-                }))
-                self.present(alert, animated: true) {
                 }
+            }
+        }
+    }
+    
+    @objc func didTapAddButton() {
+        
+        if (Saily.copy_board_can_use) {
+            let alert = UIAlertController.init(title: "Copy Board contains URL", message: "Do you want to add this url as a repo?\n\n" + Saily.copy_board, preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (_) in
+                if (!Saily.copy_board.hasSuffix("/")) {
+                    Saily.copy_board += "/"
+                }
+                for item in Saily.repos_root.repos {
+                    if (item.ress.major == Saily.copy_board) {
+                        UIPasteboard.general.setValue("", forPasteboardType: "")
+                        Saily.copy_board = ""
+                        Saily.copy_board_can_use = false
+                        return
+                    }
+                }
+                Saily.repos_root.repos.append(a_repo(ilink: Saily.copy_board))
+                Saily.repos_root.resave()
+                UIPasteboard.general.setValue("", forPasteboardType: "")
+                Saily.copy_board = ""
+                Saily.copy_board_can_use = false
+                self.tableView.reloadData()
+                return
+            }))
+            alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: { (_) in
+            }))
+            self.present(alert, animated: true) {
             }
         }
         var read = ""
@@ -57,6 +92,14 @@ class Saily_UI_Repos: UITableViewController {
             if (URL.init(string: read) != nil) {
                 if (!read.hasSuffix("/")) {
                     read += "/"
+                }
+                for item in Saily.repos_root.repos {
+                    if (item.ress.major == read) {
+                        UIPasteboard.general.setValue("", forPasteboardType: "")
+                        Saily.copy_board = ""
+                        Saily.copy_board_can_use = false
+                        return
+                    }
                 }
                 Saily.repos_root.repos.append(a_repo(ilink: read))
                 Saily.repos_root.resave()
@@ -142,6 +185,17 @@ class Saily_UI_Repos: UITableViewController {
                 c.width.equalTo(14)
                 c.height.equalTo(14)
             }
+            let progressView = UIProgressView()
+            progressView.progress = 0.0
+            Saily.repos_root.repos[indexPath.row - 2].set_exposed_progress_view(progressView)
+            progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+            cell.addSubview(progressView)
+            progressView.snp.makeConstraints { (c) in
+                c.bottom.equalTo(cell.contentView.snp_bottom).offset(0 - progressView.bounds.height)
+                c.left.equalTo(cell.textLabel!.snp_left).offset(40)
+                c.right.equalTo(cell.contentView.snp_right).offset(0)
+                c.height.equalTo(1)
+            }
         }
         return cell
     }
@@ -198,15 +252,17 @@ class Saily_UI_Repos: UITableViewController {
         return true
     }
 
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.row {
+        case 0:
+            break
+        case 1:
+            break
+        default:
+            break
+        }
     }
-    */
 
 }
+

@@ -56,6 +56,7 @@ class repo_C {
         self.status = status_ins.ready
     }
     
+
 }
 
 class a_repo {
@@ -65,7 +66,14 @@ class a_repo {
     
     // From table view, expose an element.
     public var exposed_icon_image       = UIImageView()
-    public var exposed_progress_view    = RingProgressView()
+    public var exposed_progress_view    = UIProgressView()
+    
+    // avoid fail when cell is out and re init.
+    func set_exposed_progress_view(_ i: UIProgressView) {
+        let prog = self.exposed_progress_view.progress
+        self.exposed_progress_view = i
+        self.async_set_progress(prog)
+    }
     
     init(ilink: String) {
         _ = self.link_to_name(link: ilink)
@@ -92,7 +100,36 @@ class a_repo {
         return namee
     }
     
+    func async_set_progress(_ prog: Float) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.exposed_progress_view.progress = prog
+            })
+        }
+    }
+    
     func download_section(end_call: @escaping (Int) -> ()) {
+        Saily.operation_quene.network_queue.async {
+            AFF.search_release_path_at_return(self.ress.major, cache_release_link: self.ress.cache_release_f_link, end_call: { (ret_status) in
+                if (ret_status == status_ins.ret_success) {
+                    self.async_set_progress(0.233)
+                    self.ress.cache_release_c_link = Saily_FileU.simple_read(self.ress.cache_release_f_link)!
+                    // START DOWNLOAD
+                    AFF.download_release_and_save(you: self, end_call: { (rett) in
+                        
+                    })
+                    
+                }else{
+                    DispatchQueue.main.async {
+                        UIView.animate(withDuration: 0.2, animations: {
+                            self.exposed_progress_view.progressTintColor = .red
+                        })
+                    }
+                    return
+                }
+            })
+        }
+        
         // return if success
     }
     
@@ -126,16 +163,19 @@ class a_repo {
 }
 
 class repo_res {
-    public var major           = String()
-    public var icon            = UIImage()
-    public var cache_root      = String()
-    public var cache_icon      = String()
-    public var cache_release   = String()
+    public var major                    = String()
+    public var icon                     = UIImage()
+    public var cache_root               = String()
+    public var cache_icon               = String()
+    public var cache_release            = String()
+    public var cache_release_f_link       = String()
+    public var cache_release_c_link       = String()
     func apart_init(major_link: String, name: String) {
         self.major = major_link
         self.cache_root = Saily.files.repo_cache + "/" + name
         self.cache_icon = self.cache_root + "/icon.png"
         self.cache_release = self.cache_root + "/release"
+        self.cache_release_f_link = self.cache_root + "/release.lnk"
         Saily_FileU.make_sure_file_exists_at(self.cache_root, is_direct: true)
         init_icon()
     }

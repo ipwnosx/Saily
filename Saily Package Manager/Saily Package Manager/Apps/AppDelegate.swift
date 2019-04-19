@@ -97,6 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        Saily.test_copy_board()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
