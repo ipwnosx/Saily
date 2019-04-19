@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CardCellKind1" customModule="Saily_Package_Manager" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolderDark.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QkN-rI-tR0">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这只是一个标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCb-Uo-FSv">
+                        <rect key="frame" x="22" y="84" width="428" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="ZGk-DC-TVd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="决战王者之巅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3l1-eA-NC5">
+                        <rect key="frame" x="26" y="66" width="98" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="FZH-ih-02b"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqi-Mn-7ck">
+                        <rect key="frame" x="20" y="418" width="460" height="62"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="62" id="nKp-mA-mnG"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="RCb-Uo-FSv" secondAttribute="trailing" constant="50" id="Ibl-FT-4yC"/>
+                <constraint firstItem="RCb-Uo-FSv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="22" id="Rrd-rX-Zxc"/>
+                <constraint firstItem="eqi-Mn-7ck" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="SWX-EU-MZy"/>
+                <constraint firstItem="3l1-eA-NC5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="26" id="XpO-j5-lNR"/>
+                <constraint firstAttribute="bottom" secondItem="eqi-Mn-7ck" secondAttribute="bottom" constant="20" id="YVI-kK-MkJ"/>
+                <constraint firstAttribute="bottom" secondItem="QkN-rI-tR0" secondAttribute="bottom" id="ald-39-NI9"/>
+                <constraint firstAttribute="trailing" secondItem="QkN-rI-tR0" secondAttribute="trailing" id="azq-JC-dDb"/>
+                <constraint firstItem="QkN-rI-tR0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cYG-SI-V5m"/>
+                <constraint firstItem="QkN-rI-tR0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jX7-MV-Kl4"/>
+                <constraint firstItem="RCb-Uo-FSv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="84" id="n6C-3B-h5I"/>
+                <constraint firstItem="QkN-rI-tR0" firstAttribute="centerX" secondItem="eqi-Mn-7ck" secondAttribute="centerX" id="tOW-4c-4bV"/>
+                <constraint firstItem="3l1-eA-NC5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="66" id="wEL-HI-dYm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="BGImage" destination="QkN-rI-tR0" id="B0I-R0-JS5"/>
+                <outlet property="BigTitle" destination="RCb-Uo-FSv" id="vmn-26-ztw"/>
+                <outlet property="DetailText" destination="eqi-Mn-7ck" id="zOX-40-6Xe"/>
+                <outlet property="SamllTitle" destination="3l1-eA-NC5" id="hvU-3w-t9E"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="PlaceHolderDark.jpg" width="480" height="229.67999267578125"/>
+    </resources>
+</document>

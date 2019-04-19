@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CardCellKind2" customModule="Saily_Package_Manager">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WHITE.png" translatesAutoresizingMaskIntoConstraints="NO" id="q4Z-31-uO2">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="148"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolderLight.png" translatesAutoresizingMaskIntoConstraints="NO" id="QkN-rI-tR0">
+                        <rect key="frame" x="0.0" y="148" width="500" height="352"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是另一个标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCb-Uo-FSv">
+                        <rect key="frame" x="22" y="84" width="428" height="55"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="享受人生乐趣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3l1-eA-NC5">
+                        <rect key="frame" x="26" y="66" width="98" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="awC-CI-vac"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqi-Mn-7ck">
+                        <rect key="frame" x="20" y="418" width="460" height="62"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="62" id="2r7-WD-ht3"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="eqi-Mn-7ck" secondAttribute="bottom" constant="20" id="7Df-Wo-mkN"/>
+                <constraint firstItem="3l1-eA-NC5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="66" id="8M7-Ni-WAU"/>
+                <constraint firstItem="QkN-rI-tR0" firstAttribute="centerX" secondItem="eqi-Mn-7ck" secondAttribute="centerX" id="9M5-69-H6h"/>
+                <constraint firstItem="q4Z-31-uO2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="B9X-uy-mZc"/>
+                <constraint firstItem="q4Z-31-uO2" firstAttribute="trailing" secondItem="QkN-rI-tR0" secondAttribute="trailing" id="D3u-cQ-pGH"/>
+                <constraint firstItem="RCb-Uo-FSv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="84" id="DuY-1S-cco"/>
+                <constraint firstItem="3l1-eA-NC5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="26" id="Fx8-E8-ifB"/>
+                <constraint firstAttribute="trailing" secondItem="q4Z-31-uO2" secondAttribute="trailing" id="Ubo-lw-Hq3"/>
+                <constraint firstAttribute="trailing" secondItem="RCb-Uo-FSv" secondAttribute="trailing" constant="50" id="Wpa-Wt-BWZ"/>
+                <constraint firstItem="QkN-rI-tR0" firstAttribute="top" secondItem="q4Z-31-uO2" secondAttribute="bottom" id="atA-e7-o6L"/>
+                <constraint firstAttribute="bottom" secondItem="QkN-rI-tR0" secondAttribute="bottom" id="dC0-Lv-vff"/>
+                <constraint firstItem="QkN-rI-tR0" firstAttribute="top" secondItem="RCb-Uo-FSv" secondAttribute="bottom" constant="9" id="f14-ne-zrD"/>
+                <constraint firstItem="RCb-Uo-FSv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="22" id="gKG-aK-VcL"/>
+                <constraint firstItem="QkN-rI-tR0" firstAttribute="top" secondItem="3l1-eA-NC5" secondAttribute="bottom" constant="57" id="klf-ei-mW8"/>
+                <constraint firstItem="eqi-Mn-7ck" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="oSi-lc-AbT"/>
+                <constraint firstItem="q4Z-31-uO2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qpr-8E-PTs"/>
+                <constraint firstItem="q4Z-31-uO2" firstAttribute="leading" secondItem="QkN-rI-tR0" secondAttribute="leading" id="svy-hQ-3gE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="BGImage" destination="QkN-rI-tR0" id="B0I-R0-JS5"/>
+                <outlet property="BigTitle" destination="RCb-Uo-FSv" id="iVf-Ne-wdQ"/>
+                <outlet property="DetailText" destination="eqi-Mn-7ck" id="oq9-9o-GbE"/>
+                <outlet property="SamllTitle" destination="3l1-eA-NC5" id="rPg-rR-Q0o"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="PlaceHolderLight.png" width="2160" height="1440"/>
+        <image name="WHITE.png" width="10" height="10"/>
+    </resources>
+</document>

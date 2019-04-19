@@ -1,0 +1,175 @@
+//
+//  RootClass.swift
+//  Saily Package Manager
+//
+//  Created by Lakr Aream on 2019/4/19.
+//  Copyright © 2019 Lakr233. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+import Alamofire
+import LTMorphingLabel
+import MKRingProgressView
+
+let status_ins = status_class()
+
+class status_class {
+    public var ready = 0
+    public var in_operation = 1
+}
+
+let Saily = Saily_All()
+
+class Saily_All {
+    // This session, contains gobal variable that is fixed during build time.
+    public let is_debug                                         = false
+    public let operation_quene                                  = Saily_operayions_quene()
+    // This session, contains gobal settings or memory container struct
+    public var is_jailbroken                                    = false
+    public var files                                            = Saily_file_system()
+    public var device                                           = Saily_device_info()
+    // This session, RAM data section
+    public var repos_root                                       = repo_ins()
+    public var discover_root                                    = discover_ins()
+    
+    public var objc_bridge                                      = SailyCommonObject()
+    
+    func apart_init() {
+        
+        self.objc_bridge.redirectConsoleLogToDocumentFolder()
+        
+        // apart_init_anything_required!
+        self.files.apart_init()
+        self.device.apart_init()
+        self.repos_root.apart_init()
+        
+        // detect jailbreak
+        let jailbroken_signal = ["/private/var/stash",
+                                 "/private/var/lib/apt",
+                                 "/private/var/tmp/cydia.log",
+                                 "/Library/MobileSubstrate/MobileSubstrate.dylib",
+                                 "/var/cache/apt",
+                                 "/var/lib/apt",
+                                 "/var/lib/cydia",
+                                 "/var/log/syslog",
+                                 "/var/tmp/cydia.log",
+                                 "/bin/bash",
+                                 "/bin/sh",
+                                 "/usr/sbin/sshd",
+                                 "/usr/libexec/ssh-keysign",
+                                 "/usr/sbin/sshd",
+                                 "/usr/bin/sshd",
+                                 "/usr/libexec/sftp-server",
+                                 "/etc/ssh/sshd_config",
+                                 "/etc/apt",
+                                 "/Applications/Cydia.app",
+                                 "/Applications/Sileo.app",
+                                 "/Applications/Saily Package Manager.app"]
+        for item in jailbroken_signal {
+            if (FileManager.default.fileExists(atPath: item)) {
+                self.is_jailbroken = true
+                break
+            }
+        }
+        
+    }
+    
+}
+
+// This session, contains sandboxed file paths
+class Saily_file_system {
+    public var root             = String()
+    public var udid_true        = String()
+    public var udid             = String()
+    public var repo_list        = String()
+    public var repo_list_signal = String()
+    public var quene_root       = String()
+    
+    func apart_init() {
+        self.root = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        self.udid = self.root + "/ud.id"
+        self.udid_true = self.root + "/ud.id.true"
+        self.repo_list = self.root + "/repo.list"
+        self.repo_list_signal = self.root + "/repo.list.initd"
+        self.quene_root = self.root + "/quene.submit"
+        
+        self.make_sure_file_exists_at(self.udid, is_direct: false)
+        self.make_sure_file_exists_at(self.repo_list, is_direct: true)
+        self.make_sure_file_exists_at(self.quene_root, is_direct: true)
+        
+        print("[*] File System Apart Init root = " + self.root)
+        print("[*] File System Apart Init udid = " + self.udid)
+        print("[*] File System Apart Init udid = " + self.udid_true)
+        print("[*] File System Apart Init repo_list = " + self.repo_list)
+        print("[*] File System Apart Init quene_root = " + self.quene_root)
+        
+    }
+    private func make_sure_file_exists_at(_ path: String, is_direct: Bool) {
+        if (!FileManager.default.fileExists(atPath: path)) {
+            if (is_direct) {
+                try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+            }else{
+                FileManager.default.createFile(atPath: path, contents: nil, attributes: nil)
+            }
+        }
+    }
+}
+
+// This session, contains device info
+class Saily_device_info {
+    public var udid                             = String()
+    public var udid_is_true                     = false
+    public var version                          = String()
+    public var identifier                       = String()
+    public var indentifier_human_readable       = String()
+    
+    func apart_init() {
+        // init UDID
+        let udid_read = Saily_FileU.simple_read(Saily.files.udid)
+        if (udid_read == nil || udid_read == "") {
+            let str = UUID().uuidString
+            var out = ""
+            for item in str {
+                if (item != "-") {
+                    out += item.description
+                }
+            }
+            out += UUID().uuidString.dropLast(28)
+            out = out.lowercased()
+            Saily_FileU.simple_write(file_path: Saily.files.udid, file_content: out)
+            self.udid = Saily_FileU.simple_read(Saily.files.udid)!
+        }else{
+            self.udid = udid_read!
+        }
+        
+        if (Saily_FileU.exists(file_path: Saily.files.udid_true)) {
+            self.udid_is_true = true
+        }else{
+            self.udid_is_true = false
+        }
+        
+        // anything else
+        self.version = UIDevice.current.systemVersion
+        self.indentifier_human_readable = UIDevice.init_identifier_and_return_human_readable_string
+        
+        print("[*] Device Info Apart Init udid = " + self.udid + " and is it true? " + self.udid_is_true.description)
+        print("[*] Device Info Apart Init version = " + self.version)
+        print("[*] Device Info Apart Init identifier = " + self.identifier)
+        print("[*] Device Info Apart Init indentifier_human_readable = " + self.indentifier_human_readable)
+    }
+    
+    
+}
+
+class Saily_operayions_quene {
+    
+    public let network_queue = DispatchQueue(label: "Saily.queue.netwoek",
+                                             qos: .utility, attributes: .concurrent)
+    public let repo_queue    = DispatchQueue(label: "Saily.queue.repo",
+                                             qos: .utility, attributes: .concurrent)
+    public let wrapper_queue = DispatchQueue(label: "Saily.queue.wrapper",
+                                             qos: .utility, attributes: .concurrent)
+    
+}
