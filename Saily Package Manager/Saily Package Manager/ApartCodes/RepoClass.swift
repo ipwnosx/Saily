@@ -45,12 +45,14 @@ class repo_C {
     
     func resave() {
         self.status = status_ins.in_operation
+        print("[*] Begin saving repos...")
         var out = ""
         for item in self.repos {
             out = out + item.ress.major + "\n"
             print("[*] Saving repo: " + item.name)
         }
         Saily_FileU.simple_write(file_path: Saily.files.repo_list, file_content: out)
+        print("[*] End saving repos")
         self.status = status_ins.ready
     }
     
@@ -99,6 +101,9 @@ class a_repo {
     }
     
     func init_icon() {
+        DispatchQueue.main.async {
+            self.exposed_icon_image.image = self.ress.icon
+        }
         Saily.operation_quene.network_queue.async {
             if (!Saily_FileU.exists(file_path: self.ress.cache_icon) && self.name != "The Big Boss") {
                 let s = DispatchSemaphore(value: 0)

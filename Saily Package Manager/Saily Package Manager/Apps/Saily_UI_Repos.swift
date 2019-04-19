@@ -16,19 +16,71 @@ class Saily_UI_Repos: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        self.editButtonItem.title = "Edit"
+        
+        let add_button = UIBarButtonItem.init(title: "Add", style: .plain, target: self, action: Selector(("didTapAddButton")))
+        
+        navigationItem.rightBarButtonItems = [add_button]
         self.tableView.separatorColor = .clear
     }
 
-    // MARK: - Table view data source
-
-    override func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        
+    @objc func didTapAddButton() {
+        let pb = UIPasteboard()
+        if var str = pb.string {
+            if (URL.init(string: str) != nil) {
+                let alert = UIAlertController.init(title: "Copy Board contains URL", message: "Do you want to add this url as a repo?\n\n" + str)
+                alert.addAction(UIAlertAction.init(title: "Yes", style: .default, handler: { (_) in
+                    if (!str.hasSuffix("/")) {
+                        str += "/"
+                    }
+                    Saily.repos_root.repos.append(a_repo(ilink: str))
+                    Saily.repos_root.resave()
+                    self.tableView.reloadData()
+                    return
+                }))
+                alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: { (_) in
+                }))
+                self.present(alert, animated: true) {
+                }
+            }
+        }
+        var read = ""
+        let alert = UIAlertController.init(title: "Add Repo", message: "Enter the link of the repo", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = "https://"
+        }
+        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            read = textField?.text ?? ""
+            if (URL.init(string: read) != nil) {
+                if (!read.hasSuffix("/")) {
+                    read += "/"
+                }
+                Saily.repos_root.repos.append(a_repo(ilink: read))
+                Saily.repos_root.resave()
+                self.tableView.reloadData()
+            }else{
+                let alert = UIAlertController.init(title: "Error", message: "This is not an URL, retry?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (_) in
+                    self.didTapAddButton()
+                }))
+                alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (_) in
+                    return
+                }))
+                self.present(alert, animated: true) {
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (_) in
+            return
+        }))
+        self.present(alert, animated: true) {
+        }
     }
     
-    override func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        
-    }
+    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -116,7 +168,8 @@ class Saily_UI_Repos: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            Saily.repos_root.repos.remove(at: indexPath.row - 2)
+            Saily.repos_root.resave()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
