@@ -1,0 +1,78 @@
+PODS:
+  - Alamofire (5.0.0-beta.5)
+  - BZipCompression (1.0.2)
+  - FLEX (2.4.0)
+  - GZIP (1.2.2)
+  - JGProgressHUD (2.0.3)
+  - LTMorphingLabel (0.7.0)
+  - MKRingProgressView (2.2.2)
+  - Reveal-SDK (21)
+  - SnapKit (4.2.0)
+  - Swifter (1.4.6)
+  - SwifterSwift (5.0.0):
+    - SwifterSwift/AppKit (= 5.0.0)
+    - SwifterSwift/CoreGraphics (= 5.0.0)
+    - SwifterSwift/CoreLocation (= 5.0.0)
+    - SwifterSwift/Dispatch (= 5.0.0)
+    - SwifterSwift/Foundation (= 5.0.0)
+    - SwifterSwift/MapKit (= 5.0.0)
+    - SwifterSwift/SpriteKit (= 5.0.0)
+    - SwifterSwift/SwiftStdlib (= 5.0.0)
+    - SwifterSwift/UIKit (= 5.0.0)
+  - SwifterSwift/AppKit (5.0.0)
+  - SwifterSwift/CoreGraphics (5.0.0)
+  - SwifterSwift/CoreLocation (5.0.0)
+  - SwifterSwift/Dispatch (5.0.0)
+  - SwifterSwift/Foundation (5.0.0)
+  - SwifterSwift/MapKit (5.0.0)
+  - SwifterSwift/SpriteKit (5.0.0)
+  - SwifterSwift/SwiftStdlib (5.0.0)
+  - SwifterSwift/UIKit (5.0.0)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.5)
+  - BZipCompression (~> 1.0.0)
+  - FLEX (~> 2.0)
+  - GZIP (~> 1.2)
+  - JGProgressHUD
+  - LTMorphingLabel
+  - MKRingProgressView
+  - Reveal-SDK
+  - SnapKit
+  - Swifter
+  - SwifterSwift
+  - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - BZipCompression
+    - FLEX
+    - GZIP
+    - JGProgressHUD
+    - LTMorphingLabel
+    - MKRingProgressView
+    - Reveal-SDK
+    - SnapKit
+    - Swifter
+    - SwifterSwift
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 9afb08f7f43efcc71c072374e720fcf67521317d
+  BZipCompression: e0f96508e60eb93b5f5d4c7de1eb3dd0ac4f9ae9
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  GZIP: 12374d285e3b5d46cfcd480700fcfc7e16caf4f1
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
+  LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
+  MKRingProgressView: b558eff66a648bd77b11f61cfc5603ae96008077
+  Reveal-SDK: 3523e0eb7c562811c51bb71da6e523a6373702c8
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Swifter: 2ed278fbf7b16cbe97269eb56d8e8749b1ec4042
+  SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: 137088e0167ec4fbb433a0c8db74961d1b2dbb96
+
+COCOAPODS: 1.6.1
