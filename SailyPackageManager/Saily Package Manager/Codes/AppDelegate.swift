@@ -24,45 +24,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Yes, I know, you can do a RE to decrypt it, but, if you just want to build and run or have your own code, do it yourself.
         _ = AUTH_Encode(readin: " ")
         
-        const_objc_bridge_object.redirectConsoleLogToDocumentFolder()
+        // const_objc_bridge_object.redirectConsoleLogToDocumentFolder()
         
-        GVAR_behave_app_root_file_path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        GVAR_behave_repo_list_file_path = GVAR_behave_app_root_file_path + "/repo.list"
-        GVAR_behave_repo_icon_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.icon.cache"
-        GVAR_behave_repo_info_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.info.cache"
-        GVAR_behave_repo_release_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.release.cache"
-        GVAR_behave_job_quene_submit_path = GVAR_behave_app_root_file_path + "/quene.submit"
-        GVAR_behave_udid_path = GVAR_behave_app_root_file_path + "/ud.id"
+        // GVAR_behave_app_root_file_path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        // GVAR_behave_repo_list_file_path = GVAR_behave_app_root_file_path + "/repo.list"
+        // GVAR_behave_repo_icon_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.icon.cache"
+        // GVAR_behave_repo_info_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.info.cache"
+        // GVAR_behave_repo_release_cache_folder_path = GVAR_behave_app_root_file_path + "/repo.release.cache"
+        // GVAR_behave_job_quene_submit_path = GVAR_behave_app_root_file_path + "/quene.submit"
+        // GVAR_behave_udid_path = GVAR_behave_app_root_file_path + "/ud.id"
         
-        sco_File_make_sure_file_at(path: GVAR_behave_repo_list_file_path, isDirect: false)
-        sco_File_make_sure_file_at(path: GVAR_behave_job_quene_submit_path, isDirect: true)
-        sco_File_make_sure_file_at(path: GVAR_behave_repo_icon_cache_folder_path, isDirect: true)
-        sco_File_make_sure_file_at(path: GVAR_behave_repo_info_cache_folder_path, isDirect: true)
-        sco_File_make_sure_file_at(path: GVAR_behave_repo_release_cache_folder_path, isDirect: true)
+        // sco_File_make_sure_file_at(path: GVAR_behave_repo_list_file_path, isDirect: false)
+        // sco_File_make_sure_file_at(path: GVAR_behave_job_quene_submit_path, isDirect: true)
+        // sco_File_make_sure_file_at(path: GVAR_behave_repo_icon_cache_folder_path, isDirect: true)
+        // sco_File_make_sure_file_at(path: GVAR_behave_repo_info_cache_folder_path, isDirect: true)
+        // sco_File_make_sure_file_at(path: GVAR_behave_repo_release_cache_folder_path, isDirect: true)
         
-        if let cache_files = try? FileManager.default.contentsOfDirectory(atPath: GVAR_behave_repo_info_cache_folder_path) {
-            for item in cache_files {
-                if (item.hasSuffix(".link") || item.hasSuffix(".info")) {
-                    let read = try? String.init(contentsOfFile: item)
-                    if (read == nil || read == "") {
-                        try? FileManager.default.removeItem(atPath: item)
-                    }
-                }
-            }
-        }
+        // if let cache_files = try? FileManager.default.contentsOfDirectory(atPath: GVAR_behave_repo_info_cache_folder_path) {
+        //     for item in cache_files {
+        //         if (item.hasSuffix(".link") || item.hasSuffix(".info")) {
+        //             let read = try? String.init(contentsOfFile: item)
+        //             if (read == nil || read == "") {
+        //                 try? FileManager.default.removeItem(atPath: item)
+        //             }
+        //         }
+        //     }
+        // }
         
-        sco_repos_read_repos_from_file_at_delegate()
+        // sco_repos_read_repos_from_file_at_delegate()
         
-        // Init device info
-        GVAR_device_info_identifier_human_readable = UIDevice.init_identifier_and_return_human_readable_string
-        GVAR_device_info_current_version = UIDevice.current.systemVersion
-        GVAR_device_info_UDID = (try? String.init(contentsOfFile: GVAR_behave_udid_path)) ?? "?"
-        if (GVAR_device_info_UDID == "?") {
-            GVAR_device_info_UDID = ""
-            GVAR_behave_should_run_setup = true
-        }
+        // // Init device info
+        // GVAR_device_info_identifier_human_readable = UIDevice.init_identifier_and_return_human_readable_string
+        // GVAR_device_info_current_version = UIDevice.current.systemVersion
+        // GVAR_device_info_UDID = (try? String.init(contentsOfFile: GVAR_behave_udid_path)) ?? "?"
+        // if (GVAR_device_info_UDID == "?") {
+        //     GVAR_device_info_UDID = ""
+        //     GVAR_behave_should_run_setup = true
+        // }
         
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        // UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 
         
         return true
