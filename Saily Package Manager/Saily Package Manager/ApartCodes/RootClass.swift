@@ -16,8 +16,10 @@ import MKRingProgressView
 let status_ins = status_class()
 
 class status_class {
-    public var ready = 0
-    public var in_operation = 1
+    public var ready        = 00
+    public var in_operation = 01
+    public var ret_success  = 06
+    public var ret_failed   = -1
 }
 
 let Saily = Saily_All()
@@ -31,7 +33,7 @@ class Saily_All {
     public var files                                            = Saily_file_system()
     public var device                                           = Saily_device_info()
     // This session, RAM data section
-    public var repos_root                                       = repo_ins()
+    public var repos_root                                       = repo_C()
     public var discover_root                                    = discover_ins()
     
     public var objc_bridge                                      = SailyCommonObject()
@@ -43,8 +45,11 @@ class Saily_All {
         // apart_init_anything_required!
         self.files.apart_init()
         self.device.apart_init()
-        self.repos_root.apart_init()
+        CydiaNetwork.apart_init(udid: self.device.udid, firmare: self.device.version, machine: self.device.identifier)
         
+        
+        // The last would be repos
+        self.repos_root.apart_init()
         // detect jailbreak
         let jailbroken_signal = ["/private/var/stash",
                                  "/private/var/lib/apt",
@@ -85,6 +90,7 @@ class Saily_file_system {
     public var udid             = String()
     public var repo_list        = String()
     public var repo_list_signal = String()
+    public var repo_cache       = String()
     public var quene_root       = String()
     
     func apart_init() {
@@ -93,27 +99,21 @@ class Saily_file_system {
         self.udid_true = self.root + "/ud.id.true"
         self.repo_list = self.root + "/repo.list"
         self.repo_list_signal = self.root + "/repo.list.initd"
+        self.repo_cache = self.root + "/repo.cache"
         self.quene_root = self.root + "/quene.submit"
         
-        self.make_sure_file_exists_at(self.udid, is_direct: false)
-        self.make_sure_file_exists_at(self.repo_list, is_direct: true)
-        self.make_sure_file_exists_at(self.quene_root, is_direct: true)
+        Saily_FileU.make_sure_file_exists_at(self.udid, is_direct: false)
+        Saily_FileU.make_sure_file_exists_at(self.repo_list, is_direct: true)
+        Saily_FileU.make_sure_file_exists_at(self.repo_cache, is_direct: true)
+        Saily_FileU.make_sure_file_exists_at(self.quene_root, is_direct: true)
         
         print("[*] File System Apart Init root = " + self.root)
         print("[*] File System Apart Init udid = " + self.udid)
-        print("[*] File System Apart Init udid = " + self.udid_true)
+        print("[*] File System Apart Init udid signal = " + self.udid_true)
         print("[*] File System Apart Init repo_list = " + self.repo_list)
+        print("[*] File System Apart Init repo_list signal = " + self.repo_list_signal)
         print("[*] File System Apart Init quene_root = " + self.quene_root)
         
-    }
-    private func make_sure_file_exists_at(_ path: String, is_direct: Bool) {
-        if (!FileManager.default.fileExists(atPath: path)) {
-            if (is_direct) {
-                try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-            }else{
-                FileManager.default.createFile(atPath: path, contents: nil, attributes: nil)
-            }
-        }
     }
 }
 

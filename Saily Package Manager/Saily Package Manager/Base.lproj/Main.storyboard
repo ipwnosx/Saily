@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="1426" y="-320"/>
         </scene>
-        <!--Repos-->
+        <!--Sources-->
         <scene sceneID="y5e-71-EES">
             <objects>
-                <tableViewController id="E1A-zF-R7l" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Saily_UI_Repos_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E1A-zF-R7l" customClass="Saily_UI_Repos" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="foM-Aq-bMS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,17 +104,17 @@
                             <outlet property="delegate" destination="E1A-zF-R7l" id="nSS-zh-XR6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Repos" id="6rK-jp-wzb"/>
+                    <navigationItem key="navigationItem" title="Sources" id="6rK-jp-wzb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVs-Fx-eDW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1412" y="360"/>
         </scene>
-        <!--Repos-->
+        <!--Sources-->
         <scene sceneID="ni2-8f-GQu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yQm-tH-ap4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Repos" image="source.png" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Sources" image="source.png" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="jxU-Rh-3qK">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
