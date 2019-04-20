@@ -45,7 +45,7 @@ class Saily_UI_Sectiosn: UITableViewController {
                 new.push_data(d: Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].packages)
             }
         }else{
-            if (indexPath.section == 0) {
+            if (indexPath.row == 0) {
                 var p = [packages_C]()
                 for item in data_source {
                     for pp in item.packages {
