@@ -25,6 +25,8 @@ class Saily_UI_Sectiosn: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "[Sections, ( )]->"
+        
     }
 
     // MARK: - Table view data source
@@ -58,10 +60,35 @@ class Saily_UI_Sectiosn: UITableViewController {
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: cell_id)
         
         if (self.is_root_sections) {
-            cell.textLabel?.text = Saily.repos_root.repos[indexPath.section].section_root[indexPath.row].name
+            cell.textLabel?.text = "         " + Saily.repos_root.repos[indexPath.section].section_root[indexPath.row].name
+            cell.detailTextLabel?.text = "            " + "This section contains " + Saily.repos_root.repos[indexPath.section].section_root[indexPath.row].packages.count.description + " package(s)."
+            cell.detailTextLabel?.textColor = .lightGray
         }else{
-            cell.textLabel?.text = self.data_source[indexPath.row].name
+            cell.textLabel?.text = "         " + self.data_source[indexPath.row].name
+            cell.detailTextLabel?.text = "            " +  "This section contains " + self.data_source[indexPath.row].packages.count.description + " package(s)."
+            cell.detailTextLabel?.textColor = .lightGray
         }
+        
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "Folder.png")
+        cell.addSubview(imageView)
+        imageView.snp.makeConstraints { (c) in
+            c.top.equalTo(cell.contentView.snp_top).offset(14)
+            c.right.equalTo(cell.textLabel!.snp_left).offset(26)
+            c.width.equalTo(28)
+            c.height.equalTo(28)
+        }
+        let next = UIImageView()
+        next.image = #imageLiteral(resourceName: "next.png")
+        cell.addSubview(next)
+        next.snp.makeConstraints { (c) in
+            c.top.equalTo(cell.contentView.snp_top).offset(23)
+            c.right.equalTo(cell.snp_right).offset(-16)
+            c.width.equalTo(14)
+            c.height.equalTo(14)
+        }
+        
+        // "⁠ " is not " "
         
         return cell
     }

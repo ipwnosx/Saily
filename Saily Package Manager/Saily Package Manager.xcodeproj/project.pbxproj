@@ -10,6 +10,7 @@
 		2FC54ED835817E2AF5051F24 /* Pods_Saily_Package_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E75156FF8A25029C4BB5593 /* Pods_Saily_Package_Manager.framework */; };
 		AB102D2B226AE219005348A9 /* Saily_UI_Sectiosn.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */; };
 		AB102D2D226AE22B005348A9 /* Saily_UI_Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D2C226AE22B005348A9 /* Saily_UI_Packages.swift */; };
+		AB102D2F226AF9F7005348A9 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = AB102D2E226AF9F7005348A9 /* Folder.png */; };
 		AB6565BE226A2C5900E796E5 /* Saily_UI_Repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */; };
 		AB6565C0226A3A6E00E796E5 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565BF226A3A6E00E796E5 /* next.png */; };
 		AB6565C2226A460300E796E5 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565C1226A460300E796E5 /* edit@3x.png */; };
@@ -76,6 +77,7 @@
 		653861874B308E7640FC7B68 /* Pods-Daemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daemon.debug.xcconfig"; path = "Target Support Files/Pods-Daemon/Pods-Daemon.debug.xcconfig"; sourceTree = "<group>"; };
 		AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Sectiosn.swift; sourceTree = "<group>"; };
 		AB102D2C226AE22B005348A9 /* Saily_UI_Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Packages.swift; sourceTree = "<group>"; };
+		AB102D2E226AF9F7005348A9 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
 		AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Repos.swift; sourceTree = "<group>"; };
 		AB6565BF226A3A6E00E796E5 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		AB6565C1226A460300E796E5 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		ABE66BA62269DB8900375C3E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB102D2E226AF9F7005348A9 /* Folder.png */,
 				AB6565C5226A465100E796E5 /* add@3x.png */,
 				AB6565C1226A460300E796E5 /* edit@3x.png */,
 				AB6565BF226A3A6E00E796E5 /* next.png */,
@@ -505,6 +508,7 @@
 				AB86AFE7226A09FB0021EB89 /* PlaceHolderDark.jpg in Resources */,
 				ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */,
 				ABB6B2212269EAD40034FFF5 /* search@3x.png in Resources */,
+				AB102D2F226AF9F7005348A9 /* Folder.png in Resources */,
 				ABB6B21B2269EAD40034FFF5 /* repo_bigboss.png in Resources */,
 				AB6565C2226A460300E796E5 /* edit@3x.png in Resources */,
 				ABB6B2202269EAD40034FFF5 /* discover@3x.png in Resources */,
