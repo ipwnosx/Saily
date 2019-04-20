@@ -33,6 +33,7 @@
 		AB86B001226A131B0021EB89 /* TextDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFFF226A131B0021EB89 /* TextDetail.xib */; };
 		AB86B003226A13BB0021EB89 /* DiscoverClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86B002226A13BB0021EB89 /* DiscoverClass.swift */; };
 		AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF78D226B2EA5006AA919 /* tweakIcon.png */; };
+		AB8AF790226B3CC1006AA919 /* Saily_UI_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */; };
 		ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */; };
 		ABB6B1E12269E2DE0034FFF5 /* Comfortaa[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */; };
 		ABB6B1E32269E3260034FFF5 /* OperatorsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */; };
@@ -102,6 +103,7 @@
 		AB86AFFF226A131B0021EB89 /* TextDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextDetail.xib; sourceTree = "<group>"; };
 		AB86B002226A13BB0021EB89 /* DiscoverClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverClass.swift; sourceTree = "<group>"; };
 		AB8AF78D226B2EA5006AA919 /* tweakIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweakIcon.png; sourceTree = "<group>"; };
+		AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Search.swift; sourceTree = "<group>"; };
 		ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootClass.swift; sourceTree = "<group>"; };
 		ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa[wght].ttf"; sourceTree = "<group>"; };
 		ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsClass.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */,
 				AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */,
 				AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */,
+				AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				ABB6B2052269E94B0034FFF5 /* GCDAsyncUdpSocket.m in Sources */,
 				ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */,
 				AB6565BE226A2C5900E796E5 /* Saily_UI_Repos.swift in Sources */,
+				AB8AF790226B3CC1006AA919 /* Saily_UI_Search.swift in Sources */,
 				ABB6B1E32269E3260034FFF5 /* OperatorsClass.swift in Sources */,
 				AB86B000226A131B0021EB89 /* TextDetail.swift in Sources */,
 				ABB6B1E92269E85B0034FFF5 /* UIDeviceExtension.swift in Sources */,
