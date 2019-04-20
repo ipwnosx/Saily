@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2FC54ED835817E2AF5051F24 /* Pods_Saily_Package_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E75156FF8A25029C4BB5593 /* Pods_Saily_Package_Manager.framework */; };
+		AB102D2B226AE219005348A9 /* Saily_UI_Sectiosn.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */; };
+		AB102D2D226AE22B005348A9 /* Saily_UI_Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D2C226AE22B005348A9 /* Saily_UI_Packages.swift */; };
 		AB6565BE226A2C5900E796E5 /* Saily_UI_Repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */; };
 		AB6565C0226A3A6E00E796E5 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565BF226A3A6E00E796E5 /* next.png */; };
 		AB6565C2226A460300E796E5 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565C1226A460300E796E5 /* edit@3x.png */; };
@@ -72,6 +74,8 @@
 		4BBAF65C26F5CF16180C17EB /* Pods-Daemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daemon.release.xcconfig"; path = "Target Support Files/Pods-Daemon/Pods-Daemon.release.xcconfig"; sourceTree = "<group>"; };
 		5E75156FF8A25029C4BB5593 /* Pods_Saily_Package_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saily_Package_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		653861874B308E7640FC7B68 /* Pods-Daemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daemon.debug.xcconfig"; path = "Target Support Files/Pods-Daemon/Pods-Daemon.debug.xcconfig"; sourceTree = "<group>"; };
+		AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Sectiosn.swift; sourceTree = "<group>"; };
+		AB102D2C226AE22B005348A9 /* Saily_UI_Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Packages.swift; sourceTree = "<group>"; };
 		AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Repos.swift; sourceTree = "<group>"; };
 		AB6565BF226A3A6E00E796E5 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		AB6565C1226A460300E796E5 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				ABB6B2272269EF550034FFF5 /* Navigators.swift */,
 				ABB6B2562269F9590034FFF5 /* Saily_UI_Discover.swift */,
 				AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */,
+				AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */,
+				AB102D2C226AE22B005348A9 /* Saily_UI_Packages.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -678,6 +684,8 @@
 				ABB6B2282269EF550034FFF5 /* Navigators.swift in Sources */,
 				AB86AFF6226A111C0021EB89 /* ImageCell.swift in Sources */,
 				ABB6B2062269E94B0034FFF5 /* GCDAsyncSocket.m in Sources */,
+				AB102D2D226AE22B005348A9 /* Saily_UI_Packages.swift in Sources */,
+				AB102D2B226AE219005348A9 /* Saily_UI_Sectiosn.swift in Sources */,
 				AB86AFFD226A12AC0021EB89 /* UIViewExtension.swift in Sources */,
 				AB86B003226A13BB0021EB89 /* DiscoverClass.swift in Sources */,
 				ABB6B1F22269E93B0034FFF5 /* BridgerObjC.m in Sources */,

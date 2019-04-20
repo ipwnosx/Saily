@@ -244,11 +244,19 @@ class Saily_UI_Repos: UITableViewController {
         self.tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            break
+            let section_vc = Saily_UI_Sectiosn()
+            section_vc.set_root_section()
+            self.navigationController?.pushViewController(section_vc)
         case 1:
             break
         default:
-            break
+            let section_vc = Saily_UI_Sectiosn()
+            var new = [repo_section_C]()
+            for item in Saily.repos_root.repos[indexPath.row - 2].section_root {
+                new.append(item)
+            }
+            section_vc.push_data_source(d: new)
+            self.navigationController?.pushViewController(section_vc)
         }
     }
 

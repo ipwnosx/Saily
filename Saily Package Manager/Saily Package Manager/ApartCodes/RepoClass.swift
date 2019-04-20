@@ -134,6 +134,20 @@ class a_repo {
     public var exposed_icon_image       = UIImageView()
     public var exposed_progress_view    = UIProgressView()
     
+    func ensure_section_and_return_index(withName: String) -> Int {
+        var index = 0
+        for item in self.section_root {
+            if (item.name == withName) {
+                return index
+            }
+            index += 1
+        }
+        let new_session = repo_section_C()
+        new_session.name = withName
+        section_root.append(new_session)
+        return index
+    }
+    
     // avoid fail when cell is out and re init.
     func set_exposed_progress_view(_ i: UIProgressView) {
         let prog = self.exposed_progress_view.progress
@@ -167,10 +181,21 @@ class a_repo {
     }
     
     func async_set_progress(_ prog: Float) {
+        if (prog == 1) {
+            DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.5) {
+                        self.exposed_progress_view.setProgress(1.0, animated: true)
+                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
+                    self.exposed_progress_view.setProgress(0, animated: false)
+                })
+            }
+            return
+        }
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.exposed_progress_view.progress = prog
-            })
+            self.exposed_progress_view.setProgress(prog, animated: true)
         }
     }
     
@@ -211,8 +236,66 @@ class a_repo {
     
     func init_section(end_call: @escaping (Int) -> ()) {
         // return if success
+        let file_url = URL.init(fileURLWithPath: self.ress.cache_release + ".out")
+        guard let data = try? Data.init(contentsOf: file_url) else {
+            end_call(status_ins.ret_failed)
+            return
+        }
+        var str: String? = nil
+        str = String.init(data: data, encoding: .utf8)
+        if (str == nil || str == "") {
+            str = String.init(data: data, encoding: .ascii)
+        }
+        if (str == nil || str == "") {
+            end_call(status_ins.ret_failed)
+            return
+        }
         
-        sleep(1)
+        var info_head = ""
+        var info_body = ""
+        var in_head = true
+        var line_break = false
+        var this_package = packages_C()
+        for char in str! {
+            let c = char.description
+            inner: if (c == ":") {
+                line_break = false
+                in_head = false
+            }else if (c == "\n") {
+                if (line_break == true) {
+                    // create section, put the package
+                    self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section"] ?? "NAN Section")].packages.append(this_package)
+                    // next package
+                    this_package = packages_C()
+                }
+                line_break = true
+                in_head = true
+                if (info_head == "" || info_body == "") {
+                    break inner
+                }
+                while (info_head.hasPrefix("\n")) {
+                    info_head = String(info_head.dropFirst())
+                }
+                info_body = String(info_body.dropFirst(2))
+                this_package.info[info_head] = info_body
+                info_head = ""
+                info_body = ""
+            }else{
+                line_break = false
+            }
+            if (in_head) {
+                info_head += c
+            }else{
+                info_body += c
+            }
+        }
+
+        
+        
+        
+        
+        
+        
         end_call(status_ins.ret_success)
     }
     
@@ -273,5 +356,10 @@ class repo_res {
 }
 
 class repo_section_C {
-    
+    public var name = String()
+    public var packages = [packages_C]()
+}
+
+class packages_C {
+    public var info = [String : String]()
 }
