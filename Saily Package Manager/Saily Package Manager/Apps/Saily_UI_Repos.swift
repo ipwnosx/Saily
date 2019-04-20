@@ -143,6 +143,16 @@ class Saily_UI_Repos: UITableViewController {
                 c.width.equalTo(14)
                 c.height.equalTo(14)
             }
+            let progressView = UIProgressView()
+            progressView.progress = 0.0
+            progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+            cell.addSubview(progressView)
+            progressView.snp.makeConstraints { (c) in
+                c.bottom.equalTo(cell.contentView.snp_bottom).offset(0 - progressView.bounds.height)
+                c.left.equalTo(cell.textLabel!.snp_left).offset(-66)
+                c.right.equalTo(cell.contentView.snp_right).offset(66)
+                c.height.equalTo(1)
+            }
         case 1:
             cell.textLabel?.text = "All My Repos"
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 22)

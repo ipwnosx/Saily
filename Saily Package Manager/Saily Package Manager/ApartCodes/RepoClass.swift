@@ -136,6 +136,19 @@ class a_repo {
     public var exposed_icon_image       = UIImageView()
     public var exposed_progress_view    = UIProgressView()
     
+    func sort_sections() {
+        var names = [String]()
+        for section in section_root {
+            names.append(section.name)
+        }
+        names.sort()
+        var new = [repo_section_C]()
+        for na in names {
+            new.append(self.section_root[ensure_section_and_return_index(withName: na)])
+        }
+        self.section_root = new
+    }
+    
     func ensure_section_and_return_index(withName: String) -> Int {
         var index = 0
         for item in self.section_root {
@@ -232,8 +245,6 @@ class a_repo {
                 }
             })
         }
-        
-        // return if success
     }
     
     func init_section(end_call: @escaping (Int) -> ()) {
@@ -266,7 +277,7 @@ class a_repo {
             }else if (c == "\n") {
                 if (line_break == true) {
                     // create section, put the package
-                    self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section"] ?? "NAN Section")].packages.append(this_package)
+                    self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section"] ?? "! NAN Section")].packages.append(this_package)
                     // next package
                     this_package = packages_C()
                 }
@@ -291,13 +302,8 @@ class a_repo {
                 info_body += c
             }
         }
-
         
-        
-        
-        
-        
-        
+        self.sort_sections()
         end_call(status_ins.ret_success)
     }
     
