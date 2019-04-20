@@ -88,9 +88,6 @@ class Saily_All {
     }
     
     func rebuild_All_My_Packages() {
-        if (self.root_packages_in_build) {
-            return
-        }
         let s = DispatchSemaphore(value: 0)
         var can_do_it = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -104,6 +101,9 @@ class Saily_All {
         }
         s.wait()
         if (!can_do_it) {
+            return
+        }
+        if (self.root_packages_in_build) {
             return
         }
         self.root_packages_in_build = true

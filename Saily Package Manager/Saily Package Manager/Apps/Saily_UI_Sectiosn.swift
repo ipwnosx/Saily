@@ -34,6 +34,33 @@ class Saily_UI_Sectiosn: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        let new = Saily_UI_Packages()
+        if (is_root_sections) {
+            if (indexPath.section == 0) {
+                new.push_data(d: Saily.root_packages)
+            }else{
+                new.push_data(d: Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].packages)
+            }
+        }else{
+            if (indexPath.section == 0) {
+                var p = [packages_C]()
+                for item in data_source {
+                    for pp in item.packages {
+                        p.append(pp)
+                    }
+                }
+                new.push_data(d: p)
+            }else{
+                new.push_data(d: self.data_source[indexPath.row - 1].packages)
+            }
+        }
+        new.tableView.separatorColor = .lightGray
+        new.title = "[Packages] ( ) ->"
+        self.navigationController?.pushViewController(new)
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         if (self.is_root_sections) {
@@ -136,7 +163,7 @@ class Saily_UI_Sectiosn: UITableViewController {
                 return cell
             }
             cell.textLabel?.text = "         " + self.data_source[indexPath.row - 1].name
-            cell.detailTextLabel?.text = "            " +  "This section contains " + self.data_source[indexPath.row - 1].packages.count.description + " package(s)."
+            cell.detailTextLabel?.text = "            " + "This section contains " + self.data_source[indexPath.row - 1].packages.count.description + " package(s)."
             cell.detailTextLabel?.textColor = .lightGray
         }
         
@@ -159,11 +186,8 @@ class Saily_UI_Sectiosn: UITableViewController {
             c.height.equalTo(14)
         }
         
-        // "⁠ " is not " "
-        
         return cell
     }
-
 
 
 }

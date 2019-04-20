@@ -25,9 +25,9 @@ class repo_C {
                 self.repos.append(repo)
             }
         }else{
-            let default_links = ["http://apt.thebigboss.org/repofiles/cydia/",
-                                 "http://build.frida.re/",
+            let default_links = ["http://repounclutter.coolstar.org/",
                                  "https://apt.bingner.com/",
+                                 "http://build.frida.re/",
                                  "https://repo.chariz.io/",
                                  "https://sparkdev.me/",
                                  "https://repo.nepeta.me/"]
@@ -179,6 +179,11 @@ class a_repo {
         if (self.name != "") {
             return self.name
         }
+        if (link.contains("repounclutter.coolstar.org")) {
+            let namee = "The Big Boss+"
+            self.name = namee
+            return namee
+        }
         var namee = link.split(separator: "/")[1].description
         if (namee.split(separator: ".").count == 2) {
             namee = namee.split(separator: ".")[0].description
@@ -277,9 +282,11 @@ class a_repo {
             }else if (c == "\n") {
                 if (line_break == true) {
                     // create section, put the package
-                    self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section"] ?? "! NAN Section")].packages.append(this_package)
+                    self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section".uppercased()] ?? "! NAN Section")].add(p: this_package)
+//                    self.lldb_print_package(p: this_package)
                     // next package
                     this_package = packages_C()
+                    break inner
                 }
                 line_break = true
                 in_head = true
@@ -289,17 +296,22 @@ class a_repo {
                 while (info_head.hasPrefix("\n")) {
                     info_head = String(info_head.dropFirst())
                 }
-                info_body = String(info_body.dropFirst(2))
-                this_package.info[info_head] = info_body
+                info_body = String(info_body.dropFirst(1))
+                this_package.info[info_head.uppercased()] = info_body
                 info_head = ""
                 info_body = ""
+                if (in_head) {
+                    info_head += c
+                }else{
+                    info_body += c
+                }
             }else{
                 line_break = false
-            }
-            if (in_head) {
-                info_head += c
-            }else{
-                info_body += c
+                if (in_head) {
+                    info_head += c
+                }else{
+                    info_body += c
+                }
             }
         }
         
@@ -364,8 +376,47 @@ class repo_res {
 }
 
 class repo_section_C {
-    public var name = String()
-    public var packages = [packages_C]()
+    public  var name = String()
+    public  var packages = [packages_C]()
+    private var packages_name_list = [String : String]()
+    
+    func lldb_print_package(p: packages_C) {
+//        print("[*] --------------------------------- ")
+//        for item in p.info {
+//            print(item)
+//        }
+//        print("[*] --------------------------------- ")
+    }
+    
+    func add(p: packages_C) {
+        
+        let np: String = p.info["Package".uppercased()]!
+        if (self.packages_name_list[np] != "" && self.packages_name_list[np] != nil) {
+            // package exists
+            print("[*] Package " + np + " exists at version: " + (p.info["Version".uppercased()] ?? "0"))
+            let newV = p.info["Version".uppercased()] ?? "0"
+            // search for package
+            var index = 0
+            inner: for item in self.packages {
+                if (item.info["Package".uppercased()] == np) {
+                    break inner
+                }else{
+                    index += 1
+                }
+            }
+            let oldV = self.packages[index].info["Version".uppercased()] ?? "-1"
+            if oldV.compare(newV, options: NSString.CompareOptions.numeric, range: nil, locale: nil) == ComparisonResult.orderedDescending {
+            }else{
+                // new one!
+                self.packages[index] = p
+                self.lldb_print_package(p: packages[index])
+            }
+        }else{
+            packages_name_list[np] = p.info["Version".uppercased()] ?? "0"
+            packages.append(p)
+            self.lldb_print_package(p: p)
+        }
+    }
 }
 
 class packages_C {

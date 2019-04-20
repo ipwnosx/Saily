@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		2FC54ED835817E2AF5051F24 /* Pods_Saily_Package_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E75156FF8A25029C4BB5593 /* Pods_Saily_Package_Manager.framework */; };
 		AB102D2B226AE219005348A9 /* Saily_UI_Sectiosn.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */; };
-		AB102D2D226AE22B005348A9 /* Saily_UI_Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D2C226AE22B005348A9 /* Saily_UI_Packages.swift */; };
 		AB102D2F226AF9F7005348A9 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = AB102D2E226AF9F7005348A9 /* Folder.png */; };
 		AB102D31226B0174005348A9 /* PackageCar.png in Resources */ = {isa = PBXBuildFile; fileRef = AB102D30226B0174005348A9 /* PackageCar.png */; };
+		AB102D3B226B1E00005348A9 /* Saily_UI_Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */; };
 		AB6565BE226A2C5900E796E5 /* Saily_UI_Repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */; };
 		AB6565C0226A3A6E00E796E5 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565BF226A3A6E00E796E5 /* next.png */; };
 		AB6565C2226A460300E796E5 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565C1226A460300E796E5 /* edit@3x.png */; };
@@ -32,6 +32,7 @@
 		AB86B000226A131B0021EB89 /* TextDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86AFFE226A131B0021EB89 /* TextDetail.swift */; };
 		AB86B001226A131B0021EB89 /* TextDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFFF226A131B0021EB89 /* TextDetail.xib */; };
 		AB86B003226A13BB0021EB89 /* DiscoverClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86B002226A13BB0021EB89 /* DiscoverClass.swift */; };
+		AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF78D226B2EA5006AA919 /* tweakIcon.png */; };
 		ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */; };
 		ABB6B1E12269E2DE0034FFF5 /* Comfortaa[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */; };
 		ABB6B1E32269E3260034FFF5 /* OperatorsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */; };
@@ -77,9 +78,9 @@
 		5E75156FF8A25029C4BB5593 /* Pods_Saily_Package_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saily_Package_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		653861874B308E7640FC7B68 /* Pods-Daemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daemon.debug.xcconfig"; path = "Target Support Files/Pods-Daemon/Pods-Daemon.debug.xcconfig"; sourceTree = "<group>"; };
 		AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Sectiosn.swift; sourceTree = "<group>"; };
-		AB102D2C226AE22B005348A9 /* Saily_UI_Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Packages.swift; sourceTree = "<group>"; };
 		AB102D2E226AF9F7005348A9 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
 		AB102D30226B0174005348A9 /* PackageCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PackageCar.png; sourceTree = "<group>"; };
+		AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Packages.swift; sourceTree = "<group>"; };
 		AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Repos.swift; sourceTree = "<group>"; };
 		AB6565BF226A3A6E00E796E5 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		AB6565C1226A460300E796E5 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		AB86AFFE226A131B0021EB89 /* TextDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetail.swift; sourceTree = "<group>"; };
 		AB86AFFF226A131B0021EB89 /* TextDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextDetail.xib; sourceTree = "<group>"; };
 		AB86B002226A13BB0021EB89 /* DiscoverClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverClass.swift; sourceTree = "<group>"; };
+		AB8AF78D226B2EA5006AA919 /* tweakIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweakIcon.png; sourceTree = "<group>"; };
 		ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootClass.swift; sourceTree = "<group>"; };
 		ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa[wght].ttf"; sourceTree = "<group>"; };
 		ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsClass.swift; sourceTree = "<group>"; };
@@ -219,7 +221,7 @@
 				ABB6B2562269F9590034FFF5 /* Saily_UI_Discover.swift */,
 				AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */,
 				AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */,
-				AB102D2C226AE22B005348A9 /* Saily_UI_Packages.swift */,
+				AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -324,6 +326,7 @@
 		ABE66BA62269DB8900375C3E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB8AF78D226B2EA5006AA919 /* tweakIcon.png */,
 				AB102D30226B0174005348A9 /* PackageCar.png */,
 				AB102D2E226AF9F7005348A9 /* Folder.png */,
 				AB6565C5226A465100E796E5 /* add@3x.png */,
@@ -520,6 +523,7 @@
 				ABB6B21C2269EAD40034FFF5 /* source@3x.png in Resources */,
 				AB86AFE8226A09FB0021EB89 /* CardCellKind2.xib in Resources */,
 				ABB6B2242269EAD40034FFF5 /* iConRound.png in Resources */,
+				AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */,
 				ABB6B2192269EAD40034FFF5 /* PlaceholderUPT.png in Resources */,
 				AB86AFE6226A09FB0021EB89 /* CardCellKind1.xib in Resources */,
 				ABB6B2252269EAD40034FFF5 /* upshade.png in Resources */,
@@ -692,7 +696,7 @@
 				ABB6B2282269EF550034FFF5 /* Navigators.swift in Sources */,
 				AB86AFF6226A111C0021EB89 /* ImageCell.swift in Sources */,
 				ABB6B2062269E94B0034FFF5 /* GCDAsyncSocket.m in Sources */,
-				AB102D2D226AE22B005348A9 /* Saily_UI_Packages.swift in Sources */,
+				AB102D3B226B1E00005348A9 /* Saily_UI_Packages.swift in Sources */,
 				AB102D2B226AE219005348A9 /* Saily_UI_Sectiosn.swift in Sources */,
 				AB86AFFD226A12AC0021EB89 /* UIViewExtension.swift in Sources */,
 				AB86B003226A13BB0021EB89 /* DiscoverClass.swift in Sources */,
