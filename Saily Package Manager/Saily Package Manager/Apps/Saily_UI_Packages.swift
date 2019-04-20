@@ -38,10 +38,11 @@ class Saily_UI_Packages: UITableViewController, UISearchControllerDelegate, UISe
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.data_source = self.data_source_FUCK        
+        self.data_source = self.data_source_FUCK
         var index = 0
         for item in self.data_source {
-            if (!(item.info["Package".uppercased()]?.contains(searchText) ?? false) && !(item.info["Name".uppercased()]?.contains(searchText) ?? false)) {
+            if (!(item.info["Package".uppercased()]?.uppercased().contains(searchText.uppercased()) ?? false)
+                && !(item.info["Name".uppercased()]?.uppercased().contains(searchText.uppercased()) ?? false)) {
                 data_source.remove(at: index)
             }else{
                 index += 1
