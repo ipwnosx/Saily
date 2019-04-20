@@ -18,6 +18,7 @@ let status_ins = status_class()
 class status_class {
     public var ready        = 00
     public var in_operation = 01
+    public var in_wrapper   = 02
     public var ret_success  = 06
     public var ret_failed   = -1
 }

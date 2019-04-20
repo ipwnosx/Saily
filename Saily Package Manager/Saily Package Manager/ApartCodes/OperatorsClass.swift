@@ -9,6 +9,7 @@
 import Foundation
 
 import Alamofire
+import SWCompression
 
 let Saily_FileU = Saily_File_Unit()
 class Saily_File_Unit {
@@ -45,11 +46,38 @@ class Saily_File_Unit {
         FileManager.default.createFile(atPath: file_path, contents: nil, attributes: nil)
         try? file_content.write(toFile: file_path, atomically: true, encoding: .utf8)
     }
+    func decompress(file: String) -> Int{
+        if (!self.exists(file_path: file)) {
+            return status_ins.ret_failed
+        }
+        guard let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: file)) else { return status_ins.ret_failed }
+        guard let type = file.split(separator: ".").last else { return status_ins.ret_failed }
+        var ret: Data? = nil
+        switch type.uppercased() {
+        case "bz".uppercased():
+            ret = Saily.objc_bridge.unBzip(data)
+        case "bz2".uppercased():
+            ret = Saily.objc_bridge.unBzip(data)
+        case "gz".uppercased():
+            ret = Saily.objc_bridge.unGzip(data)
+        case "gz2".uppercased():
+            ret = Saily.objc_bridge.unGzip(data)
+        default:
+            return status_ins.ret_failed
+        }
+        if (ret == nil) {
+            return status_ins.ret_failed
+        }
+        try? FileManager.default.removeItem(atPath: file + ".out")
+        FileManager.default.createFile(atPath: file + ".out", contents: ret, attributes: nil)
+        return status_ins.ret_success
+    }
 }
 
 let CydiaNetwork = CydiaNetwork_C()
 class CydiaNetwork_C {
     public let UA_Default                                  = "Telesphoreo APT-HTTP/1.0.592"
+    public let UA_Sileo                                    = "Sileo/1 CFNetwork/974.2.1 Darwin/18.0.0"
     public let UA_Web_Request_iOS_old                      = "Cydia/0.9 CFNetwork/342.1 Darwin/9.4.1"
     public let UA_Web_Request_iOS_12                       = "Cydia/0.9 CFNetwork/974.2.1 Darwin/18.0.0"
     public var H_UDID                                      = "X-Unique-ID:"        //X-Unique-ID: 40nums/chars
@@ -90,7 +118,7 @@ class AFNetwork_C {
         }
         for item in self.release_search_path {
             if let url0 = URL.init(string: major_link + item) {
-                let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Default,
+                let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Sileo,
                                        "X-Firmware" : CydiaNetwork.H_Firmware,
                                        "X-Unique-ID" : CydiaNetwork.H_UDID,
                                        "X-Machine" : CydiaNetwork.H_Machine,
@@ -130,10 +158,14 @@ class AFNetwork_C {
         return
     }
     
-    func download_release_and_save(you: a_repo, end_call: @escaping (Int) -> ()) {
-        let back_end = you.ress.cache_release.split(separator: ".").last?.description ?? "NAN"
-        you.ress.cache_release = you.ress.cache_release + "." + back_end
-        if (Saily.is_debug && Saily_FileU.exists(file_path: you.ress.cache_release)) {
+    func download_release_and_save(you: a_repo, manually_refreseh: Bool, end_call: @escaping (Int) -> ()) {
+        let back_end = you.ress.cache_release_c_link.split(separator: ".").last?.description ?? "NAN"
+        if (you.ress.cache_release.split(separator: ".").last?.description != back_end) {
+            you.ress.cache_release += "."
+            you.ress.cache_release += back_end
+        }
+        
+        if (!manually_refreseh && Saily_FileU.exists(file_path: you.ress.cache_release)) {
             end_call(status_ins.ret_success)
             return
         }
@@ -141,26 +173,26 @@ class AFNetwork_C {
             end_call(status_ins.ret_failed)
             return
         }
-        let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Default,
+        let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Sileo,
                                "X-Firmware" : CydiaNetwork.H_Firmware,
                                "X-Unique-ID" : CydiaNetwork.H_UDID,
                                "X-Machine" : CydiaNetwork.H_Machine,
-                               "If-Modified-Since" : "Fri, 12 May 2006 18:53:33 GMT",
                                "Accept" : "*/*",
                                "Accept-Language" : "zh-CN,en,*",
-                               "Accept-Encoding" : "gzip, deflate",
-                               "Connection" : "Keep-Alive"]
+                               "Accept-Encoding" : "gzip, deflate"]
         print("[*] Attempt to connect for: " + url0.absoluteString)
         let destination: DownloadRequest.Destination = { _, _ in
             let furl0 = URL.init(fileURLWithPath: you.ress.cache_release + ".tmp")
             return (furl0, [.removePreviousFile, .createIntermediateDirectories])
         }
+        if (you.ress.cache_release.split(separator: ".").last?.description != back_end) {
+            you.ress.cache_release += "."
+            you.ress.cache_release += back_end
+        }
         AF.download(url0, headers: h, to: destination).downloadProgress { (Progress) in
             you.async_set_progress(Float(Progress.fractionCompleted * (0.666 - 0.233) + 0.233))
             if (Progress.fractionCompleted >= 1.0) {
                 print("[*] Progress: " + Progress.description)
-                try? FileManager.default.removeItem(atPath: you.ress.cache_release)
-                try? FileManager.default.moveItem(atPath: you.ress.cache_release + ".tmp", toPath: you.ress.cache_release)
                 end_call(status_ins.ret_success)
                 return
             }

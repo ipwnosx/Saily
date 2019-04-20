@@ -12,8 +12,9 @@ import UIKit
 import MKRingProgressView
 
 class repo_C {
-    public var repos        = [a_repo]()
-    public var status       = status_ins.ready
+    public var repos                = [a_repo]()
+    public var status               = status_ins.ready
+    public var boot_time_refresh    = true
     
     func apart_init() {
         self.status = status_ins.in_operation
@@ -28,7 +29,6 @@ class repo_C {
                                  "http://build.frida.re/",
                                  "https://apt.bingner.com/",
                                  "https://repo.chariz.io/",
-                                 "https://repo.dynastic.co/",
                                  "https://sparkdev.me/",
                                  "https://repo.nepeta.me/"]
             var out = ""
@@ -56,11 +56,77 @@ class repo_C {
         self.status = status_ins.ready
     }
     
+    func refresh_call() {
+        for item in self.repos {
+            if (item.status == status_ins.in_operation) {
+                return
+            }
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.2, animations: {
+                    item.exposed_progress_view.progressTintColor = .blue
+                })
+            }
+            item.status = status_ins.in_operation
+            item.async_set_progress(0.1)
+            Saily.operation_quene.network_queue.async {
+                item.download_section(manually_refreseh: !self.boot_time_refresh) { (ret) in
+                    if (ret == status_ins.ret_success)
+                    {
+                        item.async_set_progress(0.75)
+                        Saily.operation_quene.wrapper_queue.asyncAfter(deadline: .now() + 1, execute: {
+                            if (item.status != status_ins.in_wrapper) {
+                                item.status = status_ins.in_wrapper
+                            }else{
+                                return
+                            }
+                            print("[*] in wrapper")
+                            let tmp_path = item.ress.cache_release + ".tmp"
+                            try? FileManager.default.removeItem(atPath: item.ress.cache_release)
+                            try? FileManager.default.moveItem(atPath: tmp_path, toPath: item.ress.cache_release)
+                            item.async_set_progress(0.8)
+                            item.init_section(end_call: { (rett) in
+                                if (rett == status_ins.ret_success)
+                                {
+                                    item.async_set_progress(1)
+                                    item.status = status_ins.ready
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                                        item.exposed_progress_view.progress = 0
+                                    })
+                                }else{
+                                    DispatchQueue.main.async {
+                                        UIView.animate(withDuration: 0.2, animations: {
+                                            item.exposed_progress_view.progressTintColor = .red
+                                        })
+                                    }
+                                    item.status = status_ins.ready
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                                        item.exposed_progress_view.progress = 0
+                                    })
+                                }
+                            })
+                        })
+                    }else{
+                        DispatchQueue.main.async {
+                            UIView.animate(withDuration: 0.2, animations: {
+                                item.exposed_progress_view.progressTintColor = .red
+                            })
+                        }
+                        item.status = status_ins.ready
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                            item.exposed_progress_view.progress = 0
+                        })
+                    }
+                }
+            }
+        }
+    }
+    
 
 }
 
 class a_repo {
     public var name                     = String()
+    public var status                   = Int()
     public var ress                     = repo_res()
     public var section_root             = [repo_section_C]()
     
@@ -108,23 +174,33 @@ class a_repo {
         }
     }
     
-    func download_section(end_call: @escaping (Int) -> ()) {
+    func download_section(manually_refreseh: Bool, end_call: @escaping (Int) -> ()) {
         Saily.operation_quene.network_queue.async {
             AFF.search_release_path_at_return(self.ress.major, cache_release_link: self.ress.cache_release_f_link, end_call: { (ret_status) in
                 if (ret_status == status_ins.ret_success) {
                     self.async_set_progress(0.233)
                     self.ress.cache_release_c_link = Saily_FileU.simple_read(self.ress.cache_release_f_link)!
                     // START DOWNLOAD
-                    AFF.download_release_and_save(you: self, end_call: { (rett) in
-                        
+                    AFF.download_release_and_save(you: self, manually_refreseh: manually_refreseh, end_call: { (rett) in
+                        if (rett == status_ins.ret_success) {
+                            self.async_set_progress(0.7)
+                            end_call(status_ins.ret_success)
+                            return
+                        }else{
+                            DispatchQueue.main.async {
+                                self.exposed_progress_view.progressTintColor = .red
+                            }
+                            end_call(status_ins.ret_failed)
+                            return
+                        }
                     })
-                    
                 }else{
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 0.2, animations: {
                             self.exposed_progress_view.progressTintColor = .red
                         })
                     }
+                    end_call(status_ins.ret_failed)
                     return
                 }
             })
@@ -135,6 +211,9 @@ class a_repo {
     
     func init_section(end_call: @escaping (Int) -> ()) {
         // return if success
+        
+        sleep(1)
+        end_call(status_ins.ret_success)
     }
     
     func init_icon() {
@@ -163,19 +242,20 @@ class a_repo {
 }
 
 class repo_res {
-    public var major                    = String()
-    public var icon                     = UIImage()
-    public var cache_root               = String()
-    public var cache_icon               = String()
-    public var cache_release            = String()
-    public var cache_release_f_link       = String()
-    public var cache_release_c_link       = String()
+    public var major                        = String()
+    public var icon                         = UIImage()
+    public var cache_root                   = String()
+    public var cache_icon                   = String()
+    public var cache_release                = String()
+    public var cache_release_f_link         = String()
+    public var cache_release_c_link         = String()
     func apart_init(major_link: String, name: String) {
         self.major = major_link
         self.cache_root = Saily.files.repo_cache + "/" + name
         self.cache_icon = self.cache_root + "/icon.png"
         self.cache_release = self.cache_root + "/release"
         self.cache_release_f_link = self.cache_root + "/release.lnk"
+        self.cache_release_c_link = Saily_FileU.simple_read(self.cache_release_f_link) ?? ""
         Saily_FileU.make_sure_file_exists_at(self.cache_root, is_direct: true)
         init_icon()
     }

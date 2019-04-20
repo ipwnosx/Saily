@@ -28,5 +28,6 @@ target 'Saily Package Manager' do
         pod 'GZIP', '~> 1.2'
         pod 'JGProgressHUD'
         pod 'MKRingProgressView'
+        pod 'SWCompression'
 
 end

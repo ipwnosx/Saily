@@ -218,11 +218,11 @@
 			isa = PBXGroup;
 			children = (
 				ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */,
-				AB86B002226A13BB0021EB89 /* DiscoverClass.swift */,
 				ABB6B1E42269E3B60034FFF5 /* RepoClass.swift */,
+				AB86B002226A13BB0021EB89 /* DiscoverClass.swift */,
 				ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */,
-				ABB6B1E82269E85B0034FFF5 /* UIDeviceExtension.swift */,
 				AB86AFFC226A12AC0021EB89 /* UIViewExtension.swift */,
+				ABB6B1E82269E85B0034FFF5 /* UIDeviceExtension.swift */,
 			);
 			path = ApartCodes;
 			sourceTree = "<group>";
@@ -540,12 +540,14 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BZipCompression/BZipCompression.framework",
+				"${BUILT_PRODUCTS_DIR}/BitByteData/BitByteData.framework",
 				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
 				"${BUILT_PRODUCTS_DIR}/GZIP/GZIP.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MKRingProgressView/MKRingProgressView.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-21/iOS/RevealServer.framework",
+				"${BUILT_PRODUCTS_DIR}/SWCompression/SWCompression.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
@@ -557,12 +559,14 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BZipCompression.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BitByteData.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GZIP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MKRingProgressView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWCompression.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",

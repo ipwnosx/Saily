@@ -84,6 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         )
         })
         
+        Saily.operation_quene.repo_queue.async {
+            Saily.repos_root.refresh_call()
+        }
+        
         return true
     }
 

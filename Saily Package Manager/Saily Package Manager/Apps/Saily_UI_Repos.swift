@@ -14,6 +14,8 @@ import MKRingProgressView
 
 class Saily_UI_Repos: UITableViewController {
 
+    var manually_refreseh = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,26 +32,11 @@ class Saily_UI_Repos: UITableViewController {
         refreshControl?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         refreshControl?.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
         refreshControl?.attributedTitle = NSAttributedString(string: "Reloading data(s)...", attributes: nil)
+        
     }
 
     @objc func refreshData(_ sender: Any) {
-        for item in Saily.repos_root.repos {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.2, animations: {
-                    item.exposed_progress_view.progressTintColor = .blue
-                })
-            }
-            item.async_set_progress(0.1)
-            Saily.operation_quene.network_queue.async {
-                item.download_section { (ret) in
-                    if (ret == status_ins.ret_success) {
-                        
-                    }else{
-                        
-                    }
-                }
-            }
-        }
+        Saily.repos_root.refresh_call()
     }
     
     @objc func didTapAddButton() {
