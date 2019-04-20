@@ -79,10 +79,11 @@ class repo_C {
                             }else{
                                 return
                             }
-                            print("[*] in wrapper")
+                            print("[*] In wrapper")
                             let tmp_path = item.ress.cache_release + ".tmp"
                             try? FileManager.default.removeItem(atPath: item.ress.cache_release)
                             try? FileManager.default.moveItem(atPath: tmp_path, toPath: item.ress.cache_release)
+                            _ = Saily_FileU.decompress(file: item.ress.cache_release)
                             item.async_set_progress(0.8)
                             item.init_section(end_call: { (rett) in
                                 if (rett == status_ins.ret_success)
@@ -92,6 +93,7 @@ class repo_C {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                                         item.exposed_progress_view.progress = 0
                                     })
+                                    Saily.rebuild_All_My_Packages()
                                 }else{
                                     DispatchQueue.main.async {
                                         UIView.animate(withDuration: 0.2, animations: {

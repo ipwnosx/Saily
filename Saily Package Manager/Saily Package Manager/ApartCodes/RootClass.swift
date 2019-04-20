@@ -35,6 +35,8 @@ class Saily_All {
     public var device                                           = Saily_device_info()
     // This session, RAM data section
     public var repos_root                                       = repo_C()
+    public var root_packages                                    = [packages_C]()
+    public var root_packages_in_build                           = false
     public var discover_root                                    = discover_ins()
     // Obj-C bridge
     public var objc_bridge                                      = SailyCommonObject()
@@ -83,6 +85,41 @@ class Saily_All {
             }
         }
         
+    }
+    
+    func rebuild_All_My_Packages() {
+        if (self.root_packages_in_build) {
+            return
+        }
+        let s = DispatchSemaphore(value: 0)
+        var can_do_it = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            for repo in self.repos_root.repos {
+                if (repo.exposed_progress_view.progress != 1.0 && repo.exposed_progress_view.progress != 0.0) {
+                    can_do_it = false
+                    break
+                }
+            }
+            s.signal()
+        }
+        s.wait()
+        if (!can_do_it) {
+            return
+        }
+        self.root_packages_in_build = true
+        self.root_packages.removeAll()
+        self.operation_quene.repo_queue.async {
+            print("[*] Triggered rebuild master packages.")
+            for repo in self.repos_root.repos {
+                for section in repo.section_root {
+                    for package in section.packages {
+                        self.root_packages.append(package)
+                    }
+                }
+            }
+            print("[*] Rebuild done.")
+            self.root_packages_in_build = false
+        }
     }
     
     func test_copy_board() {

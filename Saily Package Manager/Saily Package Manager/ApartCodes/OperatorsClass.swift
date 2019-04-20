@@ -189,13 +189,12 @@ class AFNetwork_C {
             you.ress.cache_release += "."
             you.ress.cache_release += back_end
         }
-        AF.download(url0, headers: h, to: destination).downloadProgress { (Progress) in
-            you.async_set_progress(Float(Progress.fractionCompleted * (0.666 - 0.233) + 0.233))
-            if (Progress.fractionCompleted >= 1.0) {
-                print("[*] Progress: " + Progress.description)
+        AF.download(url0, headers: h, to: destination).downloadProgress { (progress) in
+            you.async_set_progress(Float(progress.fractionCompleted * (0.666 - 0.233) + 0.233))
+            }.responseData { (data) in
+                print("[*] Download complete: " + you.name)
                 end_call(status_ins.ret_success)
                 return
-            }
         }
         
     }

@@ -256,6 +256,7 @@ class Saily_UI_Repos: UITableViewController {
                 new.append(item)
             }
             section_vc.push_data_source(d: new)
+            section_vc.set_title(title: Saily.repos_root.repos[indexPath.row - 2].name)
             self.navigationController?.pushViewController(section_vc)
         }
     }
