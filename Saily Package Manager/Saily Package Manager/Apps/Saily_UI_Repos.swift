@@ -37,6 +37,7 @@ class Saily_UI_Repos: UITableViewController {
 
     @objc func refreshData(_ sender: Any) {
         Saily.repos_root.refresh_call()
+        self.refreshControl?.endRefreshing()
     }
     
     @objc func didTapAddButton() {
