@@ -21,6 +21,10 @@ class Saily_UI_Discover_Detail: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorColor = .clear
+        if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
+            let sep = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
+            self.objects = [sep] + self.objects
+        }
     }
 
     // MARK: - Table view data source
@@ -40,10 +44,16 @@ class Saily_UI_Discover_Detail: UITableViewController {
         cell.contentView.addSubview(self.objects[indexPath.row])
         self.objects[indexPath.row].snp.makeConstraints { (c) in
             c.top.equalTo(cell.contentView.snp_top)
-            c.left.equalTo(cell.contentView.snp_left)
-            c.right.equalTo(cell.contentView.snp_right)
+            if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
+                c.left.equalTo(cell.contentView.snp_left).offset(233)
+                c.right.equalTo(cell.contentView.snp_right).offset(-233)
+            }else{
+                c.left.equalTo(cell.contentView.snp_left)
+                c.right.equalTo(cell.contentView.snp_right)
+            }
             c.bottom.equalTo(cell.contentView.snp_bottom)
         }
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none;
         return cell
     }
     
