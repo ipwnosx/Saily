@@ -200,6 +200,9 @@ extension Saily_UI_Discover: UICollectionViewDelegateFlowLayout {
         let scx = UIScreen.main.bounds.width
         let scy = UIScreen.main.bounds.height
         
+        if (scy < 600 && scx < 350) {
+            return CGSize(width: scx - 20, height: 420)
+        }
         
         if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
             if (scx < scy) {
