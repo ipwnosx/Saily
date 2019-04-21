@@ -12,9 +12,9 @@ private let reuseIdentifier = "cards"
 
 class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var number2_cell = UICollectionViewCell()
-    
     @IBOutlet weak var collection_view: UICollectionView?
+    @IBOutlet weak var no_responed_delegate: UIImageView!
+
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -22,9 +22,6 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         
         if (size.width > self.view.frame.size.width) {
             print("Landscape")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.adjust_number2_cell()
-            }
         } else {
             print("Portrait")
         }
@@ -36,27 +33,6 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         
     }
     
-    func reload_data() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.collection_view?.reloadData {
-                self.collection_view!.collectionViewLayout.invalidateLayout()
-                self.collection_view!.layoutSubviews()
-            }
-        }
-    }
-    
-    func adjust_number2_cell() {
-        if (!Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
-            return
-        }
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.number2_cell.center.x -= 11
-                
-            })
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,10 +42,9 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         self.view.layoutIfNeeded()
         self.collection_view?.layoutIfNeeded()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.adjust_number2_cell()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.no_responed_delegate.isHidden = true
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -78,10 +53,6 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        
-        if (indexPath.row == 1) {
-            self.number2_cell = cell
-        }
         
         cell.contentView.layer.cornerRadius = 12.0
         cell.contentView.layer.borderWidth = 1.0
@@ -197,6 +168,8 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             c.bottom.equalTo(cell.contentView.snp_bottom)
         }
         
+        Saily.discover_root[indexPath.row - 1].reg_content_view(content)
+        
         return cell
     }
 
@@ -211,6 +184,76 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             return 50
         }
         return scx / 18
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let new = Saily_UI_Discover_Detail()
+        if (indexPath.row == 0) {
+            new.title = "Welcome"
+            let main_view = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: UIScreen.main.bounds.width / 1280 * 640))
+            let bg = UIImageView()
+            bg.image = #imageLiteral(resourceName: "SocialPreview.png")
+            bg.contentMode = .scaleAspectFit
+            bg.clipsToBounds = true
+            main_view.addSubview(bg)
+            bg.snp.makeConstraints { (c) in
+                c.top.equalTo(main_view.snp_top)
+                c.bottom.equalTo(main_view.snp_bottom)
+                c.left.equalTo(main_view.snp_left)
+                c.right.equalTo(main_view.snp_right)
+            }
+            new.objects.append(main_view)
+            let newww = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 80))
+            let title = UITextView()
+            title.text = "Settings"
+            title.textColor = .darkGray
+            title.font = .boldSystemFont(ofSize: 30)
+            title.isEditable = false
+            newww.addSubview(title)
+            title.snp.makeConstraints { (c) in
+                c.left.equalTo(newww.snp_left).offset(15)
+                c.right.equalTo(newww.snp_right).offset(-20)
+                c.top.equalTo(newww.snp_top).offset(20)
+                c.bottom.equalTo(newww.snp_bottom).offset(-15)
+            }
+            new.objects.append(newww)
+        }else{
+            new.discover_item = Saily.discover_root[indexPath.row - 1]
+            new.title = "Details"
+            let main_view = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 320))
+            let bg = UIImageView()
+            let temp = CardCellKind1()
+            guard let image = temp.return_cached_image(link: Saily.discover_root[indexPath.row - 1].image_link) else {
+                return
+            }
+            bg.image = image
+            bg.contentMode = .scaleAspectFill
+            bg.clipsToBounds = true
+            main_view.addSubview(bg)
+            bg.snp.makeConstraints { (c) in
+                c.top.equalTo(main_view.snp_top)
+                c.bottom.equalTo(main_view.snp_bottom)
+                c.left.equalTo(main_view.snp_left)
+                c.right.equalTo(main_view.snp_right)
+            }
+            new.objects.append(main_view)
+            let newww = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 120))
+            let title = UITextView()
+            title.text = Saily.discover_root[indexPath.row - 1].title_big
+            title.textColor = .darkGray
+            title.font = .boldSystemFont(ofSize: 30)
+            title.isEditable = false
+            newww.addSubview(title)
+            title.snp.makeConstraints { (c) in
+                c.left.equalTo(newww.snp_left).offset(15)
+                c.right.equalTo(newww.snp_right).offset(-20)
+                c.top.equalTo(newww.snp_top).offset(20)
+                c.bottom.equalTo(newww.snp_bottom).offset(-15)
+            }
+            new.objects.append(newww)
+        }
+        self.navigationController?.pushViewController(new)
+        
     }
     
 }

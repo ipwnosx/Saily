@@ -212,8 +212,6 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         
         return cell
     }
-    
-    
 }
 
 

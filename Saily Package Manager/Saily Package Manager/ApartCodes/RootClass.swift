@@ -37,7 +37,8 @@ class Saily_All {
     // This session, RAM data section
     public var repos_root                                       = repo_C()
     public var root_packages                                    = [packages_C]()
-    public var root_packages_in_build                           = false
+    public var root_packages_in_build                           = String()
+    public var root_packages_bad_build                          = false
     public var discover_root                                    = [discover_C]()
     public var discover_raw_str                                 = String()
     // Obj-C bridge
@@ -117,9 +118,6 @@ class Saily_All {
             ins.apart_init(withString: item.description)
             self.discover_root.append(ins)
         }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "Saily_UI_Discover_ID")
-        (controller as? Saily_UI_Discover)?.reload_data()
     }
     
     func rebuild_All_My_Packages() {
@@ -138,22 +136,34 @@ class Saily_All {
         if (!can_do_it) {
             return
         }
-        if (self.root_packages_in_build) {
+        if (self.root_packages_in_build != "") {
             return
         }
-        self.root_packages_in_build = true
+        let session_token = UUID().uuidString
+        self.root_packages_in_build = session_token
         self.root_packages.removeAll()
         self.operation_quene.repo_queue.async {
             print("[*] Triggered rebuild master packages.")
             for repo in self.repos_root.repos {
                 for section in repo.section_root {
                     for package in section.packages {
+                        if (self.root_packages_in_build != session_token) {
+                            self.root_packages_bad_build = true
+                            return
+                        }
                         self.root_packages.append(package)
                     }
                 }
             }
             print("[*] Rebuild done.")
-            self.root_packages_in_build = false
+            self.root_packages_in_build = ""
+            if (Saily.root_packages_bad_build) {
+                print("[*] Bad rebuild.")
+                self.root_packages_bad_build = false
+                self.operation_quene.repo_queue.asyncAfter(deadline: .now() + 2) {
+                    Saily.rebuild_All_My_Packages()
+                }
+            }
         }
     }
     

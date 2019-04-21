@@ -23,8 +23,14 @@ class discover_C {
     public var tweak_repo       = String()
     public var card_kind        = 0
     
+    public var content_view     = UIView()
+    
     init() {
         self.card_kind = 1
+    }
+    
+    func reg_content_view(_ view: UIView) {
+        self.content_view = view
     }
     
     func apart_init(withString: String) {

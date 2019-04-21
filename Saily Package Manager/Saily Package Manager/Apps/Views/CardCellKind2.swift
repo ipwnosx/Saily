@@ -12,6 +12,8 @@ import Alamofire
 
 class CardCellKind2: UIView {
     
+    var heroID_title = String()
+    var heroIF_image = String()
     
     var BGImage = UIImageView()
     var BigTitle = UITextView()
@@ -26,6 +28,7 @@ class CardCellKind2: UIView {
                 DispatchQueue.main.async {
                     self.BGImage.image = UIImage.init(data: data)
                 }
+                print("[*] Returned cache.")
                 return
             }
             guard let url = URL.init(string: link) else {
@@ -64,6 +67,10 @@ class CardCellKind2: UIView {
         self.DetailText.text = ins.text_details
         self.DetailText.backgroundColor = .clear
         self.DetailText.textColor = .white
+        
+        self.heroID_title = UUID().uuidString
+        self.heroIF_image = UUID().uuidString
+        
         DispatchQueue.main.async {
             self.DetailText.scrollToTop()
         }
@@ -113,10 +120,5 @@ class CardCellKind2: UIView {
         
         
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+
 }

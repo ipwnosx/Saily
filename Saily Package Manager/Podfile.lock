@@ -4,6 +4,7 @@ PODS:
   - BZipCompression (1.0.2)
   - FLEX (2.4.0)
   - GZIP (1.2.2)
+  - Hero (1.4.0)
   - JGProgressHUD (2.0.3)
   - LTMorphingLabel (0.7.0)
   - MKRingProgressView (2.2.2)
@@ -67,13 +68,14 @@ PODS:
   - SwifterSwift/SpriteKit (5.0.0)
   - SwifterSwift/SwiftStdlib (5.0.0)
   - SwifterSwift/UIKit (5.0.0)
-  - SwiftyJSON (4.3.0)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.5)
   - BZipCompression (~> 1.0.0)
   - FLEX (~> 2.0)
   - GZIP (~> 1.2)
+  - Hero
   - JGProgressHUD
   - LTMorphingLabel
   - MKRingProgressView
@@ -91,6 +93,7 @@ SPEC REPOS:
     - BZipCompression
     - FLEX
     - GZIP
+    - Hero
     - JGProgressHUD
     - LTMorphingLabel
     - MKRingProgressView
@@ -107,6 +110,7 @@ SPEC CHECKSUMS:
   BZipCompression: e0f96508e60eb93b5f5d4c7de1eb3dd0ac4f9ae9
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   GZIP: 12374d285e3b5d46cfcd480700fcfc7e16caf4f1
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
   MKRingProgressView: b558eff66a648bd77b11f61cfc5603ae96008077
@@ -115,8 +119,8 @@ SPEC CHECKSUMS:
   SWCompression: 02a231af1b1df08be91802df4986d328f2a7c906
   Swifter: 2ed278fbf7b16cbe97269eb56d8e8749b1ec4042
   SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 7222c19a24a2245ca9e0ee261241204e996805fa
+PODFILE CHECKSUM: fda06a890a51a6d70586731fc5fb5ec550051c04
 
 COCOAPODS: 1.6.1

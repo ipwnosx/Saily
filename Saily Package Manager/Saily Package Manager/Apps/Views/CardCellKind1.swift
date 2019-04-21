@@ -12,11 +12,22 @@ import Alamofire
 
 class CardCellKind1: UIView {
     
-    
     var BGImage = UIImageView()
     var BigTitle = UITextView()
     var SamllTitle = UILabel()
     var DetailText = UITextView()
+    
+    // MARK : Use for creating UIView in discover detail view.
+    func return_cached_image(link: String) -> UIImage? {
+        print("[*] Trying to returned cached image from: " + Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))
+        if (Saily_FileU.exists(file_path: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))) {
+            let data = (try? Data.init(contentsOf: URL.init(fileURLWithPath: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? "")!)))!
+            return UIImage.init(data: data)
+        }
+        return nil
+    }
+
+    // MARK DONE
     
     func apart_download_image_and_init(_ imgView: UIImageView, link: String) {
         Saily.operation_quene.network_queue.async {
@@ -26,6 +37,7 @@ class CardCellKind1: UIView {
                 DispatchQueue.main.async {
                     self.BGImage.image = UIImage.init(data: data)
                 }
+                print("[*] Returned cache.")
                 return
             }
             guard let url = URL.init(string: link) else {
@@ -95,7 +107,7 @@ class CardCellKind1: UIView {
             c.left.equalTo(fater_View.snp_left).offset(28.5)
         }
         DetailText.snp.makeConstraints { (c) in
-            c.bottom.equalTo(fater_View.snp_bottom).offset(-22)
+            c.bottom.equalTo(fater_View.snp_bottom).offset(-10)
             c.left.equalTo(fater_View.snp_left).offset(22)
             c.right.equalTo(fater_View.snp_right).offset(-22)
             c.height.equalTo(70)
@@ -110,9 +122,5 @@ class CardCellKind1: UIView {
         
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+
 }

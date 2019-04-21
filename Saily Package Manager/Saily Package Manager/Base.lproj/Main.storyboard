@@ -42,7 +42,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="mmv-Vy-VPv" kind="relationship" relationship="rootViewController" id="UNp-gg-APu"/>
+                        <segue destination="mmv-Vy-VPv" kind="relationship" relationship="rootViewController" id="7ni-SN-LHl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTu-59-cjN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -77,11 +77,18 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-85-Jz6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8Hh-85-Jz6" firstAttribute="leading" secondItem="ylA-cA-mwC" secondAttribute="leading" id="AAR-r5-mJS"/>
                             <constraint firstItem="bIB-Bg-KlK" firstAttribute="top" secondItem="yYO-Sc-3nc" secondAttribute="top" id="BPM-sa-Qzc"/>
+                            <constraint firstAttribute="bottom" secondItem="8Hh-85-Jz6" secondAttribute="bottom" id="JLM-5n-gU1"/>
                             <constraint firstItem="bIB-Bg-KlK" firstAttribute="leading" secondItem="yYO-Sc-3nc" secondAttribute="leading" id="USd-Ts-VgZ"/>
+                            <constraint firstItem="8Hh-85-Jz6" firstAttribute="top" secondItem="ylA-cA-mwC" secondAttribute="top" id="UWM-yn-OtE"/>
+                            <constraint firstAttribute="trailing" secondItem="8Hh-85-Jz6" secondAttribute="trailing" id="WGu-BB-hGC"/>
                             <constraint firstItem="yYO-Sc-3nc" firstAttribute="trailing" secondItem="bIB-Bg-KlK" secondAttribute="trailing" id="pEL-uP-mfs"/>
                             <constraint firstItem="yYO-Sc-3nc" firstAttribute="bottom" secondItem="bIB-Bg-KlK" secondAttribute="bottom" id="s5i-hZ-jSu"/>
                         </constraints>
@@ -90,11 +97,40 @@
                     <navigationItem key="navigationItem" title="Discover" id="CIg-dz-hs2"/>
                     <connections>
                         <outlet property="collection_view" destination="bIB-Bg-KlK" id="LWk-AJ-tTH"/>
+                        <outlet property="no_responed_delegate" destination="8Hh-85-Jz6" id="2Ko-MO-UCI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keh-XM-EC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1410.144927536232" y="-320.08928571428572"/>
+        </scene>
+        <!--SailyUI Discover Detail-->
+        <scene sceneID="e6E-x3-G2V">
+            <objects>
+                <tableViewController id="exJ-Oo-1Tl" customClass="Saily_UI_Discover_Detail" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ys4-Kt-dFr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oBH-8Z-Oak">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oBH-8Z-Oak" id="KHR-KG-x0b">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="exJ-Oo-1Tl" id="Idd-NX-OKN"/>
+                            <outlet property="delegate" destination="exJ-Oo-1Tl" id="F7d-hc-8ze"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DqC-B2-7Rh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2096" y="-320"/>
         </scene>
         <!--Sources-->
         <scene sceneID="y5e-71-EES">

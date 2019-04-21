@@ -13,9 +13,11 @@ import SWCompression
 
 let Saily_FileU = Saily_File_Unit()
 class Saily_File_Unit {
+    
     func exists(file_path: String) -> Bool {
         return FileManager.default.fileExists(atPath: file_path)
     }
+    
     func make_sure_file_exists_at(_ path: String, is_direct: Bool) {
         if (!FileManager.default.fileExists(atPath: path)) {
             if (is_direct) {
@@ -25,6 +27,7 @@ class Saily_File_Unit {
             }
         }
     }
+    
     func simple_read(_ file_path: String) -> String? {
         let url0 = URL.init(fileURLWithPath: file_path)
         guard let data = try? Data.init(contentsOf: url0) else { return nil }
@@ -39,6 +42,7 @@ class Saily_File_Unit {
         }
         return nil
     }
+    
     func simple_write(file_path: String, file_content: String) {
         if (FileManager.default.fileExists(atPath: file_path)) {
             try? FileManager.default.removeItem(atPath: file_path)
@@ -46,6 +50,7 @@ class Saily_File_Unit {
         FileManager.default.createFile(atPath: file_path, contents: nil, attributes: nil)
         try? file_content.write(toFile: file_path, atomically: true, encoding: .utf8)
     }
+    
     func decompress(file: String) -> Int{
         if (!self.exists(file_path: file)) {
             return status_ins.ret_failed
@@ -83,7 +88,8 @@ class CydiaNetwork_C {
     public var H_UDID                                      = "X-Unique-ID:"        //X-Unique-ID: 40nums/chars
     public var H_Firmware                                  = "X-Firmware:"         //X-Firmware: 10.1.1
     public var H_Machine                                   = "X-Machine:"          //X-Machine: iPhone6,1
-    private var init_ed                             = false
+    private var init_ed                                    = false
+    
     func apart_init(udid: String, firmare: String, machine: String) {
         if (self.init_ed) { return }
         self.H_UDID     = udid

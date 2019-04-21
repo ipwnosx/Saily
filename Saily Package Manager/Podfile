@@ -29,5 +29,7 @@ target 'Saily Package Manager' do
         pod 'JGProgressHUD'
         pod 'MKRingProgressView'
         pod 'SWCompression'
+        pod 'Hero'
+
 
 end
