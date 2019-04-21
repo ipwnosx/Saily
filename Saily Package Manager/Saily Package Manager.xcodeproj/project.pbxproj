@@ -34,7 +34,7 @@
 		AB86B003226A13BB0021EB89 /* DiscoverClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86B002226A13BB0021EB89 /* DiscoverClass.swift */; };
 		AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF78D226B2EA5006AA919 /* tweakIcon.png */; };
 		AB8AF790226B3CC1006AA919 /* Saily_UI_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */; };
-		AB8AF792226C2524006AA919 /* mafumafu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF791226C2524006AA919 /* mafumafu.jpg */; };
+		AB8AF794226C2CD0006AA919 /* mafumafu.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF793226C2CD0006AA919 /* mafumafu.png */; };
 		ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */; };
 		ABB6B1E12269E2DE0034FFF5 /* Comfortaa[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */; };
 		ABB6B1E32269E3260034FFF5 /* OperatorsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */; };
@@ -105,7 +105,7 @@
 		AB86B002226A13BB0021EB89 /* DiscoverClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverClass.swift; sourceTree = "<group>"; };
 		AB8AF78D226B2EA5006AA919 /* tweakIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweakIcon.png; sourceTree = "<group>"; };
 		AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Search.swift; sourceTree = "<group>"; };
-		AB8AF791226C2524006AA919 /* mafumafu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mafumafu.jpg; sourceTree = "<group>"; };
+		AB8AF793226C2CD0006AA919 /* mafumafu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafumafu.png; sourceTree = "<group>"; };
 		ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootClass.swift; sourceTree = "<group>"; };
 		ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa[wght].ttf"; sourceTree = "<group>"; };
 		ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsClass.swift; sourceTree = "<group>"; };
@@ -331,7 +331,7 @@
 		ABE66BA62269DB8900375C3E /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AB8AF791226C2524006AA919 /* mafumafu.jpg */,
+				AB8AF793226C2CD0006AA919 /* mafumafu.png */,
 				AB8AF78D226B2EA5006AA919 /* tweakIcon.png */,
 				AB102D30226B0174005348A9 /* PackageCar.png */,
 				AB102D2E226AF9F7005348A9 /* Folder.png */,
@@ -517,6 +517,7 @@
 				ABB6B1E12269E2DE0034FFF5 /* Comfortaa[wght].ttf in Resources */,
 				AB6565C6226A465100E796E5 /* add@3x.png in Resources */,
 				AB86AFF9226A11730021EB89 /* PlaceHolderContent.jpg in Resources */,
+				AB8AF794226C2CD0006AA919 /* mafumafu.png in Resources */,
 				AB102D31226B0174005348A9 /* PackageCar.png in Resources */,
 				AB86AFE7226A09FB0021EB89 /* PlaceHolderDark.jpg in Resources */,
 				ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */,
@@ -525,7 +526,6 @@
 				ABB6B21B2269EAD40034FFF5 /* repo_bigboss.png in Resources */,
 				AB6565C2226A460300E796E5 /* edit@3x.png in Resources */,
 				ABB6B2202269EAD40034FFF5 /* discover@3x.png in Resources */,
-				AB8AF792226C2524006AA919 /* mafumafu.jpg in Resources */,
 				ABB6B2262269EAD40034FFF5 /* installed@3x.png in Resources */,
 				ABB6B21C2269EAD40034FFF5 /* source@3x.png in Resources */,
 				AB86AFE8226A09FB0021EB89 /* CardCellKind2.xib in Resources */,

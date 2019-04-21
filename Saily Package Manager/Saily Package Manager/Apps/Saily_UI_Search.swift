@@ -132,14 +132,14 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         self.tableView.backgroundView = bgView
         
         let mafufu = UIImageView()
-        mafufu.image = #imageLiteral(resourceName: "mafumafu.jpg")
+        mafufu.image = #imageLiteral(resourceName: "mafumafu.png")
         mafufu.contentMode = .scaleAspectFit
         self.tableView.backgroundView?.addSubview(mafufu)
         mafufu.snp.makeConstraints { (c) in
             c.bottom.equalTo(self.tableView.backgroundView!.snp_bottom).offset(0 - (self.tabBarController?.tabBar.frame.height ?? 50))
             c.left.equalTo(self.tableView.backgroundView!.snp_left)
             c.right.equalTo(self.tableView.backgroundView!.snp_right)
-            c.height.equalTo(50)
+            c.height.equalTo(128)
         }
     }
     
