@@ -40,7 +40,9 @@ class Saily_UI_Sectiosn: UITableViewController {
         let new = Saily_UI_Packages()
         if (is_root_sections) {
             if (indexPath.section == 0) {
-                new.push_data(d: Saily.root_packages)
+                let neww = Saily_UI_Search()
+                self.navigationController?.pushViewController(neww)
+                return
             }else{
                 new.push_data(d: Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].packages)
             }

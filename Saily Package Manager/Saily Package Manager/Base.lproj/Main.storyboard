@@ -207,7 +207,7 @@
             </objects>
             <point key="canvasLocation" x="-2038" y="805"/>
         </scene>
-        <!--Search-->
+        <!--Search All-->
         <scene sceneID="14j-uR-h9b">
             <objects>
                 <tableViewController storyboardIdentifier="search_View_Controller_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UQ2-On-dYl" customClass="Saily_UI_Search" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -230,7 +230,7 @@
                             <outlet property="delegate" destination="UQ2-On-dYl" id="jdg-RD-0eh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="iJL-fk-G4h"/>
+                    <navigationItem key="navigationItem" title="Search All" id="iJL-fk-G4h"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qs4-rC-n97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

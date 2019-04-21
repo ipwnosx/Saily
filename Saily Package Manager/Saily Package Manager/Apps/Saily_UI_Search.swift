@@ -123,6 +123,8 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         definesPresentationContext = true
         self.navigationItem.searchController = mySearchcontroller
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        self.title = "Search All"
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
