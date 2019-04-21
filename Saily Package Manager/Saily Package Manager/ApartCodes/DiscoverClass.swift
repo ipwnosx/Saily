@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let preview_discover_file = "https://raw.githubusercontent.com/Co2333/SailyHomePagePreview/master/preview"
+
 // subtitle, title, image, detail, link
 class discover_C {
     

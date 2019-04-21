@@ -52,7 +52,7 @@
         <!--Discover-->
         <scene sceneID="kRN-40-hdS">
             <objects>
-                <viewController id="mmv-Vy-VPv" customClass="Saily_UI_Discover" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Saily_UI_Discover_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mmv-Vy-VPv" customClass="Saily_UI_Discover" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ylA-cA-mwC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                                     <inset key="sectionInset" minX="30" minY="30" maxX="30" maxY="30"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="Seg-E6-JIw">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cards" id="Seg-E6-JIw">
                                         <rect key="frame" x="52" y="30" width="310" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">

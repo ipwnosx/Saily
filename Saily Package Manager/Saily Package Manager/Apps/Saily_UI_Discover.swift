@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "card"
+private let reuseIdentifier = "cards"
 
 class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -25,10 +25,19 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         }
         if (size.width != self.view.frame.size.width) {
             DispatchQueue.main.async {
-//                self.collection_view?.reloadData()
+                self.collection_view?.reloadData()
             }
         }
         
+    }
+    
+    func reload_data() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.collection_view?.reloadData {
+                self.collection_view!.collectionViewLayout.invalidateLayout()
+                self.collection_view!.layoutSubviews()
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -37,8 +46,8 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         collection_view?.delegate = self
         collection_view?.dataSource = self
         
-        // Register cell classes
-        collection_view?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.view.layoutIfNeeded()
+        self.collection_view?.layoutIfNeeded()
         
     }
     
@@ -48,17 +57,6 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        
-        let whiteBG = UIImageView.init(image: #imageLiteral(resourceName: "WHITE.png"))
-        whiteBG.contentMode = .scaleToFill
-        cell.contentView.addSubview(whiteBG)
-        
-        whiteBG.snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp_top)
-            c.bottom.equalTo(cell.contentView.snp_bottom)
-            c.left.equalTo(cell.contentView.snp_left)
-            c.right.equalTo(cell.contentView.snp_right)
-        }
         
         cell.contentView.layer.cornerRadius = 12.0
         cell.contentView.layer.borderWidth = 1.0
@@ -71,6 +69,21 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         cell.layer.shadowOpacity = 0.3
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+        
+        for item in cell.contentView.subviews {
+            item.removeFromSuperview()
+        }
+        
+        let whiteBG = UIImageView.init(image: #imageLiteral(resourceName: "WHITE.png"))
+        whiteBG.contentMode = .scaleToFill
+        cell.contentView.addSubview(whiteBG)
+        
+        whiteBG.snp.makeConstraints { (c) in
+            c.top.equalTo(cell.contentView.snp_top)
+            c.bottom.equalTo(cell.contentView.snp_bottom)
+            c.left.equalTo(cell.contentView.snp_left)
+            c.right.equalTo(cell.contentView.snp_right)
+        }
         
         if (indexPath.row == 0) {
             let bg = UIImageView()
@@ -172,7 +185,7 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         if (scy > scx) {
             return 50
         }
-        return scx / 12
+        return scx / 18
     }
     
 }
@@ -195,9 +208,9 @@ extension Saily_UI_Discover: UICollectionViewDelegateFlowLayout {
             // land
             switch indexPath.row % 4 {
             case 0, 3:
-                return CGSize(width: (scx - 120) / 3 * 2, height: 380)
+                return CGSize(width: scx * 5.2 / 10, height: 380)
             case 1, 2:
-                return CGSize(width: scx - 240 - (scx - 240) / 3 * 2, height: 380)
+                return CGSize(width: scx * 3.6 / 10, height: 380)
             default:
                 break
             }

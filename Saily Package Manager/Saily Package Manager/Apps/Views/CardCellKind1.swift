@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class CardCellKind1: UIView {
     
@@ -17,28 +18,53 @@ class CardCellKind1: UIView {
     var SamllTitle = UILabel()
     var DetailText = UITextView()
     
-    func apart_download_image_and_init(_ imgView: UIImageView) {
+    func apart_download_image_and_init(_ imgView: UIImageView, link: String) {
         Saily.operation_quene.network_queue.async {
+            print("[*] Attempt to download image at: " + link)
+            if (Saily_FileU.exists(file_path: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))) {
+                let data = (try? Data.init(contentsOf: URL.init(fileURLWithPath: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? "")!)))!
+                DispatchQueue.main.async {
+                    self.BGImage.image = UIImage.init(data: data)
+                }
+                return
+            }
+            guard let url = URL.init(string: link) else {
+                return
+            }
+            AF.download(url).responseData(completionHandler: { (data_res) in
+                if (data_res.value == nil) {
+                    return
+                }
+                guard let image = UIImage.init(data: data_res.value!) else {
+                    return
+                }
+                print("[*] Saving image to: " + Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))
+                FileManager.default.createFile(atPath: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""), contents: data_res.value, attributes: nil)
+                DispatchQueue.main.async {
+                    print("[*] Image downloaded.")
+                    self.BGImage.image = image
+                }
+            })
             
         }
     }
     
     func apart_init(_ ins: discover_C, fater_View: UIView) {
         
-        self.BGImage.image = #imageLiteral(resourceName: "jay-freeman.jpg")
+        self.BGImage.image = #imageLiteral(resourceName: "BGBlue.png")
         self.BGImage.contentMode = .scaleAspectFill
         self.BigTitle.text = ins.title_big
         self.BigTitle.font = UIFont.systemFont(ofSize: 26)
-        self.BigTitle.textColor = .gray
+        self.BigTitle.textColor = .white
         self.BigTitle.backgroundColor = .clear
         self.SamllTitle.text = ins.title_small
         self.SamllTitle.font = UIFont.systemFont(ofSize: 16)
-        self.SamllTitle.textColor = .lightGray
+        self.SamllTitle.textColor = .white
         self.DetailText.text = ins.text_details
         self.DetailText.backgroundColor = .clear
         self.DetailText.textColor = .white
         
-        self.apart_download_image_and_init(self.BGImage)
+        self.apart_download_image_and_init(self.BGImage, link: ins.image_link)
         
         fater_View.addSubview(BGImage)
         fater_View.addSubview(BigTitle)
@@ -72,7 +98,7 @@ class CardCellKind1: UIView {
             c.bottom.equalTo(fater_View.snp_bottom).offset(-22)
             c.left.equalTo(fater_View.snp_left).offset(22)
             c.right.equalTo(fater_View.snp_right).offset(-22)
-            c.height.equalTo(50)
+            c.height.equalTo(70)
         }
         text_cover.snp.makeConstraints { (c) in
             c.bottom.equalTo(fater_View.snp_bottom)

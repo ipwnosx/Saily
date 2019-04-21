@@ -39,6 +39,7 @@ class Saily_All {
     public var root_packages                                    = [packages_C]()
     public var root_packages_in_build                           = false
     public var discover_root                                    = [discover_C]()
+    public var discover_raw_str                                 = String()
     // Obj-C bridge
     public var objc_bridge                                      = SailyCommonObject()
     // Magic:
@@ -63,6 +64,16 @@ class Saily_All {
         self.device.apart_init()
         CydiaNetwork.apart_init(udid: self.device.udid, firmare: self.device.version, machine: self.device.identifier)
         
+        // Download today.
+//        Saily.operation_quene.network_queue.async {
+//            AF.download(URL.init(string: "https://raw.githubusercontent.com/Co2333/SailyHomePagePreview/master/preview")!).responseString(completionHandler: { (respond) in
+//                self.discover_raw_str = respond.value ?? ""
+//                self.reload_discover()
+//            })
+//        }
+        
+        self.discover_raw_str = (try? String.init(contentsOf: URL.init(string: "https://raw.githubusercontent.com/Co2333/SailyHomePagePreview/master/preview")!)) ?? ""
+        self.reload_discover()
         
         // The last would be repos
         self.repos_root.apart_init()
@@ -95,6 +106,20 @@ class Saily_All {
             }
         }
         
+    }
+    
+    func reload_discover() {
+        for item in self.discover_raw_str.split(separator: "\n") {
+            if (item == "---END---") {
+                break
+            }
+            let ins = discover_C()
+            ins.apart_init(withString: item.description)
+            self.discover_root.append(ins)
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Saily_UI_Discover_ID")
+        (controller as? Saily_UI_Discover)?.reload_data()
     }
     
     func rebuild_All_My_Packages() {
@@ -208,6 +233,7 @@ class Saily_file_system {
     public var repo_list_signal = String()
     public var repo_cache       = String()
     public var quene_root       = String()
+    public var image_cache      = String()
     
     func apart_init() {
         self.root = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -217,11 +243,13 @@ class Saily_file_system {
         self.repo_list_signal = self.root + "/repo.list.initd"
         self.repo_cache = self.root + "/repo.cache"
         self.quene_root = self.root + "/quene.submit"
+        self.image_cache = self.root + "/image.cache"
         
         Saily_FileU.make_sure_file_exists_at(self.udid, is_direct: false)
         Saily_FileU.make_sure_file_exists_at(self.repo_list, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.repo_cache, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.quene_root, is_direct: true)
+        Saily_FileU.make_sure_file_exists_at(self.image_cache, is_direct: true)
         
         print("[*] File System Apart Init root = " + self.root)
         print("[*] File System Apart Init udid = " + self.udid)
@@ -229,6 +257,7 @@ class Saily_file_system {
         print("[*] File System Apart Init repo_list = " + self.repo_list)
         print("[*] File System Apart Init repo_list signal = " + self.repo_list_signal)
         print("[*] File System Apart Init quene_root = " + self.quene_root)
+        print("[*] File System Apart Init image_cache = " + self.image_cache)
         
     }
 }
