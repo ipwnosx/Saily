@@ -51,4 +51,8 @@ class Saily_UI_Discover_Detail: UITableViewController {
         return objects[indexPath.row].bounds.height
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }

@@ -217,6 +217,15 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
                 c.bottom.equalTo(newww.snp_bottom).offset(-15)
             }
             new.objects.append(newww)
+            let newwwwww = UIImageView()
+            newww.addSubview(newwwwww)
+            newwwwww.snp.makeConstraints { (c) in
+                c.top.equalTo(title.snp_top)
+                c.left.equalTo(title.snp_left)
+                c.bottom.equalTo(title.snp_bottom)
+                c.right.equalTo(title.snp_right)
+            }
+            newwwwww.isUserInteractionEnabled = true
         }else{
             new.discover_item = Saily.discover_root[indexPath.row - 1]
             new.title = "Details"
@@ -251,6 +260,21 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
                 c.bottom.equalTo(newww.snp_bottom).offset(-15)
             }
             new.objects.append(newww)
+            let newwwwww = UIImageView()
+            newww.addSubview(newwwwww)
+            newwwwww.snp.makeConstraints { (c) in
+                c.top.equalTo(title.snp_top)
+                c.left.equalTo(title.snp_left)
+                c.bottom.equalTo(title.snp_bottom)
+                c.right.equalTo(title.snp_right)
+            }
+            newwwwww.isUserInteractionEnabled = true
+            if (Saily.discover_root[indexPath.row - 1].tweak_id != "" && Saily.discover_root[indexPath.row - 1].tweak_id != "") {
+                let tweakView = PackageDownloadView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 233))
+                tweakView.name.text = Saily.discover_root[indexPath.row - 1].tweak_id
+                tweakView.apart_init()
+                new.objects.append(tweakView)
+            }
         }
         self.navigationController?.pushViewController(new)
         

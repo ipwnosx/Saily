@@ -10,20 +10,59 @@ import UIKit
 
 class PackageDownloadView: UIView {
 
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var version: UILabel!
-    @IBOutlet weak var button: UIButton!
+    public var image = UIImageView(image: #imageLiteral(resourceName: "iConRound.png"))
+    public var name = UILabel(text: "com.Saily.Package.Name")
+    public var version = UILabel(text: "Version: 0.1 beta")
+    public var button = UIButton()
     
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func apart_init() {
+        button.setTitle("Add To Queue", for: .normal)
+        button.titleLabel?.textColor = .white
+        button.backgroundColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)
+        name.textColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)
+        version.textColor = .lightGray
+        self.addSubview(image)
+        self.addSubview(name)
+        self.addSubview(version)
+        self.addSubview(button)
+        image.snp.makeConstraints { (c) in
+            c.bottom.equalTo(name.snp_top).offset(-4)
+            c.width.equalTo(66)
+            c.height.equalTo(66)
+            c.centerX.equalTo(self.snp_centerX)
+        }
+        name.snp.makeConstraints { (c) in
+            c.center.equalTo(self.snp_center)
+        }
+        version.snp.makeConstraints { (c) in
+            c.top.equalTo(name.snp_bottom).offset(4)
+            c.centerX.equalTo(self.snp_centerX)
+        }
+        button.snp.makeConstraints { (c) in
+            c.top.equalTo(version.snp_bottom).offset(25)
+            c.centerX.equalTo(self.snp_centerX)
+            c.width.equalTo(138)
+        }
+        button.setRadius(radius: 16)
+        button.addTarget(self, action:  #selector(add_to_quene), for: .touchUpInside)
+        button.addTarget(self, action:  #selector(touch_down), for: .touchDown)
+        button.addTarget(self, action:  #selector(touch_up), for: .touchUpOutside)
+        button.isUserInteractionEnabled = true
     }
 
-    @IBAction func add_to_quene(_ sender: Any) {
-        
+    @objc func add_to_quene(_ sender : UIButton) {
+        sender.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            sender.backgroundColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)
+        }
+    }
+    
+    @objc func touch_down(_ sender : UIButton) {
+        sender.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+    }
+    
+    @objc func touch_up(_ sender : UIButton) {
+        sender.backgroundColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)
     }
     
 }

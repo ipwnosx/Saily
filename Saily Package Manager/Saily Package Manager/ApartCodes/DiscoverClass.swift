@@ -63,7 +63,7 @@ class discover_C {
         
         if (splited[11] == "true") {
             self.tweak_id = splited[12].description
-            self.tweak_id = splited[13].description
+            self.tweak_repo = splited[13].description
         }
         
         self.image_link = splited[5].description

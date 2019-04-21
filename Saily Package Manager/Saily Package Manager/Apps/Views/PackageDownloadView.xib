@@ -73,6 +73,7 @@
                 <outlet property="name" destination="a0g-wB-B2t" id="IRd-nT-Ue8"/>
                 <outlet property="version" destination="Jna-Sb-yEO" id="kuw-dX-GwX"/>
             </connections>
+            <point key="canvasLocation" x="-201.44927536231884" y="94.754464285714278"/>
         </view>
     </objects>
     <resources>
