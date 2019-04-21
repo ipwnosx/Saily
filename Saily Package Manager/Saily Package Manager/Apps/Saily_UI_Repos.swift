@@ -13,8 +13,6 @@ import SwifterSwift
 import MKRingProgressView
 
 class Saily_UI_Repos: UITableViewController {
-
-    var manually_refreseh = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +34,7 @@ class Saily_UI_Repos: UITableViewController {
     }
 
     @objc func refreshData(_ sender: Any) {
+        Saily.repos_root.boot_time_refresh = false
         Saily.repos_root.refresh_call()
         self.refreshControl?.endRefreshing()
     }
@@ -62,6 +61,7 @@ class Saily_UI_Repos: UITableViewController {
                 Saily.copy_board = ""
                 Saily.copy_board_can_use = false
                 self.tableView.reloadData()
+                Saily.repos_root.refresh_call()
                 return
             }))
             alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: { (_) in

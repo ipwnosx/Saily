@@ -95,10 +95,10 @@ class CydiaNetwork_C {
 
 let AFF = AFNetwork_C()
 class AFNetwork_C {
-    private let release_search_path          = ["dists/stable/main/binary-iphoneos-arm/Packages.bz2",
-                                                "dists/stable/main/binary-iphoneos-arm/Packages.gz",
-                                                "Packages.bz2",
+    private let release_search_path          = ["Packages.bz2",
                                                 "Packages.gz",
+                                                "dists/stable/main/binary-iphoneos-arm/Packages.bz2",
+                                                "dists/stable/main/binary-iphoneos-arm/Packages.gz",
                                                 "dists/hnd/main/binary-iphoneos-arm/Packages.bz2",
                                                 "dists/tangelo/main/binary-iphoneos-arm/Packages.bz2",
                                                 "dists/tangelo/main/binary-iphoneos-arm/Packages.gz",
@@ -116,24 +116,27 @@ class AFNetwork_C {
                 return
             }
         }
+        
         for item in self.release_search_path {
             if let url0 = URL.init(string: major_link + item) {
                 let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Sileo,
                                        "X-Firmware" : CydiaNetwork.H_Firmware,
                                        "X-Unique-ID" : CydiaNetwork.H_UDID,
                                        "X-Machine" : CydiaNetwork.H_Machine,
-                                       "If-Modified-Since" : "Fri, 12 May 2006 18:53:33 GMT",
                                        "Accept" : "*/*",
                                        "Accept-Language" : "zh-CN,en,*",
                                        "Accept-Encoding" : "gzip, deflate",
                                        "Connection" : "Keep-Alive",
                                        "Host" : String(major_link.split(separator: "/")[1])]
+                
+                print(h)
+                
                 print("[*] Attempt to connect for: " + url0.absoluteString)
                 let s = DispatchSemaphore.init(value: 0)
                 var b = false
                 var re_map_to : String? = nil
-                AF.request(url0, method: .head, headers: h).response { (res) in
-                    if (res.response?.statusCode ?? 0 >= 200 && res.response?.statusCode ?? 0 <= 300) {
+                AF.request(url0, method: .get, headers: h).response { (res) in
+                    if (res.response?.statusCode ?? 0 == 200) {
                         b = true
                     }else if (res.data != nil) {
                         if (res.response?.statusCode == 302) {
@@ -180,7 +183,7 @@ class AFNetwork_C {
                                "Accept" : "*/*",
                                "Accept-Language" : "zh-CN,en,*",
                                "Accept-Encoding" : "gzip, deflate"]
-        print("[*] Attempt to connect for: " + url0.absoluteString)
+        print("[*] Attempt to connect for: " + url0.absoluteString + " refetch? " + manually_refreseh.description)
         let destination: DownloadRequest.Destination = { _, _ in
             let furl0 = URL.init(fileURLWithPath: you.ress.cache_release + ".tmp")
             return (furl0, [.removePreviousFile, .createIntermediateDirectories])

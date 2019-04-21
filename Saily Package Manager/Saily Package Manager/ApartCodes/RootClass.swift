@@ -127,7 +127,7 @@ class Saily_All {
             if (str == "") {
                 return
             }
-            if (!str.hasSuffix("http")) {
+            if (!str.hasPrefix("http")) {
                 let str1 = "http://" + str
                 let str2 = "https://" + str
                 guard URL.init(string: str1) != nil else {

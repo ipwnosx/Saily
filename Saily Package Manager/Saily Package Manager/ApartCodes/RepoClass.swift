@@ -302,8 +302,6 @@ class a_repo {
                 info_body = ""
                 if (in_head) {
                     info_head += c
-                }else{
-                    info_body += c
                 }
             }else{
                 line_break = false
@@ -390,7 +388,7 @@ class repo_section_C {
     
     func add(p: packages_C) {
         
-        let np: String = p.info["Package".uppercased()]!
+        guard let np: String = p.info["Package".uppercased()] else { return }
         if (self.packages_name_list[np] != "" && self.packages_name_list[np] != nil) {
             // package exists
             print("[*] Package " + np + " exists at version: " + (p.info["Version".uppercased()] ?? "0"))
