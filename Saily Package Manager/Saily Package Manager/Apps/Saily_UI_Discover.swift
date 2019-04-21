@@ -12,6 +12,8 @@ private let reuseIdentifier = "cards"
 
 class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var number2_cell = UICollectionViewCell()
+    
     @IBOutlet weak var collection_view: UICollectionView?
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -20,6 +22,9 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         
         if (size.width > self.view.frame.size.width) {
             print("Landscape")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.adjust_number2_cell()
+            }
         } else {
             print("Portrait")
         }
@@ -40,6 +45,18 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         }
     }
     
+    func adjust_number2_cell() {
+        if (!Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
+            return
+        }
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.number2_cell.center.x -= 11
+                
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +66,10 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         self.view.layoutIfNeeded()
         self.collection_view?.layoutIfNeeded()
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.adjust_number2_cell()
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -57,6 +78,10 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        
+        if (indexPath.row == 1) {
+            self.number2_cell = cell
+        }
         
         cell.contentView.layer.cornerRadius = 12.0
         cell.contentView.layer.borderWidth = 1.0
