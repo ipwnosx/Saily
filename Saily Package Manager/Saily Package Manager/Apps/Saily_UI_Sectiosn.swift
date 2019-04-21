@@ -133,8 +133,12 @@ class Saily_UI_Sectiosn: UITableViewController {
             cell.detailTextLabel?.textColor = .lightGray
         }else{
             if (indexPath.row == 0) {
+                var p_count = 0
+                for section in self.data_source {
+                    p_count += section.packages.count
+                }
                 cell.textLabel?.text = "         " + "All My Packaes :)"
-                cell.detailTextLabel?.text = "            " + "This repo contains " + data_source.description + " package(s)."
+                cell.detailTextLabel?.text = "            " + "This repo contains " + p_count.description + " package(s)."
                 cell.detailTextLabel?.textColor = .lightGray
                 let imageView = UIImageView()
                 imageView.image = #imageLiteral(resourceName: "PackageCar.png")

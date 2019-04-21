@@ -19,51 +19,133 @@ import UIKit
 
 class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate {
     
-    private var in_search = false
+    private var should_search = 0
     private var container = [packages_C]()
+    private var timer: Timer? = nil
+    private var searchtext = ""
+    private var in_search = false
+    private var in_reload = false
+    
+    func startTimer() {
+        if (timer != nil) {
+            return
+        }
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updataSecond), userInfo: nil, repeats: true)
+        timer!.fire()
+    }
+    
+    func wait_s(end_call: @escaping () -> ()) {
+        while (self.in_search || self.in_reload) {
+            usleep(50000)
+        }
+        self.in_search = true
+        self.in_reload = true
+        end_call()
+    }
+    
+    @objc func updataSecond() {
+        if (should_search < 0) {
+            stopTimer()
+            return
+        }
+        Saily.operation_quene.search_queue.addOperation {
+            if (self.searchtext == "") {
+                self.stopTimer()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    DispatchQueue.main.async {
+                        self.in_reload = true
+                        self.tableView.reloadData {
+                            self.should_search = -1
+                            self.in_search = false
+                            self.in_reload = false
+                        }
+                    }
+                }
+                return
+            }
+            let ss = DispatchSemaphore(value: 0)
+            self.wait_s {
+                ss.signal()
+            }
+            ss.wait()
+            if (self.timer == nil) {
+                return
+            }
+            var index = 0
+            self.container = Saily.root_packages
+            if (self.searchtext == "") {
+                DispatchQueue.main.async {
+                    self.stopTimer()
+                    self.in_reload = true
+                    self.tableView.reloadData {
+                        self.should_search = -1
+                        self.in_search = false
+                        self.in_reload = false
+                    }
+                }
+                return
+            }
+            for item in self.container {
+                if (!(item.info["Package".uppercased()]?.uppercased().contains(self.searchtext.uppercased()) ?? false)
+                    && !(item.info["Name".uppercased()]?.uppercased().contains(self.searchtext.uppercased()) ?? false)) {
+                    if (self.container.count == 0) {
+                        break
+                    }else{
+                        self.container.remove(at: index)
+                    }
+                }else{
+                    index += 1
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData {
+                    self.in_search = false
+                    self.in_reload = false
+                }
+            }
+            self.should_search -= 1
+        }
+    }
+    
+    func stopTimer() {
+        if timer != nil {
+            timer!.invalidate()
+            timer = nil
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let mySearchcontroller = UISearchController(searchResultsController: nil)
-        mySearchcontroller.obscuresBackgroundDuringPresentation = false
         mySearchcontroller.searchBar.placeholder = "Search"
         mySearchcontroller.searchBar.delegate = self
-        mySearchcontroller.hidesBottomBarWhenPushed = false
         definesPresentationContext = true
         self.navigationItem.searchController = mySearchcontroller
-        
-        
+        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
-        
-        self.tableView.reloadData()
+        self.should_search = 0
+        self.tableView.reloadData {
+            self.in_reload = false
+        }
         return
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if (searchText == "") {
-            container.removeAll()
-            self.tableView.reloadData()
-            return
-        }
-        var index = 0
-        self.container = Saily.root_packages
-        for item in self.container {
-            if (!(item.info["Package".uppercased()]?.uppercased().contains(searchText.uppercased()) ?? false)
-                && !(item.info["Name".uppercased()]?.uppercased().contains(searchText.uppercased()) ?? false)) {
-                container.remove(at: index)
-            }else{
-                index += 1
-            }
-        }
-        self.tableView.reloadData()
+        self.searchtext = searchText
+        self.should_search = 1
+        startTimer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.navigationItem.searchController?.isActive = false
     }
     
     // MARK: - Table view data source
@@ -115,3 +197,5 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
     
     
 }
+
+

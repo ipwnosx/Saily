@@ -128,9 +128,6 @@ class AFNetwork_C {
                                        "Accept-Encoding" : "gzip, deflate",
                                        "Connection" : "Keep-Alive",
                                        "Host" : String(major_link.split(separator: "/")[1])]
-                
-                print(h)
-                
                 print("[*] Attempt to connect for: " + url0.absoluteString)
                 let s = DispatchSemaphore.init(value: 0)
                 var b = false

@@ -277,5 +277,6 @@ class Saily_operayions_quene {
                                              qos: .utility, attributes: .concurrent)
     public let wrapper_queue = DispatchQueue(label: "Saily.queue.wrapper",
                                              qos: .utility, attributes: .concurrent)
+    public let search_queue  = OperationQueue()
     
 }

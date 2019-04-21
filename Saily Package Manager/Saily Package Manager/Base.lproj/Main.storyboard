@@ -236,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="-1362" y="805"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Installed-->
         <scene sceneID="nvR-Ff-G5T">
             <objects>
                 <tableViewController id="bmx-Nj-mdg" sceneMemberID="viewController">
@@ -259,7 +259,7 @@
                             <outlet property="delegate" destination="bmx-Nj-mdg" id="w6n-ap-J8v"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mXf-8o-No5"/>
+                    <navigationItem key="navigationItem" title="Installed" id="mXf-8o-No5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynM-i0-naZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,8 +271,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tH3-kP-xPX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Installed" image="installed.png" id="Dzf-qB-mqu"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3uQ-fb-uBr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="3uQ-fb-uBr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -47,7 +47,7 @@ class Saily_UI_Packages: UITableViewController, UISearchControllerDelegate, UISe
         for item in self.data_source {
             if (!(item.info["Package".uppercased()]?.uppercased().contains(searchText.uppercased()) ?? false)
                 && !(item.info["Name".uppercased()]?.uppercased().contains(searchText.uppercased()) ?? false)) {
-                data_source.remove(at: index)
+                self.data_source.remove(at: index)
             }else{
                 index += 1
             }
