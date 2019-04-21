@@ -19,6 +19,9 @@ class CardCellKind1: UIView {
     
     // MARK : Use for creating UIView in discover detail view.
     func return_cached_image(link: String) -> UIImage? {
+        if let mem_image = Saily.discover_image_cache[link] {
+            return mem_image
+        }
         print("[*] Trying to returned cached image from: " + Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))
         if (Saily_FileU.exists(file_path: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))) {
             let data = (try? Data.init(contentsOf: URL.init(fileURLWithPath: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? "")!)))!
@@ -30,6 +33,13 @@ class CardCellKind1: UIView {
     // MARK DONE
     
     func apart_download_image_and_init(_ imgView: UIImageView, link: String) {
+        if let mem_image = Saily.discover_image_cache[link] {
+            DispatchQueue.main.async {
+//                print("[*] Loading image from ram..")
+                self.BGImage.image = mem_image
+            }
+            return
+        }
         Saily.operation_quene.network_queue.async {
             print("[*] Attempt to download image at: " + link)
             if (Saily_FileU.exists(file_path: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))) {
@@ -38,6 +48,7 @@ class CardCellKind1: UIView {
                     self.BGImage.image = UIImage.init(data: data)
                 }
                 print("[*] Returned cache.")
+                Saily.discover_image_cache[link] = UIImage.init(data: data)
                 return
             }
             guard let url = URL.init(string: link) else {
@@ -50,6 +61,7 @@ class CardCellKind1: UIView {
                 guard let image = UIImage.init(data: data_res.value!) else {
                     return
                 }
+                Saily.discover_image_cache[link] = image
                 print("[*] Saving image to: " + Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))
                 FileManager.default.createFile(atPath: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""), contents: data_res.value, attributes: nil)
                 DispatchQueue.main.async {

@@ -21,6 +21,13 @@ class CardCellKind2: UIView {
     var DetailText = UITextView()
     
     func apart_download_image_and_init(_ imgView: UIImageView, link: String) {
+        if let mem_image = Saily.discover_image_cache[link] {
+            DispatchQueue.main.async {
+                print("[*] Loading image from ram..")
+                self.BGImage.image = mem_image
+            }
+            return
+        }
         Saily.operation_quene.network_queue.async {
             print("[*] Attempt to download image at: " + link)
             if (Saily_FileU.exists(file_path: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))) {
@@ -29,6 +36,7 @@ class CardCellKind2: UIView {
                     self.BGImage.image = UIImage.init(data: data)
                 }
                 print("[*] Returned cache.")
+                Saily.discover_image_cache[link] = UIImage.init(data: data)
                 return
             }
             guard let url = URL.init(string: link) else {
@@ -41,6 +49,7 @@ class CardCellKind2: UIView {
                 guard let image = UIImage.init(data: data_res.value!) else {
                     return
                 }
+                Saily.discover_image_cache[link] = image
                 print("[*] Saving image to: " + Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""))
                 FileManager.default.createFile(atPath: Saily.files.image_cache + "/" + (link.split(separator: "/").last?.description ?? ""), contents: data_res.value, attributes: nil)
                 DispatchQueue.main.async {
@@ -51,7 +60,7 @@ class CardCellKind2: UIView {
             
         }
     }
-    
+
     func apart_init(_ ins: discover_C, fater_View: UIView) {
         
         self.BGImage.image = #imageLiteral(resourceName: "PlaceHolder.png")

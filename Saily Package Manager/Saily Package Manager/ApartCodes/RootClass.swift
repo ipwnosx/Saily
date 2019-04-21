@@ -41,11 +41,13 @@ class Saily_All {
     public var root_packages_bad_build                          = false
     public var discover_root                                    = [discover_C]()
     public var discover_raw_str                                 = String()
+    public var discover_image_cache                             = [String : UIImage] ()
     // Obj-C bridge
     public var objc_bridge                                      = SailyCommonObject()
     // Magic:
     public var copy_board                                       = String()
     public var copy_board_can_use                               = false
+    
     
     func apart_init() {
         
