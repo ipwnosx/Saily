@@ -35,6 +35,8 @@
 		AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF78D226B2EA5006AA919 /* tweakIcon.png */; };
 		AB8AF790226B3CC1006AA919 /* Saily_UI_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */; };
 		AB8AF794226C2CD0006AA919 /* mafumafu.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF793226C2CD0006AA919 /* mafumafu.png */; };
+		AB8AF798226C33C8006AA919 /* Saily_UI_Installed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF797226C33C8006AA919 /* Saily_UI_Installed.swift */; };
+		AB8AF79E226C7650006AA919 /* jay-freeman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF79D226C7650006AA919 /* jay-freeman.jpg */; };
 		ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */; };
 		ABB6B1E12269E2DE0034FFF5 /* Comfortaa[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */; };
 		ABB6B1E32269E3260034FFF5 /* OperatorsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */; };
@@ -106,6 +108,8 @@
 		AB8AF78D226B2EA5006AA919 /* tweakIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweakIcon.png; sourceTree = "<group>"; };
 		AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Search.swift; sourceTree = "<group>"; };
 		AB8AF793226C2CD0006AA919 /* mafumafu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafumafu.png; sourceTree = "<group>"; };
+		AB8AF797226C33C8006AA919 /* Saily_UI_Installed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saily_UI_Installed.swift; sourceTree = "<group>"; };
+		AB8AF79D226C7650006AA919 /* jay-freeman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jay-freeman.jpg"; sourceTree = "<group>"; };
 		ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootClass.swift; sourceTree = "<group>"; };
 		ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa[wght].ttf"; sourceTree = "<group>"; };
 		ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsClass.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				AB86AFE0226A09FB0021EB89 /* WHITE.png */,
+				AB8AF79D226C7650006AA919 /* jay-freeman.jpg */,
 				AB86AFDA226A09FB0021EB89 /* PlaceHolderLight.png */,
 				AB86AFDC226A09FB0021EB89 /* PlaceHolderDark.jpg */,
 				AB86AFF8226A11730021EB89 /* PlaceHolderContent.jpg */,
@@ -226,6 +231,7 @@
 				AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */,
 				AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */,
 				AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */,
+				AB8AF797226C33C8006AA919 /* Saily_UI_Installed.swift */,
 				AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */,
 			);
 			path = Apps;
@@ -540,6 +546,7 @@
 				AB86B001226A131B0021EB89 /* TextDetail.xib in Resources */,
 				ABB6B2042269E94B0034FFF5 /* Documentation.html in Resources */,
 				ABB6B21D2269EAD40034FFF5 /* iConWhiteTransparent.png in Resources */,
+				AB8AF79E226C7650006AA919 /* jay-freeman.jpg in Resources */,
 				ABB6B21F2269EAD40034FFF5 /* PlaceholderDownT.png in Resources */,
 				ABB6B2222269EAD40034FFF5 /* downshade.png in Resources */,
 				ABB6B2232269EAD40034FFF5 /* iCon.png in Resources */,
@@ -691,6 +698,7 @@
 				AB86AFE4226A09FB0021EB89 /* CardCellKind2.swift in Sources */,
 				AB86AFE9226A09FB0021EB89 /* CardCellKind1.swift in Sources */,
 				ABB6B2572269F9590034FFF5 /* Saily_UI_Discover.swift in Sources */,
+				AB8AF798226C33C8006AA919 /* Saily_UI_Installed.swift in Sources */,
 				ABB6B1E52269E3B60034FFF5 /* RepoClass.swift in Sources */,
 				ABB6B2052269E94B0034FFF5 /* GCDAsyncUdpSocket.m in Sources */,
 				ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */,

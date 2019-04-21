@@ -30,6 +30,7 @@ class Saily_All {
     public let is_debug                                         = true
     public let operation_quene                                  = Saily_operayions_quene()
     // This session, contains gobal settings or memory container struct
+    public var is_Chinese                                       = false
     public var is_jailbroken                                    = false
     public var files                                            = Saily_file_system()
     public var device                                           = Saily_device_info()
@@ -37,7 +38,7 @@ class Saily_All {
     public var repos_root                                       = repo_C()
     public var root_packages                                    = [packages_C]()
     public var root_packages_in_build                           = false
-    public var discover_root                                    = discover_ins()
+    public var discover_root                                    = [discover_C]()
     // Obj-C bridge
     public var objc_bridge                                      = SailyCommonObject()
     // Magic:
@@ -47,6 +48,15 @@ class Saily_All {
     func apart_init() {
         
         self.objc_bridge.redirectConsoleLogToDocumentFolder()
+        
+        let locale = NSLocale.preferredLanguages
+        print(locale)
+        for item in locale {
+            if (item.contains("zh") || item.contains("CN")) {
+                self.is_Chinese = true
+                break
+            }
+        }
         
         // apart_init_anything_required!
         self.files.apart_init()

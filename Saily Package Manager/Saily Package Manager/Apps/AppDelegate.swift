@@ -18,6 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Saily.apart_init()
         
+        
+        // Design Level Build
+        let ins1 = discover_C()
+        let ins2 = discover_C()
+        let ins3 = discover_C()
+        
+        ins1.apart_init(withString: "|标题|原网页链接|卡片标题|卡片副标题|卡片描述|卡片背景|1|卡片标题|卡片副标题|卡片描述|英文网页链接|是否有插件推荐|插件id|插件默认源地址|")
+        ins2.apart_init(withString: "|越獄之父Saurik 拒絕替A12 設備更新 Cydia Substrate ，要大家忘記Cydia|https://mrmad.com.tw/saurik-not-update-cydia-substrate-for-a12-devices|Cydia将有可能成为历史|没有了Cydia世界会怎样？|幾個小時前， Saurik 在自己推特上發言，認為越獄已經在 iOS 9 時期就已經死亡，現在他不會想替 A12 設備更新，也沒理由免費解決這問題，最後他也要求大家忘記 Cydia ，似乎也暗示他決定要離開越獄圈。|https://mrmad.com.tw/wp-content/uploads/2019/04/jay-freeman-cydia-le-jailbreak-est-mort.jpg|2|Saurik Refused to Update Substrate for A12|Cydia is Now in History|What would the world be like without Cydia? Several hours before, the father of jailberak, Saurik twitted that jailbreak should not even shown after iOS 9. What's more?|some description|a/link.to/english/version|false|nil|nil|")
+        ins3.apart_init(withString: "|NAN TEST|")
+        
+        Saily.discover_root = [ins2, ins1, ins3]
+        
+        
+        
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)
         self.window!.makeKeyAndVisible()

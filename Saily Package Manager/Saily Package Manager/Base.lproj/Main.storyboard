@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +42,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="YKP-QK-WXC" kind="relationship" relationship="rootViewController" id="HxM-Nv-MxZ"/>
+                        <segue destination="mmv-Vy-VPv" kind="relationship" relationship="rootViewController" id="UNp-gg-APu"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTu-59-cjN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,39 +50,51 @@
             <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
         </scene>
         <!--Discover-->
-        <scene sceneID="XVu-lL-fR9">
+        <scene sceneID="kRN-40-hdS">
             <objects>
-                <collectionViewController storyboardIdentifier="Saily_UI_Discover_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YKP-QK-WXC" customClass="Saily_UI_Discover" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3a0-3C-XwS">
+                <viewController id="mmv-Vy-VPv" customClass="Saily_UI_Discover" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ylA-cA-mwC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bIB-Bg-KlK">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bdD-8C-cPt">
+                                    <size key="itemSize" width="310" height="380"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="30" minY="30" maxX="30" maxY="30"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="Seg-E6-JIw">
+                                        <rect key="frame" x="52" y="30" width="310" height="380"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="380"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KOW-B3-rXM">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DrX-Ip-5SG">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="YKP-QK-WXC" id="UZB-W2-AUN"/>
-                            <outlet property="delegate" destination="YKP-QK-WXC" id="6dJ-QL-3VG"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="Discover" id="Ihl-H3-d62"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="55U-ze-Ebb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="bIB-Bg-KlK" firstAttribute="top" secondItem="yYO-Sc-3nc" secondAttribute="top" id="BPM-sa-Qzc"/>
+                            <constraint firstItem="bIB-Bg-KlK" firstAttribute="leading" secondItem="yYO-Sc-3nc" secondAttribute="leading" id="USd-Ts-VgZ"/>
+                            <constraint firstItem="yYO-Sc-3nc" firstAttribute="trailing" secondItem="bIB-Bg-KlK" secondAttribute="trailing" id="pEL-uP-mfs"/>
+                            <constraint firstItem="yYO-Sc-3nc" firstAttribute="bottom" secondItem="bIB-Bg-KlK" secondAttribute="bottom" id="s5i-hZ-jSu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yYO-Sc-3nc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Discover" id="CIg-dz-hs2"/>
+                    <connections>
+                        <outlet property="collection_view" destination="bIB-Bg-KlK" id="LWk-AJ-tTH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="keh-XM-EC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="-320"/>
+            <point key="canvasLocation" x="1410.144927536232" y="-320.08928571428572"/>
         </scene>
         <!--Sources-->
         <scene sceneID="y5e-71-EES">
@@ -239,7 +252,7 @@
         <!--Installed-->
         <scene sceneID="nvR-Ff-G5T">
             <objects>
-                <tableViewController id="bmx-Nj-mdg" sceneMemberID="viewController">
+                <tableViewController id="bmx-Nj-mdg" customClass="Saily_UI_Installed" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7j1-84-m7a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

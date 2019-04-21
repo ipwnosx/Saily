@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextDetail: UICollectionViewCell {
+class TextDetail: UIView {
 
     @IBOutlet weak var text_detail: UITextView!
     

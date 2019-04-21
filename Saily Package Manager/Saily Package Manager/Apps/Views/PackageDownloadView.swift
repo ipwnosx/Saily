@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PackageDownloadView: UICollectionViewCell {
+class PackageDownloadView: UIView {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
