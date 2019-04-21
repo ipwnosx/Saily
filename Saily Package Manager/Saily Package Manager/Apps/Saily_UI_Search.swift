@@ -124,7 +124,23 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         self.navigationItem.searchController = mySearchcontroller
         self.navigationItem.hidesSearchBarWhenScrolling = false
         
+        self.tableView.separatorColor = .clear
+        
         self.title = "Search All"
+        
+        let bgView = UIView()
+        self.tableView.backgroundView = bgView
+        
+        let mafufu = UIImageView()
+        mafufu.image = #imageLiteral(resourceName: "mafumafu.jpg")
+        mafufu.contentMode = .scaleAspectFit
+        self.tableView.backgroundView?.addSubview(mafufu)
+        mafufu.snp.makeConstraints { (c) in
+            c.bottom.equalTo(self.tableView.backgroundView!.snp_bottom).offset(0 - (self.tabBarController?.tabBar.frame.height ?? 50))
+            c.left.equalTo(self.tableView.backgroundView!.snp_left)
+            c.right.equalTo(self.tableView.backgroundView!.snp_right)
+            c.height.equalTo(50)
+        }
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
