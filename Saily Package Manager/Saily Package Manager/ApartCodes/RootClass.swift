@@ -60,6 +60,7 @@ class Saily_All {
         
         if (((locale.first?.split(separator: "-").first ?? "") == "zh") || locale.first?.uppercased().contains("TW") ?? false) {
             self.is_Chinese = true
+            self.app_web_site = "https://lakraream.wixsite.com/saily/"
         }
         
 //        for item in locale {

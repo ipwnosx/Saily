@@ -204,12 +204,14 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         }
         
         if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
-            let popupVC = PopupViewController(contentController: new!, popupWidth: scx * 0.6, popupHeight: scy * 0.8)
-            popupVC.canTapOutsideToDismiss = true
-            popupVC.cornerRadius = 10
-            popupVC.shadowEnabled = false
-            present(popupVC, animated: true)
-            return
+            if (scx > scy) {
+                let popupVC = PopupViewController(contentController: new!, popupWidth: scy * 0.8, popupHeight: scy * 0.8)
+                popupVC.canTapOutsideToDismiss = true
+                popupVC.cornerRadius = 10
+                popupVC.shadowEnabled = false
+                present(popupVC, animated: true)
+                return
+            }
         }
         
         self.navigationController?.pushViewController(new!)

@@ -21,12 +21,22 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         
         web_container.navigationDelegate = self
         
-        
-        
         if (self.discover_index == -666) {
             let url = URL(string: Saily.app_web_site)!
             web_container.load(URLRequest(url: url))
             web_container.allowsBackForwardNavigationGestures = true
+            let wix_cover = UIImageView()
+            wix_cover.image = #imageLiteral(resourceName: "BGBlue.png")
+            wix_cover.contentMode = .scaleAspectFill
+            wix_cover.clipsToBounds = true
+            self.view.addSubview(wix_cover)
+            self.view.bringSubviewToFront(wix_cover)
+            wix_cover.snp.makeConstraints { (c) in
+                c.top.equalTo(self.view.snp_top)
+                c.left.equalTo(self.view.snp_left)
+                c.right.equalTo(self.view.snp_right)
+                c.height.equalTo(38)
+            }
         }else{
             if (!Saily.discover_root[discover_index].web_link.uppercased().contains("HTTP")) {
             let url_dead = UIImageView()
@@ -60,5 +70,54 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         
     }
     
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.web_container.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+            if complete != nil {
+                self.web_container.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                    print("[*] This web page is with height: " + height.debugDescription)
+                })
+            }
+            
+        })
+    }
+    
+    var isBeginTouchPositionSet = false
+    var beginTouchPosition = CGPoint()
+    var endTouchPosition = CGPoint()
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { exit(62) }
+        var touches = [UITouch]()
+        if let coalescedTouches = event?.coalescedTouches(for: touch){
+            touches = coalescedTouches
+        }else{
+            touches.append(touch)
+        }
+        if (isBeginTouchPositionSet == false) {
+            beginTouchPosition = (touches.first?.location(in: self.view))!
+            isBeginTouchPositionSet = true
+        }
+        endTouchPosition = (touches.last?.location(in: self.view))!
+    }
+
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isBeginTouchPositionSet = false
+        
+        // 上滑手势
+        if (abs(Int(beginTouchPosition.x - endTouchPosition.x)) < 120 && (beginTouchPosition.y - endTouchPosition.y) > 45 ) {
+            beginTouchPosition = CGPoint(x: 0, y: 0)
+            endTouchPosition = CGPoint(x: 0, y: 0)
+            print("[*] Going up~")
+            return
+        }
+        // 下滑手势
+        if (abs(Int(beginTouchPosition.x - endTouchPosition.x)) < 120 && (beginTouchPosition.y - endTouchPosition.y) < -45 ) {
+            beginTouchPosition = CGPoint(x: 0, y: 0)
+            endTouchPosition = CGPoint(x: 0, y: 0)
+            print("[*] Going down~")
+            return
+        }
+    }
     
 }
