@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.0.0-beta.5)
   - BitByteData (1.4.0)
   - BZipCompression (1.0.2)
+  - EzPopup (1.1)
   - FLEX (2.4.0)
   - GZIP (1.2.2)
   - Hero (1.4.0)
@@ -73,6 +74,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.5)
   - BZipCompression (~> 1.0.0)
+  - EzPopup
   - FLEX (~> 2.0)
   - GZIP (~> 1.2)
   - Hero
@@ -91,6 +93,7 @@ SPEC REPOS:
     - Alamofire
     - BitByteData
     - BZipCompression
+    - EzPopup
     - FLEX
     - GZIP
     - Hero
@@ -108,6 +111,7 @@ SPEC CHECKSUMS:
   Alamofire: 9afb08f7f43efcc71c072374e720fcf67521317d
   BitByteData: 157a77c133673e289eebf71a9d192c53d1e07ad3
   BZipCompression: e0f96508e60eb93b5f5d4c7de1eb3dd0ac4f9ae9
+  EzPopup: b959cfb0d70d782a28e770a96c454df0401467c7
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   GZIP: 12374d285e3b5d46cfcd480700fcfc7e16caf4f1
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
@@ -121,6 +125,6 @@ SPEC CHECKSUMS:
   SwifterSwift: 96f90594b370802f01647c2b1229c74a84ffafee
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: fda06a890a51a6d70586731fc5fb5ec550051c04
+PODFILE CHECKSUM: 5df23ddd46b354ba898266df9932380de4b71bee
 
 COCOAPODS: 1.6.1

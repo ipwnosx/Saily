@@ -30,6 +30,7 @@ target 'Saily Package Manager' do
         pod 'MKRingProgressView'
         pod 'SWCompression'
         pod 'Hero'
+        pod 'EzPopup'
 
 
 end

@@ -104,33 +104,39 @@
             </objects>
             <point key="canvasLocation" x="1410.144927536232" y="-320.08928571428572"/>
         </scene>
-        <!--SailyUI Discover Detail-->
-        <scene sceneID="e6E-x3-G2V">
+        <!--Details-->
+        <scene sceneID="U3v-a6-ZwI">
             <objects>
-                <tableViewController id="exJ-Oo-1Tl" customClass="Saily_UI_Discover_Detail" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ys4-Kt-dFr">
+                <viewController storyboardIdentifier="Saily_UI_Discover_Detail_ID" title="Details" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ECg-ms-Ygu" customClass="Saily_UI_Discover_Detail" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="96L-Ub-O0b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4L-ag-PMQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oBH-8Z-Oak">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oBH-8Z-Oak" id="KHR-KG-x0b">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="exJ-Oo-1Tl" id="Idd-NX-OKN"/>
-                            <outlet property="delegate" destination="exJ-Oo-1Tl" id="F7d-hc-8ze"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DqC-B2-7Rh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="h4L-ag-PMQ" secondAttribute="trailing" id="0Jk-z7-unj"/>
+                            <constraint firstItem="h4L-ag-PMQ" firstAttribute="top" secondItem="7Oe-Pl-WSh" secondAttribute="top" id="A4B-4K-gBy"/>
+                            <constraint firstItem="h4L-ag-PMQ" firstAttribute="leading" secondItem="96L-Ub-O0b" secondAttribute="leading" id="iFp-ib-KzC"/>
+                            <constraint firstItem="h4L-ag-PMQ" firstAttribute="bottom" secondItem="7Oe-Pl-WSh" secondAttribute="bottom" id="tce-p6-m8O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Oe-Pl-WSh"/>
+                    </view>
+                    <connections>
+                        <outlet property="web_container" destination="h4L-ag-PMQ" id="FYQ-Bs-Mp1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YQt-pM-YGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="-320"/>
+            <point key="canvasLocation" x="2076.8115942028985" y="-320.08928571428572"/>
         </scene>
         <!--Sources-->
         <scene sceneID="y5e-71-EES">

@@ -47,6 +47,8 @@ class Saily_All {
     // Magic:
     public var copy_board                                       = String()
     public var copy_board_can_use                               = false
+    // One More ThingS
+    public var app_web_site                                     = "https://twitter.com/TrySaily"
     
     
     func apart_init() {
@@ -55,12 +57,17 @@ class Saily_All {
         
         let locale = NSLocale.preferredLanguages
         print(locale)
-        for item in locale {
-            if (item.contains("zh") || item.contains("CN")) {
-                self.is_Chinese = true
-                break
-            }
+        
+        if (((locale.first?.split(separator: "-").first ?? "") == "zh") || locale.first?.uppercased().contains("TW") ?? false) {
+            self.is_Chinese = true
         }
+        
+//        for item in locale {
+//            if (item.contains("zh") || item.contains("CN")) {
+//                self.is_Chinese = true
+//                break
+//            }
+//        }
         
         // apart_init_anything_required!
         self.files.apart_init()

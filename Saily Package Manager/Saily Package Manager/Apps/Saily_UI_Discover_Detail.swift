@@ -7,62 +7,58 @@
 //
 
 import UIKit
+import WebKit
 
-class Saily_UI_Discover_Detail: UITableViewController {
+import Hero
 
-    public var discover_item = discover_C()
+class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
     
-    public var objects = [UIView]()
-    
-    func apart_init(str: String) {
-        
-    }
+    public var discover_index = Int()
+    @IBOutlet weak var web_container: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.separatorColor = .clear
-        if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
-            let sep = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
-            self.objects = [sep] + self.objects
-        }
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.objects.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "idCell") ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
-        cell.contentView.addSubview(self.objects[indexPath.row])
-        self.objects[indexPath.row].snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp_top)
-            if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
-                c.left.equalTo(cell.contentView.snp_left).offset(233)
-                c.right.equalTo(cell.contentView.snp_right).offset(-233)
-            }else{
-                c.left.equalTo(cell.contentView.snp_left)
-                c.right.equalTo(cell.contentView.snp_right)
+        
+        web_container.navigationDelegate = self
+        
+        
+        
+        if (self.discover_index == -666) {
+            let url = URL(string: Saily.app_web_site)!
+            web_container.load(URLRequest(url: url))
+            web_container.allowsBackForwardNavigationGestures = true
+        }else{
+            if (!Saily.discover_root[discover_index].web_link.uppercased().contains("HTTP")) {
+            let url_dead = UIImageView()
+            url_dead.image = #imageLiteral(resourceName: "mafumafu_dead_rul.png")
+            url_dead.contentMode = .scaleAspectFit
+            url_dead.clipsToBounds = false
+            self.view.addSubview(url_dead)
+            self.view.bringSubviewToFront(url_dead)
+            url_dead.snp.makeConstraints { (c) in
+                c.center.equalTo(self.view.snp_center)
+                c.width.equalTo(233)
             }
-            c.bottom.equalTo(cell.contentView.snp_bottom)
+            return
+            }
+            if let url = URL(string: Saily.discover_root[discover_index].web_link) {
+                web_container.load(URLRequest(url: url))
+                web_container.allowsBackForwardNavigationGestures = true
+            }else{
+                let url_dead = UIImageView()
+                url_dead.image = #imageLiteral(resourceName: "mafumafu_dead_rul.png")
+                url_dead.contentMode = .scaleAspectFit
+                url_dead.clipsToBounds = false
+                self.view.addSubview(url_dead)
+                self.view.bringSubviewToFront(url_dead)
+                url_dead.snp.makeConstraints { (c) in
+                    c.center.equalTo(self.view.snp_center)
+                }
+                
+            }
         }
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-        return cell
+        
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return objects[indexPath.row].bounds.height
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
-    }
     
 }

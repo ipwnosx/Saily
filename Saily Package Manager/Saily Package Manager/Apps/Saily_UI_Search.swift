@@ -181,7 +181,7 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         let idCell = "theCell";
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
         
-        print("[*] The PACKAGE is: " + (container[indexPath.row].info["Package".uppercased()] ?? "") + " | " + (container[indexPath.row].info["Name".uppercased()] ?? ""))
+//        print("[*] The PACKAGE is: " + (container[indexPath.row].info["Package".uppercased()] ?? "") + " | " + (container[indexPath.row].info["Name".uppercased()] ?? ""))
         
         if (container[indexPath.row].info["Name".uppercased()] == nil || container[indexPath.row].info["Name".uppercased()] == "") {
             cell.textLabel?.text = "         " + (container[indexPath.row].info["Package".uppercased()] ?? "")

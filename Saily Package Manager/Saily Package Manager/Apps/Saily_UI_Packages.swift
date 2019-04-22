@@ -75,7 +75,7 @@ class Saily_UI_Packages: UITableViewController, UISearchControllerDelegate, UISe
         let idCell = "theCell";
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell) ?? UITableViewCell.init(style: .subtitle, reuseIdentifier: "theCell")
         
-        print("[*] The PACKAGE is: " + (data_source[indexPath.row].info["Package".uppercased()] ?? "") + " | " + (data_source[indexPath.row].info["Name".uppercased()] ?? ""))
+//        print("[*] The PACKAGE is: " + (data_source[indexPath.row].info["Package".uppercased()] ?? "") + " | " + (data_source[indexPath.row].info["Name".uppercased()] ?? ""))
         
         if (data_source[indexPath.row].info["Name".uppercased()] == nil || data_source[indexPath.row].info["Name".uppercased()] == "") {
             cell.textLabel?.text = "         " + (data_source[indexPath.row].info["Package".uppercased()] ?? "")

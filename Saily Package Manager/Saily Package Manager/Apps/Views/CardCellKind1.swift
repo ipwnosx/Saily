@@ -17,6 +17,9 @@ class CardCellKind1: UIView {
     var SamllTitle = UILabel()
     var DetailText = UITextView()
     
+    var heroID_title = String()
+    var heroIF_image = String()
+    
     // MARK : Use for creating UIView in discover detail view.
     func return_cached_image(link: String) -> UIImage? {
         if let mem_image = Saily.discover_image_cache[link] {
@@ -87,6 +90,9 @@ class CardCellKind1: UIView {
         self.DetailText.text = ins.text_details
         self.DetailText.backgroundColor = .clear
         self.DetailText.textColor = .white
+        
+        self.heroID_title = UUID().uuidString
+        self.heroIF_image = UUID().uuidString
         
         self.apart_download_image_and_init(self.BGImage, link: ins.image_link)
         
