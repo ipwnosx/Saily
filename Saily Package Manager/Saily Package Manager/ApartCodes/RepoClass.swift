@@ -391,7 +391,7 @@ class repo_section_C {
         guard let np: String = p.info["Package".uppercased()] else { return }
         if (self.packages_name_list[np] != "" && self.packages_name_list[np] != nil) {
             // package exists
-            print("[*] Package " + np + " exists at version: " + (p.info["Version".uppercased()] ?? "0"))
+//            print("[*] Package " + np + " exists at version: " + (p.info["Version".uppercased()] ?? "0"))
             let newV = p.info["Version".uppercased()] ?? "0"
             // search for package
             var index = 0

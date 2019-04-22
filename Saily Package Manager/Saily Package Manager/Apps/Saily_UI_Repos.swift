@@ -68,6 +68,7 @@ class Saily_UI_Repos: UITableViewController {
             }))
             self.present(alert, animated: true) {
             }
+            return
         }
         var read = ""
         let alert = UIAlertController.init(title: "Add Repo", message: "Enter the link of the repo", preferredStyle: .alert)

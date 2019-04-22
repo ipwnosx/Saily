@@ -23,7 +23,7 @@ class CardCellKind2: UIView {
     func apart_download_image_and_init(_ imgView: UIImageView, link: String) {
         if let mem_image = Saily.discover_image_cache[link] {
             DispatchQueue.main.async {
-                print("[*] Loading image from ram..")
+//                print("[*] Loading image from ram..")
                 self.BGImage.image = mem_image
             }
             return

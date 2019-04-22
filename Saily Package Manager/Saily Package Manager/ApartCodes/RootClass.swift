@@ -76,7 +76,24 @@ class Saily_All {
 //        }
         
         self.discover_raw_str = (try? String.init(contentsOf: URL.init(string: "https://raw.githubusercontent.com/Co2333/SailyHomePagePreview/master/preview")!)) ?? ""
-        self.reload_discover()
+        let discover_raw_str_split = self.discover_raw_str.split(separator: "◊")
+        
+        if (self.is_Chinese) {
+            self.discover_raw_str = String(discover_raw_str_split[1])
+        }else{
+            self.discover_raw_str = String(discover_raw_str_split[0])
+        }
+        
+        var items = self.discover_raw_str.split(separator: "\n")
+        
+        if (items.count > 1) {
+            items.remove(at: 0)
+            for item in items {
+                let dis = discover_C()
+                dis.apart_init(withString: item.description)
+                self.discover_root.append(dis)
+            }
+        }
         
         // The last would be repos
         self.repos_root.apart_init()
@@ -109,17 +126,6 @@ class Saily_All {
             }
         }
         
-    }
-    
-    func reload_discover() {
-        for item in self.discover_raw_str.split(separator: "\n") {
-            if (item == "---END---") {
-                break
-            }
-            let ins = discover_C()
-            ins.apart_init(withString: item.description)
-            self.discover_root.append(ins)
-        }
     }
     
     func rebuild_All_My_Packages() {

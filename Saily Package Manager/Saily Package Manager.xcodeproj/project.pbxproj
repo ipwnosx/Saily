@@ -18,9 +18,7 @@
 		AB6565C6226A465100E796E5 /* add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565C5226A465100E796E5 /* add@3x.png */; };
 		AB86AFE4226A09FB0021EB89 /* CardCellKind2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86AFD9226A09FB0021EB89 /* CardCellKind2.swift */; };
 		AB86AFE5226A09FB0021EB89 /* PlaceHolderLight.png in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFDA226A09FB0021EB89 /* PlaceHolderLight.png */; };
-		AB86AFE6226A09FB0021EB89 /* CardCellKind1.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFDB226A09FB0021EB89 /* CardCellKind1.xib */; };
 		AB86AFE7226A09FB0021EB89 /* PlaceHolderDark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFDC226A09FB0021EB89 /* PlaceHolderDark.jpg */; };
-		AB86AFE8226A09FB0021EB89 /* CardCellKind2.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFDD226A09FB0021EB89 /* CardCellKind2.xib */; };
 		AB86AFE9226A09FB0021EB89 /* CardCellKind1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86AFDE226A09FB0021EB89 /* CardCellKind1.swift */; };
 		AB86AFEB226A09FB0021EB89 /* WHITE.png in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFE0226A09FB0021EB89 /* WHITE.png */; };
 		AB86AFEE226A107B0021EB89 /* PackageDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86AFEC226A107B0021EB89 /* PackageDownloadView.swift */; };
@@ -94,9 +92,7 @@
 		AB6565C5226A465100E796E5 /* add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@3x.png"; sourceTree = "<group>"; };
 		AB86AFD9226A09FB0021EB89 /* CardCellKind2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellKind2.swift; sourceTree = "<group>"; };
 		AB86AFDA226A09FB0021EB89 /* PlaceHolderLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceHolderLight.png; sourceTree = "<group>"; };
-		AB86AFDB226A09FB0021EB89 /* CardCellKind1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCellKind1.xib; sourceTree = "<group>"; };
 		AB86AFDC226A09FB0021EB89 /* PlaceHolderDark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PlaceHolderDark.jpg; sourceTree = "<group>"; };
-		AB86AFDD226A09FB0021EB89 /* CardCellKind2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCellKind2.xib; sourceTree = "<group>"; };
 		AB86AFDE226A09FB0021EB89 /* CardCellKind1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellKind1.swift; sourceTree = "<group>"; };
 		AB86AFE0226A09FB0021EB89 /* WHITE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WHITE.png; sourceTree = "<group>"; };
 		AB86AFEC226A107B0021EB89 /* PackageDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDownloadView.swift; sourceTree = "<group>"; };
@@ -216,9 +212,7 @@
 				AB86AFDC226A09FB0021EB89 /* PlaceHolderDark.jpg */,
 				AB86AFF8226A11730021EB89 /* PlaceHolderContent.jpg */,
 				AB86AFDE226A09FB0021EB89 /* CardCellKind1.swift */,
-				AB86AFDB226A09FB0021EB89 /* CardCellKind1.xib */,
 				AB86AFD9226A09FB0021EB89 /* CardCellKind2.swift */,
-				AB86AFDD226A09FB0021EB89 /* CardCellKind2.xib */,
 				AB86AFEC226A107B0021EB89 /* PackageDownloadView.swift */,
 				AB86AFF0226A109A0021EB89 /* PackageDownloadView.xib */,
 				AB86AFF4226A111C0021EB89 /* ImageCell.swift */,
@@ -546,11 +540,9 @@
 				ABB6B2202269EAD40034FFF5 /* discover@3x.png in Resources */,
 				ABB6B2262269EAD40034FFF5 /* installed@3x.png in Resources */,
 				ABB6B21C2269EAD40034FFF5 /* source@3x.png in Resources */,
-				AB86AFE8226A09FB0021EB89 /* CardCellKind2.xib in Resources */,
 				ABB6B2242269EAD40034FFF5 /* iConRound.png in Resources */,
 				AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */,
 				ABB6B2192269EAD40034FFF5 /* PlaceholderUPT.png in Resources */,
-				AB86AFE6226A09FB0021EB89 /* CardCellKind1.xib in Resources */,
 				ABB6B2252269EAD40034FFF5 /* upshade.png in Resources */,
 				AB86AFEB226A09FB0021EB89 /* WHITE.png in Resources */,
 				AB8AF7AF226CCEF3006AA919 /* SocialPreview.png in Resources */,
