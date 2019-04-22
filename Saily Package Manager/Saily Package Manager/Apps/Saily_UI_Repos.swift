@@ -61,7 +61,9 @@ class Saily_UI_Repos: UITableViewController {
                 Saily.copy_board = ""
                 Saily.copy_board_can_use = false
                 self.tableView.reloadData()
-                Saily.repos_root.refresh_call()
+                Saily.operation_quene.repo_queue.async {
+                    Saily.repos_root.refresh_call()
+                }
                 return
             }))
             alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: { (_) in
@@ -92,6 +94,9 @@ class Saily_UI_Repos: UITableViewController {
                 }
                 Saily.repos_root.repos.append(a_repo(ilink: read))
                 Saily.repos_root.resave()
+                Saily.operation_quene.repo_queue.async {
+                    Saily.repos_root.refresh_call()
+                }
                 self.tableView.reloadData()
             }else{
                 let alert = UIAlertController.init(title: "Error", message: "This is not an URL, retry?", preferredStyle: .alert)
