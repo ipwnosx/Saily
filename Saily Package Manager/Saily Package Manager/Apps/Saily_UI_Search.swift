@@ -212,6 +212,12 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        let name = self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? ""
+        print("[*] Selected package named: " + name + " with father repo: " + self.container[indexPath.row].fater_repo.ress.major)
+    }
 }
 
 

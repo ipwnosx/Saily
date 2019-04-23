@@ -204,6 +204,28 @@ class Saily_UI_Repos: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let share = UITableViewRowAction(style: .normal, title: "Share") { action, index in
+            print("Share button tapped")
+            let share_link =  Saily.repos_root.repos[indexPath.row - 2].ress.major
+            let share_sheet = UIActivityViewController(activityItems: [share_link], applicationActivities: [])
+            self.present(share_sheet, animated: true, completion: nil)
+        }
+        share.backgroundColor = #colorLiteral(red: 1, green: 0.7110999433, blue: 0.8486783776, alpha: 1)
+        
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { action, index in
+            print("Delete button tapped")
+            try? FileManager.default.removeItem(atPath: Saily.files.repo_cache + "/" + Saily.repos_root.repos[indexPath.row - 2].name)
+            Saily.repos_root.repos.remove(at: indexPath.row - 2)
+            Saily.repos_root.resave()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        delete.backgroundColor = .red
+        
+        return [delete, share]
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var ret = CGFloat()
         switch indexPath.row {
@@ -224,15 +246,6 @@ class Saily_UI_Repos: UITableViewController {
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            Saily.repos_root.repos.remove(at: indexPath.row - 2)
-            Saily.repos_root.resave()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-
-    // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         if (fromIndexPath.row == to.row) {
             return
@@ -247,7 +260,6 @@ class Saily_UI_Repos: UITableViewController {
         }
     }
 
-    // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         if (indexPath.row >= 0 && indexPath.row <= 1) {

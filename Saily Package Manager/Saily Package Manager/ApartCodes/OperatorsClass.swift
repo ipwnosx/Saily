@@ -151,7 +151,7 @@ class AFNetwork_C {
                 }
                 s.wait()
                 if (b == true) {
-                    print("[*] FOUND RELEASE: " + item)
+                    print("[*] FOUND RELEASE: " + major_link + item)
                     Saily_FileU.simple_write(file_path: cache_release_link, file_content: major_link + item)
                     end_call(status_ins.ret_success)
                     return

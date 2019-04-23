@@ -86,12 +86,19 @@ class Saily_All {
         self.discover_raw_str = (try? String.init(contentsOf: URL.init(string: "https://raw.githubusercontent.com/Co2333/SailyHomePagePreview/master/preview")!)) ?? ""
         let discover_raw_str_split = self.discover_raw_str.split(separator: "◊")
         
-        if (self.is_Chinese) {
-            self.discover_raw_str = String(discover_raw_str_split[1])
-        }else{
+        if (discover_raw_str_split.count >= 2) {
+            if (self.is_Chinese) {
+                self.discover_raw_str = String(discover_raw_str_split[1])
+            }else{
+                self.discover_raw_str = String(discover_raw_str_split[0])
+            }
+        }else if (discover_raw_str_split.count == 1){
             self.discover_raw_str = String(discover_raw_str_split[0])
+        }else{
+            print("[*] Error in loading discover.")
         }
         
+        // init discover
         var items = self.discover_raw_str.split(separator: "\n")
         
         if (items.count > 1) {
@@ -102,6 +109,20 @@ class Saily_All {
                 self.discover_root.append(dis)
             }
         }
+        
+        print("[*] Staring loading image cache...")
+        for item in Saily.discover_root {
+            let link_of_image = item.image_link
+            if let name_of_image = item.image_link.split(separator: "/").last {
+                let url0 = URL.init(fileURLWithPath: self.files.image_cache + "/" + name_of_image)
+                if let data = try? Data.init(contentsOf: url0) {
+                    if let image = UIImage.init(data: data) {
+                        self.discover_image_cache[link_of_image] = image
+                    }
+                }
+            }
+        }
+
         
         // The last would be repos
         self.repos_root.apart_init()
@@ -157,7 +178,7 @@ class Saily_All {
         }
         let session_token = UUID().uuidString
         self.root_packages_in_build = session_token
-        self.root_packages.removeAll()
+        self.root_packages = [packages_C]() // Do not use removeAll it crashes.
         self.operation_quene.repo_queue.async {
             print("[*] Triggered rebuild master packages.")
             for repo in self.repos_root.repos {
@@ -345,3 +366,4 @@ class Saily_operayions_quene {
     public let search_queue  = OperationQueue()
     
 }
+

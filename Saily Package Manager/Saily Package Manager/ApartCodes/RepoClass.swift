@@ -123,7 +123,11 @@ class repo_C {
         }
     }
     
-
+    func return_a_repo_with_name(namd: String) -> a_repo? {
+        print("[*] Method not implanted. Aborting.")
+        abort()
+        return nil
+    }
 }
 
 class a_repo {
@@ -273,7 +277,7 @@ class a_repo {
         var info_body = ""
         var in_head = true
         var line_break = false
-        var this_package = packages_C()
+        var this_package = packages_C(with_repo: self)
         for char in str! {
             let c = char.description
             inner: if (c == ":") {
@@ -285,7 +289,7 @@ class a_repo {
                     self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section".uppercased()] ?? "! NAN Section")].add(p: this_package)
 //                    self.lldb_print_package(p: this_package)
                     // next package
-                    this_package = packages_C()
+                    this_package = packages_C(with_repo: self)
                     break inner
                 }
                 line_break = true
@@ -419,4 +423,9 @@ class repo_section_C {
 
 class packages_C {
     public var info = [String : String]()
+    public var fater_repo: a_repo
+    
+    init(with_repo: a_repo) {
+        self.fater_repo = with_repo
+    }
 }
