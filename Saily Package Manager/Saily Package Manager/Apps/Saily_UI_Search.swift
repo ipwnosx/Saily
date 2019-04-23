@@ -221,9 +221,24 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let package = self.container[indexPath.row]
+        
         self.tableView.deselectRow(at: indexPath, animated: true)
         let name = self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? ""
         print("[*] Selected package named: " + name + " with father repo: " + self.container[indexPath.row].fater_repo.ress.major)
+        
+        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
+            let sb = storyboard?.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Native_ID") as? Saily_UI_Tweak_Native
+            sb?.this_package = package
+            self.navigationController?.pushViewController(sb!)
+            print("[*] Pushing to native controller.")
+            return
+        }
+        
+        let sb = storyboard?.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Webkit_ID") as? Saily_UI_Tweak_Webkit
+        sb?.this_package = package
+        self.navigationController?.pushViewController(sb!)
+        print("[*] Pushing to WebKit controller.")
     }
 }
 

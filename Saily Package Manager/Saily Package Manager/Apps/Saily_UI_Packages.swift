@@ -111,6 +111,22 @@ class Saily_UI_Packages: UITableViewController, UISearchControllerDelegate, UISe
         self.tableView.deselectRow(at: indexPath, animated: true)
         let name = self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? ""
         print("[*] Selected package named: " + name + " with father repo: " + self.data_source[indexPath.row].fater_repo.ress.major)
+        let package = self.data_source[indexPath.row]
+        
+        let storyboard_ins = UIStoryboard(name: "Main", bundle: nil)
+        
+        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
+            let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Native_ID") as? Saily_UI_Tweak_Native
+            sb?.this_package = package
+            self.navigationController?.pushViewController(sb!)
+            print("[*] Pushing to native controller.")
+            return
+        }
+        
+        let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Webkit_ID") as? Saily_UI_Tweak_Webkit
+        sb?.this_package = package
+        self.navigationController?.pushViewController(sb!)
+        print("[*] Pushing to WebKit controller.")
     }
     
 }

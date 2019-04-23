@@ -10,10 +10,14 @@ import UIKit
 
 class Saily_UI_Tweak_Webkit: UIViewController {
 
+    public var this_package: packages_C? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        print("[*] Catch package info:")
+        print(self.this_package?.info as Any)
+        
     }
     
 

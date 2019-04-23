@@ -68,6 +68,10 @@
 		ABDFA29D226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */; };
 		ABDFA29F226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */; };
 		ABDFA2BE226F48BF00E04BE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C0226F48BF00E04BE4 /* Localizable.strings */; };
+		ABDFA2C5226F652E00E04BE4 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C4226F652E00E04BE4 /* share.png */; };
+		ABDFA2C7226F676800E04BE4 /* Web.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C6226F676700E04BE4 /* Web.png */; };
+		ABDFA2C9226F67CB00E04BE4 /* dollor.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C8226F67CA00E04BE4 /* dollor.png */; };
+		ABDFA2CD226F778A00E04BE4 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2CC226F778900E04BE4 /* download.png */; };
 		ABE66B772269DB6500375C3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE66B762269DB6500375C3E /* AppDelegate.swift */; };
 		ABE66B7E2269DB6500375C3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7C2269DB6500375C3E /* Main.storyboard */; };
 		ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7F2269DB6500375C3E /* Assets.xcassets */; };
@@ -155,6 +159,10 @@
 		ABDFA2BA226F482400E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		ABDFA2BB226F482400E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		ABDFA2BF226F48BF00E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		ABDFA2C4226F652E00E04BE4 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		ABDFA2C6226F676700E04BE4 /* Web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Web.png; sourceTree = "<group>"; };
+		ABDFA2C8226F67CA00E04BE4 /* dollor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollor.png; sourceTree = "<group>"; };
+		ABDFA2CC226F778900E04BE4 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		ABE66B732269DB6500375C3E /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE66B762269DB6500375C3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABE66B7D2269DB6500375C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -343,6 +351,10 @@
 		ABE66BA62269DB8900375C3E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ABDFA2CC226F778900E04BE4 /* download.png */,
+				ABDFA2C8226F67CA00E04BE4 /* dollor.png */,
+				ABDFA2C6226F676700E04BE4 /* Web.png */,
+				ABDFA2C4226F652E00E04BE4 /* share.png */,
 				ABB35B15226DFCC3009E4D07 /* mafumafu_dead_rul.png */,
 				ABDFA29A226F304A00E04BE4 /* mafufulove.png */,
 				ABB35B0B226DEE83009E4D07 /* mafumafu.png */,
@@ -537,6 +549,7 @@
 				ABB35B0C226DEE83009E4D07 /* mafumafu.png in Resources */,
 				AB86AFE7226A09FB0021EB89 /* PlaceHolderDark.jpg in Resources */,
 				ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */,
+				ABDFA2C9226F67CB00E04BE4 /* dollor.png in Resources */,
 				ABB6B2212269EAD40034FFF5 /* search@3x.png in Resources */,
 				AB102D2F226AF9F7005348A9 /* Folder.png in Resources */,
 				AB8AF7A1226C960E006AA919 /* PlaceHolder.png in Resources */,
@@ -552,12 +565,15 @@
 				ABDFA29B226F304A00E04BE4 /* mafufulove.png in Resources */,
 				ABB6B2252269EAD40034FFF5 /* upshade.png in Resources */,
 				AB86AFEB226A09FB0021EB89 /* WHITE.png in Resources */,
+				ABDFA2C7226F676800E04BE4 /* Web.png in Resources */,
 				AB8AF7AF226CCEF3006AA919 /* SocialPreview.png in Resources */,
+				ABDFA2C5226F652E00E04BE4 /* share.png in Resources */,
 				ABE66B7E2269DB6500375C3E /* Main.storyboard in Resources */,
 				ABB6B21E2269EAD40034FFF5 /* PlaceholderInT.png in Resources */,
 				ABB6B2042269E94B0034FFF5 /* Documentation.html in Resources */,
 				ABB6B21D2269EAD40034FFF5 /* iConWhiteTransparent.png in Resources */,
 				AB8AF79E226C7650006AA919 /* jay-freeman.jpg in Resources */,
+				ABDFA2CD226F778A00E04BE4 /* download.png in Resources */,
 				ABB6B21F2269EAD40034FFF5 /* PlaceholderDownT.png in Resources */,
 				ABB6B2222269EAD40034FFF5 /* downshade.png in Resources */,
 				ABB6B2232269EAD40034FFF5 /* iCon.png in Resources */,

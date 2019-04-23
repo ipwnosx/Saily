@@ -16,7 +16,9 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
     
     @IBOutlet weak var collection_view: UICollectionView?
     @IBOutlet weak var no_responed_delegate: UIImageView!
-
+    @IBOutlet weak var mafu_loading: UIImageView!
+    @IBOutlet weak var mafu_lll: UIActivityIndicatorView!
+    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -46,7 +48,16 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         self.view.layoutIfNeeded()
         self.collection_view?.layoutIfNeeded()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
+            UIView.animate(withDuration: 1, animations: {
+                self.mafu_lll.alpha = 0
+                self.mafu_loading.alpha = 0
+                self.no_responed_delegate.alpha = 0
+            })
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
+            self.mafu_lll.isHidden = true
+            self.mafu_loading.isHidden = true
             self.no_responed_delegate.isHidden = true
         }
     }
