@@ -19,18 +19,17 @@ target 'Saily Package Manager' do
         pod 'SwifterSwift'
         pod 'LTMorphingLabel'
         pod 'Alamofire', '~> 5.0.0-beta.5'
-        pod 'SwiftyJSON'
         pod 'SnapKit'
         pod 'Reveal-SDK', :configurations => ['Debug']
-        pod 'Swifter'
-        pod 'FLEX', '~> 2.0', :configurations => ['Debug']
         pod 'BZipCompression', '~> 1.0.0'
         pod 'GZIP', '~> 1.2'
         pod 'JGProgressHUD'
         pod 'MKRingProgressView'
-        pod 'SWCompression'
         pod 'Hero'
         pod 'EzPopup'
-
+        pod 'DoraemonKit/Core', '~> 1.1.7', :configurations => ['Debug']
+        pod 'DoraemonKit/WithLogger', '~> 1.1.7', :configurations => ['Debug']
+        pod 'DoraemonKit/WithGPS', '~> 1.1.7', :configurations => ['Debug']
+        pod 'DoraemonKit/WithLoad', '~> 1.1.7', :configurations => ['Debug']
 
 end

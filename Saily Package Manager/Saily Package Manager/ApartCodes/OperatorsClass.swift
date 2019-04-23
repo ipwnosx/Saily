@@ -9,7 +9,6 @@
 import Foundation
 
 import Alamofire
-import SWCompression
 
 let Saily_FileU = Saily_File_Unit()
 class Saily_File_Unit {

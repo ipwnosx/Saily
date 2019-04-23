@@ -26,21 +26,21 @@ class PackageDownloadView: UIView {
         self.addSubview(version)
         self.addSubview(button)
         image.snp.makeConstraints { (c) in
-            c.bottom.equalTo(name.snp_top).offset(-4)
+            c.bottom.equalTo(name.snp.top).offset(-4)
             c.width.equalTo(66)
             c.height.equalTo(66)
-            c.centerX.equalTo(self.snp_centerX)
+            c.centerX.equalTo(self.snp.centerX)
         }
         name.snp.makeConstraints { (c) in
-            c.center.equalTo(self.snp_center)
+            c.center.equalTo(self.snp.center)
         }
         version.snp.makeConstraints { (c) in
-            c.top.equalTo(name.snp_bottom).offset(4)
-            c.centerX.equalTo(self.snp_centerX)
+            c.top.equalTo(name.snp.bottom).offset(4)
+            c.centerX.equalTo(self.snp.centerX)
         }
         button.snp.makeConstraints { (c) in
-            c.top.equalTo(version.snp_bottom).offset(25)
-            c.centerX.equalTo(self.snp_centerX)
+            c.top.equalTo(version.snp.bottom).offset(25)
+            c.centerX.equalTo(self.snp.centerX)
             c.width.equalTo(138)
         }
         button.setRadius(radius: 16)

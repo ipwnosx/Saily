@@ -32,9 +32,9 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
             self.view.addSubview(wix_cover)
             self.view.bringSubviewToFront(wix_cover)
             wix_cover.snp.makeConstraints { (c) in
-                c.top.equalTo(self.view.snp_top)
-                c.left.equalTo(self.view.snp_left)
-                c.right.equalTo(self.view.snp_right)
+                c.top.equalTo(self.view.snp.top)
+                c.left.equalTo(self.view.snp.left)
+                c.right.equalTo(self.view.snp.right)
                 c.height.equalTo(38)
             }
         }else{
@@ -46,7 +46,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
             self.view.addSubview(url_dead)
             self.view.bringSubviewToFront(url_dead)
             url_dead.snp.makeConstraints { (c) in
-                c.center.equalTo(self.view.snp_center)
+                c.center.equalTo(self.view.snp.center)
                 c.width.equalTo(233)
             }
             return
@@ -62,7 +62,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
                 self.view.addSubview(url_dead)
                 self.view.bringSubviewToFront(url_dead)
                 url_dead.snp.makeConstraints { (c) in
-                    c.center.equalTo(self.view.snp_center)
+                    c.center.equalTo(self.view.snp.center)
                 }
                 
             }

@@ -113,8 +113,8 @@ class Saily_UI_Sectiosn: UITableViewController {
                 imageView.image = #imageLiteral(resourceName: "PackageCar.png")
                 cell.addSubview(imageView)
                 imageView.snp.makeConstraints { (c) in
-                    c.top.equalTo(cell.contentView.snp_top).offset(14)
-                    c.right.equalTo(cell.textLabel!.snp_left).offset(26)
+                    c.top.equalTo(cell.contentView.snp.top).offset(14)
+                    c.right.equalTo(cell.textLabel!.snp.left).offset(26)
                     c.width.equalTo(28)
                     c.height.equalTo(28)
                 }
@@ -122,8 +122,8 @@ class Saily_UI_Sectiosn: UITableViewController {
                 next.image = #imageLiteral(resourceName: "next.png")
                 cell.addSubview(next)
                 next.snp.makeConstraints { (c) in
-                    c.top.equalTo(cell.contentView.snp_top).offset(23)
-                    c.right.equalTo(cell.snp_right).offset(-16)
+                    c.top.equalTo(cell.contentView.snp.top).offset(23)
+                    c.right.equalTo(cell.snp.right).offset(-16)
                     c.width.equalTo(14)
                     c.height.equalTo(14)
                 }
@@ -146,8 +146,8 @@ class Saily_UI_Sectiosn: UITableViewController {
                 imageView.image = #imageLiteral(resourceName: "PackageCar.png")
                 cell.addSubview(imageView)
                 imageView.snp.makeConstraints { (c) in
-                    c.top.equalTo(cell.contentView.snp_top).offset(14)
-                    c.right.equalTo(cell.textLabel!.snp_left).offset(26)
+                    c.top.equalTo(cell.contentView.snp.top).offset(14)
+                    c.right.equalTo(cell.textLabel!.snp.left).offset(26)
                     c.width.equalTo(28)
                     c.height.equalTo(28)
                 }
@@ -155,8 +155,8 @@ class Saily_UI_Sectiosn: UITableViewController {
                 next.image = #imageLiteral(resourceName: "next.png")
                 cell.addSubview(next)
                 next.snp.makeConstraints { (c) in
-                    c.top.equalTo(cell.contentView.snp_top).offset(23)
-                    c.right.equalTo(cell.snp_right).offset(-16)
+                    c.top.equalTo(cell.contentView.snp.top).offset(23)
+                    c.right.equalTo(cell.snp.right).offset(-16)
                     c.width.equalTo(14)
                     c.height.equalTo(14)
                 }
@@ -171,8 +171,8 @@ class Saily_UI_Sectiosn: UITableViewController {
         imageView.image = #imageLiteral(resourceName: "Folder.png")
         cell.addSubview(imageView)
         imageView.snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp_top).offset(14)
-            c.right.equalTo(cell.textLabel!.snp_left).offset(26)
+            c.top.equalTo(cell.contentView.snp.top).offset(14)
+            c.right.equalTo(cell.textLabel!.snp.left).offset(26)
             c.width.equalTo(28)
             c.height.equalTo(28)
         }
@@ -180,8 +180,8 @@ class Saily_UI_Sectiosn: UITableViewController {
         next.image = #imageLiteral(resourceName: "next.png")
         cell.addSubview(next)
         next.snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp_top).offset(23)
-            c.right.equalTo(cell.snp_right).offset(-16)
+            c.top.equalTo(cell.contentView.snp.top).offset(23)
+            c.right.equalTo(cell.snp.right).offset(-16)
             c.width.equalTo(14)
             c.height.equalTo(14)
         }

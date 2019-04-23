@@ -144,8 +144,8 @@ class Saily_UI_Repos: UITableViewController {
             next.image = #imageLiteral(resourceName: "next.png")
             cell.addSubview(next)
             next.snp.makeConstraints { (c) in
-                c.top.equalTo(cell.contentView.snp_top).offset(23)
-                c.right.equalTo(cell.snp_right).offset(-16)
+                c.top.equalTo(cell.contentView.snp.top).offset(23)
+                c.right.equalTo(cell.snp.right).offset(-16)
                 c.width.equalTo(14)
                 c.height.equalTo(14)
             }
@@ -154,9 +154,9 @@ class Saily_UI_Repos: UITableViewController {
             progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
             cell.addSubview(progressView)
             progressView.snp.makeConstraints { (c) in
-                c.bottom.equalTo(cell.contentView.snp_bottom).offset(0 - progressView.bounds.height)
-                c.left.equalTo(cell.textLabel!.snp_left).offset(-66)
-                c.right.equalTo(cell.contentView.snp_right).offset(66)
+                c.bottom.equalTo(cell.contentView.snp.bottom).offset(0 - progressView.bounds.height)
+                c.left.equalTo(cell.textLabel!.snp.left).offset(-66)
+                c.right.equalTo(cell.contentView.snp.right).offset(66)
                 c.height.equalTo(1)
             }
         case 1:
@@ -175,8 +175,8 @@ class Saily_UI_Repos: UITableViewController {
             }
             cell.addSubview(imageView)
             imageView.snp.makeConstraints { (c) in
-                c.top.equalTo(cell.contentView.snp_top).offset(10)
-                c.right.equalTo(cell.textLabel!.snp_left).offset(30)
+                c.top.equalTo(cell.contentView.snp.top).offset(10)
+                c.right.equalTo(cell.textLabel!.snp.left).offset(30)
                 c.width.equalTo(36)
                 c.height.equalTo(36)
             }
@@ -184,8 +184,8 @@ class Saily_UI_Repos: UITableViewController {
             next.image = #imageLiteral(resourceName: "next.png")
             cell.addSubview(next)
             next.snp.makeConstraints { (c) in
-                c.top.equalTo(cell.contentView.snp_top).offset(23)
-                c.right.equalTo(cell.contentView.snp_right).offset(-16)
+                c.top.equalTo(cell.contentView.snp.top).offset(23)
+                c.right.equalTo(cell.contentView.snp.right).offset(-16)
                 c.width.equalTo(14)
                 c.height.equalTo(14)
             }
@@ -195,10 +195,10 @@ class Saily_UI_Repos: UITableViewController {
             progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
             cell.addSubview(progressView)
             progressView.snp.makeConstraints { (c) in
-                c.bottom.equalTo(cell.contentView.snp_bottom).offset(0 - progressView.bounds.height)
-                c.left.equalTo(cell.textLabel!.snp_left).offset(40)
-                c.right.equalTo(cell.contentView.snp_right).offset(0)
-                c.height.equalTo(1)
+                c.bottom.equalTo(cell.contentView.snp.bottom).offset(0)
+                c.left.equalTo(cell.textLabel!.snp.left).offset(40)
+                c.right.equalTo(cell.contentView.snp.right).offset(0)
+                c.height.equalTo(2)
             }
         }
         return cell
@@ -212,7 +212,7 @@ class Saily_UI_Repos: UITableViewController {
             let share_sheet = UIActivityViewController(activityItems: [share_link], applicationActivities: [])
             self.present(share_sheet, animated: true, completion: nil)
         }
-        share.backgroundColor = #colorLiteral(red: 1, green: 0.7110999433, blue: 0.8486783776, alpha: 1)
+        share.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.2823529412, blue: 0.4, alpha: 1)
         
         let delete = UITableViewRowAction(style: .default, title: "Delete") { action, index in
             print("Delete button tapped")

@@ -109,31 +109,31 @@ class CardCellKind1: UIView {
         fater_View.addSubview(DetailText)
         
         BigTitle.snp.makeConstraints { (c) in
-            c.top.equalTo(fater_View.snp_top).offset(40)
-            c.left.equalTo(fater_View.snp_left).offset(22)
-            c.right.equalTo(fater_View.snp_right).offset(-22)
+            c.top.equalTo(fater_View.snp.top).offset(40)
+            c.left.equalTo(fater_View.snp.left).offset(22)
+            c.right.equalTo(fater_View.snp.right).offset(-22)
             c.height.equalTo(80)
         }
         BGImage.snp.makeConstraints { (c) in
-            c.top.equalTo(fater_View.snp_top)
-            c.bottom.equalTo(fater_View.snp_bottom)
-            c.left.equalTo(fater_View.snp_left)
-            c.right.equalTo(fater_View.snp_right)
+            c.top.equalTo(fater_View.snp.top)
+            c.bottom.equalTo(fater_View.snp.bottom)
+            c.left.equalTo(fater_View.snp.left)
+            c.right.equalTo(fater_View.snp.right)
         }
         SamllTitle.snp.makeConstraints { (c) in
-            c.top.equalTo(fater_View.snp_top).offset(25)
-            c.left.equalTo(fater_View.snp_left).offset(28.5)
+            c.top.equalTo(fater_View.snp.top).offset(25)
+            c.left.equalTo(fater_View.snp.left).offset(28.5)
         }
         DetailText.snp.makeConstraints { (c) in
-            c.bottom.equalTo(fater_View.snp_bottom).offset(-10)
-            c.left.equalTo(fater_View.snp_left).offset(22)
-            c.right.equalTo(fater_View.snp_right).offset(-22)
+            c.bottom.equalTo(fater_View.snp.bottom).offset(-10)
+            c.left.equalTo(fater_View.snp.left).offset(22)
+            c.right.equalTo(fater_View.snp.right).offset(-22)
             c.height.equalTo(70)
         }
         text_cover.snp.makeConstraints { (c) in
-            c.bottom.equalTo(fater_View.snp_bottom)
-            c.left.equalTo(fater_View.snp_left)
-            c.right.equalTo(fater_View.snp_right)
+            c.bottom.equalTo(fater_View.snp.bottom)
+            c.left.equalTo(fater_View.snp.left)
+            c.right.equalTo(fater_View.snp.right)
             c.height.equalTo(100)
         }
         

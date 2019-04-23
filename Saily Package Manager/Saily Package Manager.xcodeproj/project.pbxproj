@@ -66,6 +66,9 @@
 		ABB6B2262269EAD40034FFF5 /* installed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB6B2182269EAD40034FFF5 /* installed@3x.png */; };
 		ABB6B2282269EF550034FFF5 /* Navigators.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B2272269EF550034FFF5 /* Navigators.swift */; };
 		ABB6B2572269F9590034FFF5 /* Saily_UI_Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B2562269F9590034FFF5 /* Saily_UI_Discover.swift */; };
+		ABDFA29B226F304A00E04BE4 /* mafufulove.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA29A226F304A00E04BE4 /* mafufulove.png */; };
+		ABDFA29D226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */; };
+		ABDFA29F226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */; };
 		ABE66B772269DB6500375C3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE66B762269DB6500375C3E /* AppDelegate.swift */; };
 		ABE66B7E2269DB6500375C3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7C2269DB6500375C3E /* Main.storyboard */; };
 		ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7F2269DB6500375C3E /* Assets.xcassets */; };
@@ -149,6 +152,9 @@
 		ABB6B2182269EAD40034FFF5 /* installed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "installed@3x.png"; sourceTree = "<group>"; };
 		ABB6B2272269EF550034FFF5 /* Navigators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigators.swift; sourceTree = "<group>"; };
 		ABB6B2562269F9590034FFF5 /* Saily_UI_Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Discover.swift; sourceTree = "<group>"; };
+		ABDFA29A226F304A00E04BE4 /* mafufulove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafufulove.png; sourceTree = "<group>"; };
+		ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Saily_Exchange_AUTH.swift; path = ../../../../SailyPackageManagerSecert/Saily_Exchange_AUTH.swift; sourceTree = "<group>"; };
+		ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_Exchange_AUTH_NONE.swift; sourceTree = "<group>"; };
 		ABE66B732269DB6500375C3E /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE66B762269DB6500375C3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABE66B7D2269DB6500375C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -244,6 +250,8 @@
 				ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */,
 				AB86AFFC226A12AC0021EB89 /* UIViewExtension.swift */,
 				ABB6B1E82269E85B0034FFF5 /* UIDeviceExtension.swift */,
+				ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */,
+				ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */,
 			);
 			path = ApartCodes;
 			sourceTree = "<group>";
@@ -337,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				ABB35B15226DFCC3009E4D07 /* mafumafu_dead_rul.png */,
+				ABDFA29A226F304A00E04BE4 /* mafufulove.png */,
 				ABB35B0B226DEE83009E4D07 /* mafumafu.png */,
 				AB8AF7AE226CCEF3006AA919 /* SocialPreview.png */,
 				AB8AF7A0226C960E006AA919 /* PlaceHolder.png */,
@@ -540,6 +549,7 @@
 				ABB6B2242269EAD40034FFF5 /* iConRound.png in Resources */,
 				AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */,
 				ABB6B2192269EAD40034FFF5 /* PlaceholderUPT.png in Resources */,
+				ABDFA29B226F304A00E04BE4 /* mafufulove.png in Resources */,
 				ABB6B2252269EAD40034FFF5 /* upshade.png in Resources */,
 				AB86AFEB226A09FB0021EB89 /* WHITE.png in Resources */,
 				AB8AF7AF226CCEF3006AA919 /* SocialPreview.png in Resources */,
@@ -572,42 +582,48 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BSBacktraceLogger/BSBacktraceLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/BZipCompression/BZipCompression.framework",
-				"${BUILT_PRODUCTS_DIR}/BitByteData/BitByteData.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/DoraemonKit/DoraemonKit.framework",
+				"${PODS_ROOT}/DoraemonKit/iOS/DoraemonKit/Framework/DoraemonLoadAnalyze.framework",
 				"${BUILT_PRODUCTS_DIR}/EzPopup/EzPopup.framework",
-				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
 				"${BUILT_PRODUCTS_DIR}/GZIP/GZIP.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MKRingProgressView/MKRingProgressView.framework",
+				"${BUILT_PRODUCTS_DIR}/PNChart/PNChart.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-21/iOS/RevealServer.framework",
-				"${BUILT_PRODUCTS_DIR}/SWCompression/SWCompression.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UICountingLabel/UICountingLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
+				"${BUILT_PRODUCTS_DIR}/fishhook/fishhook.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSBacktraceLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BZipCompression.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BitByteData.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoraemonKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoraemonLoadAnalyze.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EzPopup.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GZIP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MKRingProgressView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PNChart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWCompression.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICountingLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fishhook.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -711,6 +727,7 @@
 				ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */,
 				AB6565BE226A2C5900E796E5 /* Saily_UI_Repos.swift in Sources */,
 				AB8AF790226B3CC1006AA919 /* Saily_UI_Search.swift in Sources */,
+				ABDFA29D226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift in Sources */,
 				ABB6B1E32269E3260034FFF5 /* OperatorsClass.swift in Sources */,
 				ABB35B1C226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift in Sources */,
 				ABB6B1E92269E85B0034FFF5 /* UIDeviceExtension.swift in Sources */,
@@ -719,6 +736,7 @@
 				ABB6B2282269EF550034FFF5 /* Navigators.swift in Sources */,
 				ABB6B2062269E94B0034FFF5 /* GCDAsyncSocket.m in Sources */,
 				AB102D3B226B1E00005348A9 /* Saily_UI_Packages.swift in Sources */,
+				ABDFA29F226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift in Sources */,
 				AB102D2B226AE219005348A9 /* Saily_UI_Sectiosn.swift in Sources */,
 				AB86AFFD226A12AC0021EB89 /* UIViewExtension.swift in Sources */,
 				AB86B003226A13BB0021EB89 /* DiscoverClass.swift in Sources */,

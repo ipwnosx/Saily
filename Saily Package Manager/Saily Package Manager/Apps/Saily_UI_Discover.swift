@@ -79,10 +79,10 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         cell.contentView.addSubview(whiteBG)
         
         whiteBG.snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp_top)
-            c.bottom.equalTo(cell.contentView.snp_bottom)
-            c.left.equalTo(cell.contentView.snp_left)
-            c.right.equalTo(cell.contentView.snp_right)
+            c.top.equalTo(cell.contentView.snp.top)
+            c.bottom.equalTo(cell.contentView.snp.bottom)
+            c.left.equalTo(cell.contentView.snp.left)
+            c.right.equalTo(cell.contentView.snp.right)
         }
         
         if (indexPath.row == 0) {
@@ -91,10 +91,10 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             bg.contentMode = .scaleAspectFill
             cell.contentView.addSubview(bg)
             bg.snp.makeConstraints { (c) in
-                c.top.equalTo(cell.contentView.snp_top)
-                c.bottom.equalTo(cell.contentView.snp_bottom)
-                c.left.equalTo(cell.contentView.snp_left)
-                c.right.equalTo(cell.contentView.snp_right)
+                c.top.equalTo(cell.contentView.snp.top)
+                c.bottom.equalTo(cell.contentView.snp.bottom)
+                c.left.equalTo(cell.contentView.snp.left)
+                c.right.equalTo(cell.contentView.snp.right)
             }
             var udid_str = ""
             if (!Saily.device.udid_is_true) {
@@ -106,24 +106,24 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             udid_lable.textColor = .white
             cell.contentView.addSubview(udid_lable)
             udid_lable.snp.makeConstraints { (c) in
-                c.bottom.equalTo(cell.contentView.snp_bottom).offset(-25)
-                c.centerX.equalTo(cell.contentView.snp_centerX)
+                c.bottom.equalTo(cell.contentView.snp.bottom).offset(-25)
+                c.centerX.equalTo(cell.contentView.snp.centerX)
             }
             let main_lable = UILabel.init(text: Saily.device.identifier + " - " + Saily.device.indentifier_human_readable + " - " + Saily.device.version)
             main_lable.textColor = .white
             main_lable.font = UIFont.systemFont(ofSize: 14)
             cell.contentView.addSubview(main_lable)
             main_lable.snp.makeConstraints { (c) in
-                c.centerX.equalTo(cell.contentView.snp_centerX)
-                c.bottom.equalTo(udid_lable.snp_bottom).offset(-15)
+                c.centerX.equalTo(cell.contentView.snp.centerX)
+                c.bottom.equalTo(udid_lable.snp.bottom).offset(-15)
             }
             let welcome_lable = UILabel.init(text: "Welcom to Saily")
             welcome_lable.textColor = .white
             welcome_lable.font = UIFont.systemFont(ofSize: 32)
             cell.contentView.addSubview(welcome_lable)
             welcome_lable.snp.makeConstraints { (c) in
-                c.centerX.equalTo(cell.contentView.snp_centerX)
-                c.centerY.equalTo(cell.contentView.snp_centerY).offset(50)
+                c.centerX.equalTo(cell.contentView.snp.centerX)
+                c.centerY.equalTo(cell.contentView.snp.centerY).offset(50)
             }
             let appVersion = (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "NAN"
             let buildVersion = (Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? "NAN"
@@ -132,16 +132,16 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             version_label.font = UIFont.systemFont(ofSize: 14)
             cell.contentView.addSubview(version_label)
             version_label.snp.makeConstraints { (c) in
-                c.centerX.equalTo(cell.contentView.snp_centerX)
-                c.centerY.equalTo(cell.contentView.snp_centerY).offset(80)
+                c.centerX.equalTo(cell.contentView.snp.centerX)
+                c.centerY.equalTo(cell.contentView.snp.centerY).offset(80)
             }
             let icon = UIImageView()
             icon.image = #imageLiteral(resourceName: "iConWhiteTransparent.png")
             icon.contentMode = .scaleAspectFit
             cell.contentView.addSubview(icon)
             icon.snp.makeConstraints { (c) in
-                c.centerX.equalTo(cell.contentView.snp_centerX)
-                c.centerY.equalTo(cell.contentView.snp_centerY).offset(-55)
+                c.centerX.equalTo(cell.contentView.snp.centerX)
+                c.centerY.equalTo(cell.contentView.snp.centerY).offset(-55)
                 c.width.equalTo(128)
                 c.height.equalTo(128)
             }
@@ -166,10 +166,10 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         
         cell.addSubview(content)
         content.snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp_top)
-            c.left.equalTo(cell.contentView.snp_left)
-            c.right.equalTo(cell.contentView.snp_right)
-            c.bottom.equalTo(cell.contentView.snp_bottom)
+            c.top.equalTo(cell.contentView.snp.top)
+            c.left.equalTo(cell.contentView.snp.left)
+            c.right.equalTo(cell.contentView.snp.right)
+            c.bottom.equalTo(cell.contentView.snp.bottom)
         }
         
         Saily.discover_root[indexPath.row - 1].reg_content_view(content)

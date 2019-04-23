@@ -8,6 +8,10 @@
 
 import UIKit
 
+#if DEBUG
+import DoraemonKit
+#endif
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,7 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        XPC_ins.abort_notice()
+        
         Saily.apart_init()
+        
+        #if DEBUG
+        DoraemonManager.shareInstance().install()
+        #endif
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)

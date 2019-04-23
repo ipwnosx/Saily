@@ -132,13 +132,20 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         self.tableView.backgroundView = bgView
         
         let mafufu = UIImageView()
-        mafufu.image = #imageLiteral(resourceName: "mafumafu.png")
+        let which_mafumafu = Int.random(in: 0..<2)
+        print("[*] Today, we have mafumafu at: " + which_mafumafu.description)
+        switch which_mafumafu {
+        case 1:
+            mafufu.image = #imageLiteral(resourceName: "mafufulove.png")
+        default:
+            mafufu.image = #imageLiteral(resourceName: "mafumafu.png")
+        }
         mafufu.contentMode = .scaleAspectFit
         self.tableView.backgroundView?.addSubview(mafufu)
         mafufu.snp.makeConstraints { (c) in
-            c.bottom.equalTo(self.tableView.backgroundView!.snp_bottom).offset(0 - (self.tabBarController?.tabBar.frame.height ?? 50))
-            c.left.equalTo(self.tableView.backgroundView!.snp_left)
-            c.right.equalTo(self.tableView.backgroundView!.snp_right)
+            c.bottom.equalTo(self.tableView.backgroundView!.snp.bottom).offset(0 - (self.tabBarController?.tabBar.frame.height ?? 50))
+            c.left.equalTo(self.tableView.backgroundView!.snp.left)
+            c.right.equalTo(self.tableView.backgroundView!.snp.right)
             c.height.equalTo(128)
         }
     }
@@ -195,8 +202,8 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         imageView.image = #imageLiteral(resourceName: "tweakIcon.png")
         cell.addSubview(imageView)
         imageView.snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp_top).offset(14)
-            c.right.equalTo(cell.textLabel!.snp_left).offset(26)
+            c.top.equalTo(cell.contentView.snp.top).offset(14)
+            c.right.equalTo(cell.textLabel!.snp.left).offset(26)
             c.width.equalTo(28)
             c.height.equalTo(28)
         }
@@ -204,8 +211,8 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         next.image = #imageLiteral(resourceName: "next.png")
         cell.addSubview(next)
         next.snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp_top).offset(23)
-            c.right.equalTo(cell.snp_right).offset(-16)
+            c.top.equalTo(cell.contentView.snp.top).offset(23)
+            c.right.equalTo(cell.snp.right).offset(-16)
             c.width.equalTo(14)
             c.height.equalTo(14)
         }

@@ -63,7 +63,7 @@ class repo_C {
             }
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.2, animations: {
-                    item.exposed_progress_view.progressTintColor = .blue
+                    item.exposed_progress_view.progressTintColor = #colorLiteral(red: 0.9764705882, green: 0.8235294118, blue: 0.4901960784, alpha: 1)
                 })
             }
             item.status = status_ins.in_operation
