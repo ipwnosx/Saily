@@ -53,7 +53,7 @@ class Saily_All {
     
     func apart_init() {
         
-//        self.objc_bridge.redirectConsoleLogToDocumentFolder()
+        self.objc_bridge.redirectConsoleLogToDocumentFolder()
         
         let locale = NSLocale.preferredLanguages
         print(locale)

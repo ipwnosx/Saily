@@ -15,6 +15,9 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
     
     public var discover_index = Int()
     @IBOutlet weak var web_container: WKWebView!
+    @IBOutlet weak var loading_bg: UIImageView!
+    @IBOutlet weak var loading_mafufu: UIImageView!
+    @IBOutlet weak var loading_eoung: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +74,16 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.loading_eoung.alpha = 0
+            self.loading_mafufu.alpha = 0
+            self.loading_bg.alpha = 0
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.loading_eoung.isHidden = true
+            self.loading_mafufu.isHidden = true
+            self.loading_bg.isHidden = true
+        }
         self.web_container.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
             if complete != nil {
                 self.web_container.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in

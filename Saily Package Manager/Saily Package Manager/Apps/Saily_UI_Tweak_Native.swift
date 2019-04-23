@@ -139,11 +139,66 @@ class Saily_UI_Tweak_Native: UIViewController, UICollectionViewDelegate, UIColle
                                Area6_2_Repo_Link,
                                Area7_License_Title])
         
+        self.download_depiction()
         
-        
+        Area1_Package_Icon.image = #imageLiteral(resourceName: "iConRound.png")
+        Area1_Package_Icon.snp.makeConstraints { (c) in
+            c.top.equalTo(self.container.snp.top).offset(28)
+            c.left.equalTo(self.container.snp.left).offset(8)
+            c.height.equalTo(128)
+            c.width.equalTo(128)
+        }
+        Area1_Package_Name.text = self.this_package?.info["NAME"] ?? "No Name"
+        Area1_Package_Name.adjustsFontSizeToFitWidth = true
+        Area1_Package_Name.numberOfLines = 1
+        Area1_Package_Name.minimumScaleFactor = 0.1
+        if (Area1_Package_Name.text!.count > 18) {
+            Area1_Package_Name.font = .boldSystemFont(ofSize: 20)
+        }else if (Area1_Package_Name.text!.count > 12) {
+            Area1_Package_Name.font = .boldSystemFont(ofSize: 26)
+        }else{
+            Area1_Package_Name.font = .boldSystemFont(ofSize: 32)
+        }
+        Area1_Package_Name.snp.makeConstraints { (c) in
+            c.top.equalTo(self.Area1_Package_Icon.snp.top).offset(8)
+            c.left.equalTo(self.Area1_Package_Icon.snp.right).offset(8)
+            c.height.equalTo(40)
+            c.right.equalTo(self.container.snp.right).offset(-8)
+        }
+        Area1_Package_ID.text = self.this_package?.info["PACKAGE"]
+        Area1_Package_ID.font = .systemFont(ofSize: 14)
+        Area1_Package_ID.textColor = .lightGray
+        Area1_Package_ID.snp.makeConstraints { (c) in
+            c.top.equalTo(self.Area1_Package_Name.snp.bottom).offset(-4)
+            c.left.equalTo(self.Area1_Package_Icon.snp.right).offset(8)
+            c.height.equalTo(40)
+            c.right.equalTo(self.container.snp.right).offset(-8)
+        }
+        Area1_Add_Queue_Button.setTitle("Add Queue".localized(), for: .normal)
+        Area1_Add_Queue_Button.setTitleColor(.gray, for: .focused)
+        Area1_Add_Queue_Button.backgroundColor = #colorLiteral(red: 0.01864526048, green: 0.4776622653, blue: 1, alpha: 1)
+        Area1_Add_Queue_Button.setRadius(radius: 2)
+        Area1_Add_Queue_Button.addTarget(self, action: #selector(add_queue(_:)), for: .touchUpInside)
+        Area1_Add_Queue_Button.snp.makeConstraints { (c) in
+            c.top.equalTo(self.Area1_Package_ID.snp.bottom).offset(4)
+            c.left.equalTo(self.Area1_Package_Icon.snp.right).offset(8)
+            c.height.equalTo(32)
+            c.width.equalTo(116)
+        }
     }
     
 
+    override func viewDidLayoutSubviews() {
+
+    }
+    
+    @objc func add_queue(_ sender: UIButton) {
+        
+    }
+    
+    func download_depiction() {
+        
+    }
 
 }
 

@@ -22,3 +22,18 @@ extension String {
     }
 }
 
+extension String {
+    func height(constrainedBy width: CGFloat, with font: UIFont) -> CGFloat {
+        let constraintSize = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        
+        return boundingBox.height
+    }
+    
+    func width(constrainedBy height: CGFloat, with font: UIFont) -> CGFloat {
+        let constrainedSize = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constrainedSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        
+        return boundingBox.width
+    }
+}

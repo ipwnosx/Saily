@@ -72,6 +72,7 @@
 		ABDFA2C7226F676800E04BE4 /* Web.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C6226F676700E04BE4 /* Web.png */; };
 		ABDFA2C9226F67CB00E04BE4 /* dollor.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C8226F67CA00E04BE4 /* dollor.png */; };
 		ABDFA2CD226F778A00E04BE4 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2CC226F778900E04BE4 /* download.png */; };
+		ABDFA2CF226F81F600E04BE4 /* SileoString in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2CE226F81F600E04BE4 /* SileoString */; };
 		ABE66B772269DB6500375C3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE66B762269DB6500375C3E /* AppDelegate.swift */; };
 		ABE66B7E2269DB6500375C3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7C2269DB6500375C3E /* Main.storyboard */; };
 		ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7F2269DB6500375C3E /* Assets.xcassets */; };
@@ -163,6 +164,7 @@
 		ABDFA2C6226F676700E04BE4 /* Web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Web.png; sourceTree = "<group>"; };
 		ABDFA2C8226F67CA00E04BE4 /* dollor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollor.png; sourceTree = "<group>"; };
 		ABDFA2CC226F778900E04BE4 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
+		ABDFA2CE226F81F600E04BE4 /* SileoString */ = {isa = PBXFileReference; explicitFileType = text.json; path = SileoString; sourceTree = "<group>"; };
 		ABE66B732269DB6500375C3E /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE66B762269DB6500375C3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABE66B7D2269DB6500375C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				AB8AF79F226C8973006AA919 /* preview */,
+				ABDFA2CE226F81F600E04BE4 /* SileoString */,
 				AB86AFE0226A09FB0021EB89 /* WHITE.png */,
 				AB8AF79D226C7650006AA919 /* jay-freeman.jpg */,
 				AB86AFDA226A09FB0021EB89 /* PlaceHolderLight.png */,
@@ -558,6 +561,7 @@
 				ABDFA2BE226F48BF00E04BE4 /* Localizable.strings in Resources */,
 				ABB6B2202269EAD40034FFF5 /* discover@3x.png in Resources */,
 				ABB6B2262269EAD40034FFF5 /* installed@3x.png in Resources */,
+				ABDFA2CF226F81F600E04BE4 /* SileoString in Resources */,
 				ABB6B21C2269EAD40034FFF5 /* source@3x.png in Resources */,
 				ABB6B2242269EAD40034FFF5 /* iConRound.png in Resources */,
 				AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */,
@@ -605,6 +609,7 @@
 				"${BUILT_PRODUCTS_DIR}/EzPopup/EzPopup.framework",
 				"${BUILT_PRODUCTS_DIR}/GZIP/GZIP.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/JASON/JASON.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MKRingProgressView/MKRingProgressView.framework",
@@ -629,6 +634,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EzPopup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GZIP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JASON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MKRingProgressView.framework",

@@ -9,6 +9,7 @@
 import Foundation
 
 import Alamofire
+import JASON
 
 let Saily_FileU = Saily_File_Unit()
 class Saily_File_Unit {
@@ -113,6 +114,23 @@ class AFNetwork_C {
                                                 "dists/stable/main/binary-iphoneos-arm/Packages",
                                                 "dists/tangelo/main/binary-iphoneos-arm/Packages",
                                                 "Packages"]
+    
+    func download_sileo_dis(_ link: String, end_call: @escaping (String) -> ()) {
+        guard let url0 = URL.init(string: link) else { return }
+        let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Sileo,
+                               "X-Firmware" : CydiaNetwork.H_Firmware,
+                               "X-Unique-ID" : CydiaNetwork.H_UDID,
+                               "X-Machine" : CydiaNetwork.H_Machine,
+                               "Accept" : "*/*",
+                               "Accept-Language" : "zh-CN,en,*",
+                               "Accept-Encoding" : "gzip, deflate"]
+        print("[*] Attempt to connect for: " + url0.absoluteString + " For details")
+        AF.request(url0, headers: h).responseJSON { (data_respond) in
+            if let data_j = data_respond.data {
+                abort()
+            }
+        }
+    }
     
     func search_release_path_at_return(_ major_link: String, cache_release_link: String, end_call: @escaping (Int) -> ()) {
         if (Saily_FileU.exists(file_path: cache_release_link)) {
@@ -239,5 +257,9 @@ class AFNetwork_C {
             }
         }
     }
+    
+}
+
+struct sileo_return {
     
 }

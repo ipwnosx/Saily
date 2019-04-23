@@ -31,5 +31,6 @@ target 'Saily Package Manager' do
         pod 'DoraemonKit/WithLogger', '~> 1.1.7', :configurations => ['Debug']
         pod 'DoraemonKit/WithGPS', '~> 1.1.7', :configurations => ['Debug']
         pod 'DoraemonKit/WithLoad', '~> 1.1.7', :configurations => ['Debug']
+        pod 'JASON'
 
 end

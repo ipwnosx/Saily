@@ -37,3 +37,5 @@
 "Enter the link of the repo" = "请输入软件源地址";
 "See all packages from your sources" = "查阅我的全部软件包 🧐";
 "Do you want to add this url as a repo?\n\n" = "你想要把这个链接当作软件源地址添加到自己的仓库吗？";
+
+"Add Queue" = "添加队列";
