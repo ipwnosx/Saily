@@ -12,7 +12,7 @@ class Saily_UI_Sectiosn: UITableViewController {
 
     var is_root_sections = false
     var data_source = [repo_section_C]()
-    var nav_title = "[Sections, ( )]->"
+    var nav_title = "[Sections, ( )]->".localized()
     
     func push_data_source(d: [repo_section_C]) {
         self.data_source = d
@@ -60,7 +60,7 @@ class Saily_UI_Sectiosn: UITableViewController {
             }
         }
         new.tableView.separatorColor = .lightGray
-        new.title = "[Packages] ( ) ->"
+        new.title = "[Packages] ( )] ->".localized()
         self.navigationController?.pushViewController(new)
     }
 
@@ -84,7 +84,7 @@ class Saily_UI_Sectiosn: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (is_root_sections) {
             if (section == 0) {
-                return "All My Categories"
+                return "All My Categories".localized()
             }
             return Saily.repos_root.repos[section - 1].name
         }else{
@@ -106,8 +106,8 @@ class Saily_UI_Sectiosn: UITableViewController {
                         p_count += sections.packages.count
                     }
                 }
-                cell.textLabel?.text = "         " + "All My Packaes :)"
-                cell.detailTextLabel?.text = "            " + "This section contains " + p_count.description + " package(s)."
+                cell.textLabel?.text = "         " + "All My Packages :)".localized()
+                cell.detailTextLabel?.text = "            " + "This section contains ".localized() + p_count.description + " package(s).".localized()
                 cell.detailTextLabel?.textColor = .lightGray
                 let imageView = UIImageView()
                 imageView.image = #imageLiteral(resourceName: "PackageCar.png")
@@ -131,7 +131,7 @@ class Saily_UI_Sectiosn: UITableViewController {
             }
             
             cell.textLabel?.text = "         " + Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].name
-            cell.detailTextLabel?.text = "            " + "This section contains " + Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].packages.count.description + " package(s)."
+            cell.detailTextLabel?.text = "            " + "This section contains ".localized() + Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].packages.count.description + " package(s).".localized()
             cell.detailTextLabel?.textColor = .lightGray
         }else{
             if (indexPath.row == 0) {
@@ -139,8 +139,8 @@ class Saily_UI_Sectiosn: UITableViewController {
                 for section in self.data_source {
                     p_count += section.packages.count
                 }
-                cell.textLabel?.text = "         " + "All My Packaes :)"
-                cell.detailTextLabel?.text = "            " + "This repo contains " + p_count.description + " package(s)."
+                cell.textLabel?.text = "         " + "All My Packages :)".localized()
+                cell.detailTextLabel?.text = "            " + "This repo contains ".localized() + p_count.description + " package(s).".localized()
                 cell.detailTextLabel?.textColor = .lightGray
                 let imageView = UIImageView()
                 imageView.image = #imageLiteral(resourceName: "PackageCar.png")
@@ -163,7 +163,7 @@ class Saily_UI_Sectiosn: UITableViewController {
                 return cell
             }
             cell.textLabel?.text = "         " + self.data_source[indexPath.row - 1].name
-            cell.detailTextLabel?.text = "            " + "This section contains " + self.data_source[indexPath.row - 1].packages.count.description + " package(s)."
+            cell.detailTextLabel?.text = "            " + "This section contains ".localized() + self.data_source[indexPath.row - 1].packages.count.description + " package(s).".localized()
             cell.detailTextLabel?.textColor = .lightGray
         }
         

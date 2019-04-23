@@ -22,6 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         XPC_ins.abort_notice()
         
+        for family: String in UIFont.familyNames {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family) {
+                print("== \(names)")
+            }
+        }
+        
         Saily.apart_init()
         
         #if DEBUG

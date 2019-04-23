@@ -1,0 +1,31 @@
+
+/* Class = "UINavigationItem"; title = "Search"; ObjectID = "5jE-i8-c9L"; */
+"5jE-i8-c9L.title" = "挑选";
+
+/* Class = "UINavigationItem"; title = "Sources"; ObjectID = "6rK-jp-wzb"; */
+"6rK-jp-wzb.title" = "思源";
+
+/* Class = "UINavigationItem"; title = "Discover"; ObjectID = "CIg-dz-hs2"; */
+"CIg-dz-hs2.title" = "品味";
+
+/* Class = "UITabBarItem"; title = "Installed"; ObjectID = "Dzf-qB-mqu"; */
+"Dzf-qB-mqu.title" = "检查";
+
+/* Class = "UIViewController"; title = "Details"; ObjectID = "ECg-ms-Ygu"; */
+"ECg-ms-Ygu.title" = "详情";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "G16-oP-93r"; */
+"G16-oP-93r.title" = "挑选";
+
+/* Class = "UITabBarItem"; title = "Discover"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "品味";
+
+/* Class = "UITabBarItem"; title = "Sources"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "思源";
+
+/* Class = "UINavigationItem"; title = "Search All"; ObjectID = "iJL-fk-G4h"; */
+"iJL-fk-G4h.title" = "挑选";
+
+/* Class = "UINavigationItem"; title = "Installed"; ObjectID = "mXf-8o-No5"; */
+"mXf-8o-No5.title" = "检查";
+

@@ -24,7 +24,7 @@ class Saily_UI_Packages: UITableViewController, UISearchControllerDelegate, UISe
         
         let mySearchcontroller = UISearchController(searchResultsController: nil)
         mySearchcontroller.obscuresBackgroundDuringPresentation = false
-        mySearchcontroller.searchBar.placeholder = "Search"
+        mySearchcontroller.searchBar.placeholder = "Search".localized()
         mySearchcontroller.searchBar.delegate = self
         definesPresentationContext = true
         self.navigationItem.searchController = mySearchcontroller

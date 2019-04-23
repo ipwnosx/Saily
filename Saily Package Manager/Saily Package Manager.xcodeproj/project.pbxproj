@@ -34,11 +34,9 @@
 		AB8AF7B3226CD5D1006AA919 /* Saily_UI_Discover_Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF7B2226CD5D1006AA919 /* Saily_UI_Discover_Detail.swift */; };
 		ABB35B0C226DEE83009E4D07 /* mafumafu.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB35B0B226DEE83009E4D07 /* mafumafu.png */; };
 		ABB35B16226DFCC3009E4D07 /* mafumafu_dead_rul.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB35B15226DFCC3009E4D07 /* mafumafu_dead_rul.png */; };
-		ABB35B18226E0790009E4D07 /* Monotype  - Helvetica Now Display Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = ABB35B17226E0790009E4D07 /* Monotype  - Helvetica Now Display Black.otf */; };
 		ABB35B1A226E0C6A009E4D07 /* Saily_UI_Tweak_Native.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB35B19226E0C6A009E4D07 /* Saily_UI_Tweak_Native.swift */; };
 		ABB35B1C226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB35B1B226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift */; };
 		ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */; };
-		ABB6B1E12269E2DE0034FFF5 /* Comfortaa[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */; };
 		ABB6B1E32269E3260034FFF5 /* OperatorsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */; };
 		ABB6B1E52269E3B60034FFF5 /* RepoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1E42269E3B60034FFF5 /* RepoClass.swift */; };
 		ABB6B1E92269E85B0034FFF5 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6B1E82269E85B0034FFF5 /* UIDeviceExtension.swift */; };
@@ -69,6 +67,7 @@
 		ABDFA29B226F304A00E04BE4 /* mafufulove.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA29A226F304A00E04BE4 /* mafufulove.png */; };
 		ABDFA29D226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */; };
 		ABDFA29F226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */; };
+		ABDFA2BE226F48BF00E04BE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C0226F48BF00E04BE4 /* Localizable.strings */; };
 		ABE66B772269DB6500375C3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE66B762269DB6500375C3E /* AppDelegate.swift */; };
 		ABE66B7E2269DB6500375C3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7C2269DB6500375C3E /* Main.storyboard */; };
 		ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7F2269DB6500375C3E /* Assets.xcassets */; };
@@ -111,11 +110,9 @@
 		AB8AF7B2226CD5D1006AA919 /* Saily_UI_Discover_Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Discover_Detail.swift; sourceTree = "<group>"; };
 		ABB35B0B226DEE83009E4D07 /* mafumafu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mafumafu.png; path = ../../../../../../Desktop/mafumafu.png; sourceTree = "<group>"; };
 		ABB35B15226DFCC3009E4D07 /* mafumafu_dead_rul.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafumafu_dead_rul.png; sourceTree = "<group>"; };
-		ABB35B17226E0790009E4D07 /* Monotype  - Helvetica Now Display Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monotype  - Helvetica Now Display Black.otf"; sourceTree = "<group>"; };
 		ABB35B19226E0C6A009E4D07 /* Saily_UI_Tweak_Native.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Tweak_Native.swift; sourceTree = "<group>"; };
 		ABB35B1B226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Tweak_Webkit.swift; sourceTree = "<group>"; };
 		ABB6B1DE2269E25C0034FFF5 /* RootClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootClass.swift; sourceTree = "<group>"; };
-		ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa[wght].ttf"; sourceTree = "<group>"; };
 		ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsClass.swift; sourceTree = "<group>"; };
 		ABB6B1E42269E3B60034FFF5 /* RepoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoClass.swift; sourceTree = "<group>"; };
 		ABB6B1E82269E85B0034FFF5 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
@@ -155,6 +152,9 @@
 		ABDFA29A226F304A00E04BE4 /* mafufulove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafufulove.png; sourceTree = "<group>"; };
 		ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Saily_Exchange_AUTH.swift; path = ../../../../SailyPackageManagerSecert/Saily_Exchange_AUTH.swift; sourceTree = "<group>"; };
 		ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_Exchange_AUTH_NONE.swift; sourceTree = "<group>"; };
+		ABDFA2BA226F482400E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		ABDFA2BB226F482400E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		ABDFA2BF226F48BF00E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ABE66B732269DB6500375C3E /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE66B762269DB6500375C3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABE66B7D2269DB6500375C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -327,8 +327,6 @@
 		ABE66B752269DB6500375C3E /* Saily Package Manager */ = {
 			isa = PBXGroup;
 			children = (
-				ABB35B17226E0790009E4D07 /* Monotype  - Helvetica Now Display Black.otf */,
-				ABB6B1E02269E2DE0034FFF5 /* Comfortaa[wght].ttf */,
 				ABE66BA62269DB8900375C3E /* Images */,
 				ABB6B1E62269E8360034FFF5 /* Apps */,
 				ABB6B1E72269E8440034FFF5 /* ApartCodes */,
@@ -337,6 +335,7 @@
 				ABE66B812269DB6500375C3E /* LaunchScreen.storyboard */,
 				ABE66B7F2269DB6500375C3E /* Assets.xcassets */,
 				ABE66B842269DB6500375C3E /* Info.plist */,
+				ABDFA2C0226F48BF00E04BE4 /* Localizable.strings */,
 			);
 			path = "Saily Package Manager";
 			sourceTree = "<group>";
@@ -512,6 +511,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = ABE66B6A2269DB6500375C3E;
 			productRefGroup = ABE66B742269DB6500375C3E /* Products */;
@@ -531,7 +531,6 @@
 			files = (
 				AB86AFE5226A09FB0021EB89 /* PlaceHolderLight.png in Resources */,
 				ABE66B832269DB6500375C3E /* LaunchScreen.storyboard in Resources */,
-				ABB6B1E12269E2DE0034FFF5 /* Comfortaa[wght].ttf in Resources */,
 				AB6565C6226A465100E796E5 /* add@3x.png in Resources */,
 				AB86AFF9226A11730021EB89 /* PlaceHolderContent.jpg in Resources */,
 				AB102D31226B0174005348A9 /* PackageCar.png in Resources */,
@@ -543,6 +542,7 @@
 				AB8AF7A1226C960E006AA919 /* PlaceHolder.png in Resources */,
 				ABB6B21B2269EAD40034FFF5 /* repo_bigboss.png in Resources */,
 				AB6565C2226A460300E796E5 /* edit@3x.png in Resources */,
+				ABDFA2BE226F48BF00E04BE4 /* Localizable.strings in Resources */,
 				ABB6B2202269EAD40034FFF5 /* discover@3x.png in Resources */,
 				ABB6B2262269EAD40034FFF5 /* installed@3x.png in Resources */,
 				ABB6B21C2269EAD40034FFF5 /* source@3x.png in Resources */,
@@ -556,7 +556,6 @@
 				ABE66B7E2269DB6500375C3E /* Main.storyboard in Resources */,
 				ABB6B21E2269EAD40034FFF5 /* PlaceholderInT.png in Resources */,
 				ABB6B2042269E94B0034FFF5 /* Documentation.html in Resources */,
-				ABB35B18226E0790009E4D07 /* Monotype  - Helvetica Now Display Black.otf in Resources */,
 				ABB6B21D2269EAD40034FFF5 /* iConWhiteTransparent.png in Resources */,
 				AB8AF79E226C7650006AA919 /* jay-freeman.jpg in Resources */,
 				ABB6B21F2269EAD40034FFF5 /* PlaceholderDownT.png in Resources */,
@@ -759,10 +758,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		ABDFA2C0226F48BF00E04BE4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABDFA2BF226F48BF00E04BE4 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		ABE66B7C2269DB6500375C3E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ABE66B7D2269DB6500375C3E /* Base */,
+				ABDFA2BA226F482400E04BE4 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -771,6 +779,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				ABE66B822269DB6500375C3E /* Base */,
+				ABDFA2BB226F482400E04BE4 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -782,6 +791,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -843,6 +853,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

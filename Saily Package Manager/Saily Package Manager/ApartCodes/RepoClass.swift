@@ -140,6 +140,11 @@ class a_repo {
     public var exposed_icon_image       = UIImageView()
     public var exposed_progress_view    = UIProgressView()
     
+    init() {
+        self.exposed_progress_view.progressTintColor = #colorLiteral(red: 0.9764705882, green: 0.8235294118, blue: 0.4901960784, alpha: 1)
+        self.exposed_progress_view.tintColor = .lightGray
+    }
+    
     func sort_sections() {
         var names = [String]()
         for section in section_root {
@@ -180,6 +185,9 @@ class a_repo {
     }
     
     func link_to_name(link: String) -> String {
+        if (link.split(separator: "/").count < 2) {
+            return ""
+        }
         if (self.name != "") {
             return self.name
         }

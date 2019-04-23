@@ -98,7 +98,7 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             }
             var udid_str = ""
             if (!Saily.device.udid_is_true) {
-                udid_str += "FAKE: "
+                udid_str = "FAKE: ".localized()
             }
             udid_str += Saily.device.udid.description
             let udid_lable = UILabel.init(text: udid_str)
@@ -117,7 +117,7 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
                 c.centerX.equalTo(cell.contentView.snp.centerX)
                 c.bottom.equalTo(udid_lable.snp.bottom).offset(-15)
             }
-            let welcome_lable = UILabel.init(text: "Welcom to Saily")
+            let welcome_lable = UILabel.init(text: "Welcom to Saily".localized())
             welcome_lable.textColor = .white
             welcome_lable.font = UIFont.systemFont(ofSize: 32)
             cell.contentView.addSubview(welcome_lable)
@@ -127,7 +127,7 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             }
             let appVersion = (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "NAN"
             let buildVersion = (Bundle.main.infoDictionary!["CFBundleVersion"] as? String) ?? "NAN"
-            let version_label = UILabel.init(text: "Version: " + appVersion + " Build: " + buildVersion)
+            let version_label = UILabel.init(text: "Version: ".localized() + appVersion + " Build: ".localized() + buildVersion)
             version_label.textColor = .white
             version_label.font = UIFont.systemFont(ofSize: 14)
             cell.contentView.addSubview(version_label)

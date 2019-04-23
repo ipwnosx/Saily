@@ -118,7 +118,7 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         super.viewDidLoad()
         
         let mySearchcontroller = UISearchController(searchResultsController: nil)
-        mySearchcontroller.searchBar.placeholder = "Search"
+        mySearchcontroller.searchBar.placeholder = "Search".localized()
         mySearchcontroller.searchBar.delegate = self
         definesPresentationContext = true
         self.navigationItem.searchController = mySearchcontroller
@@ -126,7 +126,7 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         
         self.tableView.separatorColor = .clear
         
-        self.title = "Search All"
+//        self.title = "Search All"
         
         let bgView = UIView()
         self.tableView.backgroundView = bgView

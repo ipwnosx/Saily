@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  Saily Package Manager
+
+  Created by Lakr Aream on 2019/4/23.
+  Copyright © 2019 Lakr233. All rights reserved.
+*/
+
+"Welcom to Saily" = "👏 欢迎来到 Saily 👏";
+"Version: " = "Version: ";
+" Build:" = " Build:";
+"FAKE: " = "虚拟ID:";
+
+"OK" = "确认";
+"No" = "拒绝";
+"Yes" = "确认";
+"Add" = "添加";
+"Edit" = "编辑";
+"Error" = "错误";
+"Share" = "分享";
+"Delete" = "删除";
+"Cancel" = "取消";
+"Search" = "搜索";
+
+"Add Repo" = "添加源";
+"All Packages" = "全部软件包";
+"All My Repos" = "全部软件源";
+" package(s)." = " 个软件包";
+"[Sections, ( )]->" = "[分类, ( )]->";
+"[Packages] ( )] ->" = "[软件包, ( )]->";
+"All My Categories" = "所有的分类和组合";
+"All My Packages :)" = "我的全部软件包";
+"Reloading data(s)..." = "重新加载数据中...";
+"This section contains " = "这个分类总共有 ";
+"Copy Board contains URL" = "你的剪贴板好像有一个网址或z链接";
+"This is not an URL, retry?" = "这个好像不是链接，再试试？";
+"Enter the link of the repo" = "请输入软件源地址";
+"See all packages from your sources" = "查阅我的全部软件包 🧐";
+"Do you want to add this url as a repo?\n\n" = "你想要把这个链接当作软件源地址添加到自己的仓库吗？";
