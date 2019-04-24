@@ -286,16 +286,10 @@ class a_repo {
         var in_head = true
         var line_break = false
         var has_a_maohao = false
-        var after_first_maohao = false
         var this_package = packages_C(with_repo: self)
         for char in str! {
             let c = char.description
             inner: if (c == ":") {
-                if (after_first_maohao == false || has_a_maohao == false) {
-                    after_first_maohao = true
-                }else{
-                    after_first_maohao = false
-                }
                 line_break = false
                 in_head = false
                 if (has_a_maohao) {
@@ -318,14 +312,12 @@ class a_repo {
                     // next package
                     this_package = packages_C(with_repo: self)
                     has_a_maohao = false
-                    after_first_maohao = false
                     break inner
                 }
                 line_break = true
                 in_head = true
                 if (info_head == "" || info_body == "") {
                     has_a_maohao = false
-                    after_first_maohao = false
                     break inner
                 }
                 while (info_head.hasPrefix("\n")) {
@@ -340,9 +332,6 @@ class a_repo {
                 }
             }else{
                 line_break = false
-                if (after_first_maohao == true && c == " ") {
-                    break inner
-                }
                 if (in_head) {
                     info_head += c
                 }else{
