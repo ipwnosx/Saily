@@ -306,6 +306,13 @@ class a_repo {
             }else if (c == "\n") {
                 if (line_break == true) {
                     // create section, put the package
+                    for item in this_package.info {
+                        var out = item.value
+                        while (out.hasPrefix(" ")) {
+                            out = out.dropFirst().description
+                        }
+                        this_package.info[item.key] = out
+                    }
                     self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section".uppercased()] ?? "! NAN Section")].add(p: this_package)
 //                    self.lldb_print_package(p: this_package)
                     // next package
@@ -317,6 +324,8 @@ class a_repo {
                 line_break = true
                 in_head = true
                 if (info_head == "" || info_body == "") {
+                    has_a_maohao = false
+                    after_first_maohao = false
                     break inner
                 }
                 while (info_head.hasPrefix("\n")) {

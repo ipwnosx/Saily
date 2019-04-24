@@ -7,8 +7,8 @@
 */
 
 "Welcom to Saily" = "👏 欢迎来到 Saily 👏";
-"Version: " = "Version: ";
-" Build:" = " Build:";
+"Version: " = "版本代号：";
+" Build:" = " 构建代码:";
 "FAKE: " = "虚拟ID:";
 
 "OK" = "确认";
@@ -21,11 +21,13 @@
 "Delete" = "删除";
 "Cancel" = "取消";
 "Search" = "搜索";
-
+"Search All" = "海底捞针";
+"No Name" = "无名氏先生";
 "Add Repo" = "添加源";
 "All Packages" = "全部软件包";
 "All My Repos" = "全部软件源";
 " package(s)." = " 个软件包";
+"⁠ ⁠Package 📦💨" = "我的小包裹";
 "[Sections, ( )]->" = "[分类, ( )]->";
 "[Packages] ( )] ->" = "[软件包, ( )]->";
 "All My Categories" = "所有的分类和组合";
@@ -37,5 +39,5 @@
 "Enter the link of the repo" = "请输入软件源地址";
 "See all packages from your sources" = "查阅我的全部软件包 🧐";
 "Do you want to add this url as a repo?\n\n" = "你想要把这个链接当作软件源地址添加到自己的仓库吗？";
-
 "Add Queue" = "添加队列";
+"No description found within the database." = "这个软件包似乎没有携带任何描述信息。。🧐";

@@ -15,9 +15,15 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
 
     public var this_package: packages_C? = nil
     @IBOutlet weak var container: UIScrollView!
+    @IBOutlet weak var Imager: UIImageView!
     @IBOutlet weak var this_Web: WKWebView!
     @IBOutlet weak var this_web_is_tall: NSLayoutConstraint!
     @IBOutlet weak var bundleID: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var desc: UITextView!
+    @IBOutlet weak var container_info_view: UIView!
+    @IBOutlet weak var button: UIButton!
     
     var finish_load = false
     
@@ -26,10 +32,37 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "⁠ ⁠Package 📦💨".localized
+        
+        button.setRadius(radius: 15)
+        button.snp.makeConstraints { (c) in
+            c.centerY.equalTo(self.Imager.snp.centerY)
+        }
+        
         print("[*] Catch package info:")
         print(self.this_package?.info as Any)
         
+        bundleID.text = (this_package?.info["PACKAGE"] ?? "Error: 0xbad10ac1a0e1d - BAD PACKAGE ID") + "\n\n Saily Package Manager & Lakr Aream 2019.4"
+        bundleID.numberOfLines = 3
+        bundleID.lineBreakMode = .byWordWrapping
+        
+        Imager.image = #imageLiteral(resourceName: "BGBlue.png")
+        
         this_Web.navigationDelegate = self
+        
+        name.lineBreakMode = .byWordWrapping
+        name.text = this_package?.info["NAME"] ?? "No Name Boy".localized()
+        
+        icon.image = #imageLiteral(resourceName: "tweaksss.png")
+//        icon.backgroundColor = .white
+        icon.setRadius(radius: 8)
+        icon.addShadow(ofColor: .gray, radius: 6, offset: CGSize(width: 0, height: 0), opacity: 0.5)
+        
+        let str = "Version: ".localized() + (this_package?.info["VERSION"] ?? "nil") + "\n"
+        
+        desc.text = str + (this_package?.info["DESCRIPTION"] ?? "No description found within the database.".localized())
+        
+        container_info_view.addShadow(ofColor: .gray, radius: 6, offset: CGSize(width: 0, height: 0), opacity: 0.5)
         
         guard let depiction = self.this_package?.info["DEPICTION"] else {
             let non_view = UIImageView()
@@ -101,7 +134,11 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
                     self.this_Web.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
                         print("[*] This web page is with height: " + height.debugDescription)
                         if (self.finish_load == false) {
-                            self.this_web_is_tall.constant = height as! CGFloat
+                            if let h = height as? CGFloat {
+                                if (h != 0) {
+                                    self.this_web_is_tall.constant = h
+                                }
+                            }
                         }
                     })
                 }

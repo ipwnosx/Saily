@@ -115,14 +115,14 @@ class Saily_UI_Packages: UITableViewController, UISearchControllerDelegate, UISe
         
         let storyboard_ins = UIStoryboard(name: "Main", bundle: nil)
         
-        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
-            let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Native_ID") as? Saily_UI_Tweak_Native
-            sb?.this_package = package
-            self.navigationController?.pushViewController(sb!)
-            print("[*] Pushing to native controller.")
-            return
-        }
-        
+//        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
+//            let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Native_ID") as? Saily_UI_Tweak_Native
+//            sb?.this_package = package
+//            self.navigationController?.pushViewController(sb!)
+//            print("[*] Pushing to native controller.")
+//            return
+//        }
+//        
         let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Webkit_ID") as? Saily_UI_Tweak_Webkit
         sb?.this_package = package
         self.navigationController?.pushViewController(sb!)

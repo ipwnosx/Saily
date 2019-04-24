@@ -12,6 +12,7 @@
 		AB102D2F226AF9F7005348A9 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = AB102D2E226AF9F7005348A9 /* Folder.png */; };
 		AB102D31226B0174005348A9 /* PackageCar.png in Resources */ = {isa = PBXBuildFile; fileRef = AB102D30226B0174005348A9 /* PackageCar.png */; };
 		AB102D3B226B1E00005348A9 /* Saily_UI_Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */; };
+		AB153AED2270AB490084D365 /* tweaksss.png in Resources */ = {isa = PBXBuildFile; fileRef = AB153AEB2270AB490084D365 /* tweaksss.png */; };
 		AB6565BE226A2C5900E796E5 /* Saily_UI_Repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */; };
 		AB6565C0226A3A6E00E796E5 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565BF226A3A6E00E796E5 /* next.png */; };
 		AB6565C2226A460300E796E5 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565C1226A460300E796E5 /* edit@3x.png */; };
@@ -93,6 +94,7 @@
 		AB102D2E226AF9F7005348A9 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
 		AB102D30226B0174005348A9 /* PackageCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PackageCar.png; sourceTree = "<group>"; };
 		AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Packages.swift; sourceTree = "<group>"; };
+		AB153AEB2270AB490084D365 /* tweaksss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweaksss.png; sourceTree = "<group>"; };
 		AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Repos.swift; sourceTree = "<group>"; };
 		AB6565BF226A3A6E00E796E5 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		AB6565C1226A460300E796E5 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 		ABE66BA62269DB8900375C3E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB153AEB2270AB490084D365 /* tweaksss.png */,
 				ABDFA2CC226F778900E04BE4 /* download.png */,
 				ABDFA2C8226F67CA00E04BE4 /* dollor.png */,
 				ABDFA2C6226F676700E04BE4 /* Web.png */,
@@ -569,6 +572,7 @@
 				ABB6B2242269EAD40034FFF5 /* iConRound.png in Resources */,
 				AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */,
 				ABB6B2192269EAD40034FFF5 /* PlaceholderUPT.png in Resources */,
+				AB153AED2270AB490084D365 /* tweaksss.png in Resources */,
 				ABDFA29B226F304A00E04BE4 /* mafufulove.png in Resources */,
 				ABB6B2252269EAD40034FFF5 /* upshade.png in Resources */,
 				AB86AFEB226A09FB0021EB89 /* WHITE.png in Resources */,

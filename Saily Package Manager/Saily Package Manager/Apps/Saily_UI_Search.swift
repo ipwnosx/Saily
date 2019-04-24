@@ -126,7 +126,7 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         
         self.tableView.separatorColor = .clear
         
-//        self.title = "Search All"
+        self.title = "Search All".localized()
         
         let bgView = UIView()
         self.tableView.backgroundView = bgView
@@ -227,15 +227,17 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         let name = self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? ""
         print("[*] Selected package named: " + name + " with father repo: " + self.container[indexPath.row].fater_repo.ress.major)
         
-        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
-            let sb = storyboard?.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Native_ID") as? Saily_UI_Tweak_Native
-            sb?.this_package = package
-            self.navigationController?.pushViewController(sb!)
-            print("[*] Pushing to native controller.")
-            return
-        }
+        let storyboard_ins = UIStoryboard(name: "Main", bundle: nil)
         
-        let sb = storyboard?.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Webkit_ID") as? Saily_UI_Tweak_Webkit
+//        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
+//            let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Native_ID") as? Saily_UI_Tweak_Native
+//            sb?.this_package = package
+//            self.navigationController?.pushViewController(sb!)
+//            print("[*] Pushing to native controller.")
+//            return
+//        }
+        
+        let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Webkit_ID") as? Saily_UI_Tweak_Webkit
         sb?.this_package = package
         self.navigationController?.pushViewController(sb!)
         print("[*] Pushing to WebKit controller.")
