@@ -16,7 +16,10 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     public var this_package: packages_C? = nil
     @IBOutlet weak var container: UIScrollView!
     @IBOutlet weak var this_Web: WKWebView!
+    @IBOutlet weak var this_web_is_tall: NSLayoutConstraint!
     @IBOutlet weak var bundleID: UILabel!
+    
+    var finish_load = false
     
     let loading_view = NVActivityIndicatorView(frame: CGRect(), type: .circleStrokeSpin, color: #colorLiteral(red: 0.01864526048, green: 0.4776622653, blue: 1, alpha: 1), padding: nil)
     
@@ -64,7 +67,8 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
             this_Web.scrollView.isScrollEnabled = false
             self.view.addSubview(loading_view)
             loading_view.snp.makeConstraints { (c) in
-                c.center.equalTo(self.this_Web.snp.center)
+                c.centerX.equalTo(self.this_Web.snp.centerX)
+                c.top.equalTo(self.this_Web.snp.top).offset(-10)
                 c.width.equalTo(23)
                 c.height.equalTo(23)
             }
@@ -91,6 +95,18 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
             return
         }
 
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.this_Web.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+                if complete != nil {
+                    self.this_Web.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                        print("[*] This web page is with height: " + height.debugDescription)
+                        if (self.finish_load == false) {
+                            self.this_web_is_tall.constant = height as! CGFloat
+                        }
+                    })
+                }
+            })
+        }
         
     }
     
@@ -101,6 +117,8 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
             if complete != nil {
                 self.this_Web.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
                     print("[*] This web page is with height: " + height.debugDescription)
+                    self.this_web_is_tall.constant = height as! CGFloat
+                    self.finish_load = true
                 })
             }
         })

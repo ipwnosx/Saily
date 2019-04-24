@@ -229,6 +229,7 @@
                         <outlet property="bundleID" destination="32I-sw-Trq" id="Xuw-Pw-U8d"/>
                         <outlet property="container" destination="4Sz-w5-Jrj" id="UUS-nD-l3e"/>
                         <outlet property="this_Web" destination="Tit-P4-g9j" id="WLw-y2-xx1"/>
+                        <outlet property="this_web_is_tall" destination="9lO-zm-7t9" id="JmW-19-FZN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eui-Ul-tgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
