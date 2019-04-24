@@ -93,6 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } // visual effects
         
         
+        
         return true
     }
 

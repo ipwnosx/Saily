@@ -13,6 +13,7 @@ class initTabBarContoller: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBar.backgroundColor = .clear
     }
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -27,30 +28,9 @@ class initTabBarContoller: UITabBarController {
 }
 
 class main_tab_bar: UITabBar {
-    var cleanDone = false
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.deleteUnusedViews()
+    override func awakeFromNib() {
+
     }
     
-    func deleteUnusedViews() {
-        if !self.cleanDone {
-            var removeCount = 0
-            for (_, eachView) in (self.subviews.enumerated()) {
-                if NSStringFromClass(eachView.classForCoder).range(of: "_UITabBarBackgroundView") != nil {
-                    eachView.removeFromSuperview()
-                    removeCount += 1
-                }
-                if NSStringFromClass(eachView.classForCoder).range(of: "UIImageView") != nil {
-                    eachView.removeFromSuperview()
-                    removeCount += 1
-                }
-                if removeCount == 2 {
-                    self.cleanDone = true
-                    break
-                }
-            }
-        }
-    }
 }

@@ -63,7 +63,7 @@ class repo_C {
             }
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.2, animations: {
-                    item.exposed_progress_view.progressTintColor = #colorLiteral(red: 0.9764705882, green: 0.8235294118, blue: 0.4901960784, alpha: 1)
+                    item.exposed_progress_view.progressTintColor = #colorLiteral(red: 1, green: 0.6632423401, blue: 0, alpha: 1)
                 })
             }
             item.status = status_ins.in_operation
@@ -141,7 +141,7 @@ class a_repo {
     public var exposed_progress_view    = UIProgressView()
     
     init() {
-        self.exposed_progress_view.progressTintColor = #colorLiteral(red: 0.9764705882, green: 0.8235294118, blue: 0.4901960784, alpha: 1)
+        self.exposed_progress_view.progressTintColor = #colorLiteral(red: 1, green: 0.3535846472, blue: 0, alpha: 1)
         self.exposed_progress_view.tintColor = .lightGray
     }
     
@@ -285,12 +285,24 @@ class a_repo {
         var info_body = ""
         var in_head = true
         var line_break = false
+        var has_a_maohao = false
+        var after_first_maohao = false
         var this_package = packages_C(with_repo: self)
         for char in str! {
             let c = char.description
             inner: if (c == ":") {
+                if (after_first_maohao == false || has_a_maohao == false) {
+                    after_first_maohao = true
+                }else{
+                    after_first_maohao = false
+                }
                 line_break = false
                 in_head = false
+                if (has_a_maohao) {
+                    info_body += ":"
+                }else{
+                    has_a_maohao = true
+                }
             }else if (c == "\n") {
                 if (line_break == true) {
                     // create section, put the package
@@ -298,6 +310,8 @@ class a_repo {
 //                    self.lldb_print_package(p: this_package)
                     // next package
                     this_package = packages_C(with_repo: self)
+                    has_a_maohao = false
+                    after_first_maohao = false
                     break inner
                 }
                 line_break = true
@@ -317,6 +331,9 @@ class a_repo {
                 }
             }else{
                 line_break = false
+                if (after_first_maohao == true && c == " ") {
+                    break inner
+                }
                 if (in_head) {
                     info_head += c
                 }else{
@@ -324,7 +341,7 @@ class a_repo {
                 }
             }
         }
-        
+        self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section".uppercased()] ?? "! NAN Section")].add(p: this_package)
         self.sort_sections()
         end_call(status_ins.ret_success)
     }

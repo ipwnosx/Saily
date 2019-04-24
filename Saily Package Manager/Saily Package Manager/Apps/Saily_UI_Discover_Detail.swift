@@ -27,18 +27,6 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
             let url = URL(string: Saily.app_web_site)!
             web_container.load(URLRequest(url: url))
             web_container.allowsBackForwardNavigationGestures = true
-//            let wix_cover = UIImageView()
-//            wix_cover.image = #imageLiteral(resourceName: "BGBlue.png")
-//            wix_cover.contentMode = .scaleAspectFill
-//            wix_cover.clipsToBounds = true
-//            self.view.addSubview(wix_cover)
-//            self.view.bringSubviewToFront(wix_cover)
-//            wix_cover.snp.makeConstraints { (c) in
-//                c.top.equalTo(self.view.snp.top)
-//                c.left.equalTo(self.view.snp.left)
-//                c.right.equalTo(self.view.snp.right)
-//                c.height.equalTo(38)
-//            }
         }else{
             if (!Saily.discover_root[discover_index].web_link.uppercased().contains("HTTP")) {
             let url_dead = UIImageView()
@@ -71,7 +59,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         }
         self.view.addSubview(loading_view)
         loading_view.snp.makeConstraints { (c) in
-            c.center.equalTo(self.view.center)
+            c.center.equalTo(self.view.snp.center)
             c.width.equalTo(23)
             c.height.equalTo(23)
         }

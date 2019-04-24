@@ -156,7 +156,7 @@ class Saily_UI_Repos: UITableViewController {
             let progressView = UIProgressView()
             progressView.progress = 0.0
             progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-            progressView.progressTintColor = #colorLiteral(red: 0.9764705882, green: 0.8235294118, blue: 0.4901960784, alpha: 1)
+            progressView.progressTintColor = #colorLiteral(red: 1, green: 0.6632423401, blue: 0, alpha: 1)
             cell.addSubview(progressView)
             progressView.snp.makeConstraints { (c) in
                 c.bottom.equalTo(cell.contentView.snp.bottom).offset(0 - progressView.bounds.height)
@@ -198,7 +198,7 @@ class Saily_UI_Repos: UITableViewController {
             progressView.progress = 0.0
             Saily.repos_root.repos[indexPath.row - 2].set_exposed_progress_view(progressView)
             progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-            progressView.progressTintColor = #colorLiteral(red: 0.9764705882, green: 0.8235294118, blue: 0.4901960784, alpha: 1)
+            progressView.progressTintColor = #colorLiteral(red: 1, green: 0.6632423401, blue: 0, alpha: 1)
             cell.addSubview(progressView)
             progressView.snp.makeConstraints { (c) in
                 c.bottom.equalTo(cell.contentView.snp.bottom).offset(0)
