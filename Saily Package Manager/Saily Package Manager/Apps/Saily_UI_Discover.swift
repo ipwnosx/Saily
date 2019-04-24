@@ -48,14 +48,14 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         self.view.layoutIfNeeded()
         self.collection_view?.layoutIfNeeded()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.88) {
             UIView.animate(withDuration: 1, animations: {
                 self.mafu_lll.alpha = 0
                 self.mafu_loading.alpha = 0
                 self.no_responed_delegate.alpha = 0
             })
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.88) {
             self.mafu_lll.isHidden = true
             self.mafu_loading.isHidden = true
             self.no_responed_delegate.isHidden = true

@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DoraemonManager.shareInstance().install()
         #endif
         
+        do { // just a joke
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)
         self.window!.makeKeyAndVisible()
@@ -81,29 +83,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         },
                        completion: { finished in
                         maskBgView.removeFromSuperview()
-        })
-        
-        // root view animation
-        UIView.animate(withDuration: 0.25,
-                       delay: 1.3,
-                       options: [],
-                       animations: {
-                        self.window!.rootViewController!.view.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-        },
-                       completion: { finished in
-                        UIView.animate(withDuration: 0.3,
-                                       delay: 0.0,
-                                       options: .curveEaseInOut,
-                                       animations: {
-                                        self.window!.rootViewController!.view.transform = .identity
-                        },
-                                       completion: nil
-                        )
+                        self.window!.backgroundColor = .white
         })
         
         Saily.operation_quene.repo_queue.async {
             Saily.repos_root.refresh_call()
         }
+        
+        } // visual effects
+        
         
         return true
     }

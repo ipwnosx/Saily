@@ -73,6 +73,7 @@
 		ABDFA2C9226F67CB00E04BE4 /* dollor.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C8226F67CA00E04BE4 /* dollor.png */; };
 		ABDFA2CD226F778A00E04BE4 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2CC226F778900E04BE4 /* download.png */; };
 		ABDFA2CF226F81F600E04BE4 /* SileoString in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2CE226F81F600E04BE4 /* SileoString */; };
+		ABDFA2DC2270798F00E04BE4 /* UIView+Shine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA2DB2270798F00E04BE4 /* UIView+Shine.swift */; };
 		ABE66B772269DB6500375C3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE66B762269DB6500375C3E /* AppDelegate.swift */; };
 		ABE66B7E2269DB6500375C3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7C2269DB6500375C3E /* Main.storyboard */; };
 		ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7F2269DB6500375C3E /* Assets.xcassets */; };
@@ -165,6 +166,7 @@
 		ABDFA2C8226F67CA00E04BE4 /* dollor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollor.png; sourceTree = "<group>"; };
 		ABDFA2CC226F778900E04BE4 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		ABDFA2CE226F81F600E04BE4 /* SileoString */ = {isa = PBXFileReference; explicitFileType = text.json; path = SileoString; sourceTree = "<group>"; };
+		ABDFA2DB2270798F00E04BE4 /* UIView+Shine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shine.swift"; sourceTree = "<group>"; };
 		ABE66B732269DB6500375C3E /* Saily Package Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saily Package Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE66B762269DB6500375C3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABE66B7D2269DB6500375C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				AB86B002226A13BB0021EB89 /* DiscoverClass.swift */,
 				ABB6B1E22269E3260034FFF5 /* OperatorsClass.swift */,
 				AB86AFFC226A12AC0021EB89 /* UIViewExtension.swift */,
+				ABDFA2DB2270798F00E04BE4 /* UIView+Shine.swift */,
 				ABB6B1E82269E85B0034FFF5 /* UIDeviceExtension.swift */,
 				ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */,
 				ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */,
@@ -613,6 +616,7 @@
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MKRingProgressView/MKRingProgressView.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PNChart/PNChart.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-21/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -638,6 +642,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MKRingProgressView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PNChart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -765,6 +770,7 @@
 				ABB6B2092269E94B0034FFF5 /* SFWebServerRespone.m in Sources */,
 				ABE66B772269DB6500375C3E /* AppDelegate.swift in Sources */,
 				ABB6B2072269E94B0034FFF5 /* SFWebServerRequest.m in Sources */,
+				ABDFA2DC2270798F00E04BE4 /* UIView+Shine.swift in Sources */,
 				ABB6B20A2269E94B0034FFF5 /* SFWebServerRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

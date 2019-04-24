@@ -14,7 +14,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController storyboardIdentifier="Saily_UI_Tabbar_INIT_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="initTabBarContoller" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" restorationIdentifier="main_tab_bar_ID" id="W28-zg-YXA" customClass="main_tab_bar" customModule="Saily_Package_Manager" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -137,43 +137,17 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nxx-g0-Ltt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download.png" translatesAutoresizingMaskIntoConstraints="NO" id="TSe-7i-WG1">
-                                <rect key="frame" x="143" y="384" width="128" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="1wa-ll-G28"/>
-                                    <constraint firstAttribute="height" constant="128" id="OdE-0L-e1n"/>
-                                </constraints>
-                            </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vv0-V8-ewG">
-                                <rect key="frame" x="197" y="520" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="h4L-ag-PMQ" secondAttribute="trailing" id="0Jk-z7-unj"/>
                             <constraint firstItem="h4L-ag-PMQ" firstAttribute="top" secondItem="7Oe-Pl-WSh" secondAttribute="top" id="A4B-4K-gBy"/>
-                            <constraint firstAttribute="bottom" secondItem="Nxx-g0-Ltt" secondAttribute="bottom" id="ABH-V9-lh3"/>
-                            <constraint firstItem="vv0-V8-ewG" firstAttribute="top" secondItem="TSe-7i-WG1" secondAttribute="bottom" constant="8" id="Hob-jX-zMo"/>
-                            <constraint firstItem="Nxx-g0-Ltt" firstAttribute="trailing" secondItem="7Oe-Pl-WSh" secondAttribute="trailing" id="N8B-0x-Rj8"/>
-                            <constraint firstItem="vv0-V8-ewG" firstAttribute="top" secondItem="TSe-7i-WG1" secondAttribute="bottom" constant="8" id="Tr9-Qf-kbm"/>
-                            <constraint firstItem="Nxx-g0-Ltt" firstAttribute="leading" secondItem="7Oe-Pl-WSh" secondAttribute="leading" id="UFx-3E-qIF"/>
-                            <constraint firstItem="vv0-V8-ewG" firstAttribute="centerX" secondItem="96L-Ub-O0b" secondAttribute="centerX" id="XJh-4A-uUK"/>
-                            <constraint firstItem="Nxx-g0-Ltt" firstAttribute="top" secondItem="96L-Ub-O0b" secondAttribute="top" id="ahq-cB-hAs"/>
                             <constraint firstItem="h4L-ag-PMQ" firstAttribute="leading" secondItem="96L-Ub-O0b" secondAttribute="leading" id="iFp-ib-KzC"/>
                             <constraint firstItem="h4L-ag-PMQ" firstAttribute="bottom" secondItem="7Oe-Pl-WSh" secondAttribute="bottom" id="tce-p6-m8O"/>
-                            <constraint firstItem="TSe-7i-WG1" firstAttribute="centerX" secondItem="96L-Ub-O0b" secondAttribute="centerX" id="ubp-S6-nQL"/>
-                            <constraint firstItem="TSe-7i-WG1" firstAttribute="centerY" secondItem="96L-Ub-O0b" secondAttribute="centerY" id="vNX-1i-Y81"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Oe-Pl-WSh"/>
                     </view>
                     <connections>
-                        <outlet property="loading_bg" destination="Nxx-g0-Ltt" id="L4Q-Tu-Xq4"/>
-                        <outlet property="loading_eoung" destination="vv0-V8-ewG" id="rlh-VC-6Si"/>
-                        <outlet property="loading_mafufu" destination="TSe-7i-WG1" id="Xxo-BT-XJp"/>
                         <outlet property="web_container" destination="h4L-ag-PMQ" id="FYQ-Bs-Mp1"/>
                     </connections>
                 </viewController>

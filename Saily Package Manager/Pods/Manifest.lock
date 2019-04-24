@@ -37,6 +37,9 @@ PODS:
   - JGProgressHUD (2.0.3)
   - LTMorphingLabel (0.7.0)
   - MKRingProgressView (2.2.2)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
   - PNChart (0.8.9):
     - UICountingLabel (~> 1.2.0)
   - Reveal-SDK (21)
@@ -77,6 +80,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - LTMorphingLabel
   - MKRingProgressView
+  - NVActivityIndicatorView
   - Reveal-SDK
   - SnapKit
   - SwifterSwift
@@ -96,6 +100,7 @@ SPEC REPOS:
     - JGProgressHUD
     - LTMorphingLabel
     - MKRingProgressView
+    - NVActivityIndicatorView
     - PNChart
     - Reveal-SDK
     - SnapKit
@@ -117,6 +122,7 @@ SPEC CHECKSUMS:
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   LTMorphingLabel: 22147fb1ec2b0306537ccc348b36ea8617179b03
   MKRingProgressView: b558eff66a648bd77b11f61cfc5603ae96008077
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
   Reveal-SDK: 3523e0eb7c562811c51bb71da6e523a6373702c8
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
@@ -124,6 +130,6 @@ SPEC CHECKSUMS:
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
 
-PODFILE CHECKSUM: 066815bf30765094ce09ac74a4670e829537ac32
+PODFILE CHECKSUM: a8b5ae95c9d21bc27c105bd283bc86a5b41e8516
 
 COCOAPODS: 1.6.1

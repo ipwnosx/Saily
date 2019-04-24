@@ -24,7 +24,6 @@ target 'Saily Package Manager' do
         pod 'BZipCompression', '~> 1.0.0'
         pod 'GZIP', '~> 1.2'
         pod 'JGProgressHUD'
-        pod 'MKRingProgressView'
         pod 'Hero'
         pod 'EzPopup'
         pod 'DoraemonKit/Core', '~> 1.1.7', :configurations => ['Debug']
@@ -32,5 +31,7 @@ target 'Saily Package Manager' do
         pod 'DoraemonKit/WithGPS', '~> 1.1.7', :configurations => ['Debug']
         pod 'DoraemonKit/WithLoad', '~> 1.1.7', :configurations => ['Debug']
         pod 'JASON'
+        pod 'NVActivityIndicatorView'
+        pod 'MKRingProgressView'
 
 end
