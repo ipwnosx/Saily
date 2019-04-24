@@ -169,17 +169,21 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         customRequest.setValue("1556.00", forHTTPHeaderField: "X-Cydia-Cf")
         customRequest.timeoutInterval = 8
         this_Web.customUserAgent = CydiaNetwork.UA_Web_Request_Longer
+        if (url.absoluteString.contains("abcydia.com")) {
+            is_from_ab_cydia = true
+        }
         this_Web!.load(customRequest)
     }
     
     // MARK: - WKNavigationDelegate
     var loadUrl = URL(string: "https://www.google.com/")!
+    var is_from_ab_cydia = false
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = (navigationResponse.response as! HTTPURLResponse).url else {
             decisionHandler(.cancel)
             return
         }
-        if url != loadUrl {
+        if (url != loadUrl && is_from_ab_cydia) {
             loadUrl = url
             decisionHandler(.cancel)
             loadWebPage(url: url)

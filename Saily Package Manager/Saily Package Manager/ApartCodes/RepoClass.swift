@@ -25,12 +25,18 @@ class repo_C {
                 self.repos.append(repo)
             }
         }else{
-            let default_links = ["http://repounclutter.coolstar.org/",
+            var default_links = ["http://repounclutter.coolstar.org/",
                                  "https://apt.bingner.com/",
                                  "http://build.frida.re/",
                                  "https://repo.chariz.io/",
                                  "https://sparkdev.me/",
-                                 "https://repo.nepeta.me/"]
+                                 "https://repo.nepeta.me/",
+                                 "https://repo.dynastic.co/"]
+            if (Saily.is_Chinese) {
+                default_links.append("http://apt.keevi.cc/")
+                default_links.append("http://apt.abcydia.com/")
+                default_links.append("http://183.60.106.36:2345/")
+            }
             var out = ""
             for item in default_links {
                 let repo = a_repo(ilink: item.description)
