@@ -13,6 +13,10 @@
 		AB102D31226B0174005348A9 /* PackageCar.png in Resources */ = {isa = PBXBuildFile; fileRef = AB102D30226B0174005348A9 /* PackageCar.png */; };
 		AB102D3B226B1E00005348A9 /* Saily_UI_Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */; };
 		AB153AED2270AB490084D365 /* tweaksss.png in Resources */ = {isa = PBXBuildFile; fileRef = AB153AEB2270AB490084D365 /* tweaksss.png */; };
+		AB153AF12270B7960084D365 /* setting_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = AB153AEF2270B7960084D365 /* setting_blue.png */; };
+		AB153AF22270B7960084D365 /* setting_gary.png in Resources */ = {isa = PBXBuildFile; fileRef = AB153AF02270B7960084D365 /* setting_gary.png */; };
+		AB153AF42270BD2E0084D365 /* Saily_UI_Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB153AF32270BD2E0084D365 /* Saily_UI_Settings.swift */; };
+		AB153AFC2270C83F0084D365 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB153AFA2270C83F0084D365 /* Localizable.strings */; };
 		AB6565BE226A2C5900E796E5 /* Saily_UI_Repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */; };
 		AB6565C0226A3A6E00E796E5 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565BF226A3A6E00E796E5 /* next.png */; };
 		AB6565C2226A460300E796E5 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565C1226A460300E796E5 /* edit@3x.png */; };
@@ -28,7 +32,7 @@
 		AB86B003226A13BB0021EB89 /* DiscoverClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86B002226A13BB0021EB89 /* DiscoverClass.swift */; };
 		AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF78D226B2EA5006AA919 /* tweakIcon.png */; };
 		AB8AF790226B3CC1006AA919 /* Saily_UI_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */; };
-		AB8AF798226C33C8006AA919 /* Saily_UI_Installed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF797226C33C8006AA919 /* Saily_UI_Installed.swift */; };
+		AB8AF798226C33C8006AA919 /* Saily_UI_Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF797226C33C8006AA919 /* Saily_UI_Manage.swift */; };
 		AB8AF79E226C7650006AA919 /* jay-freeman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF79D226C7650006AA919 /* jay-freeman.jpg */; };
 		AB8AF7A1226C960E006AA919 /* PlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF7A0226C960E006AA919 /* PlaceHolder.png */; };
 		AB8AF7AF226CCEF3006AA919 /* SocialPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF7AE226CCEF3006AA919 /* SocialPreview.png */; };
@@ -68,7 +72,6 @@
 		ABDFA29B226F304A00E04BE4 /* mafufulove.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA29A226F304A00E04BE4 /* mafufulove.png */; };
 		ABDFA29D226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */; };
 		ABDFA29F226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */; };
-		ABDFA2BE226F48BF00E04BE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C0226F48BF00E04BE4 /* Localizable.strings */; };
 		ABDFA2C5226F652E00E04BE4 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C4226F652E00E04BE4 /* share.png */; };
 		ABDFA2C7226F676800E04BE4 /* Web.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C6226F676700E04BE4 /* Web.png */; };
 		ABDFA2C9226F67CB00E04BE4 /* dollor.png in Resources */ = {isa = PBXBuildFile; fileRef = ABDFA2C8226F67CA00E04BE4 /* dollor.png */; };
@@ -95,6 +98,11 @@
 		AB102D30226B0174005348A9 /* PackageCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PackageCar.png; sourceTree = "<group>"; };
 		AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Packages.swift; sourceTree = "<group>"; };
 		AB153AEB2270AB490084D365 /* tweaksss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweaksss.png; sourceTree = "<group>"; };
+		AB153AEF2270B7960084D365 /* setting_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_blue.png; sourceTree = "<group>"; };
+		AB153AF02270B7960084D365 /* setting_gary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_gary.png; sourceTree = "<group>"; };
+		AB153AF32270BD2E0084D365 /* Saily_UI_Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Settings.swift; sourceTree = "<group>"; };
+		AB153AF92270C8110084D365 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		AB153AFB2270C83F0084D365 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = SOURCE_ROOT; };
 		AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Repos.swift; sourceTree = "<group>"; };
 		AB6565BF226A3A6E00E796E5 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		AB6565C1226A460300E796E5 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
@@ -110,7 +118,7 @@
 		AB86B002226A13BB0021EB89 /* DiscoverClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverClass.swift; sourceTree = "<group>"; };
 		AB8AF78D226B2EA5006AA919 /* tweakIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweakIcon.png; sourceTree = "<group>"; };
 		AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Search.swift; sourceTree = "<group>"; };
-		AB8AF797226C33C8006AA919 /* Saily_UI_Installed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saily_UI_Installed.swift; sourceTree = "<group>"; };
+		AB8AF797226C33C8006AA919 /* Saily_UI_Manage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saily_UI_Manage.swift; sourceTree = "<group>"; };
 		AB8AF79D226C7650006AA919 /* jay-freeman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jay-freeman.jpg"; sourceTree = "<group>"; };
 		AB8AF79F226C8973006AA919 /* preview */ = {isa = PBXFileReference; lastKnownFileType = text; name = preview; path = ../../../../../SailyHomePagePreview/preview; sourceTree = "<group>"; };
 		AB8AF7A0226C960E006AA919 /* PlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceHolder.png; sourceTree = "<group>"; };
@@ -160,9 +168,6 @@
 		ABDFA29A226F304A00E04BE4 /* mafufulove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafufulove.png; sourceTree = "<group>"; };
 		ABDFA29C226F36AF00E04BE4 /* Saily_Exchange_AUTH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Saily_Exchange_AUTH.swift; path = ../../../../SailyPackageManagerSecert/Saily_Exchange_AUTH.swift; sourceTree = "<group>"; };
 		ABDFA29E226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_Exchange_AUTH_NONE.swift; sourceTree = "<group>"; };
-		ABDFA2BA226F482400E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		ABDFA2BB226F482400E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		ABDFA2BF226F48BF00E04BE4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ABDFA2C4226F652E00E04BE4 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		ABDFA2C6226F676700E04BE4 /* Web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Web.png; sourceTree = "<group>"; };
 		ABDFA2C8226F67CA00E04BE4 /* dollor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollor.png; sourceTree = "<group>"; };
@@ -244,11 +249,12 @@
 				ABE66B762269DB6500375C3E /* AppDelegate.swift */,
 				ABB6B2272269EF550034FFF5 /* Navigators.swift */,
 				ABB6B2562269F9590034FFF5 /* Saily_UI_Discover.swift */,
+				AB153AF32270BD2E0084D365 /* Saily_UI_Settings.swift */,
 				AB8AF7B2226CD5D1006AA919 /* Saily_UI_Discover_Detail.swift */,
 				AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */,
 				AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */,
 				AB102D3A226B1E00005348A9 /* Saily_UI_Packages.swift */,
-				AB8AF797226C33C8006AA919 /* Saily_UI_Installed.swift */,
+				AB8AF797226C33C8006AA919 /* Saily_UI_Manage.swift */,
 				AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */,
 				ABB35B19226E0C6A009E4D07 /* Saily_UI_Tweak_Native.swift */,
 				ABB35B1B226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift */,
@@ -351,7 +357,7 @@
 				ABE66B812269DB6500375C3E /* LaunchScreen.storyboard */,
 				ABE66B7F2269DB6500375C3E /* Assets.xcassets */,
 				ABE66B842269DB6500375C3E /* Info.plist */,
-				ABDFA2C0226F48BF00E04BE4 /* Localizable.strings */,
+				AB153AFA2270C83F0084D365 /* Localizable.strings */,
 			);
 			path = "Saily Package Manager";
 			sourceTree = "<group>";
@@ -359,6 +365,8 @@
 		ABE66BA62269DB8900375C3E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB153AEF2270B7960084D365 /* setting_blue.png */,
+				AB153AF02270B7960084D365 /* setting_gary.png */,
 				AB153AEB2270AB490084D365 /* tweaksss.png */,
 				ABDFA2CC226F778900E04BE4 /* download.png */,
 				ABDFA2C8226F67CA00E04BE4 /* dollor.png */,
@@ -558,13 +566,15 @@
 				ABB35B0C226DEE83009E4D07 /* mafumafu.png in Resources */,
 				AB86AFE7226A09FB0021EB89 /* PlaceHolderDark.jpg in Resources */,
 				ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */,
+				AB153AF12270B7960084D365 /* setting_blue.png in Resources */,
 				ABDFA2C9226F67CB00E04BE4 /* dollor.png in Resources */,
 				ABB6B2212269EAD40034FFF5 /* search@3x.png in Resources */,
 				AB102D2F226AF9F7005348A9 /* Folder.png in Resources */,
 				AB8AF7A1226C960E006AA919 /* PlaceHolder.png in Resources */,
+				AB153AFC2270C83F0084D365 /* Localizable.strings in Resources */,
 				ABB6B21B2269EAD40034FFF5 /* repo_bigboss.png in Resources */,
 				AB6565C2226A460300E796E5 /* edit@3x.png in Resources */,
-				ABDFA2BE226F48BF00E04BE4 /* Localizable.strings in Resources */,
+				AB153AF22270B7960084D365 /* setting_gary.png in Resources */,
 				ABB6B2202269EAD40034FFF5 /* discover@3x.png in Resources */,
 				ABB6B2262269EAD40034FFF5 /* installed@3x.png in Resources */,
 				ABDFA2CF226F81F600E04BE4 /* SileoString in Resources */,
@@ -614,6 +624,7 @@
 				"${BUILT_PRODUCTS_DIR}/DoraemonKit/DoraemonKit.framework",
 				"${PODS_ROOT}/DoraemonKit/iOS/DoraemonKit/Framework/DoraemonLoadAnalyze.framework",
 				"${BUILT_PRODUCTS_DIR}/EzPopup/EzPopup.framework",
+				"${BUILT_PRODUCTS_DIR}/FloatingPanel/FloatingPanel.framework",
 				"${BUILT_PRODUCTS_DIR}/GZIP/GZIP.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/JASON/JASON.framework",
@@ -640,6 +651,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoraemonKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoraemonLoadAnalyze.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EzPopup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FloatingPanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GZIP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JASON.framework",
@@ -751,7 +763,7 @@
 				ABB35B1A226E0C6A009E4D07 /* Saily_UI_Tweak_Native.swift in Sources */,
 				AB86AFE9226A09FB0021EB89 /* CardCellKind1.swift in Sources */,
 				ABB6B2572269F9590034FFF5 /* Saily_UI_Discover.swift in Sources */,
-				AB8AF798226C33C8006AA919 /* Saily_UI_Installed.swift in Sources */,
+				AB8AF798226C33C8006AA919 /* Saily_UI_Manage.swift in Sources */,
 				ABB6B1E52269E3B60034FFF5 /* RepoClass.swift in Sources */,
 				ABB6B2052269E94B0034FFF5 /* GCDAsyncUdpSocket.m in Sources */,
 				ABB6B1DF2269E25C0034FFF5 /* RootClass.swift in Sources */,
@@ -765,6 +777,7 @@
 				ABB6B2082269E94B0034FFF5 /* SFWebServer.m in Sources */,
 				ABB6B2282269EF550034FFF5 /* Navigators.swift in Sources */,
 				ABB6B2062269E94B0034FFF5 /* GCDAsyncSocket.m in Sources */,
+				AB153AF42270BD2E0084D365 /* Saily_UI_Settings.swift in Sources */,
 				AB102D3B226B1E00005348A9 /* Saily_UI_Packages.swift in Sources */,
 				ABDFA29F226F36D300E04BE4 /* Saily_Exchange_AUTH_NONE.swift in Sources */,
 				AB102D2B226AE219005348A9 /* Saily_UI_Sectiosn.swift in Sources */,
@@ -790,10 +803,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ABDFA2C0226F48BF00E04BE4 /* Localizable.strings */ = {
+		AB153AFA2270C83F0084D365 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				ABDFA2BF226F48BF00E04BE4 /* zh-Hans */,
+				AB153AFB2270C83F0084D365 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -802,7 +815,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				ABE66B7D2269DB6500375C3E /* Base */,
-				ABDFA2BA226F482400E04BE4 /* zh-Hans */,
+				AB153AF92270C8110084D365 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -811,7 +824,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				ABE66B822269DB6500375C3E /* Base */,
-				ABDFA2BB226F482400E04BE4 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

@@ -31,6 +31,7 @@ PODS:
     - "UITextView+Placeholder"
   - EzPopup (1.1)
   - fishhook (0.2)
+  - FloatingPanel (1.5.0)
   - GZIP (1.2.2)
   - Hero (1.4.0)
   - JASON (3.1)
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - DoraemonKit/WithLoad (~> 1.1.7)
   - DoraemonKit/WithLogger (~> 1.1.7)
   - EzPopup
+  - FloatingPanel
   - GZIP (~> 1.2)
   - Hero
   - JASON
@@ -94,6 +96,7 @@ SPEC REPOS:
     - DoraemonKit
     - EzPopup
     - fishhook
+    - FloatingPanel
     - GZIP
     - Hero
     - JASON
@@ -116,6 +119,7 @@ SPEC CHECKSUMS:
   DoraemonKit: 0ac105ce8924477c22c57cc303798c04ab3c4dcd
   EzPopup: b959cfb0d70d782a28e770a96c454df0401467c7
   fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
+  FloatingPanel: ab30960c8f8eb487100834967118fe54b8820ac3
   GZIP: 12374d285e3b5d46cfcd480700fcfc7e16caf4f1
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   JASON: c1204b01c9979eef35b6948ca939aac5e7bef081
@@ -130,6 +134,6 @@ SPEC CHECKSUMS:
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
 
-PODFILE CHECKSUM: a8b5ae95c9d21bc27c105bd283bc86a5b41e8516
+PODFILE CHECKSUM: fa3af38580398511ae4f9ab046023be70d8f1e62
 
 COCOAPODS: 1.6.1

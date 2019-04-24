@@ -33,5 +33,6 @@ target 'Saily Package Manager' do
         pod 'JASON'
         pod 'NVActivityIndicatorView'
         pod 'MKRingProgressView'
+        pod 'FloatingPanel'
 
 end

@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 
+import Alamofire
 import NVActivityIndicatorView
 
 class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
@@ -87,16 +88,22 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         }
         if let urldep = URL.init(string: depiction) {
             print("[*] Attempt to connect for depiction: " + urldep.description)
-            var customRequest = URLRequest(url: urldep)
-            customRequest.setValue("zh-CN,en,*", forHTTPHeaderField: "Accept-Language")
-            customRequest.setValue("*/*", forHTTPHeaderField: "Accept")
-            customRequest.setValue("gzip, deflate", forHTTPHeaderField: "Accept-Encoding")
-            customRequest.setValue(CydiaNetwork.UA_Default, forHTTPHeaderField: "User-Agent")
-            customRequest.setValue(CydiaNetwork.H_Firmware, forHTTPHeaderField: "X-Firmware")
-            customRequest.setValue(CydiaNetwork.H_UDID, forHTTPHeaderField: "X-Unique-ID")
-            customRequest.setValue(CydiaNetwork.H_Machine, forHTTPHeaderField: "X-Machine")
-            customRequest.timeoutInterval = 8
-            this_Web!.load(customRequest)
+            self.loadWebPage(url: urldep)
+            
+//            let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Web_Request_iOS_12,
+//                                   "X-Firmware" : CydiaNetwork.H_Firmware,
+//                                   "X-Unique-ID" : CydiaNetwork.H_UDID,
+//                                   "X-Machine" : CydiaNetwork.H_Machine,
+//                                   "Accept" : "*/*",
+//                                   "Accept-Language" : "zh-CN,en,*",
+//                                   "Accept-Encoding" : "gzip, deflate"]
+//
+//            AF.request(urldep, headers: h).responseString { (data) in
+//                if let data_str = data.value {
+//                    self.this_Web.loadHTMLString(data_str, baseURL: urldep)
+//                }
+//            }
+            
             this_Web.scrollView.isScrollEnabled = false
             self.view.addSubview(loading_view)
             loading_view.snp.makeConstraints { (c) in
@@ -147,6 +154,39 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         
     }
     
+    
+    func loadWebPage(url: URL)  {
+        self.loadUrl = url
+        var customRequest = URLRequest(url: url)
+        customRequest.setValue("zh-CN,en,*", forHTTPHeaderField: "Accept-Language")
+        customRequest.setValue("*/*", forHTTPHeaderField: "Accept")
+        customRequest.setValue("gzip, deflate", forHTTPHeaderField: "Accept-Encoding")
+        customRequest.setValue(CydiaNetwork.H_Firmware, forHTTPHeaderField: "X-Firmware")
+        customRequest.setValue(CydiaNetwork.H_UDID, forHTTPHeaderField: "X-Unique-ID")
+        customRequest.setValue(CydiaNetwork.H_Machine, forHTTPHeaderField: "X-Machine")
+        customRequest.setValue("1", forHTTPHeaderField: "Upgrade-Insecure-Requests")
+        customRequest.setValue("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", forHTTPHeaderField: "Accept")
+        customRequest.setValue("1556.00", forHTTPHeaderField: "X-Cydia-Cf")
+        customRequest.timeoutInterval = 8
+        this_Web.customUserAgent = CydiaNetwork.UA_Web_Request_Longer
+        this_Web!.load(customRequest)
+    }
+    
+    // MARK: - WKNavigationDelegate
+    var loadUrl = URL(string: "https://www.google.com/")!
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard let url = (navigationResponse.response as! HTTPURLResponse).url else {
+            decisionHandler(.cancel)
+            return
+        }
+        if url != loadUrl {
+            loadUrl = url
+            decisionHandler(.cancel)
+            loadWebPage(url: url)
+        } else {
+            decisionHandler(.allow)
+        }
+    }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         

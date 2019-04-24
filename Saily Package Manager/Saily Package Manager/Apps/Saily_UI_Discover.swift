@@ -7,18 +7,18 @@
 //
 
 import UIKit
+
 import Hero
 import EzPopup
 
 private let reuseIdentifier = "cards"
 
 class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+
     @IBOutlet weak var collection_view: UICollectionView?
     @IBOutlet weak var no_responed_delegate: UIImageView!
     @IBOutlet weak var mafu_loading: UIImageView!
     @IBOutlet weak var mafu_lll: UIActivityIndicatorView!
-    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -36,11 +36,9 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         }
         
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.hero.isEnabled = true
         
         collection_view?.delegate = self
         collection_view?.dataSource = self
@@ -60,6 +58,7 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             self.mafu_loading.isHidden = true
             self.no_responed_delegate.isHidden = true
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
