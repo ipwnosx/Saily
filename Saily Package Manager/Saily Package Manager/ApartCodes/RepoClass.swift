@@ -35,7 +35,6 @@ class repo_C {
             if (Saily.is_Chinese) {
                 default_links.append("http://apt.keevi.cc/")
                 default_links.append("http://apt.abcydia.com/")
-                default_links.append("http://183.60.106.36:2345/")
             }
             var out = ""
             for item in default_links {

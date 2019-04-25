@@ -61,8 +61,8 @@ extension Saily_UI_Tweak_Native: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let scx = UIScreen.main.bounds.width
-        let scy = UIScreen.main.bounds.height
+        let scx = self.view.bounds.width
+        let scy = self.view.bounds.height
         
         if (scy < 600 && scx < 350) {
             return CGSize(width: scx - 20, height: 420)

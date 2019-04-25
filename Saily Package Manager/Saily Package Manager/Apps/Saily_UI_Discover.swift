@@ -95,7 +95,7 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             c.right.equalTo(cell.contentView.snp.right)
         }
         
-        if (indexPath.row == 0) {
+        if (indexPath.row == Saily.discover_root.count) {
             let bg = UIImageView()
             bg.image = #imageLiteral(resourceName: "BGBlue.png")
             bg.contentMode = .scaleAspectFill
@@ -162,16 +162,16 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         var content = UIView()
         cell.contentView.addSubview(content)
         
-        switch Saily.discover_root[indexPath.row - 1].card_kind {
+        switch Saily.discover_root[indexPath.row].card_kind {
         case 1:
             content = CardCellKind1()
-            (content as? CardCellKind1)?.apart_init(Saily.discover_root[indexPath.row - 1], fater_View: cell.contentView)
+            (content as? CardCellKind1)?.apart_init(Saily.discover_root[indexPath.row], fater_View: cell.contentView)
         case 2:
             content = CardCellKind2()
-            (content as? CardCellKind2)?.apart_init(Saily.discover_root[indexPath.row - 1], fater_View: cell.contentView)
+            (content as? CardCellKind2)?.apart_init(Saily.discover_root[indexPath.row], fater_View: cell.contentView)
         default:
             content = CardCellKind1()
-            (content as? CardCellKind1)?.apart_init(Saily.discover_root[indexPath.row - 1], fater_View: cell.contentView)
+            (content as? CardCellKind1)?.apart_init(Saily.discover_root[indexPath.row], fater_View: cell.contentView)
         }
         
         cell.addSubview(content)
@@ -182,7 +182,7 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             c.bottom.equalTo(cell.contentView.snp.bottom)
         }
         
-        Saily.discover_root[indexPath.row - 1].reg_content_view(content)
+        Saily.discover_root[indexPath.row].reg_content_view(content)
         
         return cell
     }
@@ -192,8 +192,10 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        let scx = UIScreen.main.bounds.width
-        let scy = UIScreen.main.bounds.height
+//        let scx = UIScreen.main.bounds.width
+//        let scy = UIScreen.main.bounds.height
+        let scx = self.view.bounds.width
+        let scy = self.view.bounds.height
         if (scy > scx) {
             return 50
         }
@@ -204,8 +206,8 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let new = sb.instantiateViewController(withIdentifier: "Saily_UI_Discover_Detail_ID") as? Saily_UI_Discover_Detail
         
-        let scx = UIScreen.main.bounds.width
-        let scy = UIScreen.main.bounds.height
+        let scx = self.view.bounds.width
+        let scy = self.view.bounds.height
         
         if (indexPath.row == 0) {
             new?.discover_index = -666
@@ -237,14 +239,23 @@ extension Saily_UI_Discover: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let scx = UIScreen.main.bounds.width
-        let scy = UIScreen.main.bounds.height
+        let scx = self.view.bounds.width
+        let scy = self.view.bounds.height
         
         if (scy < 600 && scx < 350) {
             return CGSize(width: scx - 20, height: 420)
         }
         
         if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
+            
+            if (scx < 366) {
+                return CGSize(width: scx - 60, height: 380)
+            }
+            
+            if (scx < 580) {
+                return CGSize(width: scx - 60, height: 380)
+            }
+            
             if (scx < scy) {
                 return CGSize(width: (scx - 120) / 2, height: 380)
             }

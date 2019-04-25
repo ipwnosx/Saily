@@ -1,33 +1,33 @@
 
 /* Class = "UINavigationItem"; title = "Manage"; ObjectID = "2Jz-yA-Gga"; */
-"2Jz-yA-Gga.title" = "这是朕的江山";
+"2Jz-yA-Gga.title" = "管理";
 
 /* Class = "UILabel"; text = "com.lakr233.jw.Saily-Package-Manager\nLakr Aream 2019.4"; ObjectID = "32I-sw-Trq"; */
 "32I-sw-Trq.text" = "com.lakr233.jw.Saily-Package-Manager\nLakr Aream 2019.4";
 
 /* Class = "UINavigationItem"; title = "Search"; ObjectID = "5jE-i8-c9L"; */
-"5jE-i8-c9L.title" = "海底捞针";
+"5jE-i8-c9L.title" = "搜索";
 
 /* Class = "UINavigationItem"; title = "Sources"; ObjectID = "6rK-jp-wzb"; */
-"6rK-jp-wzb.title" = "源头活水";
+"6rK-jp-wzb.title" = "软件源";
 
 /* Class = "UINavigationItem"; title = "Discover"; ObjectID = "CIg-dz-hs2"; */
-"CIg-dz-hs2.title" = "上下求索";
+"CIg-dz-hs2.title" = "发现";
 
 /* Class = "UITabBarItem"; title = "Installed"; ObjectID = "Dzf-qB-mqu"; */
-"Dzf-qB-mqu.title" = "坐拥百城";
+"Dzf-qB-mqu.title" = "管理";
 
 /* Class = "UIViewController"; title = "Details"; ObjectID = "ECg-ms-Ygu"; */
-"ECg-ms-Ygu.title" = "可见一斑";
+"ECg-ms-Ygu.title" = "详情";
 
 /* Class = "UITabBarItem"; title = "Search"; ObjectID = "G16-oP-93r"; */
-"G16-oP-93r.title" = "海底捞针";
+"G16-oP-93r.title" = "搜索";
 
 /* Class = "UITabBarItem"; title = "Discover"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "上下求索";
+"acW-dT-cKf.title" = "发现";
 
 /* Class = "UITabBarItem"; title = "Sources"; ObjectID = "cPa-gy-q4n"; */
-"cPa-gy-q4n.title" = "源头活水";
+"cPa-gy-q4n.title" = "软件源";
 
 /* Class = "UIButton"; normalTitle = "GET"; ObjectID = "e1X-a4-yzM"; */
 "e1X-a4-yzM.normalTitle" = "获取";

@@ -27,17 +27,14 @@
 		AB86AFE9226A09FB0021EB89 /* CardCellKind1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86AFDE226A09FB0021EB89 /* CardCellKind1.swift */; };
 		AB86AFEB226A09FB0021EB89 /* WHITE.png in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFE0226A09FB0021EB89 /* WHITE.png */; };
 		AB86AFEE226A107B0021EB89 /* PackageDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86AFEC226A107B0021EB89 /* PackageDownloadView.swift */; };
-		AB86AFF9226A11730021EB89 /* PlaceHolderContent.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFF8226A11730021EB89 /* PlaceHolderContent.jpg */; };
 		AB86AFFD226A12AC0021EB89 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86AFFC226A12AC0021EB89 /* UIViewExtension.swift */; };
 		AB86B003226A13BB0021EB89 /* DiscoverClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86B002226A13BB0021EB89 /* DiscoverClass.swift */; };
 		AB8AF78E226B2EA5006AA919 /* tweakIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF78D226B2EA5006AA919 /* tweakIcon.png */; };
 		AB8AF790226B3CC1006AA919 /* Saily_UI_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */; };
 		AB8AF798226C33C8006AA919 /* Saily_UI_Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF797226C33C8006AA919 /* Saily_UI_Manage.swift */; };
-		AB8AF79E226C7650006AA919 /* jay-freeman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF79D226C7650006AA919 /* jay-freeman.jpg */; };
 		AB8AF7A1226C960E006AA919 /* PlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF7A0226C960E006AA919 /* PlaceHolder.png */; };
 		AB8AF7AF226CCEF3006AA919 /* SocialPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8AF7AE226CCEF3006AA919 /* SocialPreview.png */; };
 		AB8AF7B3226CD5D1006AA919 /* Saily_UI_Discover_Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AF7B2226CD5D1006AA919 /* Saily_UI_Discover_Detail.swift */; };
-		ABB35B0C226DEE83009E4D07 /* mafumafu.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB35B0B226DEE83009E4D07 /* mafumafu.png */; };
 		ABB35B16226DFCC3009E4D07 /* mafumafu_dead_rul.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB35B15226DFCC3009E4D07 /* mafumafu_dead_rul.png */; };
 		ABB35B1A226E0C6A009E4D07 /* Saily_UI_Tweak_Native.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB35B19226E0C6A009E4D07 /* Saily_UI_Tweak_Native.swift */; };
 		ABB35B1C226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB35B1B226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift */; };
@@ -84,6 +81,7 @@
 		ABE66B832269DB6500375C3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B812269DB6500375C3E /* LaunchScreen.storyboard */; };
 		ABE66BC52269DBE300375C3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE66BC42269DBE300375C3E /* main.swift */; };
 		ABE66BD92269DFF800375C3E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = ABE66BD82269DFF800375C3E /* Podfile */; };
+		ABF45AAE2271AF9D00CBFA1C /* mafumafu.png in Resources */ = {isa = PBXBuildFile; fileRef = ABF45AAD2271AF9C00CBFA1C /* mafumafu.png */; };
 		BBCBFFB48D45123B5260D7B2 /* libPods-Daemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAF66B95A838CF3C5B7BFC5 /* libPods-Daemon.a */; };
 /* End PBXBuildFile section */
 
@@ -113,18 +111,15 @@
 		AB86AFDE226A09FB0021EB89 /* CardCellKind1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellKind1.swift; sourceTree = "<group>"; };
 		AB86AFE0226A09FB0021EB89 /* WHITE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WHITE.png; sourceTree = "<group>"; };
 		AB86AFEC226A107B0021EB89 /* PackageDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDownloadView.swift; sourceTree = "<group>"; };
-		AB86AFF8226A11730021EB89 /* PlaceHolderContent.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PlaceHolderContent.jpg; sourceTree = "<group>"; };
 		AB86AFFC226A12AC0021EB89 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		AB86B002226A13BB0021EB89 /* DiscoverClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverClass.swift; sourceTree = "<group>"; };
 		AB8AF78D226B2EA5006AA919 /* tweakIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweakIcon.png; sourceTree = "<group>"; };
 		AB8AF78F226B3CC1006AA919 /* Saily_UI_Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Search.swift; sourceTree = "<group>"; };
 		AB8AF797226C33C8006AA919 /* Saily_UI_Manage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saily_UI_Manage.swift; sourceTree = "<group>"; };
-		AB8AF79D226C7650006AA919 /* jay-freeman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jay-freeman.jpg"; sourceTree = "<group>"; };
 		AB8AF79F226C8973006AA919 /* preview */ = {isa = PBXFileReference; lastKnownFileType = text; name = preview; path = ../../../../../SailyHomePagePreview/preview; sourceTree = "<group>"; };
 		AB8AF7A0226C960E006AA919 /* PlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceHolder.png; sourceTree = "<group>"; };
 		AB8AF7AE226CCEF3006AA919 /* SocialPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SocialPreview.png; sourceTree = "<group>"; };
 		AB8AF7B2226CD5D1006AA919 /* Saily_UI_Discover_Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Discover_Detail.swift; sourceTree = "<group>"; };
-		ABB35B0B226DEE83009E4D07 /* mafumafu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mafumafu.png; path = ../../../../../../Desktop/mafumafu.png; sourceTree = "<group>"; };
 		ABB35B15226DFCC3009E4D07 /* mafumafu_dead_rul.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafumafu_dead_rul.png; sourceTree = "<group>"; };
 		ABB35B19226E0C6A009E4D07 /* Saily_UI_Tweak_Native.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Tweak_Native.swift; sourceTree = "<group>"; };
 		ABB35B1B226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Tweak_Webkit.swift; sourceTree = "<group>"; };
@@ -190,6 +185,7 @@
 		ABE66BD62269DCED00375C3E /* postrm */ = {isa = PBXFileReference; lastKnownFileType = text; path = postrm; sourceTree = "<group>"; };
 		ABE66BD72269DCED00375C3E /* preinst */ = {isa = PBXFileReference; lastKnownFileType = text; path = preinst; sourceTree = "<group>"; };
 		ABE66BD82269DFF800375C3E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ABF45AAD2271AF9C00CBFA1C /* mafumafu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafumafu.png; sourceTree = "<group>"; };
 		D53548BC166D17B37EFB5750 /* Pods-Saily Package Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.debug.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,10 +227,8 @@
 				AB8AF79F226C8973006AA919 /* preview */,
 				ABDFA2CE226F81F600E04BE4 /* SileoString */,
 				AB86AFE0226A09FB0021EB89 /* WHITE.png */,
-				AB8AF79D226C7650006AA919 /* jay-freeman.jpg */,
 				AB86AFDA226A09FB0021EB89 /* PlaceHolderLight.png */,
 				AB86AFDC226A09FB0021EB89 /* PlaceHolderDark.jpg */,
-				AB86AFF8226A11730021EB89 /* PlaceHolderContent.jpg */,
 				AB86AFDE226A09FB0021EB89 /* CardCellKind1.swift */,
 				AB86AFD9226A09FB0021EB89 /* CardCellKind2.swift */,
 				AB86AFEC226A107B0021EB89 /* PackageDownloadView.swift */,
@@ -373,8 +367,8 @@
 				ABDFA2C6226F676700E04BE4 /* Web.png */,
 				ABDFA2C4226F652E00E04BE4 /* share.png */,
 				ABB35B15226DFCC3009E4D07 /* mafumafu_dead_rul.png */,
+				ABF45AAD2271AF9C00CBFA1C /* mafumafu.png */,
 				ABDFA29A226F304A00E04BE4 /* mafufulove.png */,
-				ABB35B0B226DEE83009E4D07 /* mafumafu.png */,
 				AB8AF7AE226CCEF3006AA919 /* SocialPreview.png */,
 				AB8AF7A0226C960E006AA919 /* PlaceHolder.png */,
 				AB8AF78D226B2EA5006AA919 /* tweakIcon.png */,
@@ -561,9 +555,7 @@
 				AB86AFE5226A09FB0021EB89 /* PlaceHolderLight.png in Resources */,
 				ABE66B832269DB6500375C3E /* LaunchScreen.storyboard in Resources */,
 				AB6565C6226A465100E796E5 /* add@3x.png in Resources */,
-				AB86AFF9226A11730021EB89 /* PlaceHolderContent.jpg in Resources */,
 				AB102D31226B0174005348A9 /* PackageCar.png in Resources */,
-				ABB35B0C226DEE83009E4D07 /* mafumafu.png in Resources */,
 				AB86AFE7226A09FB0021EB89 /* PlaceHolderDark.jpg in Resources */,
 				ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */,
 				AB153AF12270B7960084D365 /* setting_blue.png in Resources */,
@@ -593,9 +585,9 @@
 				ABB6B21E2269EAD40034FFF5 /* PlaceholderInT.png in Resources */,
 				ABB6B2042269E94B0034FFF5 /* Documentation.html in Resources */,
 				ABB6B21D2269EAD40034FFF5 /* iConWhiteTransparent.png in Resources */,
-				AB8AF79E226C7650006AA919 /* jay-freeman.jpg in Resources */,
 				ABDFA2CD226F778A00E04BE4 /* download.png in Resources */,
 				ABB6B21F2269EAD40034FFF5 /* PlaceholderDownT.png in Resources */,
+				ABF45AAE2271AF9D00CBFA1C /* mafumafu.png in Resources */,
 				ABB6B2222269EAD40034FFF5 /* downshade.png in Resources */,
 				ABB6B2232269EAD40034FFF5 /* iCon.png in Resources */,
 				ABB35B16226DFCC3009E4D07 /* mafumafu_dead_rul.png in Resources */,

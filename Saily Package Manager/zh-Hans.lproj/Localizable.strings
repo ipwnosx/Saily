@@ -34,7 +34,7 @@
 "All My Packages :)" = "我的全部软件包";
 "Reloading data(s)..." = "重新加载数据中...";
 "This section contains " = "这个分类总共有 ";
-"Copy Board contains URL" = "你的剪贴板好像有一个网址或z链接";
+"Copy Board contains URL" = "你的剪贴板好像有一个网址或链接";
 "This is not an URL, retry?" = "这个好像不是链接，再试试？";
 "Enter the link of the repo" = "请输入软件源地址";
 "See all packages from your sources" = "查阅我的全部软件包 🧐";
