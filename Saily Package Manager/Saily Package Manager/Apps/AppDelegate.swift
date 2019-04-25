@@ -92,6 +92,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         } // visual effects
         
+        // open socket on port
+        Saily.objc_bridge.ensureDaemonSocket(at: XPC_ins.session_port, XPC_ins.session_token, Saily.files.server_token)
+        
+        Saily.objc_bridge.callToDaemon(with: "com.Saily.respring")
+        
+        // call to daemon
+        Saily.objc_bridge.callToDaemon(with: "com.Saily.session.init.start_read_port")
+        
+        for item in XPC_ins.session_port.description {
+            let call_str = "com.Saily.session.init.addport." + item.description
+            Saily.objc_bridge.callToDaemon(with: call_str)
+            usleep(1000)
+        }
+        Saily.objc_bridge.callToDaemon(with: "com.Saily.session.init.end_read_port")
         
         
         return true

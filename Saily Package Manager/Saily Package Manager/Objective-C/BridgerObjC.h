@@ -19,7 +19,9 @@
 - (void)doUDID:(NSString *)UDIDSavePath;
 - (NSData *)unGzip:(NSData *)data;
 - (NSData *)unBzip:(NSData *)data;
-    
+
+- (void)ensureDaemonSocketAt:(NSInteger)port :(NSString *)client_session_token :(NSString *)server_session_token_save_place;
+
 @end
 
 #endif /* BridgerObjC_h */

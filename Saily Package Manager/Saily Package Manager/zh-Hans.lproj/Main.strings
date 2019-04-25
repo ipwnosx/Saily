@@ -37,3 +37,9 @@
 
 /* Class = "UILabel"; text = "Saily Package Manager"; ObjectID = "iOt-Gy-YLV"; */
 "iOt-Gy-YLV.text" = "Saily Package Manager";
+
+/* Class = "UILabel"; text = "Operation Queue"; ObjectID = "sPm-yZ-hWy"; */
+"sPm-yZ-hWy.text" = "操作队列";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "nsr-FG-TDt"; */
+"nsr-FG-TDt.normalTitle" = "提交";

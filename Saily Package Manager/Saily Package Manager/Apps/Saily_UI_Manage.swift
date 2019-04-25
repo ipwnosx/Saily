@@ -74,15 +74,17 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate {
         fpc.set(contentViewController: setting_plane)
         fpc.track(scrollView: setting_plane?.container)
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            //  Add FloatingPanel to a view with animation.
+            self.fpc.addPanel(toParent: self, animated: true)
+            self.fpc.move(to: .tip, animated: true)
+        }
+        
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //  Add FloatingPanel to a view with animation.
-        fpc.addPanel(toParent: self, animated: true)
-        fpc.show()
-        fpc.move(to: .tip, animated: true)
     }
     
     

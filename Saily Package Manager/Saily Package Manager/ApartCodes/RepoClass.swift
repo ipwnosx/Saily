@@ -128,11 +128,6 @@ class repo_C {
         }
     }
     
-    func return_a_repo_with_name(namd: String) -> a_repo? {
-        print("[*] Method not implanted. Aborting.")
-        abort()
-        return nil
-    }
 }
 
 class a_repo {

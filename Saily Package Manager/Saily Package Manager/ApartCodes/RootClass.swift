@@ -42,6 +42,7 @@ class Saily_All {
     public var discover_root                                    = [discover_C]()
     public var discover_raw_str                                 = String()
     public var discover_image_cache                             = [String : UIImage] ()
+    public var operation_container                              = installer_Unit()
     // Obj-C bridge
     public var objc_bridge                                      = SailyCommonObject()
     // Magic:
@@ -53,7 +54,7 @@ class Saily_All {
     
     func apart_init() {
         
-        self.objc_bridge.redirectConsoleLogToDocumentFolder()
+//        self.objc_bridge.redirectConsoleLogToDocumentFolder()
         
         let locale = NSLocale.preferredLanguages
         print(locale)
@@ -281,6 +282,7 @@ class Saily_file_system {
     public var repo_cache       = String()
     public var quene_root       = String()
     public var image_cache      = String()
+    public var server_token     = String()
     
     func apart_init() {
         self.root = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -291,12 +293,15 @@ class Saily_file_system {
         self.repo_cache = self.root + "/repo.cache"
         self.quene_root = self.root + "/quene.submit"
         self.image_cache = self.root + "/image.cache"
+        self.server_token = self.root + "/server.token"
         
         Saily_FileU.make_sure_file_exists_at(self.udid, is_direct: false)
         Saily_FileU.make_sure_file_exists_at(self.repo_list, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.repo_cache, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.quene_root, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.image_cache, is_direct: true)
+        
+        try? FileManager.default.removeItem(atPath: self.server_token)
         
         print("[*] File System Apart Init root = " + self.root)
         print("[*] File System Apart Init udid = " + self.udid)

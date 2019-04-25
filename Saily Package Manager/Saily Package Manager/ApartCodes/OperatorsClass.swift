@@ -11,6 +11,125 @@ import Foundation
 import Alamofire
 import JASON
 
+
+
+class installer_Unit {
+    
+    public var installs                                 = [packages_C]()
+    public var removes                                  = [packages_C]()
+    public var f_installs                               = [packages_C]()
+    public var f_removes                                = [packages_C]()
+    public var dependency                               = [packages_C]()
+    public var error_container      = [String]()
+    public var not_empty_list       = [String]()
+    
+    func put_a_tweak(_ which: packages_C, force: Bool) {
+        print(which.info)
+        installs.append(which)
+    }
+    
+    func remove_a_tweak(_ which: packages_C, force: Bool) {
+        print(which.info)
+    }
+    
+    func returnSections() -> Int {
+        var sections = 0
+        if (installs.count != 0) {
+            self.not_empty_list.append("installs")
+            sections += 1
+        }
+        if (removes.count != 0) {
+            self.not_empty_list.append("removes")
+            sections += 1
+        }
+        if (f_installs.count != 0) {
+            self.not_empty_list.append("f_installs")
+            sections += 1
+        }
+        if (f_removes.count != 0) {
+            self.not_empty_list.append("f_removes")
+            sections += 1
+        }
+        if (dependency.count != 0) {
+            self.not_empty_list.append("dependency")
+            sections += 1
+        }
+        if (error_container.count != 0) {
+            self.not_empty_list.append("error_container")
+            sections += 1
+        }
+        return sections
+    }
+    
+    func returnSectionName(withIndex: Int) -> String {
+        switch not_empty_list[withIndex] {
+        case "installs":
+            return "Install Queue:"
+        case "removes":
+            return "Remove Queue:"
+        case "f_installs":
+            return "FORCE Install Queue:"
+        case "f_removes":
+            return "FORCE Remove Queue:"
+        case "dependency":
+            return "Dependency Install Queue:"
+        case "error_container":
+            return "Errors:"
+        default:
+            return self.not_empty_list[withIndex]
+        }
+    }
+    
+    func numbers_in_sections_which_not_empty(withIndexSection: Int) -> Int {
+        if (withIndexSection + 1 == self.not_empty_list.count) {
+            return self.error_container.count
+        }
+        switch not_empty_list[withIndexSection] {
+        case "installs":
+            return self.installs.count
+        case "removes":
+            return self.removes.count
+        case "f_installs":
+            return self.f_installs.count
+        case "f_removes":
+            return self.f_removes.count
+        case "dependency":
+            return self.dependency.count
+        case "error_container":
+            return self.error_container.count
+        default:
+            return 0
+        }
+    }
+    
+    func get_name_of_package(section: Int, index: Int) -> String? {
+        if (section + 1 == self.not_empty_list.count) {
+            return self.error_container[index]
+        }
+        let package: packages_C
+        switch not_empty_list[section] {
+        case "installs":
+            package = self.installs[index]
+        case "removes":
+            package = self.removes[index]
+        case "f_installs":
+            package = self.f_installs[index]
+        case "f_removes":
+            package = self.f_removes[index]
+        case "dependency":
+            package = self.dependency[index]
+        case "error_container":
+            return self.error_container[index]
+        default:
+            abort()
+        }
+        if (package.info["NAME"] != nil && package.info["NAME"] != "") {
+            return package.info["NAME"]
+        }
+        return package.info["PACKAGE"]
+    }
+}
+
 let Saily_FileU = Saily_File_Unit()
 class Saily_File_Unit {
     
@@ -115,23 +234,6 @@ class AFNetwork_C {
                                                 "dists/stable/main/binary-iphoneos-arm/Packages",
                                                 "dists/tangelo/main/binary-iphoneos-arm/Packages",
                                                 "Packages"]
-    
-    func download_sileo_dis(_ link: String, end_call: @escaping (String) -> ()) {
-        guard let url0 = URL.init(string: link) else { return }
-        let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Sileo,
-                               "X-Firmware" : CydiaNetwork.H_Firmware,
-                               "X-Unique-ID" : CydiaNetwork.H_UDID,
-                               "X-Machine" : CydiaNetwork.H_Machine,
-                               "Accept" : "*/*",
-                               "Accept-Language" : "zh-CN,en,*",
-                               "Accept-Encoding" : "gzip, deflate"]
-        print("[*] Attempt to connect for: " + url0.absoluteString + " For details")
-        AF.request(url0, headers: h).responseJSON { (data_respond) in
-            if let data_j = data_respond.data {
-                abort()
-            }
-        }
-    }
     
     func search_release_path_at_return(_ major_link: String, cache_release_link: String, end_call: @escaping (Int) -> ()) {
         if (Saily_FileU.exists(file_path: cache_release_link)) {
@@ -258,9 +360,5 @@ class AFNetwork_C {
             }
         }
     }
-    
-}
-
-struct sileo_return {
     
 }

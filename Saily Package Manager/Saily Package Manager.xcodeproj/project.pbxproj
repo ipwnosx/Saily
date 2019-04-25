@@ -79,7 +79,7 @@
 		ABE66B7E2269DB6500375C3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7C2269DB6500375C3E /* Main.storyboard */; };
 		ABE66B802269DB6500375C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B7F2269DB6500375C3E /* Assets.xcassets */; };
 		ABE66B832269DB6500375C3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE66B812269DB6500375C3E /* LaunchScreen.storyboard */; };
-		ABE66BC52269DBE300375C3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE66BC42269DBE300375C3E /* main.swift */; };
+		ABE66BC52269DBE300375C3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE66BC42269DBE300375C3E /* main.m */; };
 		ABE66BD92269DFF800375C3E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = ABE66BD82269DFF800375C3E /* Podfile */; };
 		ABF45AAE2271AF9D00CBFA1C /* mafumafu.png in Resources */ = {isa = PBXBuildFile; fileRef = ABF45AAD2271AF9C00CBFA1C /* mafumafu.png */; };
 		BBCBFFB48D45123B5260D7B2 /* libPods-Daemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAF66B95A838CF3C5B7BFC5 /* libPods-Daemon.a */; };
@@ -178,7 +178,7 @@
 		ABE66BBB2269DBE300375C3E /* Daemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Daemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE66BBF2269DBE300375C3E /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		ABE66BC02269DBE300375C3E /* monkeydev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = monkeydev.entitlements; sourceTree = "<group>"; };
-		ABE66BC42269DBE300375C3E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		ABE66BC42269DBE300375C3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ABE66BD32269DCC200375C3E /* com.lakr233.jw.SailyStartupDaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.lakr233.jw.SailyStartupDaemon.plist; sourceTree = "<group>"; };
 		ABE66BD42269DCED00375C3E /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text; path = postinst; sourceTree = "<group>"; };
 		ABE66BD52269DCED00375C3E /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text; path = prerm; sourceTree = "<group>"; };
@@ -186,6 +186,7 @@
 		ABE66BD72269DCED00375C3E /* preinst */ = {isa = PBXFileReference; lastKnownFileType = text; path = preinst; sourceTree = "<group>"; };
 		ABE66BD82269DFF800375C3E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ABF45AAD2271AF9C00CBFA1C /* mafumafu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mafumafu.png; sourceTree = "<group>"; };
+		ABF45AAF2271B3A500CBFA1C /* .bartycrouch.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .bartycrouch.toml; sourceTree = SOURCE_ROOT; };
 		D53548BC166D17B37EFB5750 /* Pods-Saily Package Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.debug.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -349,6 +350,7 @@
 				ABB6B1EA2269E9030034FFF5 /* Objective-C */,
 				ABE66B7C2269DB6500375C3E /* Main.storyboard */,
 				ABE66B812269DB6500375C3E /* LaunchScreen.storyboard */,
+				ABF45AAF2271B3A500CBFA1C /* .bartycrouch.toml */,
 				ABE66B7F2269DB6500375C3E /* Assets.xcassets */,
 				ABE66B842269DB6500375C3E /* Info.plist */,
 				AB153AFA2270C83F0084D365 /* Localizable.strings */,
@@ -399,7 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				ABE66BC02269DBE300375C3E /* monkeydev.entitlements */,
-				ABE66BC42269DBE300375C3E /* main.swift */,
+				ABE66BC42269DBE300375C3E /* main.m */,
 				ABE66BBD2269DBE300375C3E /* Package */,
 			);
 			path = Daemon;
@@ -498,6 +500,7 @@
 				ABE66BB72269DBE300375C3E /* Sources */,
 				ABE66BB82269DBE300375C3E /* Frameworks */,
 				ABE66BB92269DBE300375C3E /* ShellScript */,
+				AB0DA4AB2271DBCA00633B30 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -686,6 +689,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AB0DA4AB2271DBCA00633B30 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr/bin\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library/LaunchDaemons\"\n\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/postinst\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/postrm\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/preinst\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/prerm\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/Library/LaunchDaemons/com.lakr233.jw.SailyStartupDaemon.plist\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library/LaunchDaemons/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/Package/DEBIAN/control\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\n\ncp $BUILT_PRODUCTS_DIR/Daemon \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr/bin/SailyStartupDaemon\"\n\ncd \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\n\nrm -f \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/SailyStartupDaemon.deb\"\ndpkg -b ./ ../SailyStartupDaemon.deb\n\nsshpass -p 'TESTdevice' root@192.168.6.85 rm -rf /var/root/MonkeyDevBuilds/\nsshpass -p 'TESTdevice' scp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/SailyStartupDaemon.deb\" root@192.168.6.85:/var/root/MonkeyDevBuilds/\n";
+		};
 		ABE66BB62269DBA000375C3E /* Add Build Version */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -788,7 +808,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABE66BC52269DBE300375C3E /* main.swift in Sources */,
+				ABE66BC52269DBE300375C3E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,15 +1028,19 @@
 				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
 				INSTALL_PATH = /usr/bin;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
-				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevBuildPackageOnAnyBuild = YES;
 				MonkeyDevClearUiCacheOnInstall = NO;
-				MonkeyDevCopyOnBuild = NO;
-				MonkeyDevDeviceIP = "";
+				MonkeyDevCopyOnBuild = YES;
+				MonkeyDevDeviceIP = 192.168.6.85;
 				MonkeyDevDevicePassword = "";
-				MonkeyDevDevicePort = "";
-				MonkeyDevInstallOnAnyBuild = YES;
-				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevDevicePort = 22;
+				MonkeyDevInstallOnAnyBuild = NO;
+				MonkeyDevInstallOnProfiling = NO;
 				MonkeyDevPath = /opt/MonkeyDev;
 				MonkeyDevTheosPath = /opt/theos;
 				MonkeyDevkillProcessOnInstall = "";
@@ -1051,21 +1075,26 @@
 				HEADER_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/include/**";
 				INSTALL_PATH = /usr/bin;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(MonkeyDevTheosPath)/vendor/lib/**";
-				MonkeyDevBuildPackageOnAnyBuild = NO;
+				MonkeyDevBuildPackageOnAnyBuild = YES;
 				MonkeyDevClearUiCacheOnInstall = NO;
-				MonkeyDevCopyOnBuild = NO;
-				MonkeyDevDeviceIP = "";
+				MonkeyDevCopyOnBuild = YES;
+				MonkeyDevDeviceIP = 192.168.6.85;
 				MonkeyDevDevicePassword = "";
-				MonkeyDevDevicePort = "";
-				MonkeyDevInstallOnAnyBuild = YES;
-				MonkeyDevInstallOnProfiling = YES;
+				MonkeyDevDevicePort = 22;
+				MonkeyDevInstallOnAnyBuild = NO;
+				MonkeyDevInstallOnProfiling = NO;
 				MonkeyDevPath = /opt/MonkeyDev;
 				MonkeyDevTheosPath = /opt/theos;
 				MonkeyDevkillProcessOnInstall = "";
 				OTHER_CFLAGS = "-DTHEOS_INSTANCE_NAME=\"\\\"Daemon\\\"\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

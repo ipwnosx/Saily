@@ -209,10 +209,10 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
         let scx = self.view.bounds.width
         let scy = self.view.bounds.height
         
-        if (indexPath.row == 0) {
+        if (indexPath.row == Saily.discover_root.count) {
             new?.discover_index = -666
         }else{
-            new?.discover_index = indexPath.row - 1
+            new?.discover_index = indexPath.row
         }
         
         if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {

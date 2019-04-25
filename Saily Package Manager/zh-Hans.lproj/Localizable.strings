@@ -41,3 +41,5 @@
 "Do you want to add this url as a repo?\n\n" = "你想要把这个链接当作软件源地址添加到自己的仓库吗？";
 "Add Queue" = "添加队列";
 "No description found within the database." = "这个软件包似乎没有携带任何描述信息。。🧐";
+"Dependency:" = "先决依赖：";
+"Install Queue:" = "安装队列：";

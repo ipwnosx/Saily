@@ -25,6 +25,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var desc: UITextView!
     @IBOutlet weak var container_info_view: UIView!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var desc_hight: NSLayoutConstraint!
     
     var finish_load = false
     
@@ -35,7 +36,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         
         self.title = "⁠ ⁠Package 📦💨".localized
         
-        button.setRadius(radius: 15)
+        button.setRadius(radius: 14)
         button.snp.makeConstraints { (c) in
             c.centerY.equalTo(self.Imager.snp.centerY)
         }
@@ -62,8 +63,12 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         let str = "Version: ".localized() + (this_package?.info["VERSION"] ?? "nil") + "\n"
         
         desc.text = str + (this_package?.info["DESCRIPTION"] ?? "No description found within the database.".localized())
+        desc_hight.constant = desc.contentSize.height;
         
         container_info_view.addShadow(ofColor: .gray, radius: 6, offset: CGSize(width: 0, height: 0), opacity: 0.5)
+        self.container.bringSubviewToFront(container_info_view)
+        
+        this_web_is_tall.constant = self.view.bounds.height * 0.46
         
         guard let depiction = self.this_package?.info["DEPICTION"] else {
             let non_view = UIImageView()
@@ -175,6 +180,12 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         this_Web!.load(customRequest)
     }
     
+    @IBAction func add_queue(_ sender: Any) {
+        self.button.setTitle("队列中", for: .normal)
+        self.button.isEnabled = false
+        Saily.operation_container.put_a_tweak(self.this_package!, force: false)
+    }
+    
     // MARK: - WKNavigationDelegate
     var loadUrl = URL(string: "https://www.google.com/")!
     var is_from_ab_cydia = false
@@ -207,15 +218,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         loading_view.stopAnimating()
         
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

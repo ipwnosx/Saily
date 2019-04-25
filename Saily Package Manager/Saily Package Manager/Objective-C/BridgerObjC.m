@@ -25,6 +25,7 @@
 }
 
 - (void)callToDaemonWith:(NSString *)Str {
+    NSLog(@"[*] Call to daemon with notify str: %@", Str);
     notify_post([Str UTF8String]);
 }
 
@@ -39,8 +40,6 @@
 
 // https://github.com/shaojiankui/iOS-UDID-Safari
 - (void)doUDID:(NSString *)UDIDSavePath {
-    
-    // Override point for customization after application launch.
     SFWebServer *server = [SFWebServer startWithPort:6699];
     [server router:@"GET" path:@"/udid.do" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
         NSString *config = [[NSBundle mainBundle] pathForResource:@"udid" ofType:@"mobileconfig"];
@@ -48,7 +47,6 @@
         response.contentType =  @"application/x-apple-aspen-config";
         return response;
     }];
-    
     [server router:@"POST" path:@"/receive.do" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
         
         NSString *raw = [[NSString  alloc]initWithData:request.rawData encoding:NSISOLatin1StringEncoding];
@@ -72,6 +70,22 @@
     }];
 }
 
+- (void)ensureDaemonSocketAt:(NSInteger)port :(NSString *)client_session_token :(NSString *)server_session_token_save_place {
+    SFWebServer *daemonServer = [SFWebServer startWithPort:port];
+    [daemonServer router:@"POST" path:@"/session_token_exchange" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
+        NSString *raw = [[NSString  alloc]initWithData:request.rawData encoding:NSUTF8StringEncoding];
+        NSLog(@"[*] Reading Session Token: %@", raw);
+        [NSFileManager.defaultManager createFileAtPath:server_session_token_save_place contents:[raw dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+        SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:@"Success."];
+        response.statusCode = 200;
+        return response;
+    }];
+    [daemonServer router:@"GET" path:@"/session_token_query" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
+        NSLog(@"[*] Sending Session Token: %@", client_session_token);
+        SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:client_session_token];
+        return response;
+    }];
+}
     
 - (NSData *)unGzip:(NSData *)data {
     return [data gunzippedData];
