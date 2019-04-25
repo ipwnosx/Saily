@@ -93,20 +93,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } // visual effects
         
         // open socket on port
-        Saily.objc_bridge.ensureDaemonSocket(at: XPC_ins.session_port, XPC_ins.session_token, Saily.files.server_token)
+        Saily.objc_bridge.ensureDaemonSocket(at: XPC_ins.session_port, XPC_ins.session_token, Saily.files.root)
         
-        Saily.objc_bridge.callToDaemon(with: "com.Saily.respring")
+//        Saily.objc_bridge.callToDaemon(with: "com.Saily.respring")
         
         // call to daemon
-        Saily.objc_bridge.callToDaemon(with: "com.Saily.session.init.start_read_port")
+        Saily.objc_bridge.callToDaemon(with: "com.Saily.begin_port")
         
         for item in XPC_ins.session_port.description {
-            let call_str = "com.Saily.session.init.addport." + item.description
+            let call_str = "com.Saily.addport_" + item.description
             Saily.objc_bridge.callToDaemon(with: call_str)
             usleep(1000)
         }
-        Saily.objc_bridge.callToDaemon(with: "com.Saily.session.init.end_read_port")
+        Saily.objc_bridge.callToDaemon(with: "com.Saily.end_port")
         
+        Saily_FileU.simple_write(file_path: Saily.files.queue_root + "/command", file_content: "dpkg -l &> " + Saily.files.queue_root + "/dpkgl.out")
+        Saily.objc_bridge.callToDaemon(with: "com.Saily.run_command")
+        
+        Saily.operation_quene.network_queue.asyncAfter(deadline: .now() + 3) {
+            if let dpkgread = Saily_FileU.simple_read(Saily.files.queue_root + "/dpkgl.out") {
+                print("\n\n\n[*] Daemon online~~ yayayayaa!")
+                print("[*] START DPKG STATUS ---------------------------------------")
+                print(dpkgread)
+                print("[*] END DPKG STATUS ---------------------------------------\n\n\n")
+            }
+        }
         
         return true
     }

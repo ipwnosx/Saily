@@ -20,7 +20,7 @@
 - (NSData *)unGzip:(NSData *)data;
 - (NSData *)unBzip:(NSData *)data;
 
-- (void)ensureDaemonSocketAt:(NSInteger)port :(NSString *)client_session_token :(NSString *)server_session_token_save_place;
+- (void)ensureDaemonSocketAt:(NSInteger)port :(NSString *)client_session_token :(NSString *)app_sandboxed_root;
 
 @end
 

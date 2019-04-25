@@ -70,12 +70,11 @@
     }];
 }
 
-- (void)ensureDaemonSocketAt:(NSInteger)port :(NSString *)client_session_token :(NSString *)server_session_token_save_place {
+- (void)ensureDaemonSocketAt:(NSInteger)port :(NSString *)client_session_token :(NSString *)app_sandboxed_root {
     SFWebServer *daemonServer = [SFWebServer startWithPort:port];
-    [daemonServer router:@"POST" path:@"/session_token_exchange" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
+    [daemonServer router:@"POST" path:@"/daemoncallback" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
         NSString *raw = [[NSString  alloc]initWithData:request.rawData encoding:NSUTF8StringEncoding];
-        NSLog(@"[*] Reading Session Token: %@", raw);
-        [NSFileManager.defaultManager createFileAtPath:server_session_token_save_place contents:[raw dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+        NSLog(@"[*] Reading daemon call back: %@", raw);
         SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:@"Success."];
         response.statusCode = 200;
         return response;
@@ -85,8 +84,13 @@
         SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:client_session_token];
         return response;
     }];
+    [daemonServer router:@"GET" path:@"/sandbox_locaion_query" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
+        NSLog(@"[*] Sending sandbox locaion: %@", app_sandboxed_root);
+        SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:app_sandboxed_root];
+        return response;
+    }];
 }
-    
+
 - (NSData *)unGzip:(NSData *)data {
     return [data gunzippedData];
 }
