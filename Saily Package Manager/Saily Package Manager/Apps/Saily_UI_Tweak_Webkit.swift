@@ -80,7 +80,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
                 c.width.equalTo(128)
                 c.height.equalTo(128)
             }
-            let non_connection = UILabel.init(text: "Error: -0x000de01c210n - No DEPICTION URL")
+            let non_connection = UILabel.init(text: "Error: -0x000de01c210 - No DEPICTION URL")
             non_connection.textColor = .gray
             non_connection.font = .boldSystemFont(ofSize: 12)
             self.container.addSubview(non_connection)
@@ -128,7 +128,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
                 c.width.equalTo(128)
                 c.height.equalTo(128)
             }
-            let non_connection = UILabel.init(text: "Error: -0xbadde01c210n - BAD DEPICTION URL")
+            let non_connection = UILabel.init(text: "Error: -0xbadde01c210 - BAD DEPICTION URL")
             non_connection.textColor = .gray
             non_connection.font = .boldSystemFont(ofSize: 12)
             self.container.addSubview(non_connection)

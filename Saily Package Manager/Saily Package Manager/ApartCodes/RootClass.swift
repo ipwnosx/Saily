@@ -48,13 +48,14 @@ class Saily_All {
     // Magic:
     public var copy_board                                       = String()
     public var copy_board_can_use                               = false
+    public var daemon_online    = false
     // One More ThingS
     public var app_web_site                                     = "https://twitter.com/TrySaily"
     
     
     func apart_init() {
         
-//        self.objc_bridge.redirectConsoleLogToDocumentFolder()
+        self.objc_bridge.redirectConsoleLogToDocumentFolder()
         
         let locale = NSLocale.preferredLanguages
         print(locale)
@@ -282,8 +283,6 @@ class Saily_file_system {
     public var repo_cache       = String()
     public var queue_root       = String()
     public var image_cache      = String()
-    
-    public var daemon_online    = false
     
     func apart_init() {
         self.root = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]

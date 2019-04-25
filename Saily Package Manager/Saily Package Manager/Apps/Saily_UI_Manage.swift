@@ -9,7 +9,64 @@ import UIKit
 
 import FloatingPanel
 
-class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate {
+class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITableViewDelegate, UITableViewDataSource{
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var data_source = [String]()
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data_source.count + 2
+    }
+    
+    var cells_identify_index = 0
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell_id = UUID().uuidString + cells_identify_index.description;
+        cells_identify_index += 1
+        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: cell_id)
+        
+        if (indexPath.row > data_source.count - 1) {
+            return cell
+        }
+        
+        cell.textLabel?.text = "         " + data_source[indexPath.row].split(separator: " ")[1].description
+        if (data_source[indexPath.row].split(separator: " ").count >= 3) {
+            var index = 0
+            var read = ""
+            for item in data_source[indexPath.row].split(separator: " ") {
+                if (index < 3) {
+                    index += 1
+                }else{
+                    read = read + " " + item.description
+                }
+            }
+            cell.detailTextLabel?.text = "            " + read.dropFirst().description
+        }else{
+            cell.detailTextLabel?.text = "No description"
+        }
+        
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "tweakIcon.png")
+        cell.addSubview(imageView)
+        imageView.snp.makeConstraints { (c) in
+            c.top.equalTo(cell.contentView.snp.top).offset(14)
+            c.right.equalTo(cell.textLabel!.snp.left).offset(26)
+            c.width.equalTo(28)
+            c.height.equalTo(28)
+        }
+        let next = UIImageView()
+        next.image = #imageLiteral(resourceName: "next.png")
+        cell.addSubview(next)
+        next.snp.makeConstraints { (c) in
+            c.top.equalTo(cell.contentView.snp.top).offset(23)
+            c.right.equalTo(cell.snp.right).offset(-16)
+            c.width.equalTo(14)
+            c.height.equalTo(14)
+        }
+        
+        return cell
+    }
+    
 
     var fpc: FloatingPanelController!
     var setting_plane: Saily_UI_Settings!
@@ -56,6 +113,42 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (Saily.daemon_online) {
+            if let dpkgread = Saily_FileU.simple_read(Saily.files.queue_root + "/dpkgl.out") {
+                let splited = dpkgread.split(separator: "\n").dropFirst(5)
+                for item in splited {
+                    if (item.description.uppercased().contains("iphoneos-arm virtual GraphicsServices dependency".uppercased())) {
+                        // DANGEROUS PACKAGE
+                    }else{
+                        self.data_source.append(item.description)
+                    }
+                }
+            }
+        }else{
+            self.tableView.separatorColor = .clear
+            let image = UIImageView.init(image: #imageLiteral(resourceName: "mafumafu_dead_rul.png"))
+            image.contentMode = .scaleAspectFit
+            self.view.addSubview(image)
+            image.snp.makeConstraints { (x) in
+                x.center.equalTo(self.view)
+                x.width.equalTo(128)
+                x.height.equalTo(128)
+            }
+            let non_connection = UILabel.init(text: "Error: - 0xbadacce44dae880\nBAD LAUNCH DAEMON STATUS")
+            non_connection.textColor = .gray
+            non_connection.numberOfLines = 2
+            non_connection.textAlignment = .center
+            non_connection.font = .boldSystemFont(ofSize: 12)
+            self.view.addSubview(non_connection)
+            non_connection.snp.makeConstraints { (x) in
+                x.centerX.equalTo(self.view.snp.centerX)
+                x.top.equalTo(image.snp.bottom).offset(28)
+            }
+        }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         setup_setting()
         

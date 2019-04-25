@@ -106,19 +106,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             usleep(1000)
         }
         Saily.objc_bridge.callToDaemon(with: "com.Saily.end_port")
-        
+        try? FileManager.default.removeItem(atPath: Saily.files.queue_root + "/dpkgl.out")
         Saily_FileU.simple_write(file_path: Saily.files.queue_root + "/command", file_content: "dpkg -l &> " + Saily.files.queue_root + "/dpkgl.out")
         Saily.objc_bridge.callToDaemon(with: "com.Saily.run_command")
         
-        Saily.operation_quene.network_queue.asyncAfter(deadline: .now() + 3) {
+        Saily.operation_quene.network_queue.asyncAfter(deadline: .now() + 1) {
             if let dpkgread = Saily_FileU.simple_read(Saily.files.queue_root + "/dpkgl.out") {
                 print("\n\n\n[*] Daemon online~~ yayayayaa!")
                 print("[*] START DPKG STATUS ---------------------------------------")
                 print(dpkgread)
+                Saily.daemon_online = true
                 print("[*] END DPKG STATUS ---------------------------------------\n\n\n")
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                UIApplication.shared.endIgnoringInteractionEvents()
+            })
         }
-        
+        UIApplication.shared.beginIgnoringInteractionEvents()
         return true
     }
 

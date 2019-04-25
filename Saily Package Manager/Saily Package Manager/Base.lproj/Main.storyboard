@@ -557,8 +557,8 @@ Lakr Aream 2019.4</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tH3-kP-xPX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Installed" image="installed.png" id="Dzf-qB-mqu"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="3uQ-fb-uBr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3uQ-fb-uBr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -577,14 +577,29 @@ Lakr Aream 2019.4</string>
                     <view key="view" contentMode="scaleToFill" id="UpB-X5-wak">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ahl-3Y-TSo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ahl-3Y-TSo" firstAttribute="leading" secondItem="UpB-X5-wak" secondAttribute="leading" id="KXm-Xq-HGm"/>
+                            <constraint firstAttribute="trailing" secondItem="ahl-3Y-TSo" secondAttribute="trailing" id="QTm-Hu-Q1e"/>
+                            <constraint firstItem="ahl-3Y-TSo" firstAttribute="top" secondItem="UpB-X5-wak" secondAttribute="top" id="ZRm-SV-GRZ"/>
+                            <constraint firstAttribute="bottom" secondItem="ahl-3Y-TSo" secondAttribute="bottom" id="hCa-6F-S7d"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="muB-hV-mdS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Manage" id="2Jz-yA-Gga"/>
+                    <connections>
+                        <outlet property="tableView" destination="ahl-3Y-TSo" id="kTG-9f-HbP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mf-Ue-7am" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="805"/>
+            <point key="canvasLocation" x="0.0" y="804.91071428571422"/>
         </scene>
     </scenes>
     <resources>
