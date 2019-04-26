@@ -61,12 +61,24 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         }
         self.view.addSubview(loading_view)
         loading_view.snp.makeConstraints { (c) in
-            c.bottom.equalTo(self.view.snp.bottom).offset(-18 - (self.tabBarController?.tabBar.bounds.height ?? 8))
-            c.right.equalTo(self.view.snp.right).offset(-18)
+            if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased()) && UIScreen.main.bounds.width > UIScreen.main.bounds.height) {
+                c.bottom.equalTo(self.view.snp.bottom).offset(-55)
+            }else{
+                c.bottom.equalTo(self.view.snp.bottom).offset(-18 - (self.tabBarController?.tabBar.bounds.height ?? 8))
+            }
+            c.right.equalTo(self.view.snp.right).offset(-23)
             c.width.equalTo(23)
             c.height.equalTo(23)
         }
         loading_view.startAnimating()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.233) {
+            if (Saily.discover_root[self.discover_index].tweak_id != "") {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.show_tweaks()
+                }
+            }
+        }
     }
     
     var tweak_view = UIView()
@@ -221,11 +233,6 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         })
         
         loading_view.stopAnimating()
-        if (Saily.discover_root[self.discover_index].tweak_id != "") {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.show_tweaks()
-            }
-        }
         
     }
     
