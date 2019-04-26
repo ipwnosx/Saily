@@ -48,10 +48,10 @@ class Saily_All {
     // Magic:
     public var copy_board                                       = String()
     public var copy_board_can_use                               = false
-    public var daemon_online    = false
+    public var daemon_online                                    = false
     // One More ThingS
     public var app_web_site                                     = "https://twitter.com/TrySaily"
-    
+    public var searched_packages                                = [String : packages_C]()
     
     func apart_init() {
         
@@ -271,6 +271,19 @@ class Saily_All {
         }
     }
     
+    func search_a_package_with(its_name: String) -> packages_C? {
+        if let item = self.searched_packages[its_name] {
+            return item
+        }
+        for item in self.root_packages {
+            if (item.info["PACKAGE"] == its_name) {
+                self.searched_packages[its_name] = item
+                return item
+            }
+        }
+        return nil
+    }
+    
 }
 
 // This session, contains sandboxed file paths
@@ -282,6 +295,7 @@ class Saily_file_system {
     public var repo_list_signal = String()
     public var repo_cache       = String()
     public var queue_root       = String()
+    public var daemon_root       = String()
     public var image_cache      = String()
     
     func apart_init() {
@@ -293,12 +307,14 @@ class Saily_file_system {
         self.repo_cache = self.root + "/repo.cache"
         self.queue_root = self.root + "/queue.submit"
         self.image_cache = self.root + "/image.cache"
+        self.daemon_root = self.root + "/daemon.call"
         
         Saily_FileU.make_sure_file_exists_at(self.udid, is_direct: false)
         Saily_FileU.make_sure_file_exists_at(self.repo_list, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.repo_cache, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.queue_root, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.image_cache, is_direct: true)
+        Saily_FileU.make_sure_file_exists_at(self.daemon_root, is_direct: true)
         
         print("[*] File System Apart Init root = " + self.root)
         print("[*] File System Apart Init udid = " + self.udid)
@@ -307,6 +323,7 @@ class Saily_file_system {
         print("[*] File System Apart Init repo_list signal = " + self.repo_list_signal)
         print("[*] File System Apart Init queue_root = " + self.queue_root)
         print("[*] File System Apart Init image_cache = " + self.image_cache)
+        print("[*] File System Apart Init image_cache = " + self.daemon_root)
         
     }
 }

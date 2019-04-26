@@ -19,8 +19,9 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var Imager: UIImageView!
     @IBOutlet weak var this_Web: WKWebView!
     @IBOutlet weak var this_web_is_tall: NSLayoutConstraint!
+    @IBOutlet weak var this_name_is_talll: NSLayoutConstraint!
     @IBOutlet weak var bundleID: UILabel!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var name: UITextView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var desc: UITextView!
     @IBOutlet weak var container_info_view: UIView!
@@ -28,6 +29,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var desc_hight: NSLayoutConstraint!
     
     var finish_load = false
+    var installed = false
     
     let loading_view = NVActivityIndicatorView(frame: CGRect(), type: .circleStrokeSpin, color: #colorLiteral(red: 0.01864526048, green: 0.4776622653, blue: 1, alpha: 1), padding: nil)
     
@@ -52,8 +54,8 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         
         this_Web.navigationDelegate = self
         
-        name.lineBreakMode = .byWordWrapping
         name.text = this_package?.info["NAME"] ?? "No Name Boy".localized()
+        this_name_is_talll.constant = name.contentSize.height
         
         icon.image = #imageLiteral(resourceName: "tweaksss.png")
 //        icon.backgroundColor = .white
@@ -64,6 +66,13 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         
         desc.text = str + (this_package?.info["DESCRIPTION"] ?? "No description found within the database.".localized())
         desc_hight.constant = desc.contentSize.height;
+        
+        for item in Saily.root_packages {
+            if (item.info["PACKAGE"] == self.this_package?.info["PACKAGE"]) {
+                button.setTitle("Remove".localized(), for: .normal)
+                self.installed = true
+            }
+        }
         
         container_info_view.addShadow(ofColor: .gray, radius: 6, offset: CGSize(width: 0, height: 0), opacity: 0.5)
         self.container.bringSubviewToFront(container_info_view)
@@ -112,7 +121,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
             this_Web.scrollView.isScrollEnabled = false
             self.view.addSubview(loading_view)
             loading_view.snp.makeConstraints { (c) in
-                c.centerX.equalTo(self.this_Web.snp.centerX)
+                c.right.equalTo(self.this_Web.snp.right).offset(-52)
                 c.top.equalTo(self.this_Web.snp.top).offset(-10)
                 c.width.equalTo(23)
                 c.height.equalTo(23)

@@ -59,7 +59,8 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         }
         self.view.addSubview(loading_view)
         loading_view.snp.makeConstraints { (c) in
-            c.center.equalTo(self.view.snp.center)
+            c.top.equalTo(self.view.snp.top).offset(18)
+            c.right.equalTo(self.view.snp.right).offset(-18)
             c.width.equalTo(23)
             c.height.equalTo(23)
         }

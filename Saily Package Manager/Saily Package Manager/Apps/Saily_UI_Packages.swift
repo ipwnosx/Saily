@@ -82,7 +82,7 @@ class Saily_UI_Packages: UITableViewController, UISearchControllerDelegate, UISe
         }else{
             cell.textLabel?.text = "         " + (data_source[indexPath.row].info["Name".uppercased()] ?? "")
         }
-        cell.detailTextLabel?.text = "            " + (data_source[indexPath.row].info["FILENAME".uppercased()] ?? "")
+        cell.detailTextLabel?.text = "            " + (data_source[indexPath.row].info["Description".uppercased()] ?? "No Description Available".localized())
         cell.detailTextLabel?.textColor = .lightGray
         
         let imageView = UIImageView()

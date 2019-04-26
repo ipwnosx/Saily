@@ -28,7 +28,20 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITabl
         if (indexPath.row > data_source.count - 1) {
             return cell
         }
-        
+        DispatchQueue.main.async {
+            if let this_package = Saily.search_a_package_with(its_name: self.data_source[indexPath.row].split(separator: " ")[1].description) {
+                if let name = this_package.info["NAME"] {
+                    cell.textLabel?.text = "         " + name
+                }else{
+                    if let name2 = this_package.info["PACKAGE"] {
+                        cell.textLabel?.text = "         " + name2
+                    }
+                }
+                if let des = this_package.info["DESCRIPTION"] {
+                    cell.detailTextLabel?.text = "            " + des
+                }
+            }
+        }
         cell.textLabel?.text = "         " + data_source[indexPath.row].split(separator: " ")[1].description
         if (data_source[indexPath.row].split(separator: " ").count >= 3) {
             var index = 0
@@ -42,7 +55,7 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITabl
             }
             cell.detailTextLabel?.text = "            " + read.dropFirst().description
         }else{
-            cell.detailTextLabel?.text = "No description"
+            cell.detailTextLabel?.text = "            " + "No description found within the database.".localized()
         }
         
         let imageView = UIImageView()
@@ -67,7 +80,25 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITabl
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let package = Saily.search_a_package_with(its_name: data_source[indexPath.row].split(separator: " ")[1].description) {
+            let storyboard_ins = UIStoryboard(name: "Main", bundle: nil)
+            
+            //        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
+            //            let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Native_ID") as? Saily_UI_Tweak_Native
+            //            sb?.this_package = package
+            //            self.navigationController?.pushViewController(sb!)
+            //            print("[*] Pushing to native controller.")
+            //            return
+            //        }
+            let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Webkit_ID") as? Saily_UI_Tweak_Webkit
+            sb?.this_package = package
+            self.navigationController?.pushViewController(sb!)
+            print("[*] Pushing to WebKit controller.")
+        }
+    }
+    
     var fpc: FloatingPanelController!
     var setting_plane: Saily_UI_Settings!
     
@@ -115,7 +146,7 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITabl
         super.viewDidLoad()
         
         if (Saily.daemon_online) {
-            if let dpkgread = Saily_FileU.simple_read(Saily.files.queue_root + "/dpkgl.out") {
+            if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
                 let splited = dpkgread.split(separator: "\n").dropFirst(5)
                 for item in splited {
                     if (item.description.uppercased().contains("iphoneos-arm virtual GraphicsServices dependency".uppercased())) {

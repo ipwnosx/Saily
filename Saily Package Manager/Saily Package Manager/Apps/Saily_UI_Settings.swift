@@ -26,7 +26,7 @@ class Saily_UI_Settings: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        table_view_is_tall.constant = self.view.bounds.height * 0.25
+        table_view_is_tall.constant = self.view.bounds.height - (self.tabBarController?.tabBar.bounds.height ?? 88) - (self.navigationController?.navigationBar.bounds.height ?? 88) - 88
         tableview.reloadData()
     }
 

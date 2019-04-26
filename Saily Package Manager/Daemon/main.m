@@ -134,10 +134,15 @@ static void run_command(CFNotificationCenterRef center, void *observer, CFString
 {
     NSString *com = [[NSString alloc] initWithContentsOfFile:[[NSString alloc]initWithFormat:@"%@/queue.submit/command", saily_root] encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"[*] End reading command with result %@", com);
+    NSLog(@"[E] Run command notify is deprecated.");
+    //    run_cmd([com UTF8String]);
+}
+static void list_dpkg(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    NSString *com = [[NSString alloc] initWithFormat:@"dpkg -l &> %@/daemon.call/dpkgl.out", saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
     run_cmd([com UTF8String]);
 }
-
-
 
 int main(int argc, char **argv, char **envp)
 {
@@ -156,6 +161,7 @@ int main(int argc, char **argv, char **envp)
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, begin_port, CFSTR("com.Saily.begin_port"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, end_port, CFSTR("com.Saily.end_port"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, run_command, CFSTR("com.Saily.run_command"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, list_dpkg, CFSTR("com.Saily.list_dpkg"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     
     CFRunLoopRun(); // keep it running in background
     return 0;

@@ -269,38 +269,41 @@
                                                     <constraint firstAttribute="width" constant="88" id="dlT-4x-CaB"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saily Package Manager" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="iOt-Gy-YLV">
-                                                <rect key="frame" x="22" y="32" width="361" height="69"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gMi-x8-IXf">
-                                                <rect key="frame" x="22" y="113" width="370" height="69"/>
+                                                <rect key="frame" x="22" y="107" width="370" height="75"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="F2C-OE-Sqx"/>
+                                                </constraints>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Lorem ipsum dolor" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRn-dY-ugM">
+                                                <rect key="frame" x="22" y="38" width="370" height="69"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="69" id="a4V-cX-FTV"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="gMi-x8-IXf" firstAttribute="top" secondItem="iOt-Gy-YLV" secondAttribute="bottom" constant="12" id="5Qt-s3-wYO"/>
-                                            <constraint firstItem="iOt-Gy-YLV" firstAttribute="leading" secondItem="K0d-YQ-pvL" secondAttribute="leading" constant="22" id="AdP-q5-aM7"/>
-                                            <constraint firstAttribute="trailing" secondItem="iOt-Gy-YLV" secondAttribute="trailing" constant="31" id="EMa-0y-vF2"/>
+                                            <constraint firstAttribute="trailing" secondItem="fRn-dY-ugM" secondAttribute="trailing" constant="22" id="1rY-uc-z5T"/>
+                                            <constraint firstItem="gMi-x8-IXf" firstAttribute="top" secondItem="fRn-dY-ugM" secondAttribute="bottom" id="DDw-ga-5IJ"/>
                                             <constraint firstAttribute="bottom" secondItem="gMi-x8-IXf" secondAttribute="bottom" constant="18" id="J6n-3S-8UO"/>
-                                            <constraint firstItem="iOt-Gy-YLV" firstAttribute="top" secondItem="K0d-YQ-pvL" secondAttribute="top" constant="32" id="QMN-L9-Smu"/>
-                                            <constraint firstAttribute="bottom" secondItem="fc5-n9-xC0" secondAttribute="bottom" constant="166" id="e1V-nE-Teq"/>
+                                            <constraint firstItem="fRn-dY-ugM" firstAttribute="top" secondItem="fc5-n9-xC0" secondAttribute="bottom" constant="4" id="Jzr-Ul-fcC"/>
+                                            <constraint firstItem="fRn-dY-ugM" firstAttribute="leading" secondItem="K0d-YQ-pvL" secondAttribute="leading" constant="22" id="Oa2-iu-KeC"/>
+                                            <constraint firstItem="fc5-n9-xC0" firstAttribute="top" secondItem="K0d-YQ-pvL" secondAttribute="top" constant="-54" id="Pxb-AC-N1q"/>
                                             <constraint firstAttribute="trailing" secondItem="gMi-x8-IXf" secondAttribute="trailing" constant="22" id="fmz-7T-N1q"/>
                                             <constraint firstItem="fc5-n9-xC0" firstAttribute="leading" secondItem="K0d-YQ-pvL" secondAttribute="leading" constant="22" id="hFa-hp-wVW"/>
-                                            <constraint firstAttribute="bottom" secondItem="iOt-Gy-YLV" secondAttribute="bottom" constant="99" id="iuH-V5-Tbl"/>
                                             <constraint firstItem="gMi-x8-IXf" firstAttribute="leading" secondItem="K0d-YQ-pvL" secondAttribute="leading" constant="22" id="xhP-PE-JHs"/>
-                                            <constraint firstAttribute="height" constant="200" id="zIc-dY-xpr"/>
                                         </constraints>
                                     </view>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tit-P4-g9j">
-                                        <rect key="frame" x="0.0" y="288" width="414" height="233"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="306" width="414" height="233"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="233" id="9lO-zm-7t9"/>
                                         </constraints>
@@ -310,7 +313,7 @@
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32I-sw-Trq">
-                                        <rect key="frame" x="22" y="533" width="370" height="66"/>
+                                        <rect key="frame" x="22" y="551" width="370" height="66"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="66" id="w08-Lf-Dea"/>
                                         </constraints>
@@ -336,6 +339,7 @@ Lakr Aream 2019.4</string>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="32I-sw-Trq" firstAttribute="leading" secondItem="4Sz-w5-Jrj" secondAttribute="leading" constant="22" id="4mj-pf-cQc"/>
                                     <constraint firstItem="32I-sw-Trq" firstAttribute="centerX" secondItem="4Sz-w5-Jrj" secondAttribute="centerX" id="6uI-Di-vgb"/>
@@ -351,7 +355,7 @@ Lakr Aream 2019.4</string>
                                     <constraint firstItem="Tit-P4-g9j" firstAttribute="leading" secondItem="4Sz-w5-Jrj" secondAttribute="leading" id="k31-xg-bUx"/>
                                     <constraint firstAttribute="trailing" secondItem="e1X-a4-yzM" secondAttribute="trailing" constant="30" id="lDX-kq-4a1"/>
                                     <constraint firstItem="w1U-yf-HqI" firstAttribute="leading" secondItem="4Sz-w5-Jrj" secondAttribute="leading" id="qKv-6A-L3y"/>
-                                    <constraint firstItem="Tit-P4-g9j" firstAttribute="top" secondItem="K0d-YQ-pvL" secondAttribute="bottom" id="rXq-A3-ePH"/>
+                                    <constraint firstItem="Tit-P4-g9j" firstAttribute="top" secondItem="K0d-YQ-pvL" secondAttribute="bottom" constant="18" id="rXq-A3-ePH"/>
                                     <constraint firstAttribute="trailing" secondItem="w1U-yf-HqI" secondAttribute="trailing" id="tZ6-TT-FQV"/>
                                 </constraints>
                             </scrollView>
@@ -374,8 +378,9 @@ Lakr Aream 2019.4</string>
                         <outlet property="desc" destination="gMi-x8-IXf" id="KUr-GU-pGE"/>
                         <outlet property="desc_hight" destination="9lO-zm-7t9" id="80x-Or-mOz"/>
                         <outlet property="icon" destination="fc5-n9-xC0" id="trD-Ex-AV5"/>
-                        <outlet property="name" destination="iOt-Gy-YLV" id="2v6-A8-HNY"/>
+                        <outlet property="name" destination="fRn-dY-ugM" id="K1i-nF-igi"/>
                         <outlet property="this_Web" destination="Tit-P4-g9j" id="WLw-y2-xx1"/>
+                        <outlet property="this_name_is_talll" destination="a4V-cX-FTV" id="h5q-wM-nBU"/>
                         <outlet property="this_web_is_tall" destination="9lO-zm-7t9" id="JmW-19-FZN"/>
                     </connections>
                 </viewController>
