@@ -339,7 +339,16 @@ class a_repo {
                 }
             }
         }
-        self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section".uppercased()] ?? "! NAN Section")].add(p: this_package)
+        if (this_package.info["Package".uppercased()] != nil) {
+            for item in this_package.info {
+                var out = item.value
+                while (out.hasPrefix(" ")) {
+                    out = out.dropFirst().description
+                }
+                this_package.info[item.key] = out
+            }
+            self.section_root[self.ensure_section_and_return_index(withName: this_package.info["Section".uppercased()] ?? "! NAN Section")].add(p: this_package)
+        }
         self.sort_sections()
         end_call(status_ins.ret_success)
     }
@@ -414,7 +423,9 @@ class repo_section_C {
     }
     
     func add(p: packages_C) {
-        
+//        if (p.info["SECTION"]?.contains("系统") ?? false) {
+//            print(p.info["SECTION"]!)
+//        }
         guard let np: String = p.info["Package".uppercased()] else { return }
         if (self.packages_name_list[np] != "" && self.packages_name_list[np] != nil) {
             // package exists
