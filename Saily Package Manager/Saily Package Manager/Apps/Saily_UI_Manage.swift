@@ -7,16 +7,14 @@
 
 import UIKit
 
-import FloatingPanel
-
-class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITableViewDelegate, UITableViewDataSource{
+class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
     
     var data_source = [String]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data_source.count + 2
+        return data_source.count
     }
     
     var cells_identify_index = 0
@@ -99,48 +97,9 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITabl
         }
     }
     
-    var fpc: FloatingPanelController!
-    var setting_plane: Saily_UI_Settings!
-    
-    private let image_button = UIButton(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
-    
-    /// WARNING: Change these constants according to your project's design
-    private struct Const {
-        /// Image height/width for Large NavBar state
-        static let ImageSizeForLargeState: CGFloat = 40
-        /// Margin from right anchor of safe area to right anchor of Image
-        static let ImageRightMargin: CGFloat = 16
-        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Large NavBar state
-        static let ImageBottomMarginForLargeState: CGFloat = 12
-        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Small NavBar state
-        static let ImageBottomMarginForSmallState: CGFloat = 6
-        /// Image height/width for Small NavBar state
-        static let ImageSizeForSmallState: CGFloat = 32
-        /// Height of NavBar for Small state. Usually it's just 44
-        static let NavBarHeightSmallState: CGFloat = 44
-        /// Height of NavBar for Large state. Usually it's just 96.5 but if you have a custom font for the title, please make sure to edit this value since it changes the height for Large state of NavBar
-        static let NavBarHeightLargeState: CGFloat = 96.5
-    }
-    
-    private func setup_setting() {
-        // Initial setup for image for Large NavBar state since the the screen always has Large NavBar once it gets opened
-        guard let navigationBar = self.navigationController?.navigationBar else { return }
-        navigationBar.addSubview(image_button)
-        image_button.setImage(#imageLiteral(resourceName: "setting_blue.png"), for: .normal)
-        image_button.setImage(#imageLiteral(resourceName: "setting_gary.png"), for: .focused)
-        image_button.addTarget(self, action: #selector(push_setting), for: .touchUpInside)
-        // setup constraints
-        image_button.layer.cornerRadius = Const.ImageSizeForLargeState / 2
-        image_button.clipsToBounds = true
-        image_button.translatesAutoresizingMaskIntoConstraints = false
-        
-        image_button.snp.makeConstraints { (x) in
-            x.right.equalTo(navigationBar.snp.right).offset(-22)
-            x.bottom.equalTo(navigationBar.snp.bottom).offset(-4)
-            x.height.equalTo(38)
-            x.width.equalTo(38)
-        }
-    }
+    let dangerous_packages = ["virtual GraphicsServices dependency",
+                              "UIKit/GraphicsServices command line access",
+                              ""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,7 +108,13 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITabl
             if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
                 let splited = dpkgread.split(separator: "\n").dropFirst(5)
                 for item in splited {
-                    if (item.description.uppercased().contains("iphoneos-arm virtual GraphicsServices dependency".uppercased())) {
+                    var is_dangerous = false
+                    for i in dangerous_packages {
+                        if (item.description.uppercased().contains(i.uppercased())) {
+                            is_dangerous = true
+                        }
+                    }
+                    if (is_dangerous) {
                         // DANGEROUS PACKAGE
                     }else{
                         self.data_source.append(item.description)
@@ -181,28 +146,11 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         
-        setup_setting()
-        
-        fpc = FloatingPanelController()
-        fpc.delegate = self
-        
-        // Initialize FloatingPanelController and add the view
-        fpc.surfaceView.backgroundColor = .clear
-        fpc.surfaceView.shadowHidden = false
-        
-        
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        setting_plane = sb.instantiateViewController(withIdentifier: "Saily_UI_Settings_ID") as? Saily_UI_Settings
-        
-        // Set a content view controller
-        fpc.set(contentViewController: setting_plane)
-        fpc.track(scrollView: setting_plane?.container)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            //  Add FloatingPanel to a view with animation.
-            self.fpc.addPanel(toParent: self, animated: true)
-            self.fpc.move(to: .tip, animated: true)
-        }
+        let refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Reloading data(s)...".localized(), attributes: nil)
         
     }
 
@@ -211,37 +159,99 @@ class Saily_UI_Manage: UIViewController, FloatingPanelControllerDelegate, UITabl
         super.viewDidAppear(animated)
     }
     
-    
-    @objc func push_setting() {
-        fpc.move(to: .full, animated: true)
-    }
-    
-    func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
-        return (newCollection.verticalSizeClass == .compact) ? FloatingPanelLandscapeLayout() : nil // Returning nil indicates to use the default layout
-    }
-
-}
-
-class FloatingPanelLandscapeLayout: FloatingPanelLayout {
-    public var initialPosition: FloatingPanelPosition {
-        return .tip
-    }
-    public var supportedPositions: Set<FloatingPanelPosition> {
-        return [.full, .tip]
-    }
-    
-    public func insetFor(position: FloatingPanelPosition) -> CGFloat? {
-        switch position {
-        case .full: return 16.0
-        case .tip: return 69.0
-        default: return nil
+    @objc func refreshData(_ sender: Any) {
+        Saily.operation_quene.wrapper_queue.asyncAfter(deadline: .now() + 0.5) {
+            let ss = DispatchSemaphore(value: 0)
+            DispatchQueue.main.async {
+                UIApplication.shared.beginIgnoringInteractionEvents()
+                ss.signal()
+            }
+            ss.wait()
+            try? FileManager.default.removeItem(atPath: Saily.files.daemon_root + "/dpkgl.out")
+            if (!Saily.daemon_online) {
+                Saily.objc_bridge.ensureDaemonSocket(at: XPC_ins.session_port, XPC_ins.session_token, Saily.files.root)
+                Saily.objc_bridge.callToDaemon(with: "com.Saily.begin_port")
+                for item in XPC_ins.session_port.description {
+                    let call_str = "com.Saily.addport_" + item.description
+                    Saily.objc_bridge.callToDaemon(with: call_str)
+                    usleep(1000)
+                }
+                Saily.objc_bridge.callToDaemon(with: "com.Saily.end_port")
+            }
+            Saily.objc_bridge.callToDaemon(with: "com.Saily.list_dpkg")
+            let s = DispatchSemaphore(value: 0)
+            Saily.operation_quene.network_queue.asyncAfter(deadline: .now() + 1) {
+                if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
+                    print("\n\n\n[*] Daemon online~~ yayayayaa!")
+                    print("[*] START DPKG STATUS ---------------------------------------")
+                    print(dpkgread)
+                    Saily.daemon_online = true
+                    print("[*] END DPKG STATUS ---------------------------------------\n\n\n")
+                }else{
+                    Saily.daemon_online = false
+                }
+                s.signal()
+            }
+            s.wait()
+            self.data_source = [String]()
+            if (Saily.daemon_online) {
+                if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
+                    let splited = dpkgread.split(separator: "\n").dropFirst(5)
+                    for item in splited {
+                        var is_dangerous = false
+                        for i in self.dangerous_packages {
+                            if (item.description.uppercased().contains(i.uppercased())) {
+                                is_dangerous = true
+                            }
+                        }
+                        if (is_dangerous) {
+                            // DANGEROUS PACKAGE
+                        }else{
+                            self.data_source.append(item.description)
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                if (Saily.daemon_online) {
+                    self.tableView.separatorColor = .lightGray
+                }else{
+                    self.tableView.separatorColor = .clear
+                    
+                    for item in self.view.subviews {
+                        if let image = item as? UIImageView{
+                            image.removeSubviews()
+                        }
+                        if let label = item as? UILabel {
+                            label.removeSubviews()
+                        }
+                    }
+                    
+                    self.tableView.separatorColor = .clear
+                    let image = UIImageView.init(image: #imageLiteral(resourceName: "mafumafu_dead_rul.png"))
+                    image.contentMode = .scaleAspectFit
+                    self.view.addSubview(image)
+                    image.snp.makeConstraints { (x) in
+                        x.center.equalTo(self.view)
+                        x.width.equalTo(128)
+                        x.height.equalTo(128)
+                    }
+                    let non_connection = UILabel.init(text: "Error: - 0xbadacce44dae880\nBAD LAUNCH DAEMON STATUS")
+                    non_connection.textColor = .gray
+                    non_connection.numberOfLines = 2
+                    non_connection.textAlignment = .center
+                    non_connection.font = .boldSystemFont(ofSize: 12)
+                    self.view.addSubview(non_connection)
+                    non_connection.snp.makeConstraints { (x) in
+                        x.centerX.equalTo(self.view.snp.centerX)
+                        x.top.equalTo(image.snp.bottom).offset(28)
+                    }
+                }
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.tableView.refreshControl?.endRefreshing()
+            }
         }
     }
     
-    public func prepareLayout(surfaceView: UIView, in view: UIView) -> [NSLayoutConstraint] {
-        return [
-            surfaceView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 8.0),
-            surfaceView.widthAnchor.constraint(equalToConstant: 291),
-        ]
-    }
 }

@@ -46,8 +46,8 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         print("[*] Catch package info:")
         print(self.this_package?.info as Any)
         
-        bundleID.text = (this_package?.info["PACKAGE"] ?? "Error: 0xbad10ac1a0e1d - BAD PACKAGE ID") + "\n\n Saily Package Manager & Lakr Aream 2019.4"
-        bundleID.numberOfLines = 3
+        bundleID.text = (this_package?.info["PACKAGE"] ?? "Error: 0xbad10ac1a0e1d - BAD PACKAGE ID") + "\n" + this_package!.fater_repo.name + "\n\n Saily Package Manager & Lakr Aream 2019.4"
+        bundleID.numberOfLines = 4
         bundleID.lineBreakMode = .byWordWrapping
         
         Imager.image = #imageLiteral(resourceName: "BGBlue.png")

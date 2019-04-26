@@ -8,8 +8,6 @@
 
 import UIKit
 
-import FloatingPanel
-
 class Saily_UI_Settings: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var container: UIScrollView!

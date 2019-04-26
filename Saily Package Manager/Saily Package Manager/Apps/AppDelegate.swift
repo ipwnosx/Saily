@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             usleep(1000)
         }
         Saily.objc_bridge.callToDaemon(with: "com.Saily.end_port")
-        try? FileManager.default.removeItem(atPath: Saily.files.queue_root + "/dpkgl.out")
+        
 //        Saily_FileU.simple_write(file_path: Saily.files.queue_root + "/command", file_content: "dpkg -l &> " + Saily.files.queue_root + "/dpkgl.out")
         Saily.objc_bridge.callToDaemon(with: "com.Saily.list_dpkg")
         

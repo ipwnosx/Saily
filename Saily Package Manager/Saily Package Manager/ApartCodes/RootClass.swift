@@ -325,6 +325,10 @@ class Saily_file_system {
         print("[*] File System Apart Init image_cache = " + self.image_cache)
         print("[*] File System Apart Init image_cache = " + self.daemon_root)
         
+        for item in self.daemon_root {
+            try? FileManager.default.removeItem(atPath: item.description)
+        }
+        
     }
 }
 

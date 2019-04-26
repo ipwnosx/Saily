@@ -260,7 +260,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0d-YQ-pvL">
-                                        <rect key="frame" x="0.0" y="88" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="88" width="414" height="179"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fc5-n9-xC0">
                                                 <rect key="frame" x="22" y="-54" width="88" height="88"/>
@@ -270,7 +270,7 @@
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gMi-x8-IXf">
-                                                <rect key="frame" x="22" y="107" width="370" height="75"/>
+                                                <rect key="frame" x="22" y="96" width="370" height="75"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="F2C-OE-Sqx"/>
@@ -279,21 +279,21 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Lorem ipsum dolor" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRn-dY-ugM">
-                                                <rect key="frame" x="22" y="38" width="370" height="69"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Lorem ipsum dolorLorem ipsum dolorLorem ipsum dolor" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRn-dY-ugM">
+                                                <rect key="frame" x="22" y="38" width="370" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="69" id="a4V-cX-FTV"/>
+                                                    <constraint firstAttribute="height" constant="50" id="a4V-cX-FTV"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="fRn-dY-ugM" secondAttribute="trailing" constant="22" id="1rY-uc-z5T"/>
-                                            <constraint firstItem="gMi-x8-IXf" firstAttribute="top" secondItem="fRn-dY-ugM" secondAttribute="bottom" id="DDw-ga-5IJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="gMi-x8-IXf" secondAttribute="bottom" constant="18" id="J6n-3S-8UO"/>
+                                            <constraint firstItem="gMi-x8-IXf" firstAttribute="top" secondItem="fRn-dY-ugM" secondAttribute="bottom" constant="8" id="DDw-ga-5IJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="gMi-x8-IXf" secondAttribute="bottom" constant="8" id="J6n-3S-8UO"/>
                                             <constraint firstItem="fRn-dY-ugM" firstAttribute="top" secondItem="fc5-n9-xC0" secondAttribute="bottom" constant="4" id="Jzr-Ul-fcC"/>
                                             <constraint firstItem="fRn-dY-ugM" firstAttribute="leading" secondItem="K0d-YQ-pvL" secondAttribute="leading" constant="22" id="Oa2-iu-KeC"/>
                                             <constraint firstItem="fc5-n9-xC0" firstAttribute="top" secondItem="K0d-YQ-pvL" secondAttribute="top" constant="-54" id="Pxb-AC-N1q"/>
@@ -303,7 +303,7 @@
                                         </constraints>
                                     </view>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tit-P4-g9j">
-                                        <rect key="frame" x="0.0" y="306" width="414" height="233"/>
+                                        <rect key="frame" x="0.0" y="285" width="414" height="233"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="233" id="9lO-zm-7t9"/>
                                         </constraints>
@@ -312,10 +312,10 @@
                                             <wkPreferences key="preferences"/>
                                         </wkWebViewConfiguration>
                                     </wkWebView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32I-sw-Trq">
-                                        <rect key="frame" x="22" y="551" width="370" height="66"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32I-sw-Trq">
+                                        <rect key="frame" x="22" y="530" width="370" height="128"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="66" id="w08-Lf-Dea"/>
+                                            <constraint firstAttribute="height" constant="128" id="w08-Lf-Dea"/>
                                         </constraints>
                                         <string key="text">com.lakr233.jw.Saily-Package-Manager
 Lakr Aream 2019.4</string>
@@ -562,8 +562,8 @@ Lakr Aream 2019.4</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tH3-kP-xPX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Installed" image="installed.png" id="Dzf-qB-mqu"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3uQ-fb-uBr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="3uQ-fb-uBr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
