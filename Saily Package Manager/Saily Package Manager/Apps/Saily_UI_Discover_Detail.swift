@@ -61,11 +61,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         }
         self.view.addSubview(loading_view)
         loading_view.snp.makeConstraints { (c) in
-            if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased()) && UIScreen.main.bounds.width > UIScreen.main.bounds.height) {
-                c.bottom.equalTo(self.view.snp.bottom).offset(-55)
-            }else{
-                c.bottom.equalTo(self.view.snp.bottom).offset(-18 - (self.tabBarController?.tabBar.bounds.height ?? 8))
-            }
+            c.bottom.equalTo(self.view.snp.bottom).offset(-18 - (self.tabBarController?.tabBar.bounds.height ?? 8))
             c.right.equalTo(self.view.snp.right).offset(-23)
             c.width.equalTo(23)
             c.height.equalTo(23)
@@ -105,7 +101,11 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
             self.tweak_view.snp.makeConstraints { (x) in
                 x.left.equalTo(self.view.snp.left).offset(28)
                 x.right.equalTo(self.view.snp.right).offset(-28)
-                x.bottom.equalTo(self.view.snp.bottom).offset(-18 - (self.tabBarController?.tabBar.bounds.height ?? 88))
+                if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased()) && UIScreen.main.bounds.width > UIScreen.main.bounds.height) {
+                    x.bottom.equalTo(self.view.snp.bottom).offset(-55)
+                }else{
+                    x.bottom.equalTo(self.view.snp.bottom).offset(-18 - (self.tabBarController?.tabBar.bounds.height ?? 88))
+                }
                 x.height.equalTo(66)
             }
             
