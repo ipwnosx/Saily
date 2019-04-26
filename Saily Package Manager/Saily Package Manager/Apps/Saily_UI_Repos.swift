@@ -17,6 +17,8 @@ class Saily_UI_Repos: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Saily.repo_UI = self
+        
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         self.editButtonItem.title = "Edit".localized()
         
@@ -32,7 +34,7 @@ class Saily_UI_Repos: UITableViewController {
         refreshControl?.attributedTitle = NSAttributedString(string: "Reloading data(s)...".localized(), attributes: nil)
         
     }
-
+    
     @objc func refreshData(_ sender: Any) {
         Saily.repos_root.boot_time_refresh = false
         Saily.repos_root.refresh_call()
@@ -240,6 +242,7 @@ class Saily_UI_Repos: UITableViewController {
             Saily.repos_root.repos.remove(at: indexPath.row - 2)
             Saily.repos_root.resave()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            Saily.rebuild_All_My_Packages()
         }
         delete.backgroundColor = .red
         

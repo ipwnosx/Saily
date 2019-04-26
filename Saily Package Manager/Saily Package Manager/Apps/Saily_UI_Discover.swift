@@ -40,6 +40,8 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Saily.discover_UI = self
+        
         collection_view?.delegate = self
         collection_view?.dataSource = self
         

@@ -190,7 +190,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     }
     
     @IBAction func add_queue(_ sender: Any) {
-        self.button.setTitle("队列中", for: .normal)
+        self.button.setTitle("Queue".localized(), for: .normal)
         self.button.isEnabled = false
         Saily.operation_container.put_a_tweak(self.this_package!, force: false)
     }

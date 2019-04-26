@@ -104,6 +104,8 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Saily.manage_UI = self
+        
         if (Saily.daemon_online) {
             if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
                 let splited = dpkgread.split(separator: "\n").dropFirst(5)

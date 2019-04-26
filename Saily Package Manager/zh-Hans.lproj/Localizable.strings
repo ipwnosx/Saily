@@ -46,3 +46,6 @@
 "No Description Available" = "这个插件并没有描述，请脑补。。😂";
 "Remove" = "移除";
 "GET" = "获取";
+"No Package Found" = "无法找到软件包";
+"Add this repo to your repo list?\n\n" = "是否添加推荐的源地址？\n\n";
+"Queue" = "队列中";

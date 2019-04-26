@@ -53,6 +53,11 @@ class Saily_All {
     public var app_web_site                                     = "https://twitter.com/TrySaily"
     public var searched_packages                                = [String : packages_C]()
     public var installed                                        = [String]()
+    // Magic
+    public var discover_UI: Saily_UI_Discover?                  = nil
+    public var repo_UI: Saily_UI_Repos?                         = nil
+    public var manage_UI: Saily_UI_Manage?                      = nil
+    public var discover_detail_UI: Saily_UI_Discover_Detail?    = nil
     
     func apart_init() {
         
@@ -203,6 +208,8 @@ class Saily_All {
                 self.operation_quene.repo_queue.asyncAfter(deadline: .now() + 2) {
                     Saily.rebuild_All_My_Packages()
                 }
+            }else{
+                Saily.discover_detail_UI?.show_tweaks()
             }
         }
     }
