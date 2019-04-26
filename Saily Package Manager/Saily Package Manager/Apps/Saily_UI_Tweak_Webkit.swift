@@ -67,8 +67,8 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         desc.text = str + (this_package?.info["DESCRIPTION"] ?? "No description found within the database.".localized())
         desc_hight.constant = desc.contentSize.height;
         
-        for item in Saily.root_packages {
-            if (item.info["PACKAGE"] == self.this_package?.info["PACKAGE"]) {
+        for item in Saily.installed {
+            if (item == self.this_package?.info["PACKAGE"]) {
                 button.setTitle("Remove".localized(), for: .normal)
                 self.installed = true
             }

@@ -119,6 +119,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
                     }else{
                         self.data_source.append(item.description)
                     }
+                    Saily.installed.append(item.split(separator: " ")[1].description)
                 }
             }
         }else{

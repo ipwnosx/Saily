@@ -52,6 +52,7 @@ class Saily_All {
     // One More ThingS
     public var app_web_site                                     = "https://twitter.com/TrySaily"
     public var searched_packages                                = [String : packages_C]()
+    public var installed                                        = [String]()
     
     func apart_init() {
         
@@ -284,6 +285,14 @@ class Saily_All {
         return nil
     }
     
+    func add_installed(name: String) {
+        for item in installed {
+            if (item == name) {
+                break
+            }
+        }
+        self.installed.append(name)
+    }
 }
 
 // This session, contains sandboxed file paths
