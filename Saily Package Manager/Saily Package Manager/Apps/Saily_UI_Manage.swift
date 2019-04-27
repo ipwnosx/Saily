@@ -206,16 +206,24 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 if (Saily.daemon_online) {
+                    for item in self.view.subviews {
+                        if let image = item as? UIImageView{
+                            image.removeFromSuperview()
+                        }
+                        if let label = item as? UILabel {
+                            label.removeFromSuperview()
+                        }
+                    }
                     self.tableView.separatorColor = .lightGray
                 }else{
                     self.tableView.separatorColor = .clear
                     
                     for item in self.view.subviews {
                         if let image = item as? UIImageView{
-                            image.removeSubviews()
+                            image.removeFromSuperview()
                         }
                         if let label = item as? UILabel {
-                            label.removeSubviews()
+                            label.removeFromSuperview()
                         }
                     }
                     
