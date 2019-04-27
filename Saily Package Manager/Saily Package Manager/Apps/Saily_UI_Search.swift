@@ -132,11 +132,11 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         self.tableView.backgroundView = bgView
         
         let mafufu = UIImageView()
-        let which_mafumafu = Int.random(in: 0..<2)
+        let which_mafumafu = 0 // Int.random(in: 0..<2)
         print("[*] Today, we have mafumafu at: " + which_mafumafu.description)
         switch which_mafumafu {
-        case 1:
-            mafufu.image = #imageLiteral(resourceName: "mafufulove.png")
+//        case 1:
+//            mafufu.image = #imageLiteral(resourceName: "mafufulove.png")
         default:
             mafufu.image = #imageLiteral(resourceName: "mafumafu.png")
         }

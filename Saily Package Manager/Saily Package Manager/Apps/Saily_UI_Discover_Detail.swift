@@ -201,7 +201,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
             sender.setTitle("Queue".localized(), for: .normal)
             sender.isEnabled = false
         }else{
-            let alert = UIAlertController(title: "NO Package Found".localized(), message: "Add this repo to your repo list?\n\n".localized() + Saily.discover_root[self.discover_index].tweak_repo, preferredStyle: .alert)
+            let alert = UIAlertController(title: "No Package Found".localized(), message: "Add this repo to your repo list?\n\n".localized() + Saily.discover_root[self.discover_index].tweak_repo, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK".localized(), style: .default, handler: { (_) in
                 var read = Saily.discover_root[self.discover_index].tweak_repo
                 guard let url = URL.init(string: read) else {

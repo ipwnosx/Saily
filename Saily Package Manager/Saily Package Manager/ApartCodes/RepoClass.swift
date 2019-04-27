@@ -62,7 +62,7 @@ class repo_C {
     }
     
     func refresh_call() {
-        Saily.objc_bridge.status_bar_timer()?.text = "Building".localized()
+//        Saily.objc_bridge.status_bar_timer()?.text = "Building".localized()
         for item in self.repos {
             if (item.status == status_ins.in_operation) {
                 return

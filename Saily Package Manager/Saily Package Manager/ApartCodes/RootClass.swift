@@ -108,7 +108,7 @@ class Saily_All {
 //            })
 //        }
         
-        self.objc_bridge.status_bar_timer()?.text = "Building".localized()
+//        self.objc_bridge.status_bar_timer()?.text = "Building".localized()
         
         do {
             // WRAPPER
@@ -232,7 +232,7 @@ class Saily_All {
                 }
             }else{
                 DispatchQueue.main.async {
-                    self.objc_bridge.status_bar_timer()?.text = "Ready".localized()
+//                    self.objc_bridge.status_bar_timer()?.text = "Ready".localized()
                 }
                 Saily.discover_detail_UI?.show_tweaks()
             }

@@ -23,7 +23,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if (Saily.operation_container.installs.count < 1 && Saily.operation_container.removes.count < 1) {
             self.submit.isEnabled = false
-            self.submit.setTitle("Empty", for: .normal)
+            self.submit.setTitle("Empty".localized(), for: .normal)
             let mafumafu = UIImageView()
             mafumafu.image = #imageLiteral(resourceName: "mafufulove.png")
             mafumafu.contentMode = .scaleAspectFit
