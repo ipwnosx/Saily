@@ -143,6 +143,8 @@ static void list_dpkg(CFNotificationCenterRef center, void *observer, CFStringRe
     NSLog(@"[*] End reading command with result %@", com);
     run_cmd([com UTF8String]);
 }
+static void update_source_list(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{ }
 
 int main(int argc, char **argv, char **envp)
 {
@@ -162,6 +164,7 @@ int main(int argc, char **argv, char **envp)
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, end_port, CFSTR("com.Saily.end_port"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, run_command, CFSTR("com.Saily.run_command"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, list_dpkg, CFSTR("com.Saily.list_dpkg"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, update_source_list, CFSTR("com.Saily.update_source_list"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     
     CFRunLoopRun(); // keep it running in background
     return 0;

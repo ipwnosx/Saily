@@ -241,8 +241,13 @@ class Saily_UI_Repos: UITableViewController {
             try? FileManager.default.removeItem(atPath: Saily.files.repo_cache + "/" + Saily.repos_root.repos[indexPath.row - 2].name)
             Saily.repos_root.repos.remove(at: indexPath.row - 2)
             Saily.repos_root.resave()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            Saily.rebuild_All_My_Packages()
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+            Saily.operation_quene.repo_queue.async {
+                Saily.rebuild_All_My_Packages()
+            }
+            return
         }
         delete.backgroundColor = .red
         

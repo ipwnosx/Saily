@@ -61,7 +61,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         }
         self.view.addSubview(loading_view)
         loading_view.snp.makeConstraints { (c) in
-            c.bottom.equalTo(self.view.snp.bottom).offset(-18 - (self.tabBarController?.tabBar.bounds.height ?? 8))
+            c.top.equalTo(self.view.snp.top).offset(90)
             c.right.equalTo(self.view.snp.right).offset(-23)
             c.width.equalTo(23)
             c.height.equalTo(23)
@@ -69,6 +69,9 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         loading_view.startAnimating()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.233) {
+            if (self.discover_index >= Saily.discover_root.count) {
+                return
+            }
             if (Saily.discover_root[self.discover_index].tweak_id != "") {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.show_tweaks()
@@ -82,15 +85,21 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         
         let withName = Saily.discover_root[self.discover_index].tweak_id
         
-        for item in Saily.installed {
-            if (withName == item) {
-                return
-            }
+        if (Saily.installed[withName.uppercased()] != nil) {
+            return
         }
         
         DispatchQueue.main.async {
             
-            self.tweak_view.removeFromSuperview()
+            let this_one = self.tweak_view
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.5, animations: {
+                    this_one.alpha = 0
+                })
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    this_one.removeFromSuperview()
+                })
+            }
             
             let package = Saily.search_a_package_with(its_name: withName)
             self.tweak_view = UIView()
@@ -188,7 +197,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
     
     @objc func add(_ sender: UIButton) {
         if let packages = Saily.search_a_package_with(its_name: Saily.discover_root[self.discover_index].tweak_id) {
-            Saily.operation_container.put_a_tweak(packages, force: false)
+            Saily.operation_container.add_a_install(packages)
             sender.setTitle("Queue".localized(), for: .normal)
             sender.isEnabled = false
         }else{

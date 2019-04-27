@@ -112,6 +112,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("[*] START DPKG STATUS ---------------------------------------")
                     print(dpkgread)
                     Saily.daemon_online = true
+                    for item in dpkgread.split(separator: "\n").dropFirst(5) {
+                        Saily.installed[item.description.split(separator: " ")[1].description.uppercased()] = item.description.split(separator: " ")[2].description.uppercased()
+                    }
                     print("[*] END DPKG STATUS ---------------------------------------\n\n\n")
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {

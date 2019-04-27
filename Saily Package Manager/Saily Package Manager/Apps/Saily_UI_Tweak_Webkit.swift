@@ -67,11 +67,10 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         desc.text = str + (this_package?.info["DESCRIPTION"] ?? "NO description found within the database.".localized())
         desc_hight.constant = desc.contentSize.height;
         
-        for item in Saily.installed {
-            if (item == self.this_package?.info["PACKAGE"]) {
-                button.setTitle("Remove".localized(), for: .normal)
-                self.installed = true
-            }
+        let tweak_id: String = self.this_package?.info["PACKAGE"] ?? UUID().uuidString
+        if (Saily.installed[tweak_id.uppercased()] != nil) {
+            button.setTitle("Remove".localized(), for: .normal)
+            self.installed = true
         }
         
         container_info_view.addShadow(ofColor: .gray, radius: 6, offset: CGSize(width: 0, height: 0), opacity: 0.5)
@@ -192,7 +191,11 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     @IBAction func add_queue(_ sender: Any) {
         self.button.setTitle("Queue".localized(), for: .normal)
         self.button.isEnabled = false
-        Saily.operation_container.put_a_tweak(self.this_package!, force: false)
+        if (self.installed) {
+            Saily.operation_container.removes.append(self.this_package!)
+        }else{
+            Saily.operation_container.installs.append(self.this_package!)
+        }
     }
     
     // MARK: - WKNavigationDelegate

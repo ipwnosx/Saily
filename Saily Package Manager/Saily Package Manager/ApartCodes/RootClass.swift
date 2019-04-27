@@ -53,7 +53,7 @@ class Saily_All {
     public var app_web_site                                     = "https://twitter.com/TrySaily"
     public var discover_wrapper_site                            = "https://raw.githubusercontent.com/Co2333/SailyHomePage/master/EN"
     public var searched_packages                                = [String : packages_C]()
-    public var installed                                        = [String]()
+    public var installed                                        = [String : String]() // id : version
     // Magic
     public var discover_UI: Saily_UI_Discover?                  = nil
     public var repo_UI: Saily_UI_Repos?                         = nil
@@ -316,15 +316,7 @@ class Saily_All {
         }
         return nil
     }
-    
-    func add_installed(name: String) {
-        for item in installed {
-            if (item == name) {
-                break
-            }
-        }
-        self.installed.append(name)
-    }
+
 }
 
 // This session, contains sandboxed file paths

@@ -534,5 +534,14 @@ public let dangerous_packages = ["virtual GraphicsServices dependency",
                                  "Inject files to kernel trust cache",
                                  "UIKit/GraphicsServices command line access",
                                  "simple HTTP file transfer client",
-                                 "slower, but better, compression algorithm"]
+                                 "slower, but better, compression algorithm",
+                                 "virtual CPU dependency",
+                                 "virtual kernel dependency",
+                                 "virtual corefoundation dependency",
+                                 "virtual operating system dependency",
+                                 "virtual operation system dependency",
+                                 "virtual model dependency",
+                                 "almost impressive Apple frameworks",
+                                 "this device has a very large screen",
+                                 "virtual kernel dependency",]
 

@@ -52,3 +52,9 @@
 "Refreshing..." = "刷新中";
 "Ready" = "就绪";
 "Building" = "构建中";
+"📦 Operations" = "📦 操作队列";
+"Empty" = "空";
+"Error Depends: " = "缺失的先决依赖: ";
+"Package Depend is Too new: " = "先决依赖版本太高";
+"Install Queue" = "安装队列";
+"Remove Queue" = "移除队列";

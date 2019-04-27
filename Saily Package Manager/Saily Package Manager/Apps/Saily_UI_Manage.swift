@@ -7,6 +7,8 @@
 
 import UIKit
 
+import EzPopup
+
 class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
@@ -103,16 +105,15 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         Saily.manage_UI = self
         
-        self.button.addShadow()
-        
         if (Saily.daemon_online) {
             if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
                 let splited = dpkgread.split(separator: "\n").dropFirst(5)
                 for item in splited {
                     var is_dangerous = false
-                    for i in dangerous_packages {
+                    inner: for i in dangerous_packages {
                         if (item.description.uppercased().contains(i.uppercased())) {
                             is_dangerous = true
+                            break inner
                         }
                     }
                     if (is_dangerous) {
@@ -120,7 +121,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
                     }else{
                         self.data_source.append(item.description)
                     }
-                    Saily.installed.append(item.split(separator: " ")[1].description)
+                    Saily.installed[item.description.split(separator: " ")[1].description.uppercased()] = item.description.split(separator: " ")[2].description.uppercased()
                 }
             }
         }else{
@@ -154,10 +155,6 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
         refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
         refreshControl.attributedTitle = NSAttributedString(string: "Reloading data(s)...".localized(), attributes: nil)
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     @objc func refreshData(_ sender: Any) {
@@ -248,4 +245,24 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    @IBAction func queue_button_action(_ sender: Any) {
+        // rootViewController from StoryBoard
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let manager = mainStoryboard.instantiateViewController(withIdentifier: "Saily_UI_Queue_ID")
+        
+        let scx = self.view.bounds.width
+        let scy = self.view.bounds.height
+        
+        var popupVC: PopupViewController? = nil
+        if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
+            popupVC = PopupViewController(contentController: manager, popupWidth: scx * 0.666666, popupHeight: scy * 0.6)
+        }else{
+            popupVC = PopupViewController(contentController: manager, popupWidth: scx * 0.85, popupHeight: scx * 0.85)
+        }
+            
+        popupVC!.canTapOutsideToDismiss = true
+        popupVC!.cornerRadius = 10
+        popupVC!.shadowEnabled = false
+        present(popupVC!, animated: true)
+    }
 }
