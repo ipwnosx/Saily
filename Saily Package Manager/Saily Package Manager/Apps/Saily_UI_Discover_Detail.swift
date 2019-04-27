@@ -69,7 +69,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
         loading_view.startAnimating()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.233) {
-            if (self.discover_index >= Saily.discover_root.count) {
+            if (self.discover_index >= Saily.discover_root.count || self.discover_index < 0) {
                 return
             }
             if (Saily.discover_root[self.discover_index].tweak_id != "") {
