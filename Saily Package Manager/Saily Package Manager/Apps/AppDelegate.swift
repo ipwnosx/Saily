@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        XPC_ins.abort_notice()
+        AUTH_ins.abort_notice()
+        // Duang~ This is because the Saily_Exchange_AUTH.swift is and will not be opensourced.
+        // Please check Saily_Exchange_AUTH_NONE.swift for details.
         
 //        for family: String in UIFont.familyNames {
 //            print("\(family)")
@@ -98,14 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        Saily.objc_bridge.callToDaemon(with: "com.Saily.respring")
         
         // call to daemon
-        Saily.objc_bridge.callToDaemon(with: "com.Saily.begin_port")
-        
-        for item in XPC_ins.session_port.description {
-            let call_str = "com.Saily.addport_" + item.description
-            Saily.objc_bridge.callToDaemon(with: call_str)
-            usleep(1000)
-        }
-        Saily.objc_bridge.callToDaemon(with: "com.Saily.end_port")
+        XPC_ins.tell_demon_to_listen_at_port()
         
 //        Saily_FileU.simple_write(file_path: Saily.files.queue_root + "/command", file_content: "dpkg -l &> " + Saily.files.queue_root + "/dpkgl.out")
         Saily.objc_bridge.callToDaemon(with: "com.Saily.list_dpkg")

@@ -163,7 +163,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @objc func refreshData(_ sender: Any) {
-        Saily.operation_quene.wrapper_queue.asyncAfter(deadline: .now() + 0.5) {
+        Saily.operation_quene.wrapper_queue.asyncAfter(deadline: .now() + 0.3) {
             let ss = DispatchSemaphore(value: 0)
             DispatchQueue.main.async {
                 UIApplication.shared.beginIgnoringInteractionEvents()
@@ -172,14 +172,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             ss.wait()
             try? FileManager.default.removeItem(atPath: Saily.files.daemon_root + "/dpkgl.out")
             if (!Saily.daemon_online) {
-                Saily.objc_bridge.ensureDaemonSocket(at: XPC_ins.session_port, XPC_ins.session_token, Saily.files.root)
-                Saily.objc_bridge.callToDaemon(with: "com.Saily.begin_port")
-                for item in XPC_ins.session_port.description {
-                    let call_str = "com.Saily.addport_" + item.description
-                    Saily.objc_bridge.callToDaemon(with: call_str)
-                    usleep(1000)
-                }
-                Saily.objc_bridge.callToDaemon(with: "com.Saily.end_port")
+                XPC_ins.tell_demon_to_listen_at_port()
             }
             Saily.objc_bridge.callToDaemon(with: "com.Saily.list_dpkg")
             let s = DispatchSemaphore(value: 0)
