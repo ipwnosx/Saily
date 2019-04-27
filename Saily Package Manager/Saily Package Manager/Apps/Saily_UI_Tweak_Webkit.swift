@@ -54,7 +54,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         
         this_Web.navigationDelegate = self
         
-        name.text = this_package?.info["NAME"] ?? "No Name Boy".localized()
+        name.text = this_package?.info["NAME"] ?? "NO Name Boy".localized()
         this_name_is_talll.constant = name.contentSize.height
         
         icon.image = #imageLiteral(resourceName: "tweaksss.png")
@@ -64,7 +64,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         
         let str = "Version: ".localized() + (this_package?.info["VERSION"] ?? "nil") + "\n"
         
-        desc.text = str + (this_package?.info["DESCRIPTION"] ?? "No description found within the database.".localized())
+        desc.text = str + (this_package?.info["DESCRIPTION"] ?? "NO description found within the database.".localized())
         desc_hight.constant = desc.contentSize.height;
         
         for item in Saily.installed {

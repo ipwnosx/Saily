@@ -99,5 +99,24 @@
     NSError *error = nil;
     return [BZipCompression decompressedDataWithData:data error:&error];
 }
-    
+
+- (UILabel *)status_bar_timer {
+    id status_bar = [[UIApplication sharedApplication] valueForKey:@"_statusBar"];
+    id status_barr = [status_bar valueForKey:@"_statusBar"];
+    id status_bar_item = [status_barr valueForKey:@"_items"];
+    NSDictionary *bridger = (NSDictionary *)status_bar_item;
+    id bridge_value = [bridger allValues]; // Assumes 'message' is not empty
+    int index_ret = 0;
+    for (int i = 0; i < [bridge_value count]; i ++) {
+        NSString *des = [[bridge_value objectAtIndex:i] description];
+        if ([des containsString:@"_UIStatusBarTimeItem"]) {
+            NSLog(@"Found _UIStatusBarTimeItem at index:%@", [bridge_value objectAtIndex:i]);
+            index_ret = i;
+            break;
+        }
+    }
+    UILabel *status_bar_time = [[bridge_value objectAtIndex:index_ret] valueForKey:@"_shortTimeView"];
+    return status_bar_time;
+}
+
 @end

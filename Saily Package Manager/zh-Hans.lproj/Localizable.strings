@@ -49,3 +49,6 @@
 "No Package Found" = "无法找到软件包";
 "Add this repo to your repo list?\n\n" = "是否添加推荐的源地址？\n\n";
 "Queue" = "队列中";
+"Refreshing..." = "刷新中";
+"Ready" = "就绪";
+"Building" = "构建中";

@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (5.0.0-beta.5)
+  - Alamofire (5.0.0-beta.6)
   - BSBacktraceLogger (0.0.1)
   - BZipCompression (1.0.2)
-  - CocoaLumberjack (3.5.2):
-    - CocoaLumberjack/Core (= 3.5.2)
-  - CocoaLumberjack/Core (3.5.2)
+  - CocoaLumberjack (3.5.3):
+    - CocoaLumberjack/Core (= 3.5.3)
+  - CocoaLumberjack/Core (3.5.3)
   - DoraemonKit/Core (1.1.7):
     - BSBacktraceLogger
     - fishhook
@@ -109,10 +109,10 @@ SPEC REPOS:
     - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
-  Alamofire: 9afb08f7f43efcc71c072374e720fcf67521317d
+  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
   BSBacktraceLogger: 06b983ee93a9f87d957960e9c73d660d5966b447
   BZipCompression: e0f96508e60eb93b5f5d4c7de1eb3dd0ac4f9ae9
-  CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
+  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   DoraemonKit: 0ac105ce8924477c22c57cc303798c04ab3c4dcd
   EzPopup: b959cfb0d70d782a28e770a96c454df0401467c7
   fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89

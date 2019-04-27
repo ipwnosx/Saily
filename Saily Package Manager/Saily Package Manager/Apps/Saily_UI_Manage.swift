@@ -7,11 +7,12 @@
 
 import UIKit
 
-class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
     var data_source = [String]()
+    @IBOutlet weak var button: UIButton!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data_source.count
@@ -53,7 +54,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
             cell.detailTextLabel?.text = "            " + read.dropFirst().description
         }else{
-            cell.detailTextLabel?.text = "            " + "No description found within the database.".localized()
+            cell.detailTextLabel?.text = "            " + "NO description found within the database.".localized()
         }
         
         let imageView = UIImageView()
@@ -97,14 +98,12 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
-    let dangerous_packages = ["virtual GraphicsServices dependency",
-                              "UIKit/GraphicsServices command line access",
-                              ""]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Saily.manage_UI = self
+        
+        self.button.addShadow()
         
         if (Saily.daemon_online) {
             if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
@@ -156,7 +155,6 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
         refreshControl.attributedTitle = NSAttributedString(string: "Reloading data(s)...".localized(), attributes: nil)
         
     }
-
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -195,7 +193,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
                     let splited = dpkgread.split(separator: "\n").dropFirst(5)
                     for item in splited {
                         var is_dangerous = false
-                        for i in self.dangerous_packages {
+                        for i in dangerous_packages {
                             if (item.description.uppercased().contains(i.uppercased())) {
                                 is_dangerous = true
                             }

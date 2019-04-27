@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #ifndef BridgerObjC_h
 #define BridgerObjC_h
@@ -21,6 +22,8 @@
 - (NSData *)unBzip:(NSData *)data;
 
 - (void)ensureDaemonSocketAt:(NSInteger)port :(NSString *)client_session_token :(NSString *)app_sandboxed_root;
+
+- (UILabel *)status_bar_timer;
 
 @end
 

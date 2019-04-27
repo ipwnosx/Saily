@@ -568,7 +568,7 @@ Lakr Aream 2019.4</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="hfN-G6-MOX" kind="relationship" relationship="rootViewController" id="Two-tN-IzT"/>
+                        <segue destination="hfN-G6-MOX" kind="relationship" relationship="rootViewController" id="FNr-LB-ssd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAa-sk-Nrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -587,11 +587,25 @@ Lakr Aream 2019.4</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFm-4g-ZY1">
+                                <rect key="frame" x="341" y="740" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="b0d-Om-AD4"/>
+                                    <constraint firstAttribute="width" constant="45" id="cHc-e1-37e"/>
+                                </constraints>
+                                <state key="normal" image="menu_blue.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="imageForNormal" value="menu_blue.png"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="imageForSelected" value="menu_gray.png"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="muB-hV-mdS" firstAttribute="trailing" secondItem="hFm-4g-ZY1" secondAttribute="trailing" constant="28" id="85h-ii-pee"/>
                             <constraint firstItem="ahl-3Y-TSo" firstAttribute="leading" secondItem="UpB-X5-wak" secondAttribute="leading" id="KXm-Xq-HGm"/>
                             <constraint firstAttribute="trailing" secondItem="ahl-3Y-TSo" secondAttribute="trailing" id="QTm-Hu-Q1e"/>
+                            <constraint firstItem="muB-hV-mdS" firstAttribute="bottom" secondItem="hFm-4g-ZY1" secondAttribute="bottom" constant="28" id="TTA-7g-gWn"/>
                             <constraint firstItem="ahl-3Y-TSo" firstAttribute="top" secondItem="UpB-X5-wak" secondAttribute="top" id="ZRm-SV-GRZ"/>
                             <constraint firstAttribute="bottom" secondItem="ahl-3Y-TSo" secondAttribute="bottom" id="hCa-6F-S7d"/>
                         </constraints>
@@ -599,6 +613,7 @@ Lakr Aream 2019.4</string>
                     </view>
                     <navigationItem key="navigationItem" title="Manage" id="2Jz-yA-Gga"/>
                     <connections>
+                        <outlet property="button" destination="hFm-4g-ZY1" id="zbp-YA-3q4"/>
                         <outlet property="tableView" destination="ahl-3Y-TSo" id="kTG-9f-HbP"/>
                     </connections>
                 </viewController>
@@ -612,6 +627,8 @@ Lakr Aream 2019.4</string>
         <image name="discover.png" width="20" height="20"/>
         <image name="download.png" width="370" height="320"/>
         <image name="installed.png" width="20" height="20"/>
+        <image name="menu_blue.png" width="513" height="512"/>
+        <image name="menu_gray.png" width="513" height="512"/>
         <image name="search.png" width="20" height="20"/>
         <image name="source.png" width="20" height="20"/>
     </resources>

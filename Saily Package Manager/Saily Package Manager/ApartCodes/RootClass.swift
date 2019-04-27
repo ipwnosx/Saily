@@ -51,6 +51,7 @@ class Saily_All {
     public var daemon_online                                    = false
     // One More ThingS
     public var app_web_site                                     = "https://twitter.com/TrySaily"
+    public var discover_wrapper_site                            = "https://raw.githubusercontent.com/Co2333/SailyHomePagePreview/master/preview"
     public var searched_packages                                = [String : packages_C]()
     public var installed                                        = [String]()
     // Magic
@@ -58,6 +59,7 @@ class Saily_All {
     public var repo_UI: Saily_UI_Repos?                         = nil
     public var manage_UI: Saily_UI_Manage?                      = nil
     public var discover_detail_UI: Saily_UI_Discover_Detail?    = nil
+
     
     func apart_init() {
         
@@ -69,6 +71,7 @@ class Saily_All {
         if (((locale.first?.split(separator: "-").first ?? "") == "zh") || locale.first?.uppercased().contains("TW") ?? false) {
             self.is_Chinese = true
             self.app_web_site = "https://lakraream.wixsite.com/saily/"
+            self.discover_wrapper_site = "https://mrmad.com.tw/packagemainagerhomerelease"
         }
         
 //        for item in locale {
@@ -91,32 +94,41 @@ class Saily_All {
 //            })
 //        }
         
-        self.discover_raw_str = (try? String.init(contentsOf: URL.init(string: "https://raw.githubusercontent.com/Co2333/SailyHomePagePreview/master/preview")!)) ?? ""
-        let discover_raw_str_split = self.discover_raw_str.split(separator: "◊")
+        self.objc_bridge.status_bar_timer()?.text = "Building".localized()
         
-        if (discover_raw_str_split.count >= 2) {
-            if (self.is_Chinese) {
-                self.discover_raw_str = String(discover_raw_str_split[1])
+        do {
+            // WRAPPER
+            var wrapper_result = ""
+            self.discover_raw_str = (try? String.init(contentsOf: URL.init(string: Saily.discover_wrapper_site)!)) ?? ""
+            if (Saily.is_Chinese) {
+                // mr mad
+                 /*
+                 >|1|利用Siri 捷徑自動下載新版unc0ver|越獄工具教學|直接使用 Siri 捷徑自動下載新版unc0ver 越獄工具並啟動 ReProvision 安裝簽名，是否會感覺更快、更方便？|https://images.idgesg.net/images/article/2018/09/siri-shortcuts-iphone-ios-12-100774410-large.jpg|https://mrmad.com.tw/install-unc0ver-shortcuts|true|com.matchstic.reprovision|http://repo.incendo.ws|</p><p>|2|Face ID 設備顯示電池百分比 &amp; 自訂顏色|BatteryPercent12|對於擁有 Face ID 瀏海機種，目前面臨最大問題就是沒辦法顯示電池百分比，這項功能是蘋果到目前為止一直不願意加入。對越獄設備而言，這問題就相當容易解決。|https://mrmad.com.tw/wp-content/uploads/2019/04/BatteryPercent12.jpg|https://mrmad.com.tw/batterypercent12|true|com.dpkg.batterypercent12|https://mrmadjb.github.io|</p><p>|3|讓 iPhone 實現不同充電動畫效果|ChargeAnimation|還在羨慕 Android 透過傳輸線充電時，都會出現絢麗的充電動畫嗎？像是小米內建的充電動畫效果，iPhone也能拥有吗？|https://mrmad.com.tw/wp-content/uploads/2019/04/chargeanimation.jpg|https://mrmad.com.tw/chargeanimation|true|com.c1d3r.ChargeAnimations|http://c1d3r.com/repo|</p><p>|4|AirPods 2 代遭 iFixit 拆解結論|防水更佳和耐用性增強|iFixit 在第一時間拆解了蘋果最新推出 AirPods 2 代，不過 AirPods 新舊款內部硬體設計有哪些不同的地方呢？帶大家一起來看看。|https://mrmad.com.tw/wp-content/uploads/2019/03/airpods-2-generations-ifixit-5.jpg|https://mrmad.com.tw/airpods-2-generations-ifixit|false|nil|nil|</p><p>|5|替 iOS 控制中心加入更多|Modulus|是否對 iOS 控制中心功能開關依舊不滿意？那也許可使用 Modulus 插件替控制中心發揮更強的功能選單。|https://mrmad.com.tw/wp-content/uploads/2019/03/modulus.jpg|https://mrmad.com.tw/modulus|true|com.laughingquoll.modulus|https://repo.packix.com|</p><p>|6|讓 iOS 12 通知橫幅狀態更迷你|TinyBanners|是否經常因為 iOS 通知訊息橫幅太大干擾到當前操作？一名開發者 Don 開發最新通知橫幅插件 TinyBanners ，可完美支援 iOS 12 和 Face ID 瀏海機種。|https://mrmad.com.tw/wp-content/uploads/2019/03/tinybanners.jpg|https://mrmad.com.tw/tinybanners|true|com.donbytyqi.tinybanners|https://repo.packix.com|<
+                 */
+                for item in discover_raw_str.split(separator: ">") {
+                    if (item.description.charactersArray[0] == "|" && item.description.contains("</p")) {
+                        print(item.description)
+                        wrapper_result = wrapper_result + item.description + "\n"
+                    }
+                }
             }else{
-                self.discover_raw_str = String(discover_raw_str_split[0])
+                wrapper_result = (try? String.init(contentsOf: URL.init(string: "https://raw.githubusercontent.com/Co2333/SailyHomePagePreview/master/preview")!)) ?? ""
             }
-        }else if (discover_raw_str_split.count == 1){
-            self.discover_raw_str = String(discover_raw_str_split[0])
-        }else{
-            print("[*] Error in loading discover.")
-        }
-        
-        // init discover
-        var items = self.discover_raw_str.split(separator: "\n")
-        
-        if (items.count > 1) {
-            items.remove(at: 0)
-            for item in items {
-                let dis = discover_C()
-                dis.apart_init(withString: item.description)
-                self.discover_root.append(dis)
+            
+            // init discover
+            var items = wrapper_result.split(separator: "\n")
+            
+            if (items.count > 1) {
+                items.remove(at: 0)
+                for item in items {
+                    let dis = discover_C()
+                    dis.apart_init(withString: item.description)
+                    self.discover_root.append(dis)
+                }
             }
-        }
+        } // discover wrapper
+        
+        
         
         print("[*] Staring loading image cache...")
         for item in Saily.discover_root {
@@ -209,6 +221,9 @@ class Saily_All {
                     Saily.rebuild_All_My_Packages()
                 }
             }else{
+                DispatchQueue.main.async {
+                    self.objc_bridge.status_bar_timer()?.text = "Ready".localized()
+                }
                 Saily.discover_detail_UI?.show_tweaks()
             }
         }

@@ -62,6 +62,7 @@ class repo_C {
     }
     
     func refresh_call() {
+        Saily.objc_bridge.status_bar_timer()?.text = "Building".localized()
         for item in self.repos {
             if (item.status == status_ins.in_operation) {
                 return
@@ -463,3 +464,75 @@ class packages_C {
         self.fater_repo = with_repo
     }
 }
+
+
+public let dangerous_packages = ["virtual GraphicsServices dependency",
+                                 "UIKit/GraphicsServices command line access",
+                                 "repository encryption key management tool",
+                                 "the advanced packaging tool from Debian",
+                                 "the advanced packaging tool from Debian",
+                                 "the advanced packaging library from Debian",
+                                 "the advanced packaging library from Debian",
+                                 "underlying system directory structure",
+                                 "the best shell ever written by Brian Fox",
+                                 "Oracle's embeddable database engine",
+                                 "compression that's slightly better than gzip",
+                                 "CA certs for curl, wget, git.",
+                                 "Hide \"Please update from the iOS beta\" alert (iOS 8-12.x)",
+                                 "Make mDNSResponder care about /etc/hosts",
+                                 "safe mode safety extension (safe)",
+                                 "core set of Unix shell utilities from GNU",
+                                 "just the /bin folder from GNU coreutils",
+                                 "graphical iPhone front-end for APT",
+                                 "languages and translations for Cydia",
+                                 "startupfiletool, sw_vers",
+                                 "pretty much just run-parts. yep? run-parts",
+                                 "compare two files for differences",
+                                 "mount, quota, fsck, fstyp, fdisk, tunefs",
+                                 "package maintainance tools from Debian",
+                                 "contains nothing, represents everything",
+                                 "guesses the type of a file from contents",
+                                 "indexes and searches filesystems",
+                                 "represents Telesphoreo / iPhoneOS conflicts",
+                                 "LGPL cryptographic algorithm library",
+                                 "internationalization helper for strings",
+                                 "GNU privacy guard - a free PGP replacement",
+                                 "free sofware alternative to OpenSSL",
+                                 "searches files for regular expressions",
+                                 "the standard Unix compression algorithm",
+                                 "Resources used by KPPLess Jailbreaks",
+                                 "pseudo-codesign Mach-O files",
+                                 "the advanced packaging library from Debian",
+                                 "GnuPG's inter-process communication",
+                                 "GMP is a free library for arbitrary precision arithmetic, operating on signed integers, rational numbers, and floating-point numbers. There is no practical limit to the precision except the ones implied by the available memory in the machine GMP runs on. GMP has a rich set of functions, and the functions have a regular interface.",
+                                 "GnuPG's error management library",
+                                 "Libidn2 is an implementation of the IDNA2008 + TR46 specifications",
+                                 "GnuPG's certification management library",
+                                 "plist library",
+                                 "OpenSSL Libraries for version 1.0",
+                                 "Libtasn1 is the ASN.1 library used by GnuTLS, p11-kit and some other packages",
+                                 "Unicode string library for C",
+                                 "Extremely Fast Compression algorithm",
+                                 "slower, but better, compression algorithm",
+                                 "powerful code insertion platform",
+                                 "feature-complete terminal library",
+                                 "feature-complete terminal library",
+                                 "Nettle is a cryptographic library",
+                                 "portable threading library used by X",
+                                 "secure remote access between machines",
+                                 "locally cached package icons from BigBoss",
+                                 "p11-glue utilities",
+                                 "makes packaging for /etc/profile reasonable",
+                                 "command-line history management",
+                                 "synchronize files between computers",
+                                 "edits streams of text using patterns",
+                                 "killall, mktemp, renice, time, which",
+                                 "A Certificate to sign things with",
+                                 "iostat, login, passwd, sync, sysctl",
+                                 "Prevent overnight userspace reboots triggered by mmaintenanced",
+                                 "tool for making tape archives",
+                                 "Inject files to kernel trust cache",
+                                 "UIKit/GraphicsServices command line access",
+                                 "simple HTTP file transfer client",
+                                 "slower, but better, compression algorithm"]
+
