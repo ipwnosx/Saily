@@ -143,13 +143,26 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (editingStyle == .delete) {
             if (Saily.operation_container.installs.count <= 0 || indexPath.section == 1) {
                 Saily.operation_container.removes.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-                tableView.reloadData()
+                tableView.reloadData {
+                    if (Saily.operation_container.installs.count < 1 && Saily.operation_container.removes.count < 1) {
+                        self.submit.isEnabled = false
+                        self.submit.setTitle("Empty".localized(), for: .normal)
+                        let mafumafu = UIImageView()
+                        mafumafu.image = #imageLiteral(resourceName: "mafufulove.png")
+                        mafumafu.contentMode = .scaleAspectFit
+                        self.view.addSubview(mafumafu)
+                        mafumafu.snp.makeConstraints { (x) in
+                            x.bottom.equalTo(self.view.snp.bottom).offset(8)
+                            x.centerX.equalTo(self.view.snp.centerX)
+                            x.width.equalTo(128)
+                            x.height.equalTo(128)
+                        }
+                    }
+                }
                 return
             }
             let alert = UIAlertController(title: "Conform?".localized(), message: "Removing it from queue may be dangerous and may cause dependency(s) missing, which may result a bad install status and is hard to recover. Are you sure you want to remove: \n\n\n".localized() + (tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(7).description ?? "[E]"), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "YES".localized(), style: .destructive, handler: { (_) in
-//                tableView.deleteRows(at: [indexPath], with: .fade)
                 if (indexPath.section == 1) {
                     Saily.operation_container.removes.remove(at: indexPath.row)
                 }else{
@@ -159,12 +172,26 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                         Saily.operation_container.installs.remove(at: indexPath.row)
                     }
                 }
-                tableView.reloadData()
+                tableView.reloadData {
+                    if (Saily.operation_container.installs.count < 1 && Saily.operation_container.removes.count < 1) {
+                        self.submit.isEnabled = false
+                        self.submit.setTitle("Empty".localized(), for: .normal)
+                        let mafumafu = UIImageView()
+                        mafumafu.image = #imageLiteral(resourceName: "mafufulove.png")
+                        mafumafu.contentMode = .scaleAspectFit
+                        self.view.addSubview(mafumafu)
+                        mafumafu.snp.makeConstraints { (x) in
+                            x.bottom.equalTo(self.view.snp.bottom).offset(8)
+                            x.centerX.equalTo(self.view.snp.centerX)
+                            x.width.equalTo(128)
+                            x.height.equalTo(128)
+                        }
+                    }
+                }
             }))
             alert.addAction(UIAlertAction(title: "Cancel (Recommend)".localized(), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
     
 }
