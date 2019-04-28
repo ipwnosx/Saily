@@ -236,7 +236,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     var loadUrl = URL(string: "https://www.google.com/")!
     var is_from_ab_cydia = false
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        guard let url = (navigationResponse.response as! HTTPURLResponse).url else {
+        guard let url = (navigationResponse.response as? HTTPURLResponse)?.url else {
             decisionHandler(.cancel)
             return
         }

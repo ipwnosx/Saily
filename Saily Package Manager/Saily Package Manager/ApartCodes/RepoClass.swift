@@ -32,10 +32,12 @@ class repo_C {
                                  "https://sparkdev.me/",
                                  "https://repo.nepeta.me/",
                                  "https://repo.dynastic.co/"]
+            #if DEBUG
             if (Saily.is_Chinese) {
                 default_links.append("http://apt.keevi.cc/")
                 default_links.append("http://apt.abcydia.com/")
             }
+            #endif
             var out = ""
             for item in default_links {
                 let repo = a_repo(ilink: item.description)
