@@ -97,6 +97,26 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             sb?.this_package = package
             self.navigationController?.pushViewController(sb!)
             print("[*] Pushing to WebKit controller.")
+        }else{
+            let fake_repo = a_repo(ilink: "FAKE")
+            let new_package = packages_C(with_repo: fake_repo)
+            new_package.info["NAME"] = tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(9).description
+            new_package.info["PACKAGE"] = tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(9).description
+            new_package.info["VERSION"] = Saily.installed[(tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(9).description ?? "").uppercased()] ?? "nil"
+            new_package.info["DESCRIPTION"] = "Local installed. Can't be found in your repos.".localized()
+            let storyboard_ins = UIStoryboard(name: "Main", bundle: nil)
+            
+            //        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
+            //            let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Native_ID") as? Saily_UI_Tweak_Native
+            //            sb?.this_package = package
+            //            self.navigationController?.pushViewController(sb!)
+            //            print("[*] Pushing to native controller.")
+            //            return
+            //        }
+            let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Webkit_ID") as? Saily_UI_Tweak_Webkit
+            sb?.this_package = new_package
+            self.navigationController?.pushViewController(sb!)
+            print("[*] Pushing to WebKit controller.")
         }
     }
     

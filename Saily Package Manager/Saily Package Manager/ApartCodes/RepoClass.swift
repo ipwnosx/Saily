@@ -181,6 +181,9 @@ class a_repo {
     }
     
     init(ilink: String) {
+        if (ilink == "FAKE") {
+            return
+        }
         _ = self.link_to_name(link: ilink)
         self.ress.apart_init(major_link: ilink, name: self.name)
     }

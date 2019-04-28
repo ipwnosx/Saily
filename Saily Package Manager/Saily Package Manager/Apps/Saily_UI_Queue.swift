@@ -144,7 +144,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                 tableView.reloadData()
                 return
             }
-            let alert = UIAlertController(title: "Conform?".localized(), message: "Removing it from queue may be dangerous and may cause dependency(s) missing, which may result a bad install status and is hard to recover. Are you sure you want to remove: \n".localized() + (tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(7).description ?? "[E]"), preferredStyle: .alert)
+            let alert = UIAlertController(title: "Conform?".localized(), message: "Removing it from queue may be dangerous and may cause dependency(s) missing, which may result a bad install status and is hard to recover. Are you sure you want to remove: \n\n\n".localized() + (tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(7).description ?? "[E]"), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "YES".localized(), style: .destructive, handler: { (_) in
 //                tableView.deleteRows(at: [indexPath], with: .fade)
                 if (indexPath.section == 1) {

@@ -219,7 +219,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
             if (ret == status_ins.ret_depends) {
                 has_an_error = true
                 print("[*] Add to Install Failed.")
-                onlyOkayAlert(self, title: "Failed".localized(), str: "Can not find all of package dependency(s), try to add more repos, or recover default repos.".localized())
+                onlyOkayAlert(self, title: "Failed".localized(), str: "Can not find all of package dependency(s), or the root daemon is currently offline. Try to add more repos, or recover default repos.".localized())
             }
         }
         if (!has_an_error) {
