@@ -274,6 +274,9 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @IBAction func queue_button_action(_ sender: Any) {
+        
+        button.imageView?.shineAnimation()
+        
         // rootViewController from StoryBoard
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let manager = mainStoryboard.instantiateViewController(withIdentifier: "Saily_UI_Queue_ID")

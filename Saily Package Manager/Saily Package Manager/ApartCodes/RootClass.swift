@@ -24,6 +24,7 @@ class status_class {
     
     public var ret_already  = -12
     public var ret_depends  = -11
+    public var ret_no_file  = -13
 }
 
 let Saily = Saily_All()
@@ -331,8 +332,10 @@ class Saily_file_system {
     public var repo_list_signal = String()
     public var repo_cache       = String()
     public var queue_root       = String()
-    public var daemon_root       = String()
+    public var daemon_root      = String()
     public var image_cache      = String()
+    public var quene_install    = String()
+    public var queue_removes    = String()
     
     func apart_init() {
         self.root = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -342,8 +345,14 @@ class Saily_file_system {
         self.repo_list_signal = self.root + "/repo.list.initd"
         self.repo_cache = self.root + "/repo.cache"
         self.queue_root = self.root + "/queue.submit"
+        self.quene_install = self.queue_root + "/install.submit"
+        self.queue_removes = self.queue_root + "/removes.submit"
         self.image_cache = self.root + "/image.cache"
         self.daemon_root = self.root + "/daemon.call"
+        
+        try? FileManager.default.removeItem(atPath: self.quene_install)
+        try? FileManager.default.removeItem(atPath: self.queue_removes)
+        try? FileManager.default.removeItem(atPath: self.daemon_root)
         
         Saily_FileU.make_sure_file_exists_at(self.udid, is_direct: false)
         Saily_FileU.make_sure_file_exists_at(self.repo_list, is_direct: true)
@@ -351,6 +360,8 @@ class Saily_file_system {
         Saily_FileU.make_sure_file_exists_at(self.queue_root, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.image_cache, is_direct: true)
         Saily_FileU.make_sure_file_exists_at(self.daemon_root, is_direct: true)
+        Saily_FileU.make_sure_file_exists_at(self.quene_install, is_direct: true)
+        Saily_FileU.make_sure_file_exists_at(self.queue_removes, is_direct: false)
         
         print("[*] File System Apart Init root = " + self.root)
         print("[*] File System Apart Init udid = " + self.udid)
@@ -359,11 +370,9 @@ class Saily_file_system {
         print("[*] File System Apart Init repo_list signal = " + self.repo_list_signal)
         print("[*] File System Apart Init queue_root = " + self.queue_root)
         print("[*] File System Apart Init image_cache = " + self.image_cache)
-        print("[*] File System Apart Init image_cache = " + self.daemon_root)
-        
-        for item in self.daemon_root {
-            try? FileManager.default.removeItem(atPath: item.description)
-        }
+        print("[*] File System Apart Init daemon_root = " + self.daemon_root)
+        print("[*] File System Apart Init quene_install = " + self.quene_install)
+        print("[*] File System Apart Init queue_removes = " + self.queue_removes)
         
     }
 }

@@ -197,9 +197,21 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
     
     @objc func add(_ sender: UIButton) {
         if let packages = Saily.search_a_package_with(its_name: Saily.discover_root[self.discover_index].tweak_id) {
-            Saily.operation_container.add_a_install(packages)
-            sender.setTitle("Queue".localized(), for: .normal)
-            sender.isEnabled = false
+            var has_an_error = false
+            let ret = Saily.operation_container.add_a_install(packages)
+            if (ret == status_ins.ret_depends) {
+                has_an_error = true
+                print("[*] Add to Install Failed.")
+                onlyOkayAlert(self, title: "Failed".localized(), str: "Can not find all of package dependency(s), or the root daemon is currently offline. Try to add more repos, or recover default repos.".localized())
+            }else if (ret == status_ins.ret_no_file) {
+                has_an_error = true
+                print("[*] Add to Install Failed.")
+                onlyOkayAlert(self, title: "Failed".localized(), str: "Can't find the package url.".localized())
+            }
+            if (!has_an_error) {
+                sender.setTitle("Queue".localized(), for: .normal)
+                sender.isEnabled = false
+            }
         }else{
             let alert = UIAlertController(title: "No Package Found".localized(), message: "Add this repo to your repo list?\n\n".localized() + Saily.discover_root[self.discover_index].tweak_repo, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK".localized(), style: .default, handler: { (_) in

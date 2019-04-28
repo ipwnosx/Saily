@@ -33,6 +33,13 @@ void run_cmd(char *cmd)
         }
     }
 }
+static void fix_permission()
+{
+    NSString *com = [[NSString alloc] initWithFormat:@"chmod -R 0777 %@/daemon.call", saily_root];
+    run_cmd([com UTF8String]);
+    com = [[NSString alloc] initWithFormat:@"chown -R 501:501 %@/daemon.call", saily_root];
+    run_cmd([com UTF8String]);
+}
 
 NSString *read_data_with_url(NSString *url) { // making a GET request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -128,7 +135,7 @@ static void end_port(CFNotificationCenterRef center, void *observer, CFStringRef
     NSLog(@"[*] End reading session token with result %@", session_token);
     NSString *sendback = [[NSString alloc] initWithFormat:@"[*] Received session token: |%@|", session_token];
     send_message_to_Saily(sendback);
-    saily_root = read_data_with_url([[NSString alloc] initWithFormat: @"http://127.0.0.1:%d/sandbox_locaion_query", port]);
+    saily_root = read_data_with_url([[NSString alloc] initWithFormat: @"http://127.0.0.1:%d/sandbox_location_query", port]);
 }
 static void run_command(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
@@ -142,6 +149,7 @@ static void list_dpkg(CFNotificationCenterRef center, void *observer, CFStringRe
     NSString *com = [[NSString alloc] initWithFormat:@"dpkg -l &> %@/daemon.call/dpkgl.out", saily_root];
     NSLog(@"[*] End reading command with result %@", com);
     run_cmd([com UTF8String]);
+    fix_permission();
 }
 static void update_source_list(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 { }

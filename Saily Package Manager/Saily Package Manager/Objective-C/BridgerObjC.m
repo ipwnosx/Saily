@@ -84,7 +84,7 @@
         SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:client_session_token];
         return response;
     }];
-    [daemonServer router:@"GET" path:@"/sandbox_locaion_query" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
+    [daemonServer router:@"GET" path:@"/sandbox_location_query" handler:^SFWebServerRespone *(SFWebServerRequest *request) {
         NSLog(@"[*] Sending sandbox locaion: %@", app_sandboxed_root);
         SFWebServerRespone *response = [[SFWebServerRespone alloc]initWithHTML:app_sandboxed_root];
         return response;

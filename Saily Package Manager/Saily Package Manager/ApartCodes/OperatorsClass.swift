@@ -19,7 +19,36 @@ class installer_Unit {
     
 //    public var dependss                                 = [packages_C]() // make it not visible to user.
     
+    func add_to_download(package: packages_C) {
+        print("File link is at: " + (package.info["FILENAME"] ?? ""))
+        //Optional("download/com.spark.libsparkapplist/1.0.3.deb")
+        //Optional("http://apt.thebigboss.org/repofiles/cydia/debs2.0/batterypercentageenabler_1.0.0.deb")
+        //Optional("./debs/66.deb")
+        //Optional("./downloads.php?request=480.deb")
+        //Optional("./downloads.php?request=480.deb")
+        //Optional("pool/main/r/re.frida.server32/re.frida.server32_12.4.8_iphoneos-arm.deb")
+        
+        if let tmp = package.info["FILENAME"] {
+            var download_url = ""
+            if (tmp.hasPrefix("http")) {
+                download_url = tmp
+            }else if (tmp.hasPrefix("./")) {
+                download_url = package.fater_repo.ress.major + tmp.dropFirst(2).description
+            }else{
+                download_url = package.fater_repo.ress.major + tmp
+            }
+            print("Attamp to connect to deb file: " + download_url)
+        }else{
+            print("No download URL.")
+            
+        }
+        
+    }
+    
     func add_a_install(_ package: packages_C) -> Int {
+        if (package.info["FILENAME"] == nil) {
+            return status_ins.ret_no_file
+        }
         for item in installs {
             if (item.info["PACKAGE"] == package.info["PACKAGE"]) {
                 return status_ins.ret_already
@@ -116,7 +145,7 @@ class installer_Unit {
                 }
             }
         }
-        
+        add_to_download(package: package)
         return status_ins.ret_success
     }
     
