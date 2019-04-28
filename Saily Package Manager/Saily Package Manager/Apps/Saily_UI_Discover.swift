@@ -184,8 +184,6 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
             c.bottom.equalTo(cell.contentView.snp.bottom)
         }
         
-        Saily.discover_root[indexPath.row].reg_content_view(content)
-        
         return cell
     }
 

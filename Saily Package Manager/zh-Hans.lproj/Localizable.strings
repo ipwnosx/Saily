@@ -58,3 +58,12 @@
 "Package Depend is Too new: " = "先决依赖版本太高";
 "Install Queue" = "安装队列";
 "Remove Queue" = "移除队列";
+"Queued" = "队列中";
+"Okay" = "知道啦";
+"Failed" = "失败";
+"Error when trying to add queue. Is it there already?" = "无法添加到队列，请检查队列是否已经存在该项";
+"Can not find all of package dependency(s), try to add more repos, or recover default repos." = "无法找到该软件包的全部依赖，请尝试添加更多软件源或恢复默认软件源。";
+"Conform?" = "确认";
+"Removing it from queue may be dangerous and may cause dependency(s) missing, which may result a bad install status and is hard to recover. Are you sure you want to remove: \n" = "手动删减队列可能会导致安装失败或者失效，并且让安装进入难以恢复的状态。请确认你依然想删除软件包: \n";
+"YES" = "确认";
+"Cancel (Recommend)" = "取消，推荐";

@@ -21,6 +21,9 @@ class status_class {
     public var in_wrapper   = 02
     public var ret_success  = 06
     public var ret_failed   = -1
+    
+    public var ret_already  = -12
+    public var ret_depends  = -11
 }
 
 let Saily = Saily_All()

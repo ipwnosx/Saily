@@ -28,8 +28,9 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var desc_hight: NSLayoutConstraint!
     
-    var finish_load = false
-    var installed = false
+    var finish_load     = false
+    var installed       = false
+    var in_queue        = false
     
     let loading_view = NVActivityIndicatorView(frame: CGRect(), type: .circleStrokeSpin, color: #colorLiteral(red: 0.01864526048, green: 0.4776622653, blue: 1, alpha: 1), padding: nil)
     
@@ -68,9 +69,26 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         desc_hight.constant = desc.contentSize.height;
         
         let tweak_id: String = self.this_package?.info["PACKAGE"] ?? UUID().uuidString
-        if (Saily.installed[tweak_id.uppercased()] != nil) {
+        if (Saily.installed[tweak_id.uppercased()] != nil) { // Installed
             button.setTitle("Remove".localized(), for: .normal)
             self.installed = true
+        }
+        // In Queue
+        for item in Saily.operation_container.installs {
+            if (item.info["PACKAGE"] == tweak_id) {
+                button.setTitle("Queued".localized(), for: .normal)
+                button.isEnabled = false
+                self.in_queue = true
+                break
+            }
+        }
+        for item in Saily.operation_container.removes {
+            if (item.info["PACKAGE"] == tweak_id) {
+                button.setTitle("Queued".localized(), for: .normal)
+                self.in_queue = true
+                button.isEnabled = false
+                break
+            }
         }
         
         container_info_view.addShadow(ofColor: .gray, radius: 6, offset: CGSize(width: 0, height: 0), opacity: 0.5)
@@ -189,12 +207,24 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     }
     
     @IBAction func add_queue(_ sender: Any) {
-        self.button.setTitle("Queue".localized(), for: .normal)
-        self.button.isEnabled = false
+        var has_an_error = false
         if (self.installed) {
-            Saily.operation_container.removes.append(self.this_package!)
+            if (!Saily.operation_container.add_a_remove(self.this_package!)) {
+                has_an_error = true
+                print("[*] Remove Failed.")
+                onlyOkayAlert(self, title: "Failed".localized(), str: "Error when trying to add queue. Is it there already?".localized())
+            }
         }else{
-            Saily.operation_container.installs.append(self.this_package!)
+            let ret = Saily.operation_container.add_a_install(self.this_package!)
+            if (ret == status_ins.ret_depends) {
+                has_an_error = true
+                print("[*] Add to Install Failed.")
+                onlyOkayAlert(self, title: "Failed".localized(), str: "Can not find all of package dependency(s), try to add more repos, or recover default repos.".localized())
+            }
+        }
+        if (!has_an_error) {
+            self.button.setTitle("Queue".localized(), for: .normal)
+            self.button.isEnabled = false
         }
     }
     

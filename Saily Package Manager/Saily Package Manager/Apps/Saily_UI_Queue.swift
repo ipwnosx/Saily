@@ -131,4 +131,37 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            if (Saily.operation_container.installs.count <= 0 || indexPath.section == 1) {
+                Saily.operation_container.removes.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+                return
+            }
+            let alert = UIAlertController(title: "Conform?".localized(), message: "Removing it from queue may be dangerous and may cause dependency(s) missing, which may result a bad install status and is hard to recover. Are you sure you want to remove: \n".localized() + (tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(7).description ?? "[E]"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "YES".localized(), style: .destructive, handler: { (_) in
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+                if (indexPath.section == 1) {
+                    Saily.operation_container.removes.remove(at: indexPath.row)
+                }else{
+                    if (Saily.operation_container.installs.count <= 0) {
+                        Saily.operation_container.removes.remove(at: indexPath.row)
+                    }else{
+                        Saily.operation_container.installs.remove(at: indexPath.row)
+                    }
+                }
+                tableView.reloadData()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel (Recommend)".localized(), style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
 }

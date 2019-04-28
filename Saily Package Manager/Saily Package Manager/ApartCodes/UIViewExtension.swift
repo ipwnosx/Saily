@@ -37,3 +37,18 @@ extension String {
         return boundingBox.width
     }
 }
+
+//MARK: - UIView Extensions
+
+extension UIView
+{
+    func copyView<T: UIView>() -> T {
+        return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
+    }
+}
+
+func onlyOkayAlert(_ sender: UIViewController, title: String, str: String) {
+    let alert = UIAlertController(title: title, message: str, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Okay".localized(), style: .cancel, handler: nil))
+    sender.present(alert, animated: true, completion: nil)
+}

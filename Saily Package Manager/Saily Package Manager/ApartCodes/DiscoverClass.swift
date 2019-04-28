@@ -14,23 +14,17 @@ let preview_discover_file = "https://raw.githubusercontent.com/Co2333/SailyHomeP
 // subtitle, title, image, detail, link
 class discover_C {
     
-    public var title_big        = String()
-    public var title_small      = String()
-    public var text_details     = String()
-    public var image_link       = String()
-    public var web_link         = String()
-    public var tweak_id         = String()
-    public var tweak_repo       = String()
-    public var card_kind        = 0
-    
-    public var content_view     = UIView()
+    public var title_big                = String()
+    public var title_small              = String()
+    public var text_details             = String()
+    public var image_link               = String()
+    public var web_link                 = String()
+    public var tweak_id                 = String()
+    public var tweak_repo               = String()
+    public var card_kind                = 0
     
     init() {
         self.card_kind = 1
-    }
-    
-    func reg_content_view(_ view: UIView) {
-        self.content_view = view
     }
     
     func apart_init(withString: String) {

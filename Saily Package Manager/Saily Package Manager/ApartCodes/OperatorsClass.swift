@@ -17,10 +17,12 @@ class installer_Unit {
     public var installs                                 = [packages_C]()
     public var removes                                  = [packages_C]()
     
-    func add_a_install(_ package: packages_C) {
+//    public var dependss                                 = [packages_C]() // make it not visible to user.
+    
+    func add_a_install(_ package: packages_C) -> Int {
         for item in installs {
             if (item.info["PACKAGE"] == package.info["PACKAGE"]) {
-                return
+                return status_ins.ret_already
             }
         }
         var index = 0
@@ -30,12 +32,98 @@ class installer_Unit {
             }
             index += 1
         }
-        installs.append(package)
+        if let depends = package.info["DEPENDS"] {
+            print(depends)
+            // mobilesubstrate (>= 0.9.5000), firmware (>= 7.0), preferenceloader
+            // As for now, we don't check the version because it would not usually cause problem and apt will check it again.
+            var dep_str = [String]()
+            var read = ""
+            for item in depends.split(separator: ",") {
+                read = ""
+                if (item.description.contains("(")) {
+                    // split it.
+                    read = item.description.split(separator: "(")[0].description
+                }else{
+                    // just okay like preferenceloader
+                    read = item.description
+                }
+                while (read.hasPrefix(" ")) {
+                    read = read.dropFirst().description
+                }
+                while (read.hasSuffix(" ")) {
+                    read = read.dropLast().description
+                }
+                dep_str.append(read)
+            }
+            // just put it in avoid A required B while B required A
+            self.installs.append(package)
+            for item in dep_str {
+                print("[*] Searching for depend:" + item.description)
+                if (Saily.installed[item.description.uppercased()] != nil) {
+                    // okay, installed!
+                    print("[*] Installed depend:" + item.description)
+                }else{
+                    var in_queue = false
+                    for ins in installs {
+                        if (ins.info["PACKAGE"] == item) {
+                            //  in queue
+                            in_queue = true
+                        }
+                    }
+//                    for ins in dependss {
+//                        if (ins.info["PACKAGE"] == item) {
+//                            //  in queue
+//                            in_queue = true
+//                        }
+//                    }
+                    if (in_queue) {
+                        // okay, next.
+                        print("[*] Depend in queue:" + item.description)
+                    }else{
+                        if (Saily.search_a_package_with(its_name: item) != nil) {
+                            // okay, we found it.
+                            let ret = add_a_install(Saily.search_a_package_with(its_name: item)!)
+                            if (ret != status_ins.ret_success && ret != status_ins.ret_already) {
+                                // nope, error.
+                                print("[*] Sub depend failed:" + item.description)
+                                var index = 0
+                                for item in installs {
+                                    if (item.info["PACKAGE"] == package.info["PACKAGE"]) {
+                                        installs.remove(at: index)
+                                        break
+                                    }else{
+                                        index += 1
+                                    }
+                                }
+                                return status_ins.ret_depends
+                            }
+                        }else{
+                            // nope, error.
+                            print("[*] No such depend:" + item.description)
+                            var index = 0
+                            for item in installs {
+                                if (item.info["PACKAGE"] == package.info["PACKAGE"]) {
+                                    installs.remove(at: index)
+                                    break
+                                }else{
+                                    index += 1
+                                }
+                            }
+                            return status_ins.ret_depends
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+        return status_ins.ret_success
     }
-    func add_a_remove(_ package: packages_C) {
+    
+    func add_a_remove(_ package: packages_C) -> Bool {
         for item in removes {
             if (item.info["PACKAGE"] == package.info["PACKAGE"]) {
-                return
+                return false
             }
         }
         var index = 0
@@ -46,6 +134,7 @@ class installer_Unit {
             index += 1
         }
         removes.append(package)
+        return true
     }
 }
 
