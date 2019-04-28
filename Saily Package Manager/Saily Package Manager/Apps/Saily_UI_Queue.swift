@@ -111,20 +111,23 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if (indexPath.section == 0) {
             if (Saily.operation_container.installs.count > 0) {
-                cell.textLabel?.text = "       " + (Saily.operation_container.installs[indexPath.row].info["NAME"] ?? Saily.operation_container.installs[indexPath.row].info["PACKAGE"]!)
+                cell.textLabel?.text = "       " + (Saily.operation_container.installs[indexPath.row].info["NAME"] ?? "No Name Boy".localized())
+                cell.detailTextLabel?.text = "         " + (Saily.operation_container.installs[indexPath.row].info["PACKAGE"] ?? "Error: No ID".localized())
             }else{
-                cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? Saily.operation_container.removes[indexPath.row].info["PACKAGE"]!)
+                cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? "No Name Boy".localized())
+                cell.detailTextLabel?.text = "         " + (Saily.operation_container.removes[indexPath.row].info["PACKAGE"] ?? "Error: No ID".localized())
             }
         }else{
-            cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? Saily.operation_container.removes[indexPath.row].info["PACKAGE"]!)
+            cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? "No Name Boy".localized())
+            cell.detailTextLabel?.text = "         " + (Saily.operation_container.removes[indexPath.row].info["PACKAGE"] ?? "Error: No ID".localized())
         }
         
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "tweakIcon.png")
         cell.addSubview(imageView)
         imageView.snp.makeConstraints { (c) in
-            c.top.equalTo(cell.contentView.snp.top).offset(10)
-            c.right.equalTo(cell.textLabel!.snp.left).offset(26)
+            c.top.equalTo(cell.contentView.snp.top).offset(14)
+            c.right.equalTo(cell.textLabel!.snp.left).offset(22)
             c.width.equalTo(28)
             c.height.equalTo(28)
         }

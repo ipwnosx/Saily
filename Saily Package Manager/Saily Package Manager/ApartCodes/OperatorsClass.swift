@@ -20,6 +20,7 @@ class installer_Unit {
 //    public var dependss                                 = [packages_C]() // make it not visible to user.
     
     func add_to_download(package: packages_C) {
+//        print(package.info)
         print("File link is at: " + (package.info["FILENAME"] ?? ""))
         //Optional("download/com.spark.libsparkapplist/1.0.3.deb")
         //Optional("http://apt.thebigboss.org/repofiles/cydia/debs2.0/batterypercentageenabler_1.0.0.deb")
@@ -46,6 +47,7 @@ class installer_Unit {
     }
     
     func add_a_install(_ package: packages_C) -> Int {
+        print("Attemp to add: " + package.info.description)
         if (package.info["FILENAME"] == nil) {
             return status_ins.ret_no_file
         }
@@ -87,10 +89,10 @@ class installer_Unit {
             // just put it in avoid A required B while B required A
             self.installs.append(package)
             for item in dep_str {
-                print("[*] Searching for depend:" + item.description)
+                print("[*] Searching for depend: " + item.description)
                 if (Saily.installed[item.description.uppercased()] != nil) {
                     // okay, installed!
-                    print("[*] Installed depend:" + item.description)
+                    print("[*] Installed depend: " + item.description)
                 }else{
                     var in_queue = false
                     for ins in installs {
@@ -144,6 +146,8 @@ class installer_Unit {
                     }
                 }
             }
+        }else{
+            self.installs.append(package)
         }
         add_to_download(package: package)
         return status_ins.ret_success

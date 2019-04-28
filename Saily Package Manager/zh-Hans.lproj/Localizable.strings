@@ -69,3 +69,5 @@
 "Cancel (Recommend)" = "取消，推荐";
 "Local installed. Can't be found in your repos." = "本地软件包。在你的源中无法找到这个软件包。";
 "Can't find the package url." = "无法在云端找到软件包";
+"No Name Boy" = "无名氏";
+"Error: No ID" = "这个软件包居然没有ID?";
