@@ -127,7 +127,7 @@ static void begin_port(CFNotificationCenterRef center, void *observer, CFStringR
 {
     port = 0;
 }
-static void end_port(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void end_port(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef uslauncherInfo)
 {
     NSLog(@"[*] End reading port with result %d", port);
     usleep(50000);
@@ -151,8 +151,114 @@ static void list_dpkg(CFNotificationCenterRef center, void *observer, CFStringRe
     run_cmd([com UTF8String]);
     fix_permission();
 }
-static void update_source_list(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
-{ }
+static void apt_install_list(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    NSLog(@"[*] APT is not working. use dpkg instead.");
+//    NSFileManager *fm = [NSFileManager defaultManager];
+//    NSArray *dirContents = [fm contentsOfDirectoryAtPath:[[NSString alloc] initWithFormat: @"%@/queue.submit/install.submit/", saily_root] error:nil];
+//    NSString *cmd_files = @"";
+//    for (int i = 0; i < [dirContents count]; i ++) {
+//        cmd_files = [cmd_files stringByAppendingString:@" "];
+//        cmd_files = [cmd_files stringByAppendingString:saily_root];
+//        cmd_files = [cmd_files stringByAppendingString:@"/"];
+//        cmd_files = [cmd_files stringByAppendingString: dirContents[i]];
+//    }
+//    NSString *com = [[NSString alloc] initWithFormat:@"apt-get --allow-unauthenticated --just-print install %@ &> %@/daemon.call/install.list", cmd_files, saily_root];
+//    NSLog(@"[*] End reading command with result %@", com);
+//    run_cmd([com UTF8String]);
+//    fix_permission();
+}
+static void dpkg_install_perform(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *dirContents = [fm contentsOfDirectoryAtPath:[[NSString alloc] initWithFormat: @"%@/queue.submit/install.submit/", saily_root] error:nil];
+    NSString *cmd_files = @"";
+    for (int i = 0; i < [dirContents count]; i ++) {
+        cmd_files = [cmd_files stringByAppendingString:@" "];
+        cmd_files = [cmd_files stringByAppendingString:saily_root];
+        cmd_files = [cmd_files stringByAppendingString:@"/queue.submit/install.submit/"];
+        cmd_files = [cmd_files stringByAppendingString: dirContents[i]];
+    }
+    NSString *com = [[NSString alloc] initWithFormat:@"dpkg -i %@ &>> %@/daemon.call/cmd.out", cmd_files, saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    com = [[NSString alloc] initWithFormat:@"echo \"SAILY_DONE\" &>> %@/daemon.call/status", saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    fix_permission();
+}
+static void apt_remove_list(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    // 获取文件地址
+    NSString *path = [[NSString alloc] initWithFormat:@"%@/queue.submit/removes.submit", saily_root];
+    NSLog(@"[*] Read from: %@", path);
+    // 将文件用cp拷贝到我们能读取的地方
+    NSString *cpcmd = [[NSString alloc] initWithFormat:@"cp %@/queue.submit/removes.submit /var/root/", saily_root];
+    run_cmd([cpcmd UTF8String]);
+    NSString *list_str = [NSString stringWithContentsOfFile:@"/var/root/removes.submit" encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"[*] Read with result: %@", list_str);
+    NSArray *packages = [list_str componentsSeparatedByString:@"\n"];
+    NSString *cmd_files = @"";
+    for (int i = 0; i < [packages count]; i ++) {
+        cmd_files = [cmd_files stringByAppendingString:@" "];
+        cmd_files = [cmd_files stringByAppendingString: packages[i]];
+        NSLog(@"[*] Add a package: %@", packages[i]);
+    }
+    NSLog(@"[*] Package Array STR: %@", cmd_files);
+    NSString *com = [[NSString alloc] initWithFormat:@"apt-get --allow-unauthenticated --just-print remove %@ &>> %@/daemon.call/cmd.out", cmd_files, saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    com = [[NSString alloc] initWithFormat:@"echo \"SAILY_DONE\" &>> %@/daemon.call/status", saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+        run_cmd([com UTF8String]);
+    fix_permission();
+}
+static void apt_remove_perform(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    // 获取文件地址
+    NSString *path = [[NSString alloc] initWithFormat:@"%@/queue.submit/removes.submit", saily_root];
+    NSLog(@"[*] Read from: %@", path);
+    // 将文件用cp拷贝到我们能读取的地方
+    NSString *cpcmd = [[NSString alloc] initWithFormat:@"cp %@/queue.submit/removes.submit /var/root/", saily_root];
+    run_cmd([cpcmd UTF8String]);
+    NSString *list_str = [NSString stringWithContentsOfFile:@"/var/root/removes.submit" encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"[*] Read with result: %@", list_str);
+    NSArray *packages = [list_str componentsSeparatedByString:@"\n"];
+    NSString *cmd_files = @"";
+    for (int i = 0; i < [packages count]; i ++) {
+        cmd_files = [cmd_files stringByAppendingString:@" "];
+        cmd_files = [cmd_files stringByAppendingString: packages[i]];
+        NSLog(@"[*] Add a package: %@", packages[i]);
+    }
+    NSLog(@"[*] Package Array STR: %@", cmd_files);
+    NSString *com = [[NSString alloc] initWithFormat:@"apt-get --allow-unauthenticated -y remove %@ &>> %@/daemon.call/cmd.out", cmd_files, saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    com = [[NSString alloc] initWithFormat:@"echo \"SAILY_DONE\" &>> %@/daemon.call/status", saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    fix_permission();
+}
+static void apt_autoremove_list(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    NSString *com = [[NSString alloc] initWithFormat:@"apt-get --allow-unauthenticated --just-print  auto-remove &>> %@/daemon.call/cmd.out", saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    com = [[NSString alloc] initWithFormat:@"echo \"SAILY_DONE\" &>> %@/daemon.call/status", saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    fix_permission();
+}
+static void apt_autoremove_perform(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    NSString *com = [[NSString alloc] initWithFormat:@"apt-get --allow-unauthenticated -y auto-remove &>> %@/daemon.call/cmd.out", saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    com = [[NSString alloc] initWithFormat:@"echo \"SAILY_DONE\" &>> %@/daemon.call/status", saily_root];
+    NSLog(@"[*] End reading command with result %@", com);
+    run_cmd([com UTF8String]);
+    fix_permission();
+}
 
 int main(int argc, char **argv, char **envp)
 {
@@ -172,7 +278,11 @@ int main(int argc, char **argv, char **envp)
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, end_port, CFSTR("com.Saily.end_port"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, run_command, CFSTR("com.Saily.run_command"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, list_dpkg, CFSTR("com.Saily.list_dpkg"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, update_source_list, CFSTR("com.Saily.update_source_list"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, dpkg_install_perform, CFSTR("com.Saily.dpkg.install.perform"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, apt_remove_list, CFSTR("com.Saily.apt.remove.list"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, apt_remove_perform, CFSTR("com.Saily.apt.remove.perform"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, apt_autoremove_list, CFSTR("com.Saily.apt.autoremove.list"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, apt_autoremove_perform, CFSTR("com.Saily.apt.autoremove.perform"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     
     CFRunLoopRun(); // keep it running in background
     return 0;

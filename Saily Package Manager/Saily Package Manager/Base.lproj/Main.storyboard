@@ -96,7 +96,7 @@
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rKz-vb-Ok6">
                                 <rect key="frame" x="20" y="44" width="374" height="773"/>
-                                <mutableString key="text">apt 1.4.9 (iphoneos-arm)
+                                <string key="text">apt 1.4.9 (iphoneos-arm)
 Usage: apt [options] command
 
 apt is a commandline package manager and provides commands for
@@ -123,7 +123,7 @@ Information about how to configure sources can be found in sources.list(5).
 Package and version choices can be expressed via apt_preferences(5).
 Security details are available in apt-secure(8).
                                         This APT has Super Cow Powers.
-</mutableString>
+</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -167,6 +167,7 @@ Security details are available in apt-secure(8).
                     </view>
                     <navigationItem key="navigationItem" id="GPw-H1-YUZ"/>
                     <connections>
+                        <outlet property="progress" destination="Aih-b0-sad" id="1zb-PJ-btw"/>
                         <outlet property="text" destination="rKz-vb-Ok6" id="pCo-pG-0Y6"/>
                         <outlet property="title_install" destination="ZNV-4n-MBc" id="2je-Lh-J8k"/>
                     </connections>

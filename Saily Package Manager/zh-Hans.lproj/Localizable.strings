@@ -72,3 +72,5 @@
 "No Name Boy" = "无名氏";
 "Error: No ID" = "这个软件包居然没有ID?";
 "Submit" = "提交";
+"Error Abort!" = "遇到可能致命的错误，终止。";
+"Finished." = "任务完成";

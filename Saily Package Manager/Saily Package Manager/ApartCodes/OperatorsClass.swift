@@ -109,7 +109,11 @@ class installer_Unit {
                 while (read.hasSuffix(" ")) {
                     read = read.dropLast().description
                 }
-                dep_str.append(read)
+                if (read.uppercased() != "firmware".uppercased()) {
+                    dep_str.append(read)
+                }else{
+                    // ignore firmware
+                }
             }
             // just put it in avoid A required B while B required A
             self.installs.append(package)

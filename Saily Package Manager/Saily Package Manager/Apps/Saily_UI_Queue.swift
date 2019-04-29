@@ -292,13 +292,6 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func submit(_ sender: Any) {
-        if (Saily.operation_container.removes.count > 0) {
-            var read = ""
-            for item in Saily.operation_container.removes {
-                read = (item.info["PACKAGE"] ?? "") + "\n" + read
-            }
-            Saily_FileU.simple_write(file_path: Saily.files.queue_removes, file_content: read)
-        }
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let new = sb.instantiateViewController(withIdentifier: "Saily_UI_Submitter_ID") as? Saily_UI_Submitter
         
@@ -311,6 +304,14 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
             popupVC = PopupViewController(contentController: new!, popupWidth: scx, popupHeight: scy)
         }else{
             popupVC = PopupViewController(contentController: new!, popupWidth: scx, popupHeight: scx)
+        }
+        
+        if (Saily.operation_container.removes.count > 0) {
+            var read = ""
+            for item in Saily.operation_container.removes {
+                read = (item.info["PACKAGE"] ?? "") + "\n" + read
+            }
+            Saily_FileU.simple_write(file_path: Saily.files.queue_removes, file_content: read)
         }
         
         popupVC!.canTapOutsideToDismiss = false
