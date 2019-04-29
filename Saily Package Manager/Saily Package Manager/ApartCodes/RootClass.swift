@@ -346,8 +346,7 @@ class Saily_file_system {
         self.image_cache = self.root + "/image.cache"
         self.daemon_root = self.root + "/daemon.call"
         
-        try? FileManager.default.removeItem(atPath: self.quene_install)
-        try? FileManager.default.removeItem(atPath: self.queue_removes)
+        try? FileManager.default.removeItem(atPath: self.queue_root)
         try? FileManager.default.removeItem(atPath: self.daemon_root)
         
         Saily_FileU.make_sure_file_exists_at(self.udid, is_direct: false)

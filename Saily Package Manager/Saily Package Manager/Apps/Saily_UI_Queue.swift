@@ -297,7 +297,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
             for item in Saily.operation_container.removes {
                 read = (item.info["PACKAGE"] ?? "") + "\n" + read
             }
-            Saily_FileU.simple_write(file_path: Saily.files.queue_removes + "\remove.list", file_content: read)
+            Saily_FileU.simple_write(file_path: Saily.files.queue_removes, file_content: read)
         }
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let new = sb.instantiateViewController(withIdentifier: "Saily_UI_Submitter_ID") as? Saily_UI_Submitter
