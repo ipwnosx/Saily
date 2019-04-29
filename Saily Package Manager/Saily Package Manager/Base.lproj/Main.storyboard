@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SailyUI Queue-->
+        <!--📦 Operations-->
         <scene sceneID="cBP-o6-5y2">
             <objects>
                 <viewController storyboardIdentifier="Saily_UI_Queue_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BNP-7c-Bdu" customClass="Saily_UI_Queue" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,6 +42,9 @@
                                                 <real key="value" value="14"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="submit:" destination="BNP-7c-Bdu" eventType="touchUpInside" id="d8z-Hq-NPt"/>
+                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wba-yT-GZr">
                                         <rect key="frame" x="0.0" y="74" width="414" height="732"/>
@@ -64,6 +67,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Ov5-XV-BUJ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="📦 Operations" id="YkW-qC-LTT"/>
                     <connections>
                         <outlet property="container" destination="kSh-oS-h9d" id="gYz-Bg-rLd"/>
                         <outlet property="label" destination="sPm-yZ-hWy" id="11N-ZT-Opc"/>
@@ -73,7 +77,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ger-w0-UeJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1362.3188405797102" y="0.0"/>
+            <point key="canvasLocation" x="-1362" y="0.0"/>
+        </scene>
+        <!--SailyUI Submitter-->
+        <scene sceneID="aRJ-1F-CXT">
+            <objects>
+                <viewController storyboardIdentifier="Saily_UI_Submitter_ID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dWL-IF-a1Q" customClass="Saily_UI_Submitter" customModule="Saily_Package_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Z2-57-l1G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BGBlue.png" translatesAutoresizingMaskIntoConstraints="NO" id="4DT-J7-2co">
+                                <rect key="frame" x="-100" y="-100" width="614" height="1096"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ccx-Pa-rCZ">
+                                <rect key="frame" x="-80" y="815" width="574" height="147"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rKz-vb-Ok6">
+                                <rect key="frame" x="20" y="44" width="374" height="773"/>
+                                <mutableString key="text">apt 1.4.9 (iphoneos-arm)
+Usage: apt [options] command
+
+apt is a commandline package manager and provides commands for
+searching and managing as well as querying information about packages.
+It provides the same functionality as the specialized APT tools,
+like apt-get and apt-cache, but enables options more suitable for
+interactive use by default.
+
+Most used commands:
+  list - list packages based on package names
+  search - search in package descriptions
+  show - show package details
+  install - install packages
+  remove - remove packages
+  autoremove - Remove automatically all unused packages
+  update - update list of available packages
+  upgrade - upgrade the system by installing/upgrading packages
+  full-upgrade - upgrade the system by removing/installing/upgrading packages
+  edit-sources - edit the source information file
+
+See apt(8) for more information about the available commands.
+Configuration options and syntax is detailed in apt.conf(5).
+Information about how to configure sources can be found in sources.list(5).
+Package and version choices can be expressed via apt_preferences(5).
+Security details are available in apt-secure(8).
+                                        This APT has Super Cow Powers.
+</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aih-b0-sad">
+                                <rect key="frame" x="20" y="815" width="374" height="2"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="trackTintColor" white="1" alpha="0.1094552654109589" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perform Install Action" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNV-4n-MBc" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                <rect key="frame" x="54" y="817" width="315" height="75"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ccx-Pa-rCZ" firstAttribute="top" secondItem="Aih-b0-sad" secondAttribute="bottom" constant="-2" id="0a0-7s-R2O"/>
+                            <constraint firstItem="Ccx-Pa-rCZ" firstAttribute="leading" secondItem="7Z2-57-l1G" secondAttribute="leadingMargin" constant="-100" id="3V9-Pw-9NW"/>
+                            <constraint firstItem="fKc-pe-rDm" firstAttribute="trailing" secondItem="ZNV-4n-MBc" secondAttribute="trailing" constant="45" id="3aT-Tm-FYR"/>
+                            <constraint firstAttribute="trailing" secondItem="4DT-J7-2co" secondAttribute="trailing" constant="-100" id="76x-Pg-Kp5"/>
+                            <constraint firstItem="fKc-pe-rDm" firstAttribute="bottom" secondItem="Aih-b0-sad" secondAttribute="bottom" constant="45" id="BFS-2P-t5Q"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Ccx-Pa-rCZ" secondAttribute="bottom" constant="-100" id="GTi-82-XFc"/>
+                            <constraint firstItem="rKz-vb-Ok6" firstAttribute="leading" secondItem="fKc-pe-rDm" secondAttribute="leading" constant="20" id="LzW-qA-hfp"/>
+                            <constraint firstItem="ZNV-4n-MBc" firstAttribute="leading" secondItem="fKc-pe-rDm" secondAttribute="leading" constant="54" id="NEv-FR-eIV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ccx-Pa-rCZ" secondAttribute="trailing" constant="-100" id="Q2m-AC-Qlc"/>
+                            <constraint firstItem="Aih-b0-sad" firstAttribute="leading" secondItem="7Z2-57-l1G" secondAttribute="leadingMargin" id="Rjb-XQ-Cf5"/>
+                            <constraint firstItem="ZNV-4n-MBc" firstAttribute="top" secondItem="Aih-b0-sad" secondAttribute="bottom" id="Sxk-eA-e2q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Aih-b0-sad" secondAttribute="trailing" id="W7Q-SO-G6Z"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="rKz-vb-Ok6" secondAttribute="bottom" constant="45" id="Zfo-G6-PgG"/>
+                            <constraint firstItem="fKc-pe-rDm" firstAttribute="trailing" secondItem="rKz-vb-Ok6" secondAttribute="trailing" constant="20" id="eqV-dC-k9u"/>
+                            <constraint firstItem="4DT-J7-2co" firstAttribute="top" secondItem="7Z2-57-l1G" secondAttribute="top" constant="-100" id="gkH-Uu-HN3"/>
+                            <constraint firstItem="rKz-vb-Ok6" firstAttribute="top" secondItem="fKc-pe-rDm" secondAttribute="top" id="qeQ-O2-D30"/>
+                            <constraint firstAttribute="bottom" secondItem="ZNV-4n-MBc" secondAttribute="bottom" constant="4" id="ukJ-wL-id4"/>
+                            <constraint firstAttribute="bottom" secondItem="4DT-J7-2co" secondAttribute="bottom" constant="-100" id="vmI-cI-KCC"/>
+                            <constraint firstItem="4DT-J7-2co" firstAttribute="leading" secondItem="7Z2-57-l1G" secondAttribute="leading" constant="-100" id="wiu-da-KQ0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fKc-pe-rDm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GPw-H1-YUZ"/>
+                    <connections>
+                        <outlet property="text" destination="rKz-vb-Ok6" id="pCo-pG-0Y6"/>
+                        <outlet property="title_install" destination="ZNV-4n-MBc" id="2je-Lh-J8k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dwm-Hy-iSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-678.26086956521749" y="0.0"/>
         </scene>
         <!--Init Tab Bar Contoller-->
         <scene sceneID="yl2-sM-qoP">
@@ -93,7 +193,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="910.14492753623199" y="0.0"/>
         </scene>
         <!--Discover-->
         <scene sceneID="tEh-ru-PGl">
@@ -112,7 +212,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTu-59-cjN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
+            <point key="canvasLocation" x="1659.4202898550725" y="-320.08928571428572"/>
         </scene>
         <!--Discover-->
         <scene sceneID="kRN-40-hdS">
@@ -184,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keh-XM-EC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410.144927536232" y="-320.08928571428572"/>
+            <point key="canvasLocation" x="2320.289855072464" y="-320.08928571428572"/>
         </scene>
         <!--Details-->
         <scene sceneID="U3v-a6-ZwI">
@@ -218,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQt-pM-YGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2076.8115942028985" y="-320.08928571428572"/>
+            <point key="canvasLocation" x="2985.507246376812" y="-320.08928571428572"/>
         </scene>
         <!--SailyUI Tweak Webkit-->
         <scene sceneID="rk6-YB-6KA">
@@ -364,7 +464,7 @@ Lakr Aream 2019.4</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eui-Ul-tgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2786.9565217391305" y="-320.08928571428572"/>
+            <point key="canvasLocation" x="3697.1014492753625" y="-320.08928571428572"/>
         </scene>
         <!--SailyUI Tweak Native-->
         <scene sceneID="ILX-fW-XTK">
@@ -379,7 +479,7 @@ Lakr Aream 2019.4</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUk-Bo-PkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3463.7681159420295" y="-321.42857142857139"/>
+            <point key="canvasLocation" x="4373.913043478261" y="-321.42857142857139"/>
         </scene>
         <!--Sources-->
         <scene sceneID="y5e-71-EES">
@@ -408,7 +508,7 @@ Lakr Aream 2019.4</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVs-Fx-eDW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="360"/>
+            <point key="canvasLocation" x="2321.739130434783" y="359.59821428571428"/>
         </scene>
         <!--SailyUI Sectiosn-->
         <scene sceneID="3KN-3f-sX5">
@@ -436,7 +536,7 @@ Lakr Aream 2019.4</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guR-Go-lxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="360"/>
+            <point key="canvasLocation" x="3005.7971014492755" y="359.59821428571428"/>
         </scene>
         <!--Search-->
         <scene sceneID="X0C-ui-yrU">
@@ -465,7 +565,7 @@ Lakr Aream 2019.4</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pj-dN-dTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2787" y="360"/>
+            <point key="canvasLocation" x="3697.1014492753625" y="359.59821428571428"/>
         </scene>
         <!--Sources-->
         <scene sceneID="ni2-8f-GQu">
@@ -484,7 +584,7 @@ Lakr Aream 2019.4</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jnb-q5-qI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.27536231884062" y="359.59821428571428"/>
+            <point key="canvasLocation" x="1659.4202898550725" y="359.59821428571428"/>
         </scene>
         <!--Search-->
         <scene sceneID="VUw-s9-AEV">
@@ -601,6 +701,24 @@ Lakr Aream 2019.4</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mf-Ue-7am" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="804.91071428571422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0fQ-9b-H12">
+            <objects>
+                <navigationController storyboardIdentifier="Saily_UI_Queue_NAV_ID" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TTP-1N-Vcm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ihA-bM-Bhu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BNP-7c-Bdu" kind="relationship" relationship="rootViewController" id="uFq-U1-CVE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Crg-KR-060" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2039" y="0.0"/>
         </scene>
     </scenes>
     <resources>

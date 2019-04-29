@@ -8,6 +8,8 @@
 
 import UIKit
 
+import EzPopup
+
 class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var container: UIScrollView!
@@ -15,11 +17,88 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var submit: UIButton!
     
+    private var progressBars = [UIProgressView]()
+    
+    var timer: Timer?
+    
+    @objc func update_download_progress() {
+        if (Saily.operation_container.installs.count < 1 || self.progressBars.count < 1) {
+            if (Saily.operation_container.removes.count > 0 && Saily.operation_container.installs.count < 1) {
+                submit.setTitle("Submit".localized(), for: .normal)
+                submit.isEnabled = true
+            }
+            return
+        }
+        var there_is_an_un_finished_fucking_shittttt = false
+        for i in 0...(Saily.operation_container.installs.count - 1) {
+            if let tmp = Saily.operation_container.installs[i].info["FILENAME"] {
+                var download_url = ""
+                if (tmp.hasPrefix("http")) {
+                    download_url = tmp
+                }else if (tmp.hasPrefix("./")) {
+                    download_url = Saily.operation_container.installs[i].fater_repo.ress.major + tmp.dropFirst(2).description
+                }else{
+                    download_url = Saily.operation_container.installs[i].fater_repo.ress.major + tmp
+                }
+                let file_name = download_url.split(separator: "/").last ?? "ohno?"
+//                print("[*] Checking progress at: " + (Saily.files.quene_install + "/" + file_name + ".progress"))
+                if (!Saily_FileU.exists(file_path: Saily.files.quene_install + "/" + file_name)) {
+                    if (Saily_FileU.exists(file_path: Saily.files.quene_install + "/" + file_name + ".progress")) {
+                        async_update_progress(value: Float(Saily_FileU.simple_read(Saily.files.quene_install + "/" + file_name + ".progress") ?? "1") ?? 1, view: self.progressBars[i])
+                        there_is_an_un_finished_fucking_shittttt = true
+                    }else{
+                        async_update_progress(value: 0, view: self.progressBars[i])
+                        there_is_an_un_finished_fucking_shittttt = true
+                    }
+                }else{
+                    if (!Saily_FileU.exists(file_path: Saily.files.quene_install + "/" + file_name + ".progress")) {
+                        async_update_progress(value: 1, view: self.progressBars[i])
+                    }else{
+                        async_update_progress(value: Float(Saily_FileU.simple_read(Saily.files.quene_install + "/" + file_name + ".progress") ?? "1") ?? 1, view: self.progressBars[i])
+                        there_is_an_un_finished_fucking_shittttt = true
+                    }
+                }
+            }
+        }
+        if (there_is_an_un_finished_fucking_shittttt) {
+            if (Saily.operation_container.removes.count > 0 && Saily.operation_container.installs.count < 1) {
+                submit.setTitle("Submit".localized(), for: .normal)
+                submit.isEnabled = true
+            }else{
+                submit.setTitle("⇣⇣⇣", for: .normal)
+                submit.isEnabled = false
+            }
+        }else{
+            submit.setTitle("Submit".localized(), for: .normal)
+            submit.isEnabled = true
+        }
+    }
+    
+    func async_update_progress(value: Float, view: UIProgressView) {
+        DispatchQueue.main.async {
+            view.setProgress(value, animated: true)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        timer = nil
+        self.navigationController?.setToolbarHidden(false, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
 
         self.tableview.dataSource = self
         self.tableview.delegate = self
+        
+        submit.isEnabled = false
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.233, target: self, selector: #selector(update_download_progress), userInfo: nil, repeats: true)
+        timer?.fire()
         
         if (Saily.operation_container.installs.count < 1 && Saily.operation_container.removes.count < 1) {
             self.submit.isEnabled = false
@@ -67,9 +146,15 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         self.tableview.separatorColor = .clear
-        
+        for _ in Saily.operation_container.installs {
+            self.progressBars.append(UIProgressView())
+        }
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         var sections = 0
         if (Saily.operation_container.installs.count > 0) {
@@ -113,6 +198,18 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
             if (Saily.operation_container.installs.count > 0) {
                 cell.textLabel?.text = "       " + (Saily.operation_container.installs[indexPath.row].info["NAME"] ?? "No Name Boy".localized())
                 cell.detailTextLabel?.text = "         " + (Saily.operation_container.installs[indexPath.row].info["PACKAGE"] ?? "Error: No ID".localized())
+                let progressView = UIProgressView()
+                progressView.progress = 0
+                progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+                progressView.progressTintColor = #colorLiteral(red: 1, green: 0.6632423401, blue: 0, alpha: 1)
+                cell.addSubview(progressView)
+                progressView.snp.makeConstraints { (c) in
+                    c.bottom.equalTo(cell.contentView.snp.bottom).offset(0 - progressView.bounds.height)
+                    c.left.equalTo(cell.textLabel!.snp.left).offset(0)
+                    c.right.equalTo(cell.contentView.snp.right).offset(0)
+                    c.height.equalTo(1)
+                }
+                self.progressBars[indexPath.row] = progressView
             }else{
                 cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? "No Name Boy".localized())
                 cell.detailTextLabel?.text = "         " + (Saily.operation_container.removes[indexPath.row].info["PACKAGE"] ?? "Error: No ID".localized())
@@ -194,4 +291,32 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    @IBAction func submit(_ sender: Any) {
+        if (Saily.operation_container.removes.count > 0) {
+            var read = ""
+            for item in Saily.operation_container.removes {
+                read = (item.info["PACKAGE"] ?? "") + "\n" + read
+            }
+            Saily_FileU.simple_write(file_path: Saily.files.queue_removes + "\remove.list", file_content: read)
+        }
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let new = sb.instantiateViewController(withIdentifier: "Saily_UI_Submitter_ID") as? Saily_UI_Submitter
+        
+        
+        let scx = self.view.bounds.width
+        let scy = self.view.bounds.height
+        
+        var popupVC: PopupViewController? = nil
+        if (Saily.device.indentifier_human_readable.uppercased().contains("iPad".uppercased())) {
+            popupVC = PopupViewController(contentController: new!, popupWidth: scx, popupHeight: scy)
+        }else{
+            popupVC = PopupViewController(contentController: new!, popupWidth: scx, popupHeight: scx)
+        }
+        
+        popupVC!.canTapOutsideToDismiss = false
+        popupVC!.cornerRadius = 10
+        popupVC!.shadowEnabled = false
+        present(popupVC!, animated: true)
+        
+    }
 }

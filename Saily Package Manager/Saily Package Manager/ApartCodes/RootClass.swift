@@ -130,15 +130,11 @@ class Saily_All {
             }
             
             // init discover
-            var items = wrapper_result.split(separator: "\n")
-            
-            if (items.count > 1) {
-                items.remove(at: 0)
-                for item in items {
-                    let dis = discover_C()
-                    dis.apart_init(withString: item.description)
-                    self.discover_root.append(dis)
-                }
+            let items = wrapper_result.split(separator: "\n")
+            for item in items {
+                let dis = discover_C()
+                dis.apart_init(withString: item.description)
+                self.discover_root.append(dis)
             }
         } // discover wrapper
         

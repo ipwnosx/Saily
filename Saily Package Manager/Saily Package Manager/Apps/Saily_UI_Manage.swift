@@ -219,6 +219,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
                             // DANGEROUS PACKAGE
                         }else{
                             self.data_source.append(item.description)
+                            Saily.installed[item.description.split(separator: " ")[1].description.uppercased()] = item.description.split(separator: " ")[2].description.uppercased()
                         }
                     }
                 }
@@ -279,7 +280,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         // rootViewController from StoryBoard
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let manager = mainStoryboard.instantiateViewController(withIdentifier: "Saily_UI_Queue_ID")
+        let manager = mainStoryboard.instantiateViewController(withIdentifier: "Saily_UI_Queue_NAV_ID")
         
         let scx = self.view.bounds.width
         let scy = self.view.bounds.height

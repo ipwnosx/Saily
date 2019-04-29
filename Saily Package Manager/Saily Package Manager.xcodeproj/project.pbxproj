@@ -24,6 +24,7 @@
 		AB6565C0226A3A6E00E796E5 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565BF226A3A6E00E796E5 /* next.png */; };
 		AB6565C2226A460300E796E5 /* edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565C1226A460300E796E5 /* edit@3x.png */; };
 		AB6565C6226A465100E796E5 /* add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6565C5226A465100E796E5 /* add@3x.png */; };
+		AB86503E227715F900A9A9BE /* Saily_UI_Submitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86503D227715F900A9A9BE /* Saily_UI_Submitter.swift */; };
 		AB86AFE4226A09FB0021EB89 /* CardCellKind2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB86AFD9226A09FB0021EB89 /* CardCellKind2.swift */; };
 		AB86AFE5226A09FB0021EB89 /* PlaceHolderLight.png in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFDA226A09FB0021EB89 /* PlaceHolderLight.png */; };
 		AB86AFE7226A09FB0021EB89 /* PlaceHolderDark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB86AFDC226A09FB0021EB89 /* PlaceHolderDark.jpg */; };
@@ -110,6 +111,7 @@
 		AB6565BF226A3A6E00E796E5 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		AB6565C1226A460300E796E5 /* edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@3x.png"; sourceTree = "<group>"; };
 		AB6565C5226A465100E796E5 /* add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@3x.png"; sourceTree = "<group>"; };
+		AB86503D227715F900A9A9BE /* Saily_UI_Submitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saily_UI_Submitter.swift; sourceTree = "<group>"; };
 		AB86AFD9226A09FB0021EB89 /* CardCellKind2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellKind2.swift; sourceTree = "<group>"; };
 		AB86AFDA226A09FB0021EB89 /* PlaceHolderLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceHolderLight.png; sourceTree = "<group>"; };
 		AB86AFDC226A09FB0021EB89 /* PlaceHolderDark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PlaceHolderDark.jpg; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				ABB6B2272269EF550034FFF5 /* Navigators.swift */,
 				ABB6B2562269F9590034FFF5 /* Saily_UI_Discover.swift */,
 				AB153AF32270BD2E0084D365 /* Saily_UI_Queue.swift */,
+				AB86503D227715F900A9A9BE /* Saily_UI_Submitter.swift */,
 				AB8AF7B2226CD5D1006AA919 /* Saily_UI_Discover_Detail.swift */,
 				AB6565BD226A2C5900E796E5 /* Saily_UI_Repos.swift */,
 				AB102D2A226AE219005348A9 /* Saily_UI_Sectiosn.swift */,
@@ -792,6 +795,7 @@
 				ABB35B1C226E0C7A009E4D07 /* Saily_UI_Tweak_Webkit.swift in Sources */,
 				ABB6B1E92269E85B0034FFF5 /* UIDeviceExtension.swift in Sources */,
 				AB86AFEE226A107B0021EB89 /* PackageDownloadView.swift in Sources */,
+				AB86503E227715F900A9A9BE /* Saily_UI_Submitter.swift in Sources */,
 				ABB6B2082269E94B0034FFF5 /* SFWebServer.m in Sources */,
 				ABB6B2282269EF550034FFF5 /* Navigators.swift in Sources */,
 				ABB6B2062269E94B0034FFF5 /* GCDAsyncSocket.m in Sources */,

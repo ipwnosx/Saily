@@ -39,6 +39,31 @@ class installer_Unit {
                 download_url = package.fater_repo.ress.major + tmp
             }
             print("Attamp to connect to deb file: " + download_url)
+            let file_name = download_url.split(separator: "/").last ?? "ohno?"
+            Saily.operation_quene.network_queue.async {
+                let h: HTTPHeaders  = ["User-Agent" : CydiaNetwork.UA_Sileo,
+                                       "X-Firmware" : CydiaNetwork.H_Firmware,
+                                       "X-Unique-ID" : CydiaNetwork.H_UDID,
+                                       "X-Machine" : CydiaNetwork.H_Machine,
+                                       "Accept" : "*/*",
+                                       "Accept-Language" : "zh-CN,en,*",
+                                       "Accept-Encoding" : "gzip, deflate"]
+                if let url0 = URL(string: download_url) {
+                    let destination: DownloadRequest.Destination = { _, _ in
+                        let furl0 = URL.init(fileURLWithPath: Saily.files.quene_install + "/" + file_name)
+                        return (furl0, [.removePreviousFile, .createIntermediateDirectories])
+                    }
+                    print("[*] Downloading file: " + url0.absoluteString + "\n[--- To: " + Saily.files.quene_install + "/" + file_name)
+                    AF.download(url0, headers: h, to: destination).downloadProgress { (progress) in
+                        Saily_FileU.simple_write(file_path: Saily.files.quene_install + "/" + file_name + ".progress", file_content: progress.fractionCompleted.description)
+                        }.responseData { (data) in
+                            try? FileManager.default.removeItem(atPath: Saily.files.quene_install + "/" + file_name + ".progress")
+                            return
+                    }
+                }else{
+                    print("[E] Failed to get url at: " + download_url)
+                }
+            }
         }else{
             print("No download URL.")
             
