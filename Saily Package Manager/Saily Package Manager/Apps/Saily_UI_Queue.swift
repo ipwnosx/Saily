@@ -78,6 +78,20 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc func recheck() {
         if (Saily.operation_container.installs.count == 0 && Saily.operation_container.removes.count == 0) {
             self.tableview.reloadData()
+            
+            self.submit.isEnabled = false
+            self.submit.setTitle("Empty".localized(), for: .normal)
+            let mafumafu = UIImageView()
+            mafumafu.image = #imageLiteral(resourceName: "mafufulove.png")
+            mafumafu.contentMode = .scaleAspectFit
+            self.view.addSubview(mafumafu)
+            mafumafu.snp.makeConstraints { (x) in
+                x.bottom.equalTo(self.view.snp.bottom).offset(8)
+                x.centerX.equalTo(self.view.snp.centerX)
+                x.width.equalTo(128)
+                x.height.equalTo(128)
+            }
+        
         }
     }
     

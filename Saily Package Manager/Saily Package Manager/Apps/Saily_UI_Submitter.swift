@@ -83,6 +83,7 @@ class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
                 progresss.stopAnimating()
                 Saily.operation_container = installer_Unit()
                 self.popVC?.canTapOutsideToDismiss = true
+                Saily.manage_UI!.refreshData(Saily.manage_UI.self as Any)
                 return
             }
         }

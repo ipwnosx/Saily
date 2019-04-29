@@ -1,6 +1,6 @@
 Package: com.lakr233.jw.SailyStartupDaemon
 Name: SailyStartupDaemon
-Version: 0.1-1
+Version: 0.2
 Description: Saily Package Manager Startup Daemon
 Section: System
 Depends: firmware (>= 11.0)
