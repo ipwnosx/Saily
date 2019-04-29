@@ -20,6 +20,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
     private var progressBars = [UIProgressView]()
     
     var timer: Timer?
+    var tiimer: Timer?
     
     @objc func update_download_progress() {
         if (Saily.operation_container.installs.count < 1 || self.progressBars.count < 1) {
@@ -74,6 +75,12 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    @objc func recheck() {
+        if (Saily.operation_container.installs.count == 0 && Saily.operation_container.removes.count == 0) {
+            self.tableview.reloadData()
+        }
+    }
+    
     func async_update_progress(value: Float, view: UIProgressView) {
         DispatchQueue.main.async {
             view.setProgress(value, animated: true)
@@ -84,6 +91,8 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewWillDisappear(animated)
         timer?.invalidate()
         timer = nil
+        tiimer?.invalidate()
+        tiimer = nil
         self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
@@ -99,6 +108,8 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         timer = Timer.scheduledTimer(timeInterval: 0.233, target: self, selector: #selector(update_download_progress), userInfo: nil, repeats: true)
         timer?.fire()
+        tiimer = Timer.scheduledTimer(timeInterval: 0.233, target: self, selector: #selector(recheck), userInfo: nil, repeats: true)
+        tiimer?.fire()
         
         if (Saily.operation_container.installs.count < 1 && Saily.operation_container.removes.count < 1) {
             self.submit.isEnabled = false
@@ -296,6 +307,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         let new = sb.instantiateViewController(withIdentifier: "Saily_UI_Submitter_ID") as? Saily_UI_Submitter
         
         
+        
         let scx = self.view.bounds.width
         let scy = self.view.bounds.height
         
@@ -313,11 +325,11 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             Saily_FileU.simple_write(file_path: Saily.files.queue_removes, file_content: read)
         }
-        
+        new?.popVC = popupVC
+        new?.pusher = self
         popupVC!.canTapOutsideToDismiss = false
         popupVC!.cornerRadius = 10
         popupVC!.shadowEnabled = false
         present(popupVC!, animated: true)
-        
     }
 }

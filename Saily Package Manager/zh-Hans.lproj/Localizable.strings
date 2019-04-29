@@ -74,3 +74,6 @@
 "Submit" = "提交";
 "Error Abort!" = "遇到可能致命的错误，终止。";
 "Finished." = "任务完成";
+"Perform Install Action" = "执行安装操作...";
+"Perform Remove Action" = "执行移除操作...";
+"Perform Auto Remove Action" = "正在清理依赖...";

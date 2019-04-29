@@ -10,12 +10,16 @@ import UIKit
 
 import LTMorphingLabel
 import NVActivityIndicatorView
+import EzPopup
 
 class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
     
     @IBOutlet weak var title_install: LTMorphingLabel!
     @IBOutlet weak var text: UITextView!
     @IBOutlet weak var progress: UIProgressView!
+    
+    public var popVC: PopupViewController?
+    public var pusher: UIViewController?
     
     public var perform_install = false
     public var perform_remove  = false
@@ -39,6 +43,7 @@ class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
             timer?.invalidate()
             timer = nil
             progresss.stopAnimating()
+            self.popVC?.canTapOutsideToDismiss = true
             return
         }
         
@@ -54,12 +59,15 @@ class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
                 switch job_queue.first {
                 case 101:
                     print("[Install]")
+                    self.title_install.text = "Perform Install Action".localized()
                     Saily.objc_bridge.callToDaemon(with: "com.Saily.dpkg.install.perform")
                 case 111:
                     print("[Remove]")
+                    self.title_install.text = "Perform Remove Action".localized()
                     Saily.objc_bridge.callToDaemon(with: "com.Saily.apt.remove.perform")
                 case 121:
                     print("[Auto Remove]")
+                    self.title_install.text = "Perform Auto Remove Action".localized()
                     Saily.objc_bridge.callToDaemon(with: "com.Saily.apt.autoremove.perform")
                 default:
                     break
@@ -73,6 +81,8 @@ class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
                 timer?.invalidate()
                 timer = nil
                 progresss.stopAnimating()
+                Saily.operation_container = installer_Unit()
+                self.popVC?.canTapOutsideToDismiss = true
                 return
             }
         }
