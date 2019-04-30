@@ -198,6 +198,22 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
                     print(dpkgread)
                     Saily.daemon_online = true
                     print("[*] END DPKG STATUS ---------------------------------------\n\n\n")
+                    
+//                    let splited = dpkgread.split(separator: "\n").dropFirst(5)
+//                    for item in splited {
+//                        var is_dangerous = false
+//                        for i in dangerous_packages {
+//                            if (item.description.uppercased().contains(i.uppercased())) {
+//                                is_dangerous = true
+//                            }
+//                        }
+//                        if (is_dangerous) {
+//                            // DANGEROUS PACKAGE
+//                        }else{
+//                            self.data_source.append(item.description)
+//                            Saily.installed[item.description.split(separator: " ")[1].description.uppercased()] = item.description.split(separator: " ")[2].description.uppercased()
+//                        }
+//                    }
                 }else{
                     Saily.daemon_online = false
                 }
@@ -206,6 +222,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             s.wait()
             self.data_source = [String]()
             if (Saily.daemon_online) {
+                // don't know way. really.
                 if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
                     let splited = dpkgread.split(separator: "\n").dropFirst(5)
                     for item in splited {
@@ -219,8 +236,8 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
                             // DANGEROUS PACKAGE
                         }else{
                             self.data_source.append(item.description)
-                            Saily.installed[item.description.split(separator: " ")[1].description.uppercased()] = item.description.split(separator: " ")[2].description.uppercased()
                         }
+                        Saily.installed[item.description.split(separator: " ")[1].description.uppercased()] = item.description.split(separator: " ")[2].description.uppercased()
                     }
                 }
             }

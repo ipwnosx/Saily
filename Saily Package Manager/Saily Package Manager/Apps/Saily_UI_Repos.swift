@@ -69,6 +69,9 @@ class Saily_UI_Repos: UITableViewController {
                 return
             }))
             alert.addAction(UIAlertAction.init(title: "No".localized(), style: .cancel, handler: { (_) in
+                UIPasteboard.general.setValue("", forPasteboardType: "")
+                Saily.copy_board = ""
+                Saily.copy_board_can_use = false
             }))
             self.present(alert, animated: true) {
             }

@@ -77,3 +77,7 @@
 "Perform Install Action" = "执行安装操作...";
 "Perform Remove Action" = "执行移除操作...";
 "Perform Auto Remove Action" = "正在清理依赖...";
+"Respring?" = "注销？";
+"The respring is required for enable tweaks." = "只有注销才能激活插件。是否继续？";
+"Perform" = "执行";
+"Cancel" = "取消";

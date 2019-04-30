@@ -91,6 +91,13 @@ class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
                 try? FileManager.default.removeItem(atPath: Saily.files.queue_root)
                 Saily_FileU.make_sure_file_exists_at(Saily.files.queue_root, is_direct: true)
                 Saily_FileU.make_sure_file_exists_at(Saily.files.quene_install, is_direct: true)
+                
+                let alert = UIAlertController(title: "Respring?".localized(), message: "The respring is required for enable tweaks.".localized(), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Perform".localized(), style: .destructive, handler: { (_) in
+                    Saily.objc_bridge.callToDaemon(with: "com.Saily.respring")
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
             }
         }

@@ -548,5 +548,6 @@ public let dangerous_packages = ["virtual GraphicsServices dependency",
                                  "virtual model dependency",
                                  "almost impressive Apple frameworks",
                                  "this device has a very large screen",
-                                 "virtual kernel dependency",]
+                                 "virtual kernel dependency",
+                                 "Saily Package Manager Startup Daemon"]
 
