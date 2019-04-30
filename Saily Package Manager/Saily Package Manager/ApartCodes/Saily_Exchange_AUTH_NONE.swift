@@ -90,18 +90,18 @@ class XPC_Auth {
 
 // Saily_Exchange_AUTH.swift should contains following struct
 //
-//import Foundation
-//
-//let AUTH_ins = AUTH_C()
-//class AUTH_C {
-//
-//    func encrypt(withStr: String) -> String {
-//        return withStr
-//    }
-//
-//    func abort_notice() {
-//
-//    }
-//
-//}
-//
+import Foundation
+
+let AUTH_ins = AUTH_C()
+class AUTH_C {
+
+    func encrypt(withStr: String) -> String {
+        return withStr
+    }
+
+    func abort_notice() {
+
+    }
+
+}
+

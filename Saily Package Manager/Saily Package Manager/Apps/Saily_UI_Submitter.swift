@@ -44,6 +44,9 @@ class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
             timer = nil
             progresss.stopAnimating()
             self.popVC?.canTapOutsideToDismiss = true
+            try? FileManager.default.removeItem(atPath: Saily.files.queue_root)
+            Saily_FileU.make_sure_file_exists_at(Saily.files.queue_root, is_direct: true)
+            Saily_FileU.make_sure_file_exists_at(Saily.files.quene_install, is_direct: true)
             return
         }
         
@@ -70,6 +73,7 @@ class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
                     self.title_install.text = "Perform Auto Remove Action".localized()
                     Saily.objc_bridge.callToDaemon(with: "com.Saily.apt.autoremove.perform")
                 default:
+                    print("[?] Why you are here to break the switch : switch job_queue.first")
                     break
                 }
                 
@@ -84,6 +88,9 @@ class Saily_UI_Submitter: UIViewController, LTMorphingLabelDelegate {
                 Saily.operation_container = installer_Unit()
                 self.popVC?.canTapOutsideToDismiss = true
                 Saily.manage_UI!.refreshData(Saily.manage_UI.self as Any)
+                try? FileManager.default.removeItem(atPath: Saily.files.queue_root)
+                Saily_FileU.make_sure_file_exists_at(Saily.files.queue_root, is_direct: true)
+                Saily_FileU.make_sure_file_exists_at(Saily.files.quene_install, is_direct: true)
                 return
             }
         }
