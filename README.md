@@ -12,9 +12,6 @@ Requirement:
   - MonkeyDev (theos or more is included)
   - MAKE SURE TO UNDERSTAND BUILD SCRIPT IN EACH TARGET
   
-Known issue:
-  - WebKit tweak view crash in release build but working fine in "debug" build.
-  
   
 Target:  
   - Jailbroken devices running iOS 11 +  
