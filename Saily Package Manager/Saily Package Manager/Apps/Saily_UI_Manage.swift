@@ -116,7 +116,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             let sb = storyboard_ins.instantiateViewController(withIdentifier: "Saily_UI_Tweak_Webkit_ID") as? Saily_UI_Tweak_Webkit
             sb?.this_package = new_package
             self.navigationController?.pushViewController(sb!)
-            print("[*] Pushing to WebKit controller.")
+            print("[*] Pushing to WebKit controller with local package.")
         }
     }
     
@@ -179,6 +179,9 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @objc func refreshData(_ sender: Any) {
         Saily.operation_quene.wrapper_queue.asyncAfter(deadline: .now() + 0.3) {
+            XPC_ins.ensure_port()
+            Saily.objc_bridge.ensureDaemonSocket(at: XPC_ins.session_port, XPC_ins.session_token, Saily.files.root)
+            usleep(5000)
             let ss = DispatchSemaphore(value: 0)
             DispatchQueue.main.async {
                 UIApplication.shared.beginIgnoringInteractionEvents()

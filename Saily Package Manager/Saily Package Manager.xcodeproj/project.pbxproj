@@ -88,6 +88,16 @@
 		BBCBFFB48D45123B5260D7B2 /* libPods-Daemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAF66B95A838CF3C5B7BFC5 /* libPods-Daemon.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AB227F7E227915A0009A566A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABE66B6B2269DB6500375C3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABE66B722269DB6500375C3E;
+			remoteInfo = "Saily Package Manager";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1DAF66B95A838CF3C5B7BFC5 /* libPods-Daemon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Daemon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC932C764F35C211DC693C0 /* Pods-Saily Package Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saily Package Manager.release.xcconfig"; path = "Target Support Files/Pods-Saily Package Manager/Pods-Saily Package Manager.release.xcconfig"; sourceTree = "<group>"; };
@@ -514,6 +524,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AB227F7F227915A0009A566A /* PBXTargetDependency */,
 			);
 			name = Daemon;
 			productName = Daemon;
@@ -713,7 +724,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr/bin\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library/LaunchDaemons\"\n\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/postinst\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/postrm\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/preinst\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/prerm\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/Library/LaunchDaemons/com.lakr233.jw.SailyStartupDaemon.plist\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library/LaunchDaemons/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/Package/DEBIAN/control\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\n\ncp $BUILT_PRODUCTS_DIR/Daemon \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr/bin/SailyStartupDaemon\"\n\ncd \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\n\nrm -f \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/SailyStartupDaemon.deb\"\ndpkg -b ./ ../SailyStartupDaemon.deb\n\nsshpass -p 'TESTdevice' root@192.168.6.85 rm -rf /var/root/MonkeyDevBuilds/\nsshpass -p 'TESTdevice' scp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/SailyStartupDaemon.deb\" root@192.168.6.85:/var/root/MonkeyDevBuilds/\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr/bin\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library\"\nmkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library/LaunchDaemons\"\n\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/postinst\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/postrm\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/preinst\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/prerm\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/Library/LaunchDaemons/com.lakr233.jw.SailyStartupDaemon.plist\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Library/LaunchDaemons/\"\ncp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Daemon/Package/DEBIAN/control\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN/\"\n\ncp $BUILT_PRODUCTS_DIR/Daemon \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/usr/bin/SailyStartupDaemon\"\n\ncd \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\n\nrm -f \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/SailyStartupDaemon.deb\"\ndpkg -b ./ ../SailyStartupDaemon.deb\n\n\n    rm -rf \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN\"\n    mkdir \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Applications\"\n    cp -r $BUILT_PRODUCTS_DIR/Saily\\ Package\\ Manager.app \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Applications/Saily.app\"\n    cp -r \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/root-ress/DEBIAN\" \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/DEBIAN\"\n    rm -rf \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build/Applications/Saily.app/_CodeSignature\"\n\n    rm -f \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Saily.deb\"\n    dpkg -b ./ ../Saily.deb\n\nrm -rf \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Build\"\n\nsshpass -p 'TESTdevice' root@192.168.6.85 rm -rf /var/root/MonkeyDevBuilds/\nsshpass -p 'TESTdevice' scp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/SailyStartupDaemon.deb\" root@192.168.6.85:/var/root/MonkeyDevBuilds/\nsshpass -p 'TESTdevice' scp \"/Users/lakr/Documents/GitHub/SailyPackageManager/Saily Package Manager/Packages/Saily.deb\" root@192.168.6.85:/var/root/MonkeyDevBuilds/\n\n\n";
 		};
 		ABE66BB62269DBA000375C3E /* Add Build Version */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -823,6 +834,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB227F7F227915A0009A566A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABE66B722269DB6500375C3E /* Saily Package Manager */;
+			targetProxy = AB227F7E227915A0009A566A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AB153AFA2270C83F0084D365 /* Localizable.strings */ = {

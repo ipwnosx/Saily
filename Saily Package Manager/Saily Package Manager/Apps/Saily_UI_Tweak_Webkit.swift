@@ -203,7 +203,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         if (url.absoluteString.contains("abcydia.com")) {
             is_from_ab_cydia = true
         }
-        this_Web!.load(customRequest)
+        this_Web?.load(customRequest)
     }
     
     @IBAction func add_queue(_ sender: Any) {

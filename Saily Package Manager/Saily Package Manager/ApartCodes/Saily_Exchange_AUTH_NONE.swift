@@ -62,7 +62,8 @@ class XPC_Auth {
             session_token = UUID().uuidString
             print("[*] Session_token init_ed! :" + session_token)
         }else{
-            print("[E] Double init of session_token.")
+            print("[*] Double init of session_token.")
+            session_token = UUID().uuidString
         }
     }
     
@@ -71,7 +72,8 @@ class XPC_Auth {
             session_port = Int.random(in: 2333...6666)
             print("[*] Session_port init_ed! :" + session_port.description)
         }else{
-            print("[E] Double init of session_port.")
+            print("[*] Double init of session_port.")
+            session_port = Int.random(in: 2333...6666)
         }
     }
     
@@ -89,19 +91,19 @@ class XPC_Auth {
 
 
 // Saily_Exchange_AUTH.swift should contains following struct
+////
+//import Foundation
 //
-import Foundation
-
-let AUTH_ins = AUTH_C()
-class AUTH_C {
-
-    func encrypt(withStr: String) -> String {
-        return withStr
-    }
-
-    func abort_notice() {
-
-    }
-
-}
-
+//let AUTH_ins = AUTH_C()
+//class AUTH_C {
+//
+//    func encrypt(withStr: String) -> String {
+//        return withStr
+//    }
+//
+//    func abort_notice() {
+//
+//    }
+//
+//}
+//
