@@ -112,7 +112,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("[*] START DPKG STATUS ---------------------------------------")
                     print(dpkgread)
                     Saily.daemon_online = true
-                    for item in dpkgread.split(separator: "\n").dropFirst(5) {
+                    var dpkgsplit = dpkgread.split(separator: "\n")
+                    while !(dpkgsplit.first?.hasPrefix("|") ?? false) {
+                        dpkgsplit.remove(at: 0)
+                    }
+                    dpkgsplit.remove(at: 0)
+                    dpkgsplit.remove(at: 0)
+                    dpkgsplit.remove(at: 0)
+                    dpkgsplit.remove(at: 0)
+                    for item in dpkgsplit {
                         Saily.installed[item.description.split(separator: " ")[1].description.uppercased()] = item.description.split(separator: " ")[2].description.uppercased()
                     }
                     print("[*] END DPKG STATUS ---------------------------------------\n\n\n")

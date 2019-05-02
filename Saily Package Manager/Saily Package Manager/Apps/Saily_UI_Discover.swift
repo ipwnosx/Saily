@@ -129,7 +129,7 @@ class Saily_UI_Discover: UIViewController, UICollectionViewDelegate, UICollectio
                 c.centerX.equalTo(cell.contentView.snp.centerX)
                 c.bottom.equalTo(udid_lable.snp.bottom).offset(-15)
             }
-            let welcome_lable = UILabel.init(text: "Welcom to Saily".localized())
+            let welcome_lable = UILabel.init(text: "Welcome to Saily".localized())
             welcome_lable.textColor = .white
             welcome_lable.font = UIFont.systemFont(ofSize: 32)
             cell.contentView.addSubview(welcome_lable)

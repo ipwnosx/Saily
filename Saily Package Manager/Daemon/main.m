@@ -15,9 +15,9 @@
 
 // DONT USE MACH MSG BECAUSE I DONT WANT ANY KERNEL PANIC
 
-int port = 0;
-NSString *session_token = @"";
 NSString *saily_root    = @"";
+NSString *saily_root_c  = @"/var/mobile/Containers/Data/Application/";
+NSString *saily_root_p  = @"/Documents";
 
 extern char **environ;
 void run_cmd(char *cmd)
@@ -60,22 +60,42 @@ NSString *read_data_with_url(NSString *url) { // making a GET request
     return read_data;
 }
 
-static void send_message_to_Saily(NSString *msg) { // making a POST request to /init
-    NSString *targetUrl = [NSString stringWithFormat:@"http://127.0.0.1:%d/daemoncallback", port];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    //Make an NSDictionary that would be converted to an NSData object sent over as JSON with the request body
-    NSError *error;
-    NSData *postData = [msg dataUsingEncoding:NSUTF8StringEncoding];
-    [request setHTTPBody:postData];
-    [request setHTTPMethod:@"POST"];
-    [request setURL:[NSURL URLWithString:targetUrl]];
-    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:
-      ^(NSData * _Nullable data,
-        NSURLResponse * _Nullable response,
-        NSError * _Nullable error) {
-          NSString *responseStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-          NSLog(@"Data received: %@", responseStr);
-      }] resume];
+static void begin_root_path(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = @"";
+}
+static void add_A(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = [saily_root stringByAppendingString:@"A"];
+}
+static void add_B(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = [saily_root stringByAppendingString:@"B"];
+}
+static void add_C(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = [saily_root stringByAppendingString:@"C"];
+}
+static void add_D(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = [saily_root stringByAppendingString:@"D"];
+}
+static void add_E(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = [saily_root stringByAppendingString:@"E"];
+}
+static void add_F(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = [saily_root stringByAppendingString:@"F"];
+}
+static void add__(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = [saily_root stringByAppendingString:@"-"];
+}
+static void end_root_path(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+    saily_root = [[saily_root_c stringByAppendingString:saily_root] stringByAppendingString:saily_root_p];
+    NSLog(@"[*] Got root path at: %@", saily_root);
 }
 
 static void respring(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
@@ -83,59 +103,45 @@ static void respring(CFNotificationCenterRef center, void *observer, CFStringRef
     NSLog(@"Saily: respring");
     run_cmd("killall SpringBoard");
 }
-static void add_port_1(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_1(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 1;
+    saily_root = [saily_root stringByAppendingString:@"1"];
 }
-static void add_port_2(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_2(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 2;
+    saily_root = [saily_root stringByAppendingString:@"2"];
 }
-static void add_port_3(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_3(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 3;
+    saily_root = [saily_root stringByAppendingString:@"3"];
 }
-static void add_port_4(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_4(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 4;
+    saily_root = [saily_root stringByAppendingString:@"4"];
 }
-static void add_port_5(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_5(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 5;
+    saily_root = [saily_root stringByAppendingString:@"5"];
 }
-static void add_port_6(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_6(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 6;
+    saily_root = [saily_root stringByAppendingString:@"6"];
 }
-static void add_port_7(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_7(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 7;
+    saily_root = [saily_root stringByAppendingString:@"7"];
 }
-static void add_port_8(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_8(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 8;
+    saily_root = [saily_root stringByAppendingString:@"8"];
 }
-static void add_port_9(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_9(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 9;
+    saily_root = [saily_root stringByAppendingString:@"9"];
 }
-static void add_port_0(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+static void add_0(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-    port = port * 10 + 0;
-}
-static void begin_port(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
-{
-    port = 0;
-}
-static void end_port(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef uslauncherInfo)
-{
-    NSLog(@"[*] End reading port with result %d", port);
-    usleep(50000);
-    session_token = read_data_with_url([[NSString alloc] initWithFormat: @"http://127.0.0.1:%d/session_token_query", port]);
-    NSLog(@"[*] End reading session token with result %@", session_token);
-    NSString *sendback = [[NSString alloc] initWithFormat:@"[*] Received session token: |%@|", session_token];
-    send_message_to_Saily(sendback);
-    saily_root = read_data_with_url([[NSString alloc] initWithFormat: @"http://127.0.0.1:%d/sandbox_location_query", port]);
+    saily_root = [saily_root stringByAppendingString:@"0"];
 }
 static void run_command(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
@@ -264,18 +270,27 @@ int main(int argc, char **argv, char **envp)
 {
     NSLog(@"Saily: rootdaemond is launched!");
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, respring, CFSTR("com.Saily.respring"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_1, CFSTR("com.Saily.addport_1"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_2, CFSTR("com.Saily.addport_2"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_3, CFSTR("com.Saily.addport_3"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_4, CFSTR("com.Saily.addport_4"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_5, CFSTR("com.Saily.addport_5"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_6, CFSTR("com.Saily.addport_6"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_7, CFSTR("com.Saily.addport_7"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_8, CFSTR("com.Saily.addport_8"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_9, CFSTR("com.Saily.addport_9"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_port_0, CFSTR("com.Saily.addport_0"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, begin_port, CFSTR("com.Saily.begin_port"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, end_port, CFSTR("com.Saily.end_port"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, begin_root_path, CFSTR("com.Saily.path_begin"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_A, CFSTR("com.Saily.path_A"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_B, CFSTR("com.Saily.path_B"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_C, CFSTR("com.Saily.path_C"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_D, CFSTR("com.Saily.path_D"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_E, CFSTR("com.Saily.path_E"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_F, CFSTR("com.Saily.path_F"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add__, CFSTR("com.Saily.path__"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_1, CFSTR("com.Saily.path_1"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_2, CFSTR("com.Saily.path_2"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_3, CFSTR("com.Saily.path_3"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_4, CFSTR("com.Saily.path_4"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_5, CFSTR("com.Saily.path_5"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_6, CFSTR("com.Saily.path_6"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_7, CFSTR("com.Saily.path_7"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_8, CFSTR("com.Saily.path_8"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_9, CFSTR("com.Saily.path_9"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, add_0, CFSTR("com.Saily.path_0"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, end_root_path, CFSTR("com.Saily.end_root_path"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    
+    
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, run_command, CFSTR("com.Saily.run_command"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, list_dpkg, CFSTR("com.Saily.list_dpkg"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, dpkg_install_perform, CFSTR("com.Saily.dpkg.install.perform"), NULL, CFNotificationSuspensionBehaviorCoalesce);

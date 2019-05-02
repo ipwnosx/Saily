@@ -75,6 +75,17 @@ class XPC_Auth {
             print("[*] Double init of session_port.")
             session_port = Int.random(in: 2333...6666)
         }
+        print("[*] Sending sandbox evn...")
+        // "/var/mobile/Containers/Data/Application/"
+        Saily.objc_bridge.callToDaemon(with: "com.Saily.path_begin")
+        for item in Saily.files.root.dropFirst("/var/mobile/Containers/Data/Application/".count).dropLast("/Documents".count) {
+            let read = (item.description != "-") ? item.description : "_"
+            let call_str = "com.Saily.path_" + read
+            Saily.objc_bridge.callToDaemon(with: call_str)
+            usleep(1500)
+        }
+        usleep(100)
+        Saily.objc_bridge.callToDaemon(with: "com.Saily.end_root_path")
     }
     
     func tell_demon_to_listen_at_port() -> Void {
@@ -94,16 +105,16 @@ class XPC_Auth {
 ////
 //import Foundation
 //
-//let AUTH_ins = AUTH_C()
-//class AUTH_C {
-//
-//    func encrypt(withStr: String) -> String {
-//        return withStr
-//    }
-//
-//    func abort_notice() {
-//
-//    }
-//
-//}
-//
+let AUTH_ins = AUTH_C()
+class AUTH_C {
+
+    func encrypt(withStr: String) -> String {
+        return withStr
+    }
+
+    func abort_notice() {
+
+    }
+
+}
+

@@ -127,8 +127,15 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         if (Saily.daemon_online) {
             if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
-                let splited = dpkgread.split(separator: "\n").dropFirst(5)
-                for item in splited {
+                var dpkgsplit = dpkgread.split(separator: "\n")
+                while !(dpkgsplit.first?.hasPrefix("|") ?? false) {
+                    dpkgsplit.remove(at: 0)
+                }
+                dpkgsplit.remove(at: 0)
+                dpkgsplit.remove(at: 0)
+                dpkgsplit.remove(at: 0)
+                dpkgsplit.remove(at: 0)
+                for item in dpkgsplit {
                     var is_dangerous = false
                     inner: for i in dangerous_packages {
                         if (item.description.uppercased().contains(i.uppercased())) {
@@ -227,8 +234,15 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             if (Saily.daemon_online) {
                 // don't know way. really.
                 if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
-                    let splited = dpkgread.split(separator: "\n").dropFirst(5)
-                    for item in splited {
+                    var dpkgsplit = dpkgread.split(separator: "\n")
+                    while !(dpkgsplit.first?.hasPrefix("|") ?? false) {
+                        dpkgsplit.remove(at: 0)
+                    }
+                    dpkgsplit.remove(at: 0)
+                    dpkgsplit.remove(at: 0)
+                    dpkgsplit.remove(at: 0)
+                    dpkgsplit.remove(at: 0)
+                    for item in dpkgsplit {
                         var is_dangerous = false
                         for i in dangerous_packages {
                             if (item.description.uppercased().contains(i.uppercased())) {

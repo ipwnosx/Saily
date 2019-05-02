@@ -291,7 +291,8 @@ class CydiaNetwork_C {
 
 let AFF = AFNetwork_C()
 class AFNetwork_C {
-    private let release_search_path          = ["Packages.bz2",
+    private let release_search_path          = [
+                                                "Packages.bz2",
                                                 "Packages.gz",
                                                 "dists/stable/main/binary-iphoneos-arm/Packages.bz2",
                                                 "dists/stable/main/binary-iphoneos-arm/Packages.gz",
