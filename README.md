@@ -15,9 +15,7 @@ Requirement:
   - MAKE SURE TO UNDERSTAND BUILD SCRIPT IN EACH TARGET
   
 Known issue:
-  - deb download cache not removed after installation completed.
-  - app may crash in tweak's view page on older devices
-  - daemon may not respond without rocketbootstrap <-- This should not happen but depends on your luck.
+  - WebKit crash may still exists.
   
 Target:  
   - Jailbroken devices running iOS 11 +  
