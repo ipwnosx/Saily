@@ -16,6 +16,7 @@ Requirement:
   
 Known issue:
   - WebKit crash may still exists.
+  - DPKG with Chimera may report device status in known format and casuing crash.
   
 Target:  
   - Jailbroken devices running iOS 11 +  
