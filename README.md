@@ -1,12 +1,12 @@
 # Saily Package Manager Internal Beta
 "Apple's Package Manager."  
 
-NOTICE: Saily will remain at version 0.2 for some time as the the backend is being developed even more.
-
 ![avatar](https://github.com/Co2333/SailyPackageManager/raw/master/Artwork/LongBG.png)   
 
-AS AN INTERNAL TESTER, WE EXPECT THAT YOU DO NOT SHARE THIS REPOSITORY OR MAKE IT PUBLICLY KNOWN.  
-Saily is still at a beta stage and is not ready for end users.  
+AS AN INTERNAL TESTER, WE EXPECT THAT YOU DO NOT SHARE THIS REPOSITORY OR MAKE IT PUBLICLY KNOWN!
+
+ALERT: Saily is still at a beta stage and is not ready for end users.
+NOTICE: Saily will remain at version 0.2 for some time as the the backend is being improved.
 
 Requirements:   
   - Xcode 10 And Swift 5 +  
@@ -18,8 +18,7 @@ Known issues:
   - Any repo that failed to load may cause bad builds of root packages. 
   - WebKit crashes may still exist.
   - DPKG with Chimera is known to cause crashes.
-  
-# All known issues were fixed in version 0.2 and will not be present in the next update.
+  *All known issues were fixed in version 0.2 and will not be present in the next update.*
   
 Target:  
   - Jailbroken devices running iOS 11 +  
