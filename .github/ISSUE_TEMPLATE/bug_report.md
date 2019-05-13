@@ -1,6 +1,6 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+Name: Bug Report
+about: Create a report to help us improve Saily.
 title: "[BUG REPORT] [LEVEL:High/Medium/Low] [Description]"
 labels: ''
 assignees: ''
@@ -11,25 +11,26 @@ assignees: ''
 High+: Needs to be fixed immediately, causing boot loop, crash to the system.
 High: Needs to be fixed immediately, causing app crash, but won't crash the system.
 Medium: Needs to be fixed, but doesn't affect major function.
-Low: It's more like an improvement, or UI lack.
+Low: It's more of an improvement, or lack of UI.
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Describe the Bug**
+Please provide a clear and concise description of what the bug is and how it affects Saily, your device, or user experience.
 
 **To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+If possible, please provide information on how the bug/behavior can be reproduced.
+1. "Go to ____"
+2. "Click on ____"
+3. "Scroll down to ____"
+4. "This is where the bug occurs..."
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Expected Behavior**
+Please provide a clear and concise description of what you expected to happen.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+If possible, please include screenshots to help explain the problem.
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Version [e.g. 22]
+**Device Information**
+Please include the following information at the end of your bug report.
+ - Device: [e.g. iPhone X]
+ - OS: [e.g. iOS 12.1]
+ - Version [e.g. 0.2]
