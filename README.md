@@ -2,10 +2,9 @@
 "Apple's Package Manager."  
 
 ![avatar](https://github.com/Co2333/SailyPackageManager/raw/master/Artwork/LongBG.png)   
-
 AS AN INTERNAL TESTER, WE EXPECT THAT YOU DO NOT SHARE THIS REPOSITORY OR MAKE IT PUBLICLY KNOWN!
 
-ALERT: Saily is still at a beta stage and is not ready for end users.
+ALERT: Saily is still in an early beta stage and is not ready for end users just yet.
 NOTICE: Saily will remain at version 0.2 for some time as the the backend is being improved.
 
 Requirements:   
