@@ -16,7 +16,7 @@ Known issues:
   - Any repo that failed to load may cause bad builds of root packages. 
   - WebKit crashes may still exist.
   - DPKG with Chimera is known to cause crashes.
-  *All known issues were fixed in version 0.2 and will not be present in the next update.*
+  - *All known issues were fixed in version 0.2 and will not be present in the next update.*
   
 Target:  
   - Jailbroken devices running iOS 11 +  
