@@ -1,6 +1,6 @@
 ---
-Name: Bug Report
-About: Create a report to help us improve Saily.
+Name: "Bug Report"
+About: "Create a report to help us improve Saily."
 Title: "[BUG REPORT] [LEVEL:High/Medium/Low] [Description]"
 Labels: ''
 Assignees: ''
