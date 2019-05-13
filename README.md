@@ -1,35 +1,35 @@
 # Saily Package Manager Internal Beta
-The most magic package manger forever.  
+"Apple's Package Manager."  
 
-!Notice! This version would be remain for a long time while 0.2 is working in backend start from 0.
+NOTICE: Saily will remain at version 0.2 for some time as the the backend is being developed even more.
 
 ![avatar](https://github.com/Co2333/SailyPackageManager/raw/master/Artwork/LongBG.png)   
 
-PLEASE DO NOT UPLOAD THIS TO TWITTER AND KEEP IT LOW.  
-It's not ready for end users.  
+AS AN INTERNAL TESTER, WE EXPECT THAT YOU DO NOT SHARE THIS REPOSITORY OR MAKE IT PUBLICLY KNOWN.  
+Saily is still at a beta stage and is not ready for end users.  
 
-Requirement:   
+Requirements:   
   - Xcode 10 And Swift 5 +  
   - cocoaPods  (pod install)
   - MonkeyDev (theos or more is included)
-  - MAKE SURE TO UNDERSTAND BUILD SCRIPT IN EACH TARGET
+  - MAKE SURE YOU UNDERSTAND BUILD SCRIPT IN EACH TARGET
   
-Known issue:
-  - Any repo that failed to load may cause a bad build of root packages. 
-  - WebKit crash may still exists.
-  - DPKG with Chimera may report device status in known format and casuing crash.
+Known issues:
+  - Any repo that failed to load may cause bad builds of root packages. 
+  - WebKit crashes may still exist.
+  - DPKG with Chimera is known to cause crashes.
   
-# All known issue was fixed in 0.2 and will not be public available at nearly future.
+# All known issues were fixed in version 0.2 and will not be present in the next update.
   
 Target:  
   - Jailbroken devices running iOS 11 +  
   
 To-Do List:
-  - Document whatevery
-  - Dameon & App authorization surface.
-  - Update detect
+  - Document everything
+  - Dameon & App authorization surface
+  - Update detection
   - Sileo capability & payment support
   - Setting pages
-  - APT auto remove
+  - APT auto removal
   - Update history
-  - Any possible error auto fix
+  - Fix any possible errors
