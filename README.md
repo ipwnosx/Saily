@@ -25,7 +25,7 @@ To-Do List:
   - Document everything
   - Dameon & App authorization surface
   - Update detection
-  - Sileo capability & payment support
+  - Sileo compatibility & payment support
   - Setting pages
   - APT auto removal
   - Update history
