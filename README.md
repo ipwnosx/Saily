@@ -15,8 +15,11 @@ Requirement:
   - MAKE SURE TO UNDERSTAND BUILD SCRIPT IN EACH TARGET
   
 Known issue:
+  - Any repo that failed to load may cause a bad build of root packages. 
   - WebKit crash may still exists.
   - DPKG with Chimera may report device status in known format and casuing crash.
+  
+# All known issue was fixed in 0.2 and will not be public available at nearly future.
   
 Target:  
   - Jailbroken devices running iOS 11 +  
