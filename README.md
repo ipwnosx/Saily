@@ -1,11 +1,8 @@
 # Saily Package Manager Internal Beta
 #### "Apple's Package Manager."  
-
 ![avatar](https://github.com/Co2333/SailyPackageManager/raw/master/Artwork/LongBG.png)   
-#### AS AN INTERNAL TESTER, WE EXPECT THAT YOU DO NOT SHARE SAILY OR MAKE IT PUBLICLY KNOWN!
-
 ## ALERT: 
-#### Saily is still in an early beta stage and is not ready for end users just yet. Saily will remain at version 0.2 for some time as the the backend is being improved. Please be patient. For support, please contact @SailySupport on Twitter.
+#### AS AN INTERNAL TESTER, WE EXPECT THAT YOU DO NOT SHARE SAILY OR MAKE IT PUBLICLY KNOWN! Saily is still in an early beta stage and is not ready for end users just yet. Saily will remain at version 0.2 for some time as the the backend is being improved. Please be patient. For support, please contact @SailySupport on Twitter.
 
 Requirements:   
   - Xcode 10 And Swift 5 +  
