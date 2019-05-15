@@ -1,4 +1,4 @@
-# Saily Package Manager Internal Beta
+# Saily Package Manager (Internal Beta)
 ### "Apple's Package Manager."  
 ![avatar](https://github.com/Co2333/SailyPackageManager/raw/master/Artwork/LongBG.png)   
 ## ALERT: 
