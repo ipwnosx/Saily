@@ -5,13 +5,13 @@
 Please provide a Tag, included in front of your Title, stating the importance of your bug report. A tag has 
 to be in all caps, and it also needs to be surrounded by brackets. Follow the example below when creating your tag.
 
-- [HIGH+] Bug Report Title Here
+- [HIGH+]
 High+: Needs to be fixed immediately, causing boot loop, crash to the system.
-- [HIGH] Bug Report Title Here
+- [HIGH]
 High: Needs to be fixed immediately, causing app crash, but won't crash the system.
-- [MEDIUM] Bug Report Title Here
+- [MEDIUM]
 Medium: Needs to be fixed, but doesn't affect major functionality.
-- [LOW] Bug Report Title Here
+- [LOW]
 Low: It's more of an improvement, or lack of UI.
 
 
