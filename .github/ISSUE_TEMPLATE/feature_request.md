@@ -1,6 +1,12 @@
----
-name: Feature request
-about: Suggest an idea for this project
+## Tag
+
+
+## Name
+Please provide a name for your proposed feature.
+
+## Reasoning
+Please provide detailed information about how this feature would be applied and how it would
+change or improve Saily's user experience or functionality.
 title: "[Feature Request] [LEVEL:+/-]"
 labels: ''
 assignees: ''
