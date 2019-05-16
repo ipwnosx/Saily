@@ -2,10 +2,8 @@
 Please provide a Tag, included in front of your Title, stating the importance of your feature request. A tag has 
 to be in all caps, and it also needs to be surrounded by brackets. Follow the example below when creating your tag.
 
-[+]
-: A number of users also want this feature.
-[-]
-: I want this feature, or I am unsure if they would also want this feature.
+[+]: A number of users also want this feature.
+[-]: I want this feature, or I am unsure if they would also want this feature.
 
 
 ## Name
