@@ -1,0 +1,45 @@
+
+/* Class = "UINavigationItem"; title = "Manage"; ObjectID = "2Jz-yA-Gga"; */
+"2Jz-yA-Gga.title" = "Manage";
+
+/* Class = "UILabel"; text = "com.lakr233.jw.Saily-Package-Manager\nLakr Aream 2019.4"; ObjectID = "32I-sw-Trq"; */
+"32I-sw-Trq.text" = "com.lakr233.jw.Saily-Package-Manager\nLakr Aream 2019.4";
+
+/* Class = "UINavigationItem"; title = "Search"; ObjectID = "5jE-i8-c9L"; */
+"5jE-i8-c9L.title" = "Search";
+
+/* Class = "UINavigationItem"; title = "Sources"; ObjectID = "6rK-jp-wzb"; */
+"6rK-jp-wzb.title" = "Sources";
+
+/* Class = "UINavigationItem"; title = "Discover"; ObjectID = "CIg-dz-hs2"; */
+"CIg-dz-hs2.title" = "Discover";
+
+/* Class = "UITabBarItem"; title = "Installed"; ObjectID = "Dzf-qB-mqu"; */
+"Dzf-qB-mqu.title" = "Installed";
+
+/* Class = "UIViewController"; title = "Details"; ObjectID = "ECg-ms-Ygu"; */
+"ECg-ms-Ygu.title" = "Details";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "G16-oP-93r"; */
+"G16-oP-93r.title" = "Search";
+
+/* Class = "UITabBarItem"; title = "Discover"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Discover";
+
+/* Class = "UITabBarItem"; title = "Sources"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Sources";
+
+/* Class = "UIButton"; normalTitle = "GET"; ObjectID = "e1X-a4-yzM"; */
+"e1X-a4-yzM.normalTitle" = "GET";
+
+/* Class = "UINavigationItem"; title = "Search"; ObjectID = "iJL-fk-G4h"; */
+"iJL-fk-G4h.title" = "Search";
+
+/* Class = "UILabel"; text = "Saily Package Manager"; ObjectID = "iOt-Gy-YLV"; */
+"iOt-Gy-YLV.text" = "Saily Package Manager";
+
+/* Class = "UILabel"; text = "Operations Queue"; ObjectID = "sPm-yZ-hWy"; */
+"sPm-yZ-hWy.text" = "Operations Queue";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "nsr-FG-TDt"; */
+"nsr-FG-TDt.normalTitle" = "Continue";
