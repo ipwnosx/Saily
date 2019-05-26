@@ -4,8 +4,10 @@
 ## ALERT: 
 #### WE EXPECT THAT, AS AN INTERNAL TESTER, YOU DO NOT SHARE SAILY OR MAKE IT PUBLICLY KNOWN YET! Saily is still in an early beta stage and is not ready for end users just yet. Saily will remain at version 0.1.2 for some time as the the backend is being improved. Please be patient. For support, please contact @SailySupport on Twitter. For updates, follow @TrySaily on Twitter.
 
-## Deployment Target:  
-  - Jailbroken *test* devices running iOS 11+
+## Deployment Targets:  
+  - Jailbroken *test* devices running iOS 11
+  - Jailbroken *test* devices running iOS 12
+  - NOTICE: It is NOT RECOMMENDED that you run Saily on your everyday device at this time.
   
 ## Installation Instructions:
   1. Go to the following directory:
