@@ -16,7 +16,7 @@
   3. Install both with Filza
   4. Respring
   5. Enjoy!
-
+  
 ## Requirements (Self-Compilers Only):
   - Xcode 10 And Swift 5 +
   - cocoaPods  (pod install)
