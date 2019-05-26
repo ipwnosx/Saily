@@ -15,17 +15,17 @@
   4. Respring
   5. Enjoy!
 
-## Known Issues:
-  - Any repo that fails to load may cause bad builds of root packages. 
-  - WebKit crashes may still exist.
-  - DPKG with Chimera is known to cause crashes.
-  - *All known issues were fixed in version 0.2 and will not be present in the next update.*
-
 ## Requirements (Self-Compilers Only):
   - Xcode 10 And Swift 5 +
   - cocoaPods  (pod install)
   - MonkeyDev (theos or more is included)
   - MAKE SURE YOU UNDERSTAND BUILD SCRIPT IN EACH TARGET
+  
+## Known Issues:
+  - Any repo that fails to load may cause bad builds of root packages. 
+  - WebKit crashes may still exist.
+  - DPKG with Chimera is known to cause crashes.
+  - *All known issues were fixed in version 0.2 and will not be present in the next update.*
   
 ## To-Do List:
   - Document everything
