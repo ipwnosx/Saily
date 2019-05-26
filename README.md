@@ -4,8 +4,8 @@
 ## ALERT: 
 #### WE EXPECT THAT, AS AN INTERNAL TESTER, YOU DO NOT SHARE SAILY OR MAKE IT PUBLICLY KNOWN YET! Saily is still in an early beta stage and is not ready for end users just yet. Saily will remain at version 0.2 for some time as the the backend is being improved. Please be patient. For support, please contact @SailySupport on Twitter. For updates, follow @TrySaily on Twitter.
 
-## Requirements:   
-  - Xcode 10 And Swift 5 +  
+## Requirements (Self-Compilers Only):   
+  - Xcode 10 And Swift 5 +
   - cocoaPods  (pod install)
   - MonkeyDev (theos or more is included)
   - MAKE SURE YOU UNDERSTAND BUILD SCRIPT IN EACH TARGET
