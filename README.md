@@ -7,7 +7,7 @@
 ## Deployment Targets:  
   - Jailbroken *test* devices running iOS 11
   - Jailbroken *test* devices running iOS 12
-  - NOTICE: It is NOT RECOMMENDED that you run Saily on your everyday device at this time.
+  - *NOTICE: It is NOT RECOMMENDED that you run Saily on your everyday device at this time.*
   
 ## Installation Instructions:
   1. Go to the following directory:
