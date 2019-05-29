@@ -1,8 +1,9 @@
 //
 //  Saily_UI_Manage.swift
-//  
+//  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/21.
+//  Created by The Saily Team on 5/28/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
@@ -201,7 +202,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
             Saily.objc_bridge.callToDaemon(with: "com.Saily.list_dpkg")
             let s = DispatchSemaphore(value: 0)
-            Saily.operation_quene.network_queue.asyncAfter(deadline: .now() + 1) {
+            Saily.operation_quene.network_queue.asyncAfter(deadline: .now() + 4) {
                 if let dpkgread = Saily_FileU.simple_read(Saily.files.daemon_root + "/dpkgl.out") {
                     print("\n\n\n[*] Daemon online~~ yayayayaa!")
                     print("[*] START DPKG STATUS ---------------------------------------")
