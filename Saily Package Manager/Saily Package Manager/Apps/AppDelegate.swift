@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Saily Package Manager
 //
-//  Created by The Saily Team on 5/28/19.
+//  Updated by Brecken Lusk on 6/6/19.
 //  Copyright © 2019 Saily Team. All rights reserved.
 //
 
