@@ -2,16 +2,8 @@
 //  Saily_UI_Search.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/20.
-//  Copyright © 2019 Lakr233. All rights reserved.
-//
-
-//
-//  Saily_UI_Packages.swift
-//  Saily Package Manager
-//
-//  Created by Lakr Aream on 2019/4/20.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
@@ -126,7 +118,7 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         
         self.tableView.separatorColor = .clear
         
-        self.title = "Search All".localized()
+        self.title = "Search".localized()
         
         let bgView = UIView()
         self.tableView.backgroundView = bgView
@@ -195,7 +187,7 @@ class Saily_UI_Search: UITableViewController, UISearchControllerDelegate, UISear
         }else{
             cell.textLabel?.text = "         " + (container[indexPath.row].info["Name".uppercased()] ?? "")
         }
-        cell.detailTextLabel?.text = "            " + (container[indexPath.row].info["Description".uppercased()] ?? "NO Description Available".localized())
+        cell.detailTextLabel?.text = "            " + (container[indexPath.row].info["Description".uppercased()] ?? "Description Unavailable".localized())
         cell.detailTextLabel?.textColor = .lightGray
         
         let imageView = UIImageView()
