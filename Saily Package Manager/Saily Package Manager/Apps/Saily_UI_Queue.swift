@@ -2,10 +2,9 @@
 //  Saily_UI_Settings.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/24.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
-
 import UIKit
 
 import EzPopup
@@ -25,7 +24,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc func update_download_progress() {
         if (Saily.operation_container.installs.count < 1 || self.progressBars.count < 1) {
             if (Saily.operation_container.removes.count > 0 && Saily.operation_container.installs.count < 1) {
-                submit.setTitle("Submit".localized(), for: .normal)
+                submit.setTitle("CONFIRM".localized(), for: .normal)
                 submit.isEnabled = true
             }
             return
@@ -42,7 +41,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                     download_url = Saily.operation_container.installs[i].fater_repo.ress.major + tmp
                 }
                 let file_name = download_url.split(separator: "/").last ?? "ohno?"
-//                print("[*] Checking progress at: " + (Saily.files.quene_install + "/" + file_name + ".progress"))
+                //                print("[*] Checking progress at: " + (Saily.files.quene_install + "/" + file_name + ".progress"))
                 if (!Saily_FileU.exists(file_path: Saily.files.quene_install + "/" + file_name)) {
                     if (Saily_FileU.exists(file_path: Saily.files.quene_install + "/" + file_name + ".progress")) {
                         async_update_progress(value: Float(Saily_FileU.simple_read(Saily.files.quene_install + "/" + file_name + ".progress") ?? "1") ?? 1, view: self.progressBars[i])
@@ -63,14 +62,14 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         if (there_is_an_un_finished_fucking_shittttt) {
             if (Saily.operation_container.removes.count > 0 && Saily.operation_container.installs.count < 1) {
-                submit.setTitle("Submit".localized(), for: .normal)
+                submit.setTitle("CONFIRM".localized(), for: .normal)
                 submit.isEnabled = true
             }else{
                 submit.setTitle("⇣⇣⇣", for: .normal)
                 submit.isEnabled = false
             }
         }else{
-            submit.setTitle("Submit".localized(), for: .normal)
+            submit.setTitle("CONFIRM".localized(), for: .normal)
             submit.isEnabled = true
         }
     }
@@ -80,7 +79,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.tableview.reloadData()
             
             self.submit.isEnabled = false
-            self.submit.setTitle("Empty".localized(), for: .normal)
+            self.submit.setTitle("EMPTY".localized(), for: .normal)
             let mafumafu = UIImageView()
             mafumafu.image = #imageLiteral(resourceName: "mafufulove.png")
             mafumafu.contentMode = .scaleAspectFit
@@ -91,7 +90,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                 x.width.equalTo(128)
                 x.height.equalTo(128)
             }
-        
+            
         }
     }
     
@@ -114,7 +113,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
+        
         self.tableview.dataSource = self
         self.tableview.delegate = self
         
@@ -127,7 +126,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if (Saily.operation_container.installs.count < 1 && Saily.operation_container.removes.count < 1) {
             self.submit.isEnabled = false
-            self.submit.setTitle("Empty".localized(), for: .normal)
+            self.submit.setTitle("EMPTY".localized(), for: .normal)
             let mafumafu = UIImageView()
             mafumafu.image = #imageLiteral(resourceName: "mafufulove.png")
             mafumafu.contentMode = .scaleAspectFit
@@ -154,7 +153,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
             x.width.equalTo(66)
         }
         
-        label.text = "📦 Operations".localized()
+        label.text = "Operations 📦".localized()
         
         label.snp.makeConstraints { (x) in
             x.height.equalTo(48)
@@ -194,10 +193,10 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
             if (Saily.operation_container.installs.count > 0) {
-                return "Install Queue".localized()
+                return "Install".localized()
             }
         }
-        return "Remove Queue".localized()
+        return "Remove".localized()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -221,12 +220,12 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if (indexPath.section == 0) {
             if (Saily.operation_container.installs.count > 0) {
-                cell.textLabel?.text = "       " + (Saily.operation_container.installs[indexPath.row].info["NAME"] ?? "No Name Boy".localized())
+                cell.textLabel?.text = "       " + (Saily.operation_container.installs[indexPath.row].info["NAME"] ?? "[Unknown Name]".localized())
                 cell.detailTextLabel?.text = "         " + (Saily.operation_container.installs[indexPath.row].info["PACKAGE"] ?? "Error: No ID".localized())
                 let progressView = UIProgressView()
                 progressView.progress = 0
                 progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-                progressView.progressTintColor = #colorLiteral(red: 1, green: 0.6632423401, blue: 0, alpha: 1)
+                progressView.progressTintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
                 cell.addSubview(progressView)
                 progressView.snp.makeConstraints { (c) in
                     c.bottom.equalTo(cell.contentView.snp.bottom).offset(0 - progressView.bounds.height)
@@ -236,11 +235,11 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 self.progressBars[indexPath.row] = progressView
             }else{
-                cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? "No Name Boy".localized())
+                cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? "[Unknown Name]".localized())
                 cell.detailTextLabel?.text = "         " + (Saily.operation_container.removes[indexPath.row].info["PACKAGE"] ?? "Error: No ID".localized())
             }
         }else{
-            cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? "No Name Boy".localized())
+            cell.textLabel?.text = "       " + (Saily.operation_container.removes[indexPath.row].info["NAME"] ?? "[Unknown Name]".localized())
             cell.detailTextLabel?.text = "         " + (Saily.operation_container.removes[indexPath.row].info["PACKAGE"] ?? "Error: No ID".localized())
         }
         
@@ -268,7 +267,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                 tableView.reloadData {
                     if (Saily.operation_container.installs.count < 1 && Saily.operation_container.removes.count < 1) {
                         self.submit.isEnabled = false
-                        self.submit.setTitle("Empty".localized(), for: .normal)
+                        self.submit.setTitle("EMPTY".localized(), for: .normal)
                         let mafumafu = UIImageView()
                         mafumafu.image = #imageLiteral(resourceName: "mafufulove.png")
                         mafumafu.contentMode = .scaleAspectFit
@@ -283,8 +282,8 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 return
             }
-            let alert = UIAlertController(title: "Conform?".localized(), message: "Removing it from queue may be dangerous and may cause dependency(s) missing, which may result a bad install status and is hard to recover. Are you sure you want to remove: \n\n\n".localized() + (tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(7).description ?? "[E]"), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "YES".localized(), style: .destructive, handler: { (_) in
+            let alert = UIAlertController(title: "Warning".localized(), message: "Removing packages from the queue can be dangerous and can cause missing dependencies, which may result in a bad install status. Are you sure you want to remove the following packages: \n\n\n".localized() + (tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(7).description ?? "[E]"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Confirm".localized(), style: .destructive, handler: { (_) in
                 if (indexPath.section == 1) {
                     Saily.operation_container.removes.remove(at: indexPath.row)
                 }else{
@@ -297,7 +296,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                 tableView.reloadData {
                     if (Saily.operation_container.installs.count < 1 && Saily.operation_container.removes.count < 1) {
                         self.submit.isEnabled = false
-                        self.submit.setTitle("Empty".localized(), for: .normal)
+                        self.submit.setTitle("EMPTY".localized(), for: .normal)
                         let mafumafu = UIImageView()
                         mafumafu.image = #imageLiteral(resourceName: "mafufulove.png")
                         mafumafu.contentMode = .scaleAspectFit
@@ -311,7 +310,7 @@ class Saily_UI_Queue: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
             }))
-            alert.addAction(UIAlertAction(title: "Cancel (Recommend)".localized(), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel (Recommended)".localized(), style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
