@@ -2,8 +2,8 @@
 //  Saily_UI_Discover_Detail.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/22.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
     
     public var discover_index = Int()
     @IBOutlet weak var web_container: WKWebView!
-    let loading_view = NVActivityIndicatorView(frame: CGRect(), type: .circleStrokeSpin, color: #colorLiteral(red: 0.01864526048, green: 0.4776622653, blue: 1, alpha: 1), padding: nil)
+    let loading_view = NVActivityIndicatorView(frame: CGRect(), type: .circleStrokeSpin, color: #colorLiteral(red: 0.07285261899, green: 0.5867173076, blue: 0.8592197895, alpha: 1), padding: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,7 +169,7 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
             add_button.setTitle("GET".localized(), for: .normal)
             for item in Saily.operation_container.installs {
                 if (item.info["PACKAGE"] == withName) {
-                    add_button.setTitle("Queue".localized(), for: .normal)
+                    add_button.setTitle("QUEUE".localized(), for: .normal)
                     add_button.isEnabled = false
                     break
                 }
@@ -202,14 +202,14 @@ class Saily_UI_Discover_Detail: UIViewController, WKNavigationDelegate{
             if (ret == status_ins.ret_depends) {
                 has_an_error = true
                 print("[*] Add to Install Failed.")
-                onlyOkayAlert(self, title: "Failed".localized(), str: "Can not find all of package dependency(s), or the root daemon is currently offline. Try to add more repos, or recover default repos.".localized())
+                onlyOkayAlert(self, title: "Error".localized(), str: "Saily can't find the dependencies of a specified package, or the root daemon is currently offline.".localized())
             }else if (ret == status_ins.ret_no_file) {
                 has_an_error = true
                 print("[*] Add to Install Failed.")
-                onlyOkayAlert(self, title: "Failed".localized(), str: "Can't find the package url.".localized())
+                onlyOkayAlert(self, title: "Error".localized(), str: "Saily was unable to locate the package URL.".localized())
             }
             if (!has_an_error) {
-                sender.setTitle("Queue".localized(), for: .normal)
+                sender.setTitle("QUEUE".localized(), for: .normal)
                 sender.isEnabled = false
             }
         }else{
