@@ -2,8 +2,8 @@
 //  RepoClass.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/19.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import Foundation
@@ -25,13 +25,25 @@ class repo_C {
                 self.repos.append(repo)
             }
         }else{
-            var default_links = ["http://repounclutter.coolstar.org/",
-                                 "https://apt.bingner.com/",
-                                 "http://build.frida.re/",
+            var default_links = ["https://repo.applebetas.co/",
+                                 "https://artikushg.github.io/",
+                                 "https://repounclutter.coolstar.org/",
+                                 "https://repo.bingner.com/",
                                  "https://repo.chariz.io/",
-                                 "https://sparkdev.me/",
+                                 "https://repo.chimera.sh/",
+                                 "https://repo.cpdigitaldarkroom.com/",
+                                 "https://repo.dynastic.co/",
+                                 "https://julioverne.github.io/",
+                                 "https://limneos.net/repo/",
+                                 "https://midnightchip.github.io/",
                                  "https://repo.nepeta.me/",
-                                 "https://repo.dynastic.co/"]
+                                 "https://nexusrepo.kro.kr/",
+                                 "https://repo.packix.com/",
+                                 "https://repo.pixelomer.com/",
+                                 "https://rpetri.ch/repo/",
+                                 "https://skitty.xyz/repo/",
+                                 "https://sparkdev.me/",
+                                 "https://xtm3x.github.io/"]
             #if DEBUG
             if (Saily.is_Chinese) {
                 default_links.append("http://apt.keevi.cc/")
@@ -144,7 +156,7 @@ class a_repo {
     public var exposed_progress_view    = UIProgressView()
     
     init() {
-        self.exposed_progress_view.progressTintColor = #colorLiteral(red: 1, green: 0.3535846472, blue: 0, alpha: 1)
+        self.exposed_progress_view.progressTintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         self.exposed_progress_view.tintColor = .lightGray
     }
     
@@ -197,8 +209,93 @@ class a_repo {
         if (self.name != "") {
             return self.name
         }
+        if (link.contains("repo.applebetas.co")) {
+            let namee = "AppleBetas' Repo"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("artikushg.github.io")) {
+            let namee = "Artik's Repo"
+            self.name = namee
+            return namee
+        }
         if (link.contains("repounclutter.coolstar.org")) {
-            let namee = "The Big Boss+"
+            let namee = "BigBoss+"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("repo.bingner.com")) {
+            let namee = "Bingner Repo"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("repo.chariz.io")) {
+            let namee = "Chariz"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("repo.chimera.sh")) {
+            let namee = "Chimera Repo"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("repo.cpdigitaldarkroom.com")) {
+            let namee = "CP Digital Darkroom"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("repo.dynastic.co")) {
+            let namee = "Dynastic Repo"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("julioverne.github.io")) {
+            let namee = "julioverne"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("limneos.net/repo")) {
+            let namee = "Limneos"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("midnightchip.github.io")) {
+            let namee = "MidnightChip's Repo"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("nexusrepo.kro.kr")) {
+            let namee = "Nexus Repo"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("repo.packix.com")) {
+            let namee = "Packix"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("repo.pixelomer.com")) {
+            let namee = "PixelOmer's Repo"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("rpetri.ch/repo")) {
+            let namee = "rpetrich"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("skitty.xyz/repo")) {
+            let namee = "Skitty's Repo"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("sparkdev.me")) {
+            let namee = "SparkDev"
+            self.name = namee
+            return namee
+        }
+        if (link.contains("xtm3x.github.io/repo")) {
+            let namee = "xTM3x Repo"
             self.name = namee
             return namee
         }
@@ -242,7 +339,7 @@ class a_repo {
             AFF.search_release_path_at_return(self.ress.major, cache_release_link: self.ress.cache_release_f_link, end_call: { (ret_status) in
                 if (ret_status == status_ins.ret_success) {
                     self.async_set_progress(0.233)
-                    self.ress.cache_release_c_link = Saily_FileU.simple_read(self.ress.cache_release_f_link)!
+                    //self.ress.cache_release_c_link = Saily_FileU.simple_read(self.ress.cache_release_f_link)!
                     // START DOWNLOAD
                     AFF.download_release_and_save(you: self, manually_refreseh: manually_refreseh, end_call: { (rett) in
                         if (rett == status_ins.ret_success) {
