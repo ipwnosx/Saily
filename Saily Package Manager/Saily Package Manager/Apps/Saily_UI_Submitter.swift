@@ -2,8 +2,8 @@
 //  Saily_UI_Submitter.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/29.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
