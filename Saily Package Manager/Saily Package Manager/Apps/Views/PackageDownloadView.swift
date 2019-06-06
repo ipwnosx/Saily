@@ -2,8 +2,8 @@
 //  PackageDownloadView.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/19.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class PackageDownloadView: UIView {
     public var button = UIButton()
     
     func apart_init() {
-        button.setTitle("Add To Queue", for: .normal)
+        button.setTitle("Add to Queue", for: .normal)
         button.titleLabel?.textColor = .white
         button.backgroundColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)
         name.textColor = #colorLiteral(red: 0.2880531251, green: 0.5978398919, blue: 0.9421789646, alpha: 1)
