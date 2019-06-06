@@ -2,8 +2,8 @@
 //  Saily_UI_Repos.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/20.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
@@ -22,7 +22,7 @@ class Saily_UI_Repos: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         self.editButtonItem.title = "Edit".localized()
         
-        let add_button = UIBarButtonItem.init(title: "Add".localized(), style: .plain, target: self, action: Selector(("didTapAddButton")))
+        let add_button = UIBarButtonItem.init(title: "Add".localized(), style: .plain, target: self, action: #selector(Saily_UI_Repos.didTapAddButton))
         
         navigationItem.rightBarButtonItems = [add_button]
         self.tableView.separatorColor = .clear
@@ -30,8 +30,8 @@ class Saily_UI_Repos: UITableViewController {
         refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
         refreshControl?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        refreshControl?.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
-        refreshControl?.attributedTitle = NSAttributedString(string: "Reloading data(s)...".localized(), attributes: nil)
+        refreshControl?.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        refreshControl?.attributedTitle = NSAttributedString(string: "Reloading...".localized(), attributes: nil)
         
     }
     
@@ -44,7 +44,7 @@ class Saily_UI_Repos: UITableViewController {
     @objc func didTapAddButton() {
         
         if (Saily.copy_board_can_use) {
-            let alert = UIAlertController.init(title: "Copy Board contains URL".localized(), message: "Do you want to add this url as a repo?\n\n".localized() + Saily.copy_board, preferredStyle: .alert)
+            let alert = UIAlertController.init(title: "Automatically Add Source".localized(), message: "The following URL was found on your clipboard. Would you like to add it as a source?\n\n".localized() + Saily.copy_board, preferredStyle: .alert)
             alert.addAction(UIAlertAction.init(title: "Yes".localized(), style: .default, handler: { (_) in
                 if (!Saily.copy_board.hasSuffix("/")) {
                     Saily.copy_board += "/"
@@ -78,11 +78,11 @@ class Saily_UI_Repos: UITableViewController {
             return
         }
         var read = ""
-        let alert = UIAlertController.init(title: "Add Repo".localized(), message: "Enter the link of the repo".localized(), preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "Add Source".localized(), message: "Enter APT URL".localized(), preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.text = "https://"
         }
-        alert.addAction(UIAlertAction.init(title: "OK".localized(), style: .default, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction.init(title: "Add Source".localized(), style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             read = textField?.text ?? ""
             guard let url = URL.init(string: read) else {
@@ -108,7 +108,7 @@ class Saily_UI_Repos: UITableViewController {
                 }
                 self.tableView.reloadData()
             }else{
-                let alert = UIAlertController.init(title: "Error".localized(), message: "This is not an URL, retry?".localized(), preferredStyle: .alert)
+                let alert = UIAlertController.init(title: "Verification Error".localized(), message: "A server with the specified URL could not be found.".localized(), preferredStyle: .alert)
                 alert.addAction(UIAlertAction.init(title: "OK".localized(), style: .default, handler: { (_) in
                     self.didTapAddButton()
                 }))
@@ -161,7 +161,7 @@ class Saily_UI_Repos: UITableViewController {
             let progressView = UIProgressView()
             progressView.progress = 0.0
             progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-            progressView.progressTintColor = #colorLiteral(red: 1, green: 0.6632423401, blue: 0, alpha: 1)
+            progressView.progressTintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
             cell.addSubview(progressView)
             progressView.snp.makeConstraints { (c) in
                 c.bottom.equalTo(cell.contentView.snp.bottom).offset(0 - progressView.bounds.height)
@@ -170,7 +170,7 @@ class Saily_UI_Repos: UITableViewController {
                 c.height.equalTo(1)
             }
         case 1:
-            cell.textLabel?.text = "All My Repos".localized()
+            cell.textLabel?.text = "Repositories".localized()
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 22)
             cell.separatorInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         default:
@@ -203,7 +203,7 @@ class Saily_UI_Repos: UITableViewController {
             progressView.progress = 0.0
             Saily.repos_root.repos[indexPath.row - 2].set_exposed_progress_view(progressView)
             progressView.trackTintColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-            progressView.progressTintColor = #colorLiteral(red: 1, green: 0.6632423401, blue: 0, alpha: 1)
+            progressView.progressTintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
             cell.addSubview(progressView)
             progressView.snp.makeConstraints { (c) in
                 c.bottom.equalTo(cell.contentView.snp.bottom).offset(0)
@@ -237,7 +237,7 @@ class Saily_UI_Repos: UITableViewController {
                 view_for_sheet.removeSubviews()
             })
         }
-        share.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.2823529412, blue: 0.4, alpha: 1)
+        share.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         
         let delete = UITableViewRowAction(style: .default, title: "Delete".localized()) { action, index in
             print("Delete button tapped")
