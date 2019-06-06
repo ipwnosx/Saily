@@ -2,7 +2,7 @@
 //  Saily_UI_Manage.swift
 //  Saily Package Manager
 //
-//  Created by The Saily Team on 5/28/19.
+//  Updated by Brecken Lusk on 6/6/19.
 //  Copyright © 2019 Saily Team. All rights reserved.
 //
 
@@ -104,7 +104,7 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
             new_package.info["NAME"] = tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(9).description
             new_package.info["PACKAGE"] = tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(9).description
             new_package.info["VERSION"] = Saily.installed[(tableView.cellForRow(at: indexPath)?.textLabel?.text?.dropFirst(9).description ?? "").uppercased()] ?? "nil"
-            new_package.info["DESCRIPTION"] = "Local installed. Can't be found in your repos.".localized()
+            new_package.info["DESCRIPTION"] = "Unable to locate this package in your repos. It may be locally installed.".localized()
             let storyboard_ins = UIStoryboard(name: "Main", bundle: nil)
             
             //        if (package.info["SileoDepiction".uppercased()] != nil && package.info["SileoDepiction".uppercased()] != "") {
@@ -180,8 +180,8 @@ class Saily_UI_Manage: UIViewController, UITableViewDelegate, UITableViewDataSou
         let refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
-        refreshControl.attributedTitle = NSAttributedString(string: "Reloading data(s)...".localized(), attributes: nil)
+        refreshControl.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        refreshControl.attributedTitle = NSAttributedString(string: "Reloading...".localized(), attributes: nil)
         
     }
     
