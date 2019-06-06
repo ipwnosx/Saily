@@ -2,8 +2,8 @@
 //  Saily_UI_Packages.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/20.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
@@ -82,7 +82,7 @@ class Saily_UI_Packages: UITableViewController, UISearchControllerDelegate, UISe
         }else{
             cell.textLabel?.text = "         " + (data_source[indexPath.row].info["Name".uppercased()] ?? "")
         }
-        cell.detailTextLabel?.text = "            " + (data_source[indexPath.row].info["Description".uppercased()] ?? "NO Description Available".localized())
+        cell.detailTextLabel?.text = "            " + (data_source[indexPath.row].info["Description".uppercased()] ?? "No Description Available".localized())
         cell.detailTextLabel?.textColor = .lightGray
         
         let imageView = UIImageView()
