@@ -2,8 +2,8 @@
 //  Saily_UI_Sectiosn.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/20.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ class Saily_UI_Sectiosn: UITableViewController {
 
     var is_root_sections = false
     var data_source = [repo_section_C]()
-    var nav_title = "[Sections, ( )]->".localized()
+    var nav_title = "All Packages".localized()
     
     func push_data_source(d: [repo_section_C]) {
         self.data_source = d
@@ -60,7 +60,7 @@ class Saily_UI_Sectiosn: UITableViewController {
             }
         }
         new.tableView.separatorColor = .lightGray
-        new.title = "[Packages] ( )] ->".localized()
+        new.title = "Packages".localized()
         self.navigationController?.pushViewController(new)
     }
 
@@ -84,7 +84,7 @@ class Saily_UI_Sectiosn: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (is_root_sections) {
             if (section == 0) {
-                return "All My Categories".localized()
+                return "All Categories".localized()
             }
             return Saily.repos_root.repos[section - 1].name
         }else{
@@ -106,8 +106,8 @@ class Saily_UI_Sectiosn: UITableViewController {
                         p_count += sections.packages.count
                     }
                 }
-                cell.textLabel?.text = "         " + "All My Packages :)".localized()
-                cell.detailTextLabel?.text = "            " + "This section contains ".localized() + p_count.description + " package(s).".localized()
+                cell.textLabel?.text = "         " + "All Packages".localized()
+                cell.detailTextLabel?.text = "            " + "This section contains ".localized() + p_count.description + " packages.".localized()
                 cell.detailTextLabel?.textColor = .lightGray
                 let imageView = UIImageView()
                 imageView.image = #imageLiteral(resourceName: "PackageCar.png")
@@ -131,7 +131,7 @@ class Saily_UI_Sectiosn: UITableViewController {
             }
             
             cell.textLabel?.text = "         " + Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].name
-            cell.detailTextLabel?.text = "            " + "This section contains ".localized() + Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].packages.count.description + " package(s).".localized()
+            cell.detailTextLabel?.text = "            " + "This section contains ".localized() + Saily.repos_root.repos[indexPath.section - 1].section_root[indexPath.row].packages.count.description + " packages.".localized()
             cell.detailTextLabel?.textColor = .lightGray
         }else{
             if (indexPath.row == 0) {
@@ -139,8 +139,8 @@ class Saily_UI_Sectiosn: UITableViewController {
                 for section in self.data_source {
                     p_count += section.packages.count
                 }
-                cell.textLabel?.text = "         " + "All My Packages :)".localized()
-                cell.detailTextLabel?.text = "            " + "This repo contains ".localized() + p_count.description + " package(s).".localized()
+                cell.textLabel?.text = "         " + "All Packages".localized()
+                cell.detailTextLabel?.text = "            " + "This repo contains ".localized() + p_count.description + " packages.".localized()
                 cell.detailTextLabel?.textColor = .lightGray
                 let imageView = UIImageView()
                 imageView.image = #imageLiteral(resourceName: "PackageCar.png")
@@ -163,7 +163,7 @@ class Saily_UI_Sectiosn: UITableViewController {
                 return cell
             }
             cell.textLabel?.text = "         " + self.data_source[indexPath.row - 1].name
-            cell.detailTextLabel?.text = "            " + "This section contains ".localized() + self.data_source[indexPath.row - 1].packages.count.description + " package(s).".localized()
+            cell.detailTextLabel?.text = "            " + "This section contains ".localized() + self.data_source[indexPath.row - 1].packages.count.description + " packages.".localized()
             cell.detailTextLabel?.textColor = .lightGray
         }
         
