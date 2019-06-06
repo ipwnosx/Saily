@@ -2,8 +2,8 @@
 //  Saily_UI_Tweak_Webkit.swift
 //  Saily Package Manager
 //
-//  Created by Lakr Aream on 2019/4/22.
-//  Copyright © 2019 Lakr233. All rights reserved.
+//  Updated by Brecken Lusk on 6/6/19.
+//  Copyright © 2019 Saily Team. All rights reserved.
 //
 
 import UIKit
@@ -32,12 +32,12 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
     var installed       = false
     var in_queue        = false
     
-    let loading_view = NVActivityIndicatorView(frame: CGRect(), type: .circleStrokeSpin, color: #colorLiteral(red: 0.01864526048, green: 0.4776622653, blue: 1, alpha: 1), padding: nil)
+    let loading_view = NVActivityIndicatorView(frame: CGRect(), type: .circleStrokeSpin, color: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), padding: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "⁠ ⁠Package 📦💨".localized
+        self.title = "⁠Package 📦".localized
         
         button.setRadius(radius: 14)
         button.snp.makeConstraints { (c) in
@@ -47,7 +47,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         print("[*] Catch package info:")
         print(self.this_package?.info as Any)
         
-        bundleID.text = (this_package?.info["PACKAGE"] ?? "Error: 0xbad10ac1a0e1d - BAD PACKAGE ID") + "\n" + this_package!.fater_repo.name + "\n\n Saily Package Manager & Lakr Aream 2019.4"
+        bundleID.text = (this_package?.info["PACKAGE"] ?? "Error: 0xbad10ac1a0e1d - BAD PACKAGE ID") + "\n" + this_package!.fater_repo.name + "\n\n Saily Package Manager v2.0"
         bundleID.numberOfLines = 4
         bundleID.lineBreakMode = .byWordWrapping
         
@@ -55,7 +55,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         
         this_Web.navigationDelegate = self
         
-        name.text = this_package?.info["NAME"] ?? "NO Name Boy".localized()
+        name.text = this_package?.info["NAME"] ?? "[Unknown Name]".localized()
         this_name_is_talll.constant = name.contentSize.height
         
         icon.image = #imageLiteral(resourceName: "tweaksss.png")
@@ -65,18 +65,18 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         
         let str = "Version: ".localized() + (this_package?.info["VERSION"] ?? "nil") + "\n"
         
-        desc.text = str + (this_package?.info["DESCRIPTION"] ?? "NO description found within the database.".localized())
+        desc.text = str + (this_package?.info["DESCRIPTION"] ?? "Saily was unable to locate a description for this package.".localized())
         desc_hight.constant = desc.contentSize.height;
         
         let tweak_id: String = self.this_package?.info["PACKAGE"] ?? UUID().uuidString
         if (Saily.installed[tweak_id.uppercased()] != nil) { // Installed
-            button.setTitle("Remove".localized(), for: .normal)
+            button.setTitle("REMOVE".localized(), for: .normal)
             self.installed = true
         }
         // In Queue
         for item in Saily.operation_container.installs {
             if (item.info["PACKAGE"] == tweak_id) {
-                button.setTitle("Queued".localized(), for: .normal)
+                button.setTitle("QUEUED".localized(), for: .normal)
                 button.isEnabled = false
                 self.in_queue = true
                 break
@@ -84,7 +84,7 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
         }
         for item in Saily.operation_container.removes {
             if (item.info["PACKAGE"] == tweak_id) {
-                button.setTitle("Queued".localized(), for: .normal)
+                button.setTitle("QUEUED".localized(), for: .normal)
                 self.in_queue = true
                 button.isEnabled = false
                 break
@@ -212,22 +212,22 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
             if (!Saily.operation_container.add_a_remove(self.this_package!)) {
                 has_an_error = true
                 print("[*] Remove Failed.")
-                onlyOkayAlert(self, title: "Failed".localized(), str: "Error when trying to add queue. Is it there already?".localized())
+                onlyOkayAlert(self, title: "Error".localized(), str: "Saily couldn't add this package to the queue. Is it there already?".localized())
             }
         }else{
             let ret = Saily.operation_container.add_a_install(self.this_package!)
             if (ret == status_ins.ret_depends) {
                 has_an_error = true
                 print("[*] Add to Install Failed.")
-                onlyOkayAlert(self, title: "Failed".localized(), str: "Can not find all of package dependency(s), or the root daemon is currently offline. Try to add more repos, or recover default repos.".localized())
+                onlyOkayAlert(self, title: "Error".localized(), str: "Saily couldn't find all of the dependencies for a specific package, or the root daemon is currently offline. Try to add more repos.".localized())
             }else if (ret == status_ins.ret_no_file) {
                 has_an_error = true
                 print("[*] Add to Install Failed.")
-                onlyOkayAlert(self, title: "Failed".localized(), str: "Can't find the package url.".localized())
+                onlyOkayAlert(self, title: "Error".localized(), str: "Saily couldn't find the URL for the package you would like to install.".localized())
             }
         }
         if (!has_an_error) {
-            self.button.setTitle("Queue".localized(), for: .normal)
+            self.button.setTitle("QUEUE".localized(), for: .normal)
             self.button.isEnabled = false
         }
     }
@@ -267,5 +267,3 @@ class Saily_UI_Tweak_Webkit: UIViewController, WKNavigationDelegate {
 
 
 }
-
-
